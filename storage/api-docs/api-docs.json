@@ -1,0 +1,864 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Visaro documentation",
+        "description": "This is an endpoint for visaro mobile and web application",
+        "contact": {
+            "email": "esekelvin24@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8181/api/v1",
+            "description": "Visaro Nigeria"
+        }
+    ],
+    "paths": {
+        "/register": {
+            "post": {
+                "tags": [
+                    "Account Creation"
+                ],
+                "summary": "Registration",
+                "description": "To create a new user on the system",
+                "operationId": "registration",
+                "requestBody": {
+                    "description": "User Details",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "user1@mail.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "PassWord12345"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Registration",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "User registered succesfully, Use Login method to receive token."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
+        "/login": {
+            "post": {
+                "tags": [
+                    "Access Token"
+                ],
+                "summary": "Sign in",
+                "description": "Login by email, password to get access token",
+                "operationId": "authLogin",
+                "requestBody": {
+                    "description": "Account login credentials",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "user1@mail.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "PassWord12345"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Login",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "User login succesfully, Use token to authenticate."
+                                        },
+                                        "token": {
+                                            "type": "string",
+                                            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzIiwianRpIjoiODQ3MThkNTZjZTZiYWI2OGFmNDgwZjlmNjA4NTA4NGU5M2NhY2JiMjRmZWU4ZWQzZGE0YTQ4OGQ1ZTRlM2NiN2RlNmRmN2VkYjY5ZjhjZjciLCJpYXQiOjE2NzQzNzg3MjEsIm5iZiI6MTY3NDM3ODcyMSwiZXhwIjoxNzA1OTE0NzIxLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.d7D4ZXHxRZ8D44noKOOtzkMBlYbd8sDMQLIxwlOHc_RAqG64SbuRHWQzg7DPG9WqlKiBFF53LxLT6lQScmml5uanneTVCB9LKdzMP9WpXDS1OHklepPgdiuXaWbvH5k226uDEl1QfCL3EJoFICRQE7CW-4UCsjpP08XOiIDblc2UnPdJWW6wyWgf0xS5VGAwTRc_PzWNLIWcustebWhT9Od9blVyz_yeyQ9fRKBBScHiWvcOKwfn1dHrMDmtlJsM_B4mR-csxez9Zun05SjyhegQI2Q1Ldi1SWshi4BSBm70DS3CuKBAdP5Py9aoNHjyM-4ow_z57ozbuRqTT3-6qPbNTW85zYSAS0g_VSkla2iyhiRN_GyiLwp7-F1iqvoElU1Os63popaYUo7Dbg3JSXQGbClXlCHMCFwaofDBgfuMmz-qAdiCFoYGqkWb9iZSjz57wRUuH3HoXYpJ7QfP-YwUGKMKdyEYsYdM9wz3jHwgZHUay-2YPQHFPhRwkm3wQwWkGH4C-n4PNprOJrXiTYIJqQ95WowEq0VY8Wljr_0RAb5_cJUtjlwIfafcTrXQkY6ZQ6NFikUlRLpDUDjSl9cDvQIxFoUuzlxwVGfSzy6PL-k4m_kTWABJeYb_lDLlF5AoDVBGum6h472jbhEiIspci9R7srWUw7S"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
+        "/validate_otp": {
+            "post": {
+                "tags": [
+                    "Validate OTP"
+                ],
+                "summary": "To validate user OTP",
+                "description": "This endpoint will be used to validate any otp sent to a user phone",
+                "operationId": "validate_otp",
+                "requestBody": {
+                    "description": "Request body",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "otp_code"
+                                ],
+                                "properties": {
+                                    "otp_code": {
+                                        "type": "string",
+                                        "example": "9328"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "301": {
+                        "description": "OTP Valid",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "OTP is valid"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
+        "/resend_otp/{otp_type}": {
+            "get": {
+                "tags": [
+                    "Resend OTP"
+                ],
+                "summary": "To resend user OTP",
+                "description": "This endpoint will be used to resend",
+                "operationId": "resend_otp",
+                "parameters": [
+                    {
+                        "name": "otp_type",
+                        "in": "path",
+                        "description": "Otp Type ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OTP was successfully sent",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "OTP has been sent to user_email@exampl.com"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
+        "/list_otp_types": {
+            "get": {
+                "tags": [
+                    "List OTP Types"
+                ],
+                "summary": "To list all OTP Types",
+                "description": "This return all the types of OTP request",
+                "operationId": "list_otp_types",
+                "responses": {
+                    "200": {
+                        "description": "OTP was successfully sent",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Success"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "example": [
+                                                {
+                                                    "id": "1",
+                                                    "decription": "Login Verification"
+                                                },
+                                                {
+                                                    "id": "2",
+                                                    "decription": "Forgot Password Verification"
+                                                },
+                                                {
+                                                    "id": "3",
+                                                    "decription": "Phone Number Verification"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
+        "/forgotpassword": {
+            "post": {
+                "tags": [
+                    "Forgot Password"
+                ],
+                "summary": "To send email containing password password reset code",
+                "description": "This will be used whenever a user wants to recover a password using the forgot password interface",
+                "operationId": "forgotpassword",
+                "requestBody": {
+                    "description": "Request body",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "email"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "example@gmail.com"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Recover email sent",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "We sent your One Time Verification Password to your mail example@gmail.com"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
+        "/create_password": {
+            "post": {
+                "tags": [
+                    "Create Password"
+                ],
+                "summary": "To Create Password",
+                "description": "This will be used to create new password during password change",
+                "operationId": "create_password",
+                "requestBody": {
+                    "description": "Request body",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "password",
+                                    "password_confirmation"
+                                ],
+                                "properties": {
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "Password@12345"
+                                    },
+                                    "password_confirmation": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "Password@12345"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Recover email sent",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Password was successfully changed"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
+        "/profile_update": {
+            "post": {
+                "tags": [
+                    "Profile Update"
+                ],
+                "summary": "To Update Profile",
+                "description": "This update profile",
+                "operationId": "profile_update",
+                "requestBody": {
+                    "description": "Request body",
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "profile_pics",
+                                    "firstname",
+                                    "lastname",
+                                    "dob",
+                                    "bvn",
+                                    "address",
+                                    "country",
+                                    "region",
+                                    "gender",
+                                    "phone_no_country_code",
+                                    "phone_no",
+                                    "photo_img"
+                                ],
+                                "properties": {
+                                    "firstname": {
+                                        "type": "string",
+                                        "example": "John"
+                                    },
+                                    "lastname": {
+                                        "type": "string",
+                                        "example": "Doe"
+                                    },
+                                    "dob": {
+                                        "type": "string",
+                                        "example": "1950-12-26"
+                                    },
+                                    "bvn": {
+                                        "type": "string",
+                                        "example": "712874837219"
+                                    },
+                                    "address": {
+                                        "type": "string",
+                                        "example": "No. 28 Isoko Street"
+                                    },
+                                    "country": {
+                                        "type": "string",
+                                        "example": "NG"
+                                    },
+                                    "region": {
+                                        "type": "string",
+                                        "example": "688"
+                                    },
+                                    "gender": {
+                                        "type": "string",
+                                        "example": "m"
+                                    },
+                                    "phone_no_country_code": {
+                                        "type": "string",
+                                        "example": "234"
+                                    },
+                                    "phone_no": {
+                                        "type": "string",
+                                        "example": "080900000000"
+                                    },
+                                    "profile_pics": {
+                                        "description": "Profile Picture",
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful profile update",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Profile was successfully updated"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "example": [
+                                                {
+                                                    "firstname": "John",
+                                                    "lastname": "doe",
+                                                    "dob": "1950-12-26",
+                                                    "bvn": "712874837219",
+                                                    "address": "No. 28 Isoko Street",
+                                                    "country": "NG",
+                                                    "region": "688",
+                                                    "gender": "m",
+                                                    "phone_no_country_code": "234",
+                                                    "phone_no": "080900000000",
+                                                    "profie_pics": "https://visaro.com/img/4938932881343.png"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
+        "/company_profile_update": {
+            "post": {
+                "tags": [
+                    "Company Profile Update"
+                ],
+                "summary": "To Update Company Profile",
+                "description": "This update Company profile",
+                "operationId": "company_profile_update",
+                "requestBody": {
+                    "description": "Request body",
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "profile_pics",
+                                    "business_name",
+                                    "business_address",
+                                    "business_email",
+                                    "country_of_origin",
+                                    "port_of_origin",
+                                    "certificate_of_incoporation",
+                                    "memart",
+                                    "acfta_certificate"
+                                ],
+                                "properties": {
+                                    "business_name": {
+                                        "type": "string",
+                                        "example": "Smart Pay Limited"
+                                    },
+                                    "business_address": {
+                                        "type": "string",
+                                        "example": "No. 5 Bourdilon Road Ikoyi"
+                                    },
+                                    "business_email": {
+                                        "type": "string",
+                                        "example": "info@smartpay.com"
+                                    },
+                                    "country_of_origin": {
+                                        "type": "string",
+                                        "example": "NG"
+                                    },
+                                    "port_of_origin": {
+                                        "type": "string",
+                                        "example": "803"
+                                    },
+                                    "certificate_of_incoporation": {
+                                        "description": "Certificate of Incoporation",
+                                        "type": "string",
+                                        "format": "binary"
+                                    },
+                                    "memart": {
+                                        "description": "memart ",
+                                        "type": "string",
+                                        "format": "binary"
+                                    },
+                                    "acfta_certificate": {
+                                        "description": "acfta certificate ",
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful profile update",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Company profile was successfully updated"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "example": [
+                                                {
+                                                    "business_name": "Smart Pay Limited",
+                                                    "business_address": "No. 5 Bourdilon Road Ikoyi",
+                                                    "business_email": "info@smartpay.com",
+                                                    "country_of_origin": "NG",
+                                                    "port_of_origin": "803"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
+        "/country_list": {
+            "get": {
+                "tags": [
+                    "Country List"
+                ],
+                "summary": "To list all country",
+                "description": "This endpoint will return all countries",
+                "operationId": "country_list",
+                "responses": {
+                    "200": {
+                        "description": "List of Country",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "your query was successful"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "example": [
+                                                {
+                                                    "id": "AD",
+                                                    "decription": "Andorra"
+                                                },
+                                                {
+                                                    "id": "AE",
+                                                    "decription": "United Arab Emirates"
+                                                },
+                                                {
+                                                    "id": "AF",
+                                                    "decription": "Afghanistan"
+                                                },
+                                                {
+                                                    "id": "AG",
+                                                    "decription": "Antigua and Barbuda"
+                                                },
+                                                {
+                                                    "id": "AI",
+                                                    "decription": "Anguilla"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
+        "/region_list/{country_key}": {
+            "get": {
+                "tags": [
+                    "Region List"
+                ],
+                "summary": "To list all region in a country",
+                "description": "This endpoint will return all regions in a selected country",
+                "operationId": "region_list",
+                "parameters": [
+                    {
+                        "name": "country_key",
+                        "in": "path",
+                        "description": "Country Key",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of region",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "your query was successful"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "example": [
+                                                {
+                                                    "id": "253",
+                                                    "decription": "Abuja"
+                                                },
+                                                {
+                                                    "id": "53",
+                                                    "decription": "Abuja"
+                                                },
+                                                {
+                                                    "id": "216",
+                                                    "decription": "Adamawa"
+                                                },
+                                                {
+                                                    "id": "178",
+                                                    "decription": "Akwa Ibom"
+                                                },
+                                                {
+                                                    "id": "101",
+                                                    "decription": "Anambra"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "responses": {
+            "402": {
+                "description": "Wrong credentials response",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": "false"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "User authentication failed."
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "401": {
+                "description": "Wrong credentials response",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean",
+                                    "example": "false"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "User authentication failed."
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "securitySchemes": {
+            "bearer_token": {
+                "type": "apiKey",
+                "description": "Enter token in format (Bearer <token>)",
+                "name": "Authorization",
+                "in": "header"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Projects",
+            "description": "API Endpoints for Visaro Nigeria"
+        }
+    ]
+}
