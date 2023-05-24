@@ -6,27 +6,27 @@ networks:
     name: app-tier
 
 services:
-  api_gateway:
-    container_name: api_gateway
+  visaro_api_gateway:
+    container_name: visaro_api_gateway
     build:
       context: .
       dockerfile: Dockerfile
     command: 'php artisan serve --host=0.0.0.0'
     volumes:
-      - .:/api_gateway
+      - .:/visaro_api_gateway
     ports:
       - 8181:8000
     depends_on:
-      - api_gateway_db
+      - visaro_api_gateway_db
     networks:
       - app-tier
 
 
-  api_gateway_db:
+  visaro_api_gateway_db:
     image: mysql:5.7.22
-    container_name: api_gateway_db
+    container_name: visaro_api_gateway_db
     environment:
-      MYSQL_DATABASE: api_gateway
+      MYSQL_DATABASE: visaro_api_gateway
       MYSQL_USER: root
       MYSQL_PASSWORD: root
       MYSQL_ROOT_PASSWORD: root
