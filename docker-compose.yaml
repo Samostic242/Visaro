@@ -31,7 +31,7 @@ services:
       MYSQL_PASSWORD: root
       MYSQL_ROOT_PASSWORD: root
     volumes:
-      - ./storage/dbdata:/var/lib/mysql
+      - ./visaronigeria/dbdata:/var/lib/mysql
     ports:
       - 33061:3306
     networks:
