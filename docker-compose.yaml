@@ -16,6 +16,7 @@ services:
       - .:/visaronigeria
     ports:
       - 8181:8000
+      - 443:443
     depends_on:
       - visaro_api_gateway_db
     networks:
