@@ -7,3 +7,4 @@ RUN curl -sS https://getcomposer.org/installer | php -- \
 WORKDIR /visaro_api_gateway
 COPY . .
 RUN composer install
+RUN php artisan l5-swagger:generate
