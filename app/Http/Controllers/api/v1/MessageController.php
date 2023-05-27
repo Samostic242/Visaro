@@ -9,6 +9,8 @@ use Auth;
 use DB;
 use App\Models\User;
 use Mail;
+use DateTime;
+use Hash;
 
 class MessageController extends Controller
 {
@@ -21,6 +23,44 @@ class MessageController extends Controller
 
     public function create_password(Request $request)
     {
+
+        $password = $request->password;
+        $password_confirmation = $request->password_confirmation;
+
+        if($password != $password_confirmation)
+        {
+
+
+            return response()->json([
+                'success'=>false,
+                'message'=>'This email address is not associated with any account on visaro',
+            ], 406);
+        }else
+        {
+
+              $user_details =  DB::table('users')->where('id', Auth::user()->id)->get();
+
+              if($user_details[0]->otp_forgot_pass_verif ==1 && new DateTime(date('Y-m-d H:i:s')) < new DateTime($user_details[0]->otp_forgot_grace))
+              {
+
+                $user = User::find(Auth::user()->id);
+                $user->otp_forgot_grace = NOW();
+                $user->password = Hash::make($password);
+                $user->save();
+
+                return response()->json([
+                    'success'=>true,
+                    'message'=>'Password was successfully changed',
+                ], 200);
+
+              }else
+              {
+                return response()->json([
+                    'success'=>false,
+                    'message'=>'This create password session has expired',
+                ], 406);
+              }
+        }
 
     }
 
@@ -170,6 +210,7 @@ class MessageController extends Controller
             if($otp_type == 1) //Login Verification
             {
                 $update['otp_login_verif'] = 0;
+
                 $sent_to = Auth::user()->email;
 
                 $link = "https://google.com";//verify email link
@@ -191,6 +232,7 @@ class MessageController extends Controller
             }else if($otp_type == 2) //Forgot Password Verification
             {
                 $update['otp_forgot_pass_verif'] = 0;
+
                 $sent_to = Auth::user()->email;
 
 
@@ -211,14 +253,12 @@ class MessageController extends Controller
                 });
 
 
-
             }else if($otp_type == 3) //Phone No Verification
             {
                 $update['otp_phone_verif'] = 0;
+
                 $sent_to = Auth::user()->phone;
             }
-
-
 
 
             //Flag OTP as used
@@ -275,15 +315,24 @@ class MessageController extends Controller
                 $update["otp_created_at"] = NULL;
                 $update["otp_expiry_time"] = NULL;
 
+                $otp_screen_expiry_time =  1;
+                $date = date('Y-m-d H:i:s');
+                $currentDate = strtotime($date);
+                $futureDate = $currentDate+(60*$otp_screen_expiry_time); //Add 1 minute to the current date
+                $expiry = date("Y-m-d H:i:s", $futureDate);
+
                 if($otp_collection[0]->otp_type == 1) //Login Verification
                 {
                     $update['otp_login_verif'] = 1;
+                    $update['otp_login_grace'] = $expiry;
                 }else if($otp_collection[0]->otp_type == 2) //Forgot Password Verification
                 {
                     $update['otp_forgot_pass_verif'] = 1;
+                    $update['otp_forgot_grace'] = $expiry;
                 }else if($otp_collection[0]->otp_type == 3) //Phone No Verification
                 {
                     $update['otp_phone_verif'] = 1;
+                    $update['otp_phone_grace'] = $expiry;
                 }
 
                 //Flag OTP as used
@@ -301,7 +350,6 @@ class MessageController extends Controller
         }else
         {
                //OTP record not found - Invalid
-
                return response()->json([
                 'success'=>false,
                 'message'=>'OTP is invalid',
