@@ -557,7 +557,7 @@ class PassportController extends Controller
         if (auth()->attempt($input)) {
             $token = auth()->user()->createToken('passport_token')->accessToken;
 
-            $otp = rand(100000,900000);
+            $otp = rand(1000,9000);
             $otp_expiry_min =  10;
             $date = date('Y-m-d H:i:s');
             $currentDate = strtotime($date);

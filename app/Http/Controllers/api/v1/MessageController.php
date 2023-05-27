@@ -42,7 +42,7 @@ class MessageController extends Controller
        if (count($check) > 0)
        {
 
-            $otp = rand(100000,900000);
+            $otp = rand(1000,9000);
             $otp_expiry_min =  10;
             $date = date('Y-m-d H:i:s');
             $currentDate = strtotime($date);
@@ -152,7 +152,7 @@ class MessageController extends Controller
          if($count > 0)
          {
 
-            $otp = rand(100000,900000);
+            $otp = rand(1000,9000);
             $user_id = Auth::user()->id;
             $otp_expiry_min =  10;
             $date = date('Y-m-d H:i:s');
