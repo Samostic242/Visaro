@@ -9,6 +9,9 @@ Route::prefix('v1')->group(function () {
     Route::post('register', [PassportController::class, 'register']);
     Route::post('login', [PassportController::class, 'login']);
 
+    Route::post('/forgotpassword', [App\Http\Controllers\api\v1\MessageController::class, 'forgotpassword'])->name('forgotpassword');
+
+
     // put all api protected routes here
     Route::middleware('auth:api')->group(function () {
        // Route::post('user-detail', [PassportController::class, 'userDetail']);
@@ -24,10 +27,6 @@ Route::prefix('v1')->group(function () {
         Route::post('/profile_update', [App\Http\Controllers\api\v1\MessageController::class, 'profile_update'])->name('profile_update');
         Route::post('/company_profile_update', [App\Http\Controllers\api\v1\MessageController::class, 'company_profile_update'])->name('company_profile_update');
 
-
-
-
-
         Route::apiResource('articles',App\Http\Controllers\api\v1\ArticleController::class);
 
         Route::get('/articles/{id}/comments', [App\Http\Controllers\api\v1\ArticleController::class, 'show_comments'])->name('show_comment');
@@ -38,9 +37,6 @@ Route::prefix('v1')->group(function () {
 
         Route::put('/articles/{id}/likes', [App\Http\Controllers\api\v1\ArticleController::class, 'like_article'])->name('like_article');
         Route::put('/articles/{id}/views', [App\Http\Controllers\api\v1\ArticleController::class, 'view_article'])->name('view_a_article');
-
-
-
 
     });
 });

@@ -352,7 +352,7 @@
                                         },
                                         "message": {
                                             "type": "string",
-                                            "example": "We sent your One Time Verification Password to your mail example@gmail.com"
+                                            "example": "OTP has been sent to example@gmail.com"
                                         }
                                     },
                                     "type": "object"

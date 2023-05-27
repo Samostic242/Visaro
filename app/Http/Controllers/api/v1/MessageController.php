@@ -8,6 +8,7 @@ use App\Services\MessageService;
 use Auth;
 use DB;
 use App\Models\User;
+use Mail;
 
 class MessageController extends Controller
 {
@@ -31,6 +32,69 @@ class MessageController extends Controller
     public function company_profile_update(Request $request)
     {
 
+    }
+
+    public function forgotpassword(Request $request)
+    {
+
+       $check = DB::table('users')->where('email', $request->email)->get();
+
+       if (count($check) > 0)
+       {
+
+            $otp = rand(100000,900000);
+            $otp_expiry_min =  10;
+            $date = date('Y-m-d H:i:s');
+            $currentDate = strtotime($date);
+            $futureDate = $currentDate+(60*$otp_expiry_min); //Add 10 minute to the current date
+            $expiry = date("Y-m-d H:i:s", $futureDate);
+
+            $update["otp_code"] = $otp;
+            $update["otp_type"] = 2; //Forgot Password
+            $update["otp_created_at"] = $date;
+            $update["otp_expiry_time"] = $expiry;
+
+            $sent_to = "";
+
+
+                $update['otp_forgot_pass_verif'] = 0;
+                $sent_to = $check[0]->email;
+
+
+                $link = "https://google.com";//verify email link
+                $data = array(
+                    'full_name'=>$check[0]->firstname." ".$check[0]->lastname,
+                    'link'=> $link,
+                    'otp' => $otp,
+                    'title' => 'Verify your forgot password',
+                    'email_content' => 'Please use the OTP below to verify your forgot password',
+                    'otp_expiry_min' => $otp_expiry_min
+
+                );
+                Mail::send('emails.otp', $data, function($message) use ($data, $check){
+                    $message->from("noreply@visarong.com", 'Visaro Nigeria');
+                    $message->to($check[0]->email);
+                    $message->subject('OTP Request');
+                });
+
+
+            //Flag OTP as used
+            User::where('id', $check[0]->id)
+            ->update($update);
+
+            return response()->json([
+                'success'=>true,
+                'message'=>'OTP has been sent to '.$sent_to,
+
+            ], 200);
+
+       }else
+       {
+            return response()->json([
+                'success'=>false,
+                'message'=>'This email address is not associated with any account on visaro',
+            ], 406);
+       }
     }
 
 
@@ -88,12 +152,12 @@ class MessageController extends Controller
          if($count > 0)
          {
 
-            $otp = rand(1000,9000);
+            $otp = rand(100000,900000);
             $user_id = Auth::user()->id;
-
+            $otp_expiry_min =  10;
             $date = date('Y-m-d H:i:s');
             $currentDate = strtotime($date);
-            $futureDate = $currentDate+(60*2); //Add 2 minute to the current date
+            $futureDate = $currentDate+(60*$otp_expiry_min); //Add 10 minute to the current date
             $expiry = date("Y-m-d H:i:s", $futureDate);
 
             $update["otp_code"] = $otp;
@@ -107,10 +171,47 @@ class MessageController extends Controller
             {
                 $update['otp_login_verif'] = 0;
                 $sent_to = Auth::user()->email;
+
+                $link = "https://google.com";//verify email link
+                $data = array(
+                    'full_name'=>auth()->user()->firstname." ".auth()->user()->lastname,
+                    'link'=> $link,
+                    'otp' => $otp,
+                    'title' => 'Verify your account',
+                    'email_content' => 'Please use the OTP below to verify your account',
+                    'otp_expiry_min' => $otp_expiry_min
+
+                );
+                Mail::send('emails.otp', $data, function($message) use ($data){
+                    $message->from("noreply@visarong.com", 'Visaro Nigeria');
+                    $message->to(auth()->user()->email);
+                    $message->subject('OTP Request');
+                });
+
             }else if($otp_type == 2) //Forgot Password Verification
             {
                 $update['otp_forgot_pass_verif'] = 0;
                 $sent_to = Auth::user()->email;
+
+
+                $link = "https://google.com";//verify email link
+                $data = array(
+                    'full_name'=>auth()->user()->firstname." ".auth()->user()->lastname,
+                    'link'=> $link,
+                    'otp' => $otp,
+                    'title' => 'Verify your forgot password',
+                    'email_content' => 'Please use the OTP below to verify your forgot password',
+                    'otp_expiry_min' => $otp_expiry_min
+
+                );
+                Mail::send('emails.otp', $data, function($message) use ($data){
+                    $message->from("noreply@visarong.com", 'Visaro Nigeria');
+                    $message->to(auth()->user()->email);
+                    $message->subject('OTP Request');
+                });
+
+
+
             }else if($otp_type == 3) //Phone No Verification
             {
                 $update['otp_phone_verif'] = 0;

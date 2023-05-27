@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Laravel\Passport\TokenRepository;
 use Laravel\Passport\RefreshTokenRepository;
 use App\Http\Controllers\Controller;
+use Mail;
 
 class PassportController extends Controller
 {
@@ -206,7 +207,7 @@ class PassportController extends Controller
      *    description="Recover email sent",
      *     @OA\JsonContent(
      *       @OA\Property(property="success", type="boolean", example="true"),
-     *       @OA\Property(property="message", type="string", example="We sent your One Time Verification Password to your mail example@gmail.com")
+     *       @OA\Property(property="message", type="string", example="OTP has been sent to example@gmail.com")
      *        )
      *     )
      * ),
@@ -230,7 +231,7 @@ class PassportController extends Controller
      * ),
      * @OA\Response(
      *    response=200,
-     *    description="Recover email sent",
+     *    description="Forgot Password Changed",
      *     @OA\JsonContent(
      *       @OA\Property(property="success", type="boolean", example="true"),
      *       @OA\Property(property="message", type="string", example="Password was successfully changed")
@@ -556,11 +557,11 @@ class PassportController extends Controller
         if (auth()->attempt($input)) {
             $token = auth()->user()->createToken('passport_token')->accessToken;
 
-            $otp = rand(1000,9000);
-
+            $otp = rand(100000,900000);
+            $otp_expiry_min =  10;
             $date = date('Y-m-d H:i:s');
             $currentDate = strtotime($date);
-            $futureDate = $currentDate+(60*2); //Add 2 minute to the current date
+            $futureDate = $currentDate+(60*$otp_expiry_min); //Add 10 minute to the current date
             $expiry = date("Y-m-d H:i:s", $futureDate);
 
             User::where('id', auth()->user()->id)
@@ -571,6 +572,23 @@ class PassportController extends Controller
                 "otp_created_at" => $date,
                 "otp_expiry_time" => $expiry
             ]);
+
+
+            $link = "https://google.com";//verify email link
+            $data = array(
+                'full_name'=>auth()->user()->firstname." ".auth()->user()->lastname,
+                'link'=> $link,
+                'otp' => $otp,
+                'title' => 'Verify your account',
+                'email_content' => 'Please use the OTP below to verify your account',
+                'otp_expiry_min' => $otp_expiry_min
+
+            );
+            Mail::send('emails.otp', $data, function($message) use ($data){
+                $message->from("noreply@visarong.com", 'Visaro Nigeria');
+                $message->to(auth()->user()->email);
+                $message->subject('OTP Request');
+            });
 
             return response()->json([
                 'success' => true,
