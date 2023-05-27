@@ -8,3 +8,5 @@ WORKDIR /visaro_api_gateway
 COPY . .
 RUN composer install
 RUN php artisan l5-swagger:generate
+RUN php artisan passport:keys --force
+
