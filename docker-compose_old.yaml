@@ -5,19 +5,6 @@ networks:
     driver: bridge
     name: app-tier
 
-volumes:
-  visaro_api_gateway_db_data:
-   driver_opts:
-     type: "nfs"
-     o: "addr=fs-0a1bc9c69847c011c.efs.eu-north-1.amazonaws.com,rw,nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport"
-     device: ":/visaro_api_gateway_db_data"
-  visaro_api_gateway_data:
-    driver_opts:
-      type: "nfs"
-      o: "addr=fs-0a1bc9c69847c011c.efs.eu-north-1.amazonaws.com,rw,nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport"
-      device: ":/visaro_api_gateway_data"
-
-
 services:
   visaro_api_gateway:
     container_name: visaro_api_gateway
@@ -26,7 +13,7 @@ services:
       dockerfile: Dockerfile
     command: 'php artisan serve --host=0.0.0.0'
     volumes:
-      - visaro_api_gateway_data:/visaronigeria
+      - .:/visaronigeria
     ports:
       - 8181:8000
       - 443:443
@@ -45,11 +32,8 @@ services:
       MYSQL_PASSWORD: root
       MYSQL_ROOT_PASSWORD: root
     volumes:
-      - visaro_api_gateway_db_data:/var/lib/mysql
+      - ./visaronigeria/dbdata:/var/lib/mysql
     ports:
       - 33061:3306
     networks:
       - app-tier
-
-
-
