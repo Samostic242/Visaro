@@ -9,12 +9,12 @@ volumes:
   visaro_api_gateway_data:
     driver_opts:
           type: nfs
-          device: fs-0a1bc9c69847c011c.efs.eu-north-1.amazonaws.com:/apps/visaro_api_gateway_data
+          device: :/apps/visaro_api_gateway_data
           o: addr=fs-0a1bc9c69847c011c.efs.eu-north-1.amazonaws.com,nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=120,retrans=2,noresvport
   visaro_api_gateway_db_data:
     driver_opts:
           type: nfs
-          device: fs-0a1bc9c69847c011c.efs.eu-north-1.amazonaws.com:/databases/visaro_api_gateway_db_data
+          device: :/databases/visaro_api_gateway_db_data
           o: addr=fs-0a1bc9c69847c011c.efs.eu-north-1.amazonaws.com,nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=120,retrans=2,noresvport
 
 services:
