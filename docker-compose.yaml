@@ -13,7 +13,7 @@ services:
       dockerfile: Dockerfile
     command: 'php artisan serve --host=0.0.0.0'
     volumes:
-      - ../home/ubuntu/efs/apps/visaro_api_gateway:/visaronigeria
+      - ../efs/apps/visaro_api_gateway:/visaronigeria
     ports:
       - 8181:8000
     depends_on:
@@ -31,7 +31,7 @@ services:
       MYSQL_PASSWORD: root
       MYSQL_ROOT_PASSWORD: root
     volumes:
-      - ../home/ubuntu/efs/databases/visaro_db:/var/lib/mysql
+      - ../efs/databases/visaro_db:/var/lib/mysql
     ports:
       - 33061:3306
     networks:
