@@ -39,7 +39,7 @@ services:
       MYSQL_USER: root
       MYSQL_PASSWORD: root
       MYSQL_ROOT_PASSWORD: root
-   ports:
+    ports:
       - 33061:3306
     networks:
       - app-tier
