@@ -241,11 +241,11 @@ class PassportController extends Controller
      *
      ********************************************************************************************************************************
      * @OA\Post(
-     * path="/profile_update",
-     * summary="To Update Profile",
-     * description="This update profile",
-     * operationId="profile_update",
-     * tags={"Profile Update"},
+     * path="/initialize_transaction",
+     * summary="Initialize a paystack transaction",
+     * description="This will generate a transaction ID tie to the user account",
+     * operationId="initialize_transaction",
+     * tags={"Initialize Transaction"},
      * security={{"bearer_token":{}}},
      * @OA\RequestBody(
      *    required=true,
@@ -253,23 +253,9 @@ class PassportController extends Controller
      *       @OA\MediaType(
      *             mediaType="multipart/form-data",
      *             @OA\Schema(
-     *                 required={"profile_pics","firstname","lastname","dob","bvn","address","country","region","gender","phone_no_country_code","phone_no","photo_img"},
-     *                 @OA\Property(property="firstname", type="string",  example="John"),
-     *                 @OA\Property(property="lastname", type="string",  example="Doe"),
-     *                 @OA\Property(property="dob", type="string",  example="1950-12-26"),
-     *                 @OA\Property(property="bvn", type="string", example="712874837219"),
-     *                 @OA\Property(property="address", type="string", example="No. 28 Isoko Street"),
-     *                 @OA\Property(property="country", type="string", example="NG"),
-     *                 @OA\Property(property="region", type="string", example="688"),
-     *                 @OA\Property(property="gender", type="string", example="m"),
-     *                 @OA\Property(property="phone_no_country_code", type="string", example="234"),
-     *                 @OA\Property(property="phone_no", type="string", example="080900000000"),
-     *                 @OA\Property(
-     *                     description="Profile Picture",
-     *                     property="profile_pics",
-     *                     type="string",
-     *                     format="binary",
-     *                 ),
+     *                 required={"transaction_type","amount"},
+     *                 @OA\Property(property="transaction_type", type="string",  example="01"),
+     *                 @OA\Property(property="amount", type="integer",  example="2000"),
      *             )
      *         )
      * ),
@@ -284,17 +270,9 @@ class PassportController extends Controller
      *          type="object",
      *                example={
      *                 0: {
-     *                       "firstname":"John",
-     *                       "lastname":"doe",
-     *                       "dob":"1950-12-26",
-     *                       "bvn":"712874837219",
-     *                       "address":"No. 28 Isoko Street",
-     *                       "country":"NG",
-     *                       "region":"688",
-     *                       "gender":"m",
-     *                       "phone_no_country_code":"234",
-     *                       "phone_no":"080900000000",
-     *                       "profie_pics":"https://visaro.com/img/4938932881343.png"
+     *                       "authorization_url": "https://checkout.paystack.com/ebvyeumu92eg92o",
+     *                       "reference": "drqmxt6e09",
+    *                         "access_code": "ebvyeumu92eg92o"
      *                    }
      *
      *                },
@@ -305,7 +283,66 @@ class PassportController extends Controller
      *     )
      * ),
      *
-     ********************************************************************************************************************************
+     * ********************************************************************************************************************************
+     * @OA\Post(
+     * path="/bvn_verification",
+     * summary="BVN Verification",
+     * description="This endpoint will be used to verify the BVN of the user",
+     * operationId="bvn_verification",
+     * tags={"BVN Verification"},
+     * security={{"bearer_token":{}}},
+     * @OA\RequestBody(
+     *    required=true,
+     *    description="Request body",
+     *       @OA\MediaType(
+     *             mediaType="multipart/form-data",
+     *             @OA\Schema(
+     *                 required={"bvn","payment_reference"},
+     *                 @OA\Property(property="bvn", type="string",  example="482928392349"),
+     *                 @OA\Property(property="payment_reference", type="integer",  example="482jfjd849"),
+     *             )
+     *         )
+     * ),
+     * @OA\Response(
+     *    response=200,
+     *   description="Successful profile update",
+     *     @OA\JsonContent(
+     *       @OA\Property(property="success", type="boolean", example="true"),
+     *       @OA\Property(property="message", type="string", example="BVN Verification was successful"),
+     *       @OA\Property(
+     *          property="data",
+     *          type="object",
+     *                example={
+     *                 0: {
+     *                       "title": "Mr",
+     *                       "gender": "Male",
+     *                       "maritalStatus": "Single",
+     *                       "bvn": "54651333604",
+     *                       "firstName": "TEST",
+     *                       "middleName": "User",
+     *                       "lastName": "User",
+     *                       "dateOfBirth": "1999-12-21",
+     *                       "phoneNumber1": "09082838483",
+     *                       "phoneNumber2": "08028323323",
+     *                       "email": "testt@test.com",
+     *                       "lgaOfOrigin": "yaba",
+     *                       "lgaOfResidence": "yaba",
+     *                       "nin": "12345567895",
+     *                       "nameOnCard": "test test",
+     *                       "nationality": "Nigeria",
+     *                       "residentialAddress": "yaba",
+     *                       "stateOfOrigin": "Lagos",
+     *                       "stateOfResidence": "Lagos",
+     *                    }
+     *
+     *                },
+     *              ),
+     *
+     *        )**
+     *        )
+     *     )
+     * ),
+     * *******************************************************************************************************************************
      * @OA\Post(
      * path="/company_profile_update",
      * summary="To Update Company Profile",

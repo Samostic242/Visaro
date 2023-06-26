@@ -27,6 +27,14 @@ Route::prefix('v1')->group(function () {
         Route::post('/profile_update', [App\Http\Controllers\api\v1\MessageController::class, 'profile_update'])->name('profile_update');
         Route::post('/company_profile_update', [App\Http\Controllers\api\v1\MessageController::class, 'company_profile_update'])->name('company_profile_update');
 
+
+        Route::post('/initialize_transaction', [App\Http\Controllers\api\v1\TransactionController::class, 'initialize_transaction'])->name('initialize_transaction');
+        Route::post('/verify_transaction', [App\Http\Controllers\api\v1\TransactionController::class, 'verify_transaction'])->name('verify_transaction');
+
+        Route::post('/bvn_verification', [App\Http\Controllers\api\v1\TransactionController::class, 'bvn_verification'])->name('bvn_verification');
+
+
+
         Route::apiResource('articles',App\Http\Controllers\api\v1\ArticleController::class);
 
         Route::get('/articles/{id}/comments', [App\Http\Controllers\api\v1\ArticleController::class, 'show_comments'])->name('show_comment');

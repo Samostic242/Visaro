@@ -405,7 +405,7 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Recover email sent",
+                        "description": "Forgot Password Changed",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -432,14 +432,14 @@
                 ]
             }
         },
-        "/profile_update": {
+        "/initialize_transaction": {
             "post": {
                 "tags": [
-                    "Profile Update"
+                    "Initialize Transaction"
                 ],
-                "summary": "To Update Profile",
-                "description": "This update profile",
-                "operationId": "profile_update",
+                "summary": "Initialize a paystack transaction",
+                "description": "This will generate a transaction ID tie to the user account",
+                "operationId": "initialize_transaction",
                 "requestBody": {
                     "description": "Request body",
                     "required": true,
@@ -447,64 +447,17 @@
                         "multipart/form-data": {
                             "schema": {
                                 "required": [
-                                    "profile_pics",
-                                    "firstname",
-                                    "lastname",
-                                    "dob",
-                                    "bvn",
-                                    "address",
-                                    "country",
-                                    "region",
-                                    "gender",
-                                    "phone_no_country_code",
-                                    "phone_no",
-                                    "photo_img"
+                                    "transaction_type",
+                                    "amount"
                                 ],
                                 "properties": {
-                                    "firstname": {
+                                    "transaction_type": {
                                         "type": "string",
-                                        "example": "John"
+                                        "example": "01"
                                     },
-                                    "lastname": {
-                                        "type": "string",
-                                        "example": "Doe"
-                                    },
-                                    "dob": {
-                                        "type": "string",
-                                        "example": "1950-12-26"
-                                    },
-                                    "bvn": {
-                                        "type": "string",
-                                        "example": "712874837219"
-                                    },
-                                    "address": {
-                                        "type": "string",
-                                        "example": "No. 28 Isoko Street"
-                                    },
-                                    "country": {
-                                        "type": "string",
-                                        "example": "NG"
-                                    },
-                                    "region": {
-                                        "type": "string",
-                                        "example": "688"
-                                    },
-                                    "gender": {
-                                        "type": "string",
-                                        "example": "m"
-                                    },
-                                    "phone_no_country_code": {
-                                        "type": "string",
-                                        "example": "234"
-                                    },
-                                    "phone_no": {
-                                        "type": "string",
-                                        "example": "080900000000"
-                                    },
-                                    "profile_pics": {
-                                        "description": "Profile Picture",
-                                        "type": "string",
-                                        "format": "binary"
+                                    "amount": {
+                                        "type": "integer",
+                                        "example": "2000"
                                     }
                                 },
                                 "type": "object"
@@ -531,17 +484,97 @@
                                             "type": "object",
                                             "example": [
                                                 {
-                                                    "firstname": "John",
-                                                    "lastname": "doe",
-                                                    "dob": "1950-12-26",
-                                                    "bvn": "712874837219",
-                                                    "address": "No. 28 Isoko Street",
-                                                    "country": "NG",
-                                                    "region": "688",
-                                                    "gender": "m",
-                                                    "phone_no_country_code": "234",
-                                                    "phone_no": "080900000000",
-                                                    "profie_pics": "https://visaro.com/img/4938932881343.png"
+                                                    "authorization_url": "https://checkout.paystack.com/ebvyeumu92eg92o",
+                                                    "reference": "drqmxt6e09",
+                                                    "access_code": "ebvyeumu92eg92o"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
+        "/bvn_verification": {
+            "post": {
+                "tags": [
+                    "BVN Verification"
+                ],
+                "summary": "BVN Verification",
+                "description": "This endpoint will be used to verify the BVN of the user",
+                "operationId": "bvn_verification",
+                "requestBody": {
+                    "description": "Request body",
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "bvn",
+                                    "payment_reference"
+                                ],
+                                "properties": {
+                                    "bvn": {
+                                        "type": "string",
+                                        "example": "482928392349"
+                                    },
+                                    "payment_reference": {
+                                        "type": "integer",
+                                        "example": "482jfjd849"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful profile update",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "BVN Verification was successful"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "example": [
+                                                {
+                                                    "title": "Mr",
+                                                    "gender": "Male",
+                                                    "maritalStatus": "Single",
+                                                    "bvn": "54651333604",
+                                                    "firstName": "TEST",
+                                                    "middleName": "User",
+                                                    "lastName": "User",
+                                                    "dateOfBirth": "1999-12-21",
+                                                    "phoneNumber1": "09082838483",
+                                                    "phoneNumber2": "08028323323",
+                                                    "email": "testt@test.com",
+                                                    "lgaOfOrigin": "yaba",
+                                                    "lgaOfResidence": "yaba",
+                                                    "nin": "12345567895",
+                                                    "nameOnCard": "test test",
+                                                    "nationality": "Nigeria",
+                                                    "residentialAddress": "yaba",
+                                                    "stateOfOrigin": "Lagos",
+                                                    "stateOfResidence": "Lagos"
                                                 }
                                             ]
                                         }
