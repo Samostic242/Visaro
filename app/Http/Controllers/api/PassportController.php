@@ -28,7 +28,6 @@ class PassportController extends Controller
      * description="To create a new user on the system",
      * operationId="registration",
      * tags={"Account Creation"},
-     * security={{"bearer_token":{}}},
      * @OA\RequestBody(
      *    required=true,
      *    description="User Details",
@@ -65,7 +64,6 @@ class PassportController extends Controller
      * description="Login by email, password to get access token",
      * operationId="authLogin",
      * tags={"Access Token"},
-     * security={{"bearer_token":{}}},
      * @OA\RequestBody(
      *    required=true,
      *    description="Account login credentials",
@@ -155,7 +153,6 @@ class PassportController extends Controller
      * description="This return all the types of OTP request",
      * operationId="list_otp_types",
      * tags={"List OTP Types"},
-     * security={{"bearer_token":{}}},
      * @OA\Response(
      *    response=200,
      *    description="OTP was successfully sent",
@@ -193,7 +190,6 @@ class PassportController extends Controller
      * description="This will be used whenever a user wants to recover a password using the forgot password interface",
      * operationId="forgotpassword",
      * tags={"Forgot Password"},
-     * security={{"bearer_token":{}}},
      * @OA\RequestBody(
      *    required=true,
      *    description="Request body",
@@ -416,7 +412,6 @@ class PassportController extends Controller
      * description="This endpoint will return all countries",
      * operationId="country_list",
      * tags={"Country List"},
-     * security={{"bearer_token":{}}},
      * @OA\Response(
      *    response=200,
      *    description="List of Country",
@@ -463,7 +458,6 @@ class PassportController extends Controller
      * description="This endpoint will return all regions in a selected country",
      * operationId="region_list",
      * tags={"Region List"},
-     * security={{"bearer_token":{}}},
      * @OA\Parameter(
      *          name="country_key",
      *          description="Country Key",

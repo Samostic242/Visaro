@@ -75,12 +75,7 @@
                             }
                         }
                     }
-                },
-                "security": [
-                    {
-                        "bearer_token": []
-                    }
-                ]
+                }
             }
         },
         "/login": {
@@ -143,12 +138,7 @@
                             }
                         }
                     }
-                },
-                "security": [
-                    {
-                        "bearer_token": []
-                    }
-                ]
+                }
             }
         },
         "/validate_otp": {
@@ -302,12 +292,7 @@
                             }
                         }
                     }
-                },
-                "security": [
-                    {
-                        "bearer_token": []
-                    }
-                ]
+                }
             }
         },
         "/forgotpassword": {
@@ -360,12 +345,7 @@
                             }
                         }
                     }
-                },
-                "security": [
-                    {
-                        "bearer_token": []
-                    }
-                ]
+                }
             }
         },
         "/create_password": {
@@ -754,12 +734,7 @@
                             }
                         }
                     }
-                },
-                "security": [
-                    {
-                        "bearer_token": []
-                    }
-                ]
+                }
             }
         },
         "/region_list/{country_key}": {
@@ -827,12 +802,7 @@
                             }
                         }
                     }
-                },
-                "security": [
-                    {
-                        "bearer_token": []
-                    }
-                ]
+                }
             }
         }
     },
