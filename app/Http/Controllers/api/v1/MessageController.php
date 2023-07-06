@@ -111,11 +111,17 @@ class MessageController extends Controller
                     'otp_expiry_min' => $otp_expiry_min
 
                 );
-                Mail::send('emails.otp', $data, function($message) use ($data, $check){
-                    $message->from("noreply@visarong.com", 'Visaro Nigeria');
-                    $message->to($check[0]->email);
-                    $message->subject('OTP Request');
-                });
+
+                try{
+                    Mail::send('emails.otp', $data, function($message) use ($data, $check){
+                        $message->from("noreply@visarong.com", 'Visaro Nigeria');
+                        $message->to($check[0]->email);
+                        $message->subject('OTP Request');
+                    });
+                }catch(\Exception $e){
+                // Get error here
+            }
+
 
 
             //Flag OTP as used
@@ -223,11 +229,15 @@ class MessageController extends Controller
                     'otp_expiry_min' => $otp_expiry_min
 
                 );
-                Mail::send('emails.otp', $data, function($message) use ($data){
-                    $message->from("noreply@visarong.com", 'Visaro Nigeria');
-                    $message->to(auth()->user()->email);
-                    $message->subject('OTP Request');
-                });
+                try{
+                    Mail::send('emails.otp', $data, function($message) use ($data){
+                        $message->from("noreply@visarong.com", 'Visaro Nigeria');
+                        $message->to(auth()->user()->email);
+                        $message->subject('OTP Request');
+                    });
+                }catch(\Exception $e){
+                // Get error here
+                }
 
             }else if($otp_type == 2) //Forgot Password Verification
             {
@@ -246,11 +256,17 @@ class MessageController extends Controller
                     'otp_expiry_min' => $otp_expiry_min
 
                 );
-                Mail::send('emails.otp', $data, function($message) use ($data){
-                    $message->from("noreply@visarong.com", 'Visaro Nigeria');
-                    $message->to(auth()->user()->email);
-                    $message->subject('OTP Request');
-                });
+
+                try{
+                    Mail::send('emails.otp', $data, function($message) use ($data){
+                        $message->from("noreply@visarong.com", 'Visaro Nigeria');
+                        $message->to(auth()->user()->email);
+                        $message->subject('OTP Request');
+                    });
+                }catch(\Exception $e){
+                // Get error here
+                }
+
 
 
             }else if($otp_type == 3) //Phone No Verification

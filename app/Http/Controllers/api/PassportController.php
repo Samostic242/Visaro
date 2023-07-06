@@ -43,7 +43,8 @@ class PassportController extends Controller
      *    description="Successful Registration",
      *    @OA\JsonContent(
      *       @OA\Property(property="success", type="boolean", example="true"),
-     *       @OA\Property(property="message", type="string", example="User registered succesfully, Use Login method to receive token.")
+     *       @OA\Property(property="message", type="string", example="User registered succesfully, Use Login method to receive token."),
+     *       @OA\Property(property="token", type="string", example="eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzIiwianRpIjoiODQ3MThkNTZjZTZiYWI2OGFmNDgwZjlmNjA4NTA4NGU5M2NhY2JiMjRmZWU4ZWQzZGE0YTQ4OGQ1ZTRlM2NiN2RlNmRmN2VkYjY5ZjhjZjciLCJpYXQiOjE2NzQzNzg3MjEsIm5iZiI6MTY3NDM3ODcyMSwiZXhwIjoxNzA1OTE0NzIxLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.d7D4ZXHxRZ8D44noKOOtzkMBlYbd8sDMQLIxwlOHc_RAqG64SbuRHWQzg7DPG9WqlKiBFF53LxLT6lQScmml5uanneTVCB9LKdzMP9WpXDS1OHklepPgdiuXaWbvH5k226uDEl1QfCL3EJoFICRQE7CW-4UCsjpP08XOiIDblc2UnPdJWW6wyWgf0xS5VGAwTRc_PzWNLIWcustebWhT9Od9blVyz_yeyQ9fRKBBScHiWvcOKwfn1dHrMDmtlJsM_B4mR-csxez9Zun05SjyhegQI2Q1Ldi1SWshi4BSBm70DS3CuKBAdP5Py9aoNHjyM-4ow_z57ozbuRqTT3-6qPbNTW85zYSAS0g_VSkla2iyhiRN_GyiLwp7-F1iqvoElU1Os63popaYUo7Dbg3JSXQGbClXlCHMCFwaofDBgfuMmz-qAdiCFoYGqkWb9iZSjz57wRUuH3HoXYpJ7QfP-YwUGKMKdyEYsYdM9wz3jHwgZHUay-2YPQHFPhRwkm3wQwWkGH4C-n4PNprOJrXiTYIJqQ95WowEq0VY8Wljr_0RAb5_cJUtjlwIfafcTrXQkY6ZQ6NFikUlRLpDUDjSl9cDvQIxFoUuzlxwVGfSzy6PL-k4m_kTWABJeYb_lDLlF5AoDVBGum6h472jbhEiIspci9R7srWUw7S")
      *        )
      *     )
      * ),
@@ -52,7 +53,7 @@ class PassportController extends Controller
      *    description="Wrong credentials response",
      *    @OA\JsonContent(
      *       @OA\Property(property="success", type="boolean", example="false"),
-     *       @OA\Property(property="message", type="string", example="User authentication failed.")
+     *       @OA\Property(property="message", type="string", example="User authentication failed."),
      *        )
      *     ),
      * )
@@ -545,18 +546,16 @@ class PassportController extends Controller
          $user->email = $input['email'];
          $user->password = Hash::make($input['password']);
          $user->save();
-        /*$user = User::create([
-            'firstname' => $input['firstname'],
-             'middlename' => $input['middlename'],
-            'lastname' => $input['lastname'],
-            'email' => $input['email'],
-            'password' => Hash::make($input['password'])
-        ]);
-        */
+
+         // authentication attempt
+         if (auth()->attempt($input)) {
+            $token = auth()->user()->createToken('passport_token')->accessToken;
+         }
 
         return response()->json([
             'success' => true,
-            'message' => 'User registered succesfully, Use Login method to receive token.'
+            'message' => 'User registered succesfully, Use Login method to receive token.',
+            'token' => $token
         ], 201);
     }
 
@@ -615,11 +614,17 @@ class PassportController extends Controller
                 'otp_expiry_min' => $otp_expiry_min
 
             );
-            Mail::send('emails.otp', $data, function($message) use ($data){
-                $message->from("noreply@visarong.com", 'Visaro Nigeria');
-                $message->to(auth()->user()->email);
-                $message->subject('OTP Request');
-            });
+
+            try{
+                Mail::send('emails.otp', $data, function($message) use ($data){
+                    $message->from("noreply@visarong.com", 'Visaro Nigeria');
+                    $message->to(auth()->user()->email);
+                    $message->subject('OTP Request');
+                });
+            }catch(\Exception $e){
+                // Get error here
+            }
+
 
             return response()->json([
                 'success' => true,
