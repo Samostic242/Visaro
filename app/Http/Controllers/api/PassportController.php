@@ -268,11 +268,11 @@ class PassportController extends Controller
      *          property="data",
      *          type="object",
      *                example={
-     *                 0: {
+     *
      *                       "authorization_url": "https://checkout.paystack.com/ebvyeumu92eg92o",
      *                       "reference": "drqmxt6e09",
     *                         "access_code": "ebvyeumu92eg92o"
-     *                    }
+     *
      *
      *                },
      *              ),
@@ -312,7 +312,7 @@ class PassportController extends Controller
      *          property="data",
      *          type="object",
      *                example={
-     *                 0: {
+     *
      *                       "first_name": "TEST",
      *                       "middle_name": "test",
      *                       "last_name": "test",
@@ -327,7 +327,7 @@ class PassportController extends Controller
      *                       "id": 1,
      *                       "description": "yaba"
      *                       }
-     *                    }
+     *
      *
      *                },
      *              ),
@@ -351,6 +351,7 @@ class PassportController extends Controller
      *             mediaType="multipart/form-data",
      *             @OA\Schema(
      *                 required={"phone_1"},
+     *                 @OA\Property(property="account_type", type="integer",  example="1"),
      *                 @OA\Property(property="phone_1", type="string",  example="08091270000"),
      *                 @OA\Property(property="phone_2", type="string",  example="08051200000"),
      *                 @OA\Property(
@@ -368,12 +369,16 @@ class PassportController extends Controller
      *   description="Successful profile update",
      *     @OA\JsonContent(
      *       @OA\Property(property="success", type="boolean", example="true"),
-     *       @OA\Property(property="message", type="string", example="Company profile was successfully updated"),
+     *       @OA\Property(property="message", type="string", example="Profile update was successful"),
      *       @OA\Property(
      *          property="data",
      *          type="object",
      *                example={
-     *                 {
+     *
+     *                       "account_type": {
+     *                        "id": 1,
+     *                        "description" : "Personal"
+     *                       },
      *                       "first_name": "TEST",
      *                       "middle_name": "test",
      *                       "last_name": "test",
@@ -389,7 +394,7 @@ class PassportController extends Controller
      *                       "description": "yaba"
      *                       },
      *                       "profile_pics": "http://localhost:8181/uploads/profile_pics/test_pics.jpg"
-     *                    }
+     *
      *
      *                },
      *              ),
@@ -449,13 +454,13 @@ class PassportController extends Controller
      *          property="data",
      *          type="object",
      *                example={
-     *                 0: {
+     *
      *                       "business_name":"Smart Pay Limited",
      *                       "business_address":"No. 5 Bourdilon Road Ikoyi",
      *                       "business_email":"info@smartpay.com",
      *                       "country_of_origin":"NG",
      *                       "port_of_origin":"803",
-     *                    }
+     *
      *
      *                },
      *              ),
@@ -710,6 +715,7 @@ class PassportController extends Controller
         $rules = [
             "phone_1" => "required",
             "phone_2" => "sometimes",
+            "account_type" => "sometimes|integer",
             "profile_pics" => 'sometimes|image|mimes:jpg,png,jpeg,gif,svg|max:2048|dimensions:min_width=100,min_height=100,max_width=1300,max_height=1300',
         ];
 
@@ -731,6 +737,20 @@ class PassportController extends Controller
                 {
                     $insert["bvn_phone_number_2"] = $request->phone_2;
                 }
+
+                if (isset($request->account_type) && $request->account_type != 1)
+                {
+                    return response()->json([
+                        'success' => false,
+                        'message' => 'Invalid account type for a personal account',
+
+                    ], 406);
+                }
+                if($check[0]->account_type =="")//Account Type can only be updated once on profile update
+                {
+                    $insert["account_type"] = $request->account_type;
+                }
+
 
                 if ($request->hasFile('profile_pics'))
                 {
@@ -760,6 +780,10 @@ class PassportController extends Controller
                     'success' => true,
                     'message' => 'Profile update was successful',
                     'data' => [
+                        "account_type" => [
+                           "id" => 1,
+                           "description" => "Personal"
+                        ],
                         "first_name" => $check_bvn[0]->bvn_first_name,
                         "middle_name" => $check_bvn[0]->bvn_middle_name,
                         "last_name" => $check_bvn[0]->bvn_last_name,

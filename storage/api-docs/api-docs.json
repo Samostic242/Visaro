@@ -466,13 +466,11 @@
                                         },
                                         "data": {
                                             "type": "object",
-                                            "example": [
-                                                {
-                                                    "authorization_url": "https://checkout.paystack.com/ebvyeumu92eg92o",
-                                                    "reference": "drqmxt6e09",
-                                                    "access_code": "ebvyeumu92eg92o"
-                                                }
-                                            ]
+                                            "example": {
+                                                "authorization_url": "https://checkout.paystack.com/ebvyeumu92eg92o",
+                                                "reference": "drqmxt6e09",
+                                                "access_code": "ebvyeumu92eg92o"
+                                            }
                                         }
                                     },
                                     "type": "object"
@@ -538,24 +536,22 @@
                                         },
                                         "data": {
                                             "type": "object",
-                                            "example": [
-                                                {
-                                                    "first_name": "TEST",
-                                                    "middle_name": "test",
-                                                    "last_name": "test",
-                                                    "phone_1": "09082838483",
-                                                    "phone_2": "08028323323",
-                                                    "address": "yaba",
-                                                    "state_of_residence": {
-                                                        "id": 803,
-                                                        "description": "Lagos"
-                                                    },
-                                                    "lga_of_residence": {
-                                                        "id": 1,
-                                                        "description": "yaba"
-                                                    }
+                                            "example": {
+                                                "first_name": "TEST",
+                                                "middle_name": "test",
+                                                "last_name": "test",
+                                                "phone_1": "09082838483",
+                                                "phone_2": "08028323323",
+                                                "address": "yaba",
+                                                "state_of_residence": {
+                                                    "id": 803,
+                                                    "description": "Lagos"
+                                                },
+                                                "lga_of_residence": {
+                                                    "id": 1,
+                                                    "description": "yaba"
                                                 }
-                                            ]
+                                            }
                                         }
                                     },
                                     "type": "object"
@@ -589,6 +585,10 @@
                                     "phone_1"
                                 ],
                                 "properties": {
+                                    "account_type": {
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
                                     "phone_1": {
                                         "type": "string",
                                         "example": "08091270000"
@@ -621,29 +621,31 @@
                                         },
                                         "message": {
                                             "type": "string",
-                                            "example": "Company profile was successfully updated"
+                                            "example": "Profile update was successful"
                                         },
                                         "data": {
                                             "type": "object",
-                                            "example": [
-                                                {
-                                                    "first_name": "TEST",
-                                                    "middle_name": "test",
-                                                    "last_name": "test",
-                                                    "phone_1": "09082838483",
-                                                    "phone_2": "08028323323",
-                                                    "address": "yaba",
-                                                    "state_of_residence": {
-                                                        "id": 803,
-                                                        "description": "Lagos"
-                                                    },
-                                                    "lga_of_residence": {
-                                                        "id": 1,
-                                                        "description": "yaba"
-                                                    },
-                                                    "profile_pics": "http://localhost:8181/uploads/profile_pics/test_pics.jpg"
-                                                }
-                                            ]
+                                            "example": {
+                                                "account_type": {
+                                                    "id": 1,
+                                                    "description": "Personal"
+                                                },
+                                                "first_name": "TEST",
+                                                "middle_name": "test",
+                                                "last_name": "test",
+                                                "phone_1": "09082838483",
+                                                "phone_2": "08028323323",
+                                                "address": "yaba",
+                                                "state_of_residence": {
+                                                    "id": 803,
+                                                    "description": "Lagos"
+                                                },
+                                                "lga_of_residence": {
+                                                    "id": 1,
+                                                    "description": "yaba"
+                                                },
+                                                "profile_pics": "http://localhost:8181/uploads/profile_pics/test_pics.jpg"
+                                            }
                                         }
                                     },
                                     "type": "object"
@@ -743,15 +745,13 @@
                                         },
                                         "data": {
                                             "type": "object",
-                                            "example": [
-                                                {
-                                                    "business_name": "Smart Pay Limited",
-                                                    "business_address": "No. 5 Bourdilon Road Ikoyi",
-                                                    "business_email": "info@smartpay.com",
-                                                    "country_of_origin": "NG",
-                                                    "port_of_origin": "803"
-                                                }
-                                            ]
+                                            "example": {
+                                                "business_name": "Smart Pay Limited",
+                                                "business_address": "No. 5 Bourdilon Road Ikoyi",
+                                                "business_email": "info@smartpay.com",
+                                                "country_of_origin": "NG",
+                                                "port_of_origin": "803"
+                                            }
                                         }
                                     },
                                     "type": "object"
