@@ -451,7 +451,7 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Successful profile update",
+                        "description": "Successful Transaction Initialize update",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -462,7 +462,7 @@
                                         },
                                         "message": {
                                             "type": "string",
-                                            "example": "Profile was successfully updated"
+                                            "example": "Successful"
                                         },
                                         "data": {
                                             "type": "object",
@@ -523,7 +523,7 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Successful profile update",
+                        "description": "Successful BVN Verification",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -540,25 +540,20 @@
                                             "type": "object",
                                             "example": [
                                                 {
-                                                    "title": "Mr",
-                                                    "gender": "Male",
-                                                    "maritalStatus": "Single",
-                                                    "bvn": "54651333604",
-                                                    "firstName": "TEST",
-                                                    "middleName": "User",
-                                                    "lastName": "User",
-                                                    "dateOfBirth": "1999-12-21",
-                                                    "phoneNumber1": "09082838483",
-                                                    "phoneNumber2": "08028323323",
-                                                    "email": "testt@test.com",
-                                                    "lgaOfOrigin": "yaba",
-                                                    "lgaOfResidence": "yaba",
-                                                    "nin": "12345567895",
-                                                    "nameOnCard": "test test",
-                                                    "nationality": "Nigeria",
-                                                    "residentialAddress": "yaba",
-                                                    "stateOfOrigin": "Lagos",
-                                                    "stateOfResidence": "Lagos"
+                                                    "first_name": "TEST",
+                                                    "middle_name": "test",
+                                                    "last_name": "test",
+                                                    "phone_1": "09082838483",
+                                                    "phone_2": "08028323323",
+                                                    "address": "yaba",
+                                                    "state_of_residence": {
+                                                        "id": 803,
+                                                        "description": "Lagos"
+                                                    },
+                                                    "lga_of_residence": {
+                                                        "id": 1,
+                                                        "description": "yaba"
+                                                    }
                                                 }
                                             ]
                                         }
@@ -591,14 +586,14 @@
                         "multipart/form-data": {
                             "schema": {
                                 "required": [
-                                    "phoneNumber1"
+                                    "phone_1"
                                 ],
                                 "properties": {
-                                    "phoneNumber1": {
+                                    "phone_1": {
                                         "type": "string",
                                         "example": "08091270000"
                                     },
-                                    "phoneNumber2": {
+                                    "phone_2": {
                                         "type": "string",
                                         "example": "08051200000"
                                     },
@@ -632,11 +627,21 @@
                                             "type": "object",
                                             "example": [
                                                 {
-                                                    "business_name": "Smart Pay Limited",
-                                                    "business_address": "No. 5 Bourdilon Road Ikoyi",
-                                                    "business_email": "info@smartpay.com",
-                                                    "country_of_origin": "NG",
-                                                    "port_of_origin": "803"
+                                                    "first_name": "TEST",
+                                                    "middle_name": "test",
+                                                    "last_name": "test",
+                                                    "phone_1": "09082838483",
+                                                    "phone_2": "08028323323",
+                                                    "address": "yaba",
+                                                    "state_of_residence": {
+                                                        "id": 803,
+                                                        "description": "Lagos"
+                                                    },
+                                                    "lga_of_residence": {
+                                                        "id": 1,
+                                                        "description": "yaba"
+                                                    },
+                                                    "profile_pics": "http://localhost:8181/uploads/profile_pics/test_pics.jpg"
                                                 }
                                             ]
                                         }

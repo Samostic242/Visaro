@@ -159,8 +159,8 @@ class TransactionController extends Controller
                         "phone_1" => $check_bvn[0]->bvn_phone_number_1,
                         "phone_2" => $check_bvn[0]->bvn_phone_number_2,
                         "address" => $check_bvn[0]->bvn_residential_address,
-                        "state_of_residence" => ["id" => $check_bvn[0]->bvn_state_of_residence, "description" => $check_bvn[0]->stateOfResidence],
-                        "lga_of_residence" => ["id" => $check_bvn[0]->bvn_lga_of_residence, "description" => $check_bvn[0]->lgaOfResidence]
+                        "state_of_residence" => ["id" =>  (int)$check_bvn[0]->bvn_state_of_residence, "description" => $check_bvn[0]->stateOfResidence],
+                        "lga_of_residence" => ["id" => (int)$check_bvn[0]->bvn_lga_of_residence, "description" => $check_bvn[0]->lgaOfResidence]
                     ];
                 }
 
@@ -273,8 +273,8 @@ class TransactionController extends Controller
                             "phone_1" => $res_arr->data->phoneNumber1,
                             "phone_2" => $res_arr->data->phoneNumber2,
                             "address" => $res_arr->data->residentialAddress,
-                            "state_of_residence" => ["id" => $state_of_res, "description" => $res_arr->data->stateOfResidence],
-                            "lga_of_residence" => ["id" => $lga_of_res, "description" => $res_arr->data->lgaOfResidence]
+                            "state_of_residence" => ["id" =>  (int)$state_of_res, "description" => $res_arr->data->stateOfResidence],
+                            "lga_of_residence" => ["id" =>  (int)$lga_of_res, "description" => $res_arr->data->lgaOfResidence]
                         ];
 
                         return response()->json([

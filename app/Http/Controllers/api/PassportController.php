@@ -313,25 +313,20 @@ class PassportController extends Controller
      *          type="object",
      *                example={
      *                 0: {
-     *                       "title": "Mr",
-     *                       "gender": "Male",
-     *                       "maritalStatus": "Single",
-     *                       "bvn": "54651333604",
-     *                       "firstName": "TEST",
-     *                       "middleName": "User",
-     *                       "lastName": "User",
-     *                       "dateOfBirth": "1999-12-21",
-     *                       "phoneNumber1": "09082838483",
-     *                       "phoneNumber2": "08028323323",
-     *                       "email": "testt@test.com",
-     *                       "lgaOfOrigin": "yaba",
-     *                       "lgaOfResidence": "yaba",
-     *                       "nin": "12345567895",
-     *                       "nameOnCard": "test test",
-     *                       "nationality": "Nigeria",
-     *                       "residentialAddress": "yaba",
-     *                       "stateOfOrigin": "Lagos",
-     *                       "stateOfResidence": "Lagos",
+     *                       "first_name": "TEST",
+     *                       "middle_name": "test",
+     *                       "last_name": "test",
+     *                       "phone_1": "09082838483",
+     *                       "phone_2": "08028323323",
+     *                       "address": "yaba",
+     *                       "state_of_residence": {
+     *                       "id": 803,
+     *                       "description": "Lagos"
+     *                       },
+     *                       "lga_of_residence": {
+     *                       "id": 1,
+     *                       "description": "yaba"
+     *                       }
      *                    }
      *
      *                },
@@ -355,9 +350,9 @@ class PassportController extends Controller
      *    @OA\MediaType(
      *             mediaType="multipart/form-data",
      *             @OA\Schema(
-     *                 required={"phoneNumber1"},
-     *                 @OA\Property(property="phoneNumber1", type="string",  example="08091270000"),
-     *                 @OA\Property(property="phoneNumber2", type="string",  example="08051200000"),
+     *                 required={"phone_1"},
+     *                 @OA\Property(property="phone_1", type="string",  example="08091270000"),
+     *                 @OA\Property(property="phone_2", type="string",  example="08051200000"),
      *                 @OA\Property(
      *                     description="Profile Pics",
      *                     property="profile_pics",
@@ -378,12 +373,22 @@ class PassportController extends Controller
      *          property="data",
      *          type="object",
      *                example={
-     *                 0: {
-     *                       "business_name":"Smart Pay Limited",
-     *                       "business_address":"No. 5 Bourdilon Road Ikoyi",
-     *                       "business_email":"info@smartpay.com",
-     *                       "country_of_origin":"NG",
-     *                       "port_of_origin":"803",
+     *                 {
+     *                       "first_name": "TEST",
+     *                       "middle_name": "test",
+     *                       "last_name": "test",
+     *                       "phone_1": "09082838483",
+     *                       "phone_2": "08028323323",
+     *                       "address": "yaba",
+     *                       "state_of_residence": {
+     *                       "id": 803,
+     *                       "description": "Lagos"
+     *                       },
+     *                       "lga_of_residence": {
+     *                       "id": 1,
+     *                       "description": "yaba"
+     *                       },
+     *                       "profile_pics": "http://localhost:8181/uploads/profile_pics/test_pics.jpg"
      *                    }
      *
      *                },
@@ -703,8 +708,8 @@ class PassportController extends Controller
     public function profile_update(Request $request)
     {
         $rules = [
-            "phoneNumber1" => "required",
-            "phoneNumber2" => "sometimes",
+            "phone_1" => "required",
+            "phone_2" => "sometimes",
             "profile_pics" => 'sometimes|image|mimes:jpg,png,jpeg,gif,svg|max:2048|dimensions:min_width=100,min_height=100,max_width=1300,max_height=1300',
         ];
 
@@ -720,11 +725,11 @@ class PassportController extends Controller
         {
             if($check[0]->bvn_verified ==1)
             {
-                $insert["bvn_phone_number_1"] = $request->phoneNumber1;
+                $insert["bvn_phone_number_1"] = $request->phone_1;
 
-                if(isset($request->phoneNumber2) && $request->phoneNumber2 != "")
+                if(isset($request->phone_2) && $request->phone_2 != "")
                 {
-                    $insert["bvn_phone_number_2"] = $request->phoneNumber2;
+                    $insert["bvn_phone_number_2"] = $request->phone_2;
                 }
 
                 if ($request->hasFile('profile_pics'))
@@ -740,11 +745,33 @@ class PassportController extends Controller
 
                 DB::table('profile')->where('user_id',Auth::user()->id)->update($insert);
 
+                $check_bvn = DB::table('profile as p')
+                ->selectRaw('bvn_first_name, bvn_middle_name, bvn_last_name, bvn_phone_number_1,profile_pics_file_name,
+                 bvn_phone_number_2, bvn_residential_address, bvn_state_of_residence,
+                 bvn_lga_of_residence, r.description as stateOfResidence, l.description as lgaOfResidence,p.bvn_verified')
+                ->whereIn('bvn_verified',[0,1])
+                ->where('user_id', Auth::user()->id)
+                ->leftjoin('lga as l','l.id','p.bvn_lga_of_residence')
+                ->leftjoin('region as r','r.id','p.bvn_state_of_residence')
+                ->get();
+
+
                 return response()->json([
                     'success' => true,
                     'message' => 'Profile update was successful',
+                    'data' => [
+                        "first_name" => $check_bvn[0]->bvn_first_name,
+                        "middle_name" => $check_bvn[0]->bvn_middle_name,
+                        "last_name" => $check_bvn[0]->bvn_last_name,
+                        "phone_1" => $check_bvn[0]->bvn_phone_number_1,
+                        "phone_2" => $check_bvn[0]->bvn_phone_number_2,
+                        "address" => $check_bvn[0]->bvn_residential_address,
+                        "state_of_residence" => ["id" => (int)$check_bvn[0]->bvn_state_of_residence, "description" => $check_bvn[0]->stateOfResidence],
+                        "lga_of_residence" => ["id" => (int)$check_bvn[0]->bvn_lga_of_residence, "description" => $check_bvn[0]->lgaOfResidence],
+                        "profile_pics" => url('/uploads/profile_pics/'.$check_bvn[0]->profile_pics_file_name)
+                    ]
 
-                ], 406);
+                ], 201);
 
 
             }else
