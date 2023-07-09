@@ -33,6 +33,9 @@ Route::prefix('v1')->group(function () {
 
         Route::post('/bvn_verification', [App\Http\Controllers\api\v1\TransactionController::class, 'bvn_verification'])->name('bvn_verification');
 
+        Route::post('/profile_update', [PassportController::class, 'profile_update'])->name('profile_update');
+
+
 
 
         Route::apiResource('articles',App\Http\Controllers\api\v1\ArticleController::class);

@@ -10,6 +10,8 @@ use Laravel\Passport\TokenRepository;
 use Laravel\Passport\RefreshTokenRepository;
 use App\Http\Controllers\Controller;
 use Mail;
+use DB;
+use Auth;
 
 class PassportController extends Controller
 {
@@ -258,10 +260,10 @@ class PassportController extends Controller
      * ),
      * @OA\Response(
      *    response=200,
-     *   description="Successful profile update",
+     *   description="Successful Transaction Initialize update",
      *     @OA\JsonContent(
      *       @OA\Property(property="success", type="boolean", example="true"),
-     *       @OA\Property(property="message", type="string", example="Profile was successfully updated"),
+     *       @OA\Property(property="message", type="string", example="Successful"),
      *       @OA\Property(
      *          property="data",
      *          type="object",
@@ -295,14 +297,14 @@ class PassportController extends Controller
      *             mediaType="multipart/form-data",
      *             @OA\Schema(
      *                 required={"bvn","payment_reference"},
-     *                 @OA\Property(property="bvn", type="string",  example="482928392349"),
+     *                 @OA\Property(property="bvn", type="string",  example="54651333604"),
      *                 @OA\Property(property="payment_reference", type="integer",  example="482jfjd849"),
      *             )
      *         )
      * ),
      * @OA\Response(
      *    response=200,
-     *   description="Successful profile update",
+     *   description="Successful BVN Verification",
      *     @OA\JsonContent(
      *       @OA\Property(property="success", type="boolean", example="true"),
      *       @OA\Property(property="message", type="string", example="BVN Verification was successful"),
@@ -330,6 +332,58 @@ class PassportController extends Controller
      *                       "residentialAddress": "yaba",
      *                       "stateOfOrigin": "Lagos",
      *                       "stateOfResidence": "Lagos",
+     *                    }
+     *
+     *                },
+     *              ),
+     *
+     *        )**
+     *        )
+     *     )
+     * ),
+     * *******************************************************************************************************************************
+     * * @OA\Post(
+     * path="/profile_update",
+     * summary="To Update User Profile",
+     * description="This update User profile",
+     * operationId="profile_update",
+     * tags={"Profile Update"},
+     * security={{"bearer_token":{}}},
+     * @OA\RequestBody(
+     *    required=true,
+     *    description="Request body",
+     *    @OA\MediaType(
+     *             mediaType="multipart/form-data",
+     *             @OA\Schema(
+     *                 required={"phoneNumber1"},
+     *                 @OA\Property(property="phoneNumber1", type="string",  example="08091270000"),
+     *                 @OA\Property(property="phoneNumber2", type="string",  example="08051200000"),
+     *                 @OA\Property(
+     *                     description="Profile Pics",
+     *                     property="profile_pics",
+     *                     type="string",
+     *                     format="binary",
+     *                 ),
+     *
+     *             )
+     *         ),
+     * ),
+     * @OA\Response(
+     *    response=200,
+     *   description="Successful profile update",
+     *     @OA\JsonContent(
+     *       @OA\Property(property="success", type="boolean", example="true"),
+     *       @OA\Property(property="message", type="string", example="Company profile was successfully updated"),
+     *       @OA\Property(
+     *          property="data",
+     *          type="object",
+     *                example={
+     *                 0: {
+     *                       "business_name":"Smart Pay Limited",
+     *                       "business_address":"No. 5 Bourdilon Road Ikoyi",
+     *                       "business_email":"info@smartpay.com",
+     *                       "country_of_origin":"NG",
+     *                       "port_of_origin":"803",
      *                    }
      *
      *                },
@@ -644,6 +698,75 @@ class PassportController extends Controller
      *
      * @return json
      */
+
+
+    public function profile_update(Request $request)
+    {
+        $rules = [
+            "phoneNumber1" => "required",
+            "phoneNumber2" => "sometimes",
+            "profile_pics" => 'sometimes|image|mimes:jpg,png,jpeg,gif,svg|max:2048|dimensions:min_width=100,min_height=100,max_width=1300,max_height=1300',
+        ];
+
+        $this->validate($request, $rules);
+
+        ;
+
+        //Check if BVN has been verified
+
+        $check =  DB::table('profile')->where('user_id', Auth::user()->id)->get();
+
+        if(count($check) > 0)
+        {
+            if($check[0]->bvn_verified ==1)
+            {
+                $insert["bvn_phone_number_1"] = $request->phoneNumber1;
+
+                if(isset($request->phoneNumber2) && $request->phoneNumber2 != "")
+                {
+                    $insert["bvn_phone_number_2"] = $request->phoneNumber2;
+                }
+
+                if ($request->hasFile('profile_pics'))
+                {
+                    $file = $request->file('profile_pics');
+                    $extension = $request->file('profile_pics')->getClientOriginalExtension();
+                    $filename = Auth::user()->id.'_'.Auth::user()->email . '_profile_pics.' . $extension; // renameing image
+                    $destinationPath = 'uploads/profile_pics/';//its refers project/public/uploads/jsa directory
+                    //$work_permit_log->jsa_upload = $filename;
+                    $upload_success = $file->move($destinationPath, $filename);
+                    $insert["profile_pics_file_name"] = $filename;
+                }
+
+                DB::table('profile')->where('user_id',Auth::user()->id)->update($insert);
+
+                return response()->json([
+                    'success' => true,
+                    'message' => 'Profile update was successful',
+
+                ], 406);
+
+
+            }else
+            {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'This user BVN verificaton was not successful, kindly contact admin',
+
+                ], 406);
+            }
+
+        }else
+        {
+            return response()->json([
+                'success' => false,
+                'message' => 'Profile Not Found, Please ensure you have done BVN verification',
+
+            ], 406);
+        }
+
+    }
+
     public function userDetail()
     {
         return response()->json([

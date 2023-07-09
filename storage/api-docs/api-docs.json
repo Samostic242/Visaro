@@ -509,7 +509,7 @@
                                 "properties": {
                                     "bvn": {
                                         "type": "string",
-                                        "example": "482928392349"
+                                        "example": "54651333604"
                                     },
                                     "payment_reference": {
                                         "type": "integer",
@@ -559,6 +559,84 @@
                                                     "residentialAddress": "yaba",
                                                     "stateOfOrigin": "Lagos",
                                                     "stateOfResidence": "Lagos"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
+        "/profile_update": {
+            "post": {
+                "tags": [
+                    "Profile Update"
+                ],
+                "summary": "To Update User Profile",
+                "description": "This update User profile",
+                "operationId": "profile_update",
+                "requestBody": {
+                    "description": "Request body",
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "phoneNumber1"
+                                ],
+                                "properties": {
+                                    "phoneNumber1": {
+                                        "type": "string",
+                                        "example": "08091270000"
+                                    },
+                                    "phoneNumber2": {
+                                        "type": "string",
+                                        "example": "08051200000"
+                                    },
+                                    "profile_pics": {
+                                        "description": "Profile Pics",
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful profile update",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Company profile was successfully updated"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "example": [
+                                                {
+                                                    "business_name": "Smart Pay Limited",
+                                                    "business_address": "No. 5 Bourdilon Road Ikoyi",
+                                                    "business_email": "info@smartpay.com",
+                                                    "country_of_origin": "NG",
+                                                    "port_of_origin": "803"
                                                 }
                                             ]
                                         }

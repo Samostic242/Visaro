@@ -181,6 +181,8 @@ class TransactionController extends Controller
                     'number' => $bvn,
                 ];
 
+
+
                 //set the url, number of POST vars, POST data
                 curl_setopt($ch,CURLOPT_URL, $url);
                 curl_setopt($ch,CURLOPT_POST, true);
@@ -195,76 +197,115 @@ class TransactionController extends Controller
 
                 //execute post
                 $result = curl_exec($ch);
+
+
+
                 $res_arr = json_decode($result);
 
-                if($res_arr->response_code == "00")// Response gotten from the server
+
+                if($res_arr->status == true)
                 {
+                    if($res_arr->response_code == "00")// Response gotten from the server
+                    {
 
-                    if($res_arr->verification->status == "VERIFIED")
-                    {
-                       $status = 1;
-                    }else
-                    {
-                        $status = 0;
+                        if($res_arr->verification->status == "VERIFIED")
+                        {
+                           $status = 1;
+                        }else
+                        {
+                            $status = 0;
+                        }
+
+                        //get title code
+                        $title = $this->get_title_code($res_arr->data->title);
+                        $state_of_res = $this->get_state_code($res_arr->data->stateOfResidence);
+                        $lga_of_res = $this->get_lga_code($state_of_res, $res_arr->data->lgaOfResidence);;
+
+                        $state_of_orig = $this->get_state_code($res_arr->data->stateOfOrigin);
+                        $lga_of_orig = $this->get_lga_code($state_of_orig, $res_arr->data->lgaOfOrigin);
+
+
+                        $profile = new Profile;
+                        $profile->user_id = Auth::user()->id;
+                        $profile->bvn_title  = $title;
+                        $profile->bvn_gender  =  $this->get_gender_code($res_arr->data->gender);
+                        $profile->bvn_marital_status  =  $this->get_marital_code($res_arr->data->maritalStatus);
+                        //$profile->  = $res_arr->data->watchListed; YES
+                        //$profile->  = $res_arr->data->levelOfAccount; Level 1 Account
+                        $profile->bvn  = $res_arr->data->bvn;
+                        $profile->bvn_first_name  = $res_arr->data->firstName;
+                        $profile->bvn_middle_name  = $res_arr->data->middleName;
+                        $profile->bvn_last_name  = $res_arr->data->lastName;
+                        $profile->bvn_email  = $res_arr->data->email;
+                        $profile->bvn_date_of_birth  = $res_arr->data->dateOfBirth;
+                        $profile->bvn_phone_number_1  = $res_arr->data->phoneNumber1;
+                        $profile->bvn_phone_number_2  = $res_arr->data->phoneNumber2;
+                        $profile->bvn_reg_date  = $res_arr->data->registrationDate;
+                        $profile->bvn_enroll_bank_code  = $res_arr->data->enrollmentBank;
+                        $profile->bvn_enroll_branch  = $res_arr->data->enrollmentBranch;
+                        $profile->business_email  = $res_arr->data->email;
+                        $profile->bvn_lga_of_origin  = $lga_of_orig;
+                        $profile->bvn_lga_of_residence  = $lga_of_res;
+                        $profile->bvn_nin  = $res_arr->data->nin;
+                        $profile->bvn_name_on_card  = $res_arr->data->nameOnCard;
+                        $profile->bvn_nationality  = $this->get_country_key($res_arr->data->nationality);
+                        $profile->bvn_residential_address  = $res_arr->data->residentialAddress;
+                        $profile->bvn_state_of_origin  = $state_of_orig;
+                        $profile->bvn_state_of_residence  = $state_of_res;
+                        $profile->bvn_verified = $status;
+
+
+
+                        $uploadpath   = 'uploads/profile_pics/';
+
+                        $imagebase64  = base64_decode($res_arr->data->base64Image);
+                        $file_name         = Auth::user()->id.'_'.Auth::user()->email . '_bvn_pics.' . '.png';
+                        file_put_contents($uploadpath.$file_name, $imagebase64);
+
+                        $profile->bvn_pics_file_name =  $file_name;
+
+                        $profile->save();
+
+                        $data = [
+                            "first_name" => $res_arr->data->firstName,
+                            "middle_name" => $res_arr->data->middleName,
+                            "last_name" => $res_arr->data->lastName,
+                            "phone_1" => $res_arr->data->phoneNumber1,
+                            "phone_2" => $res_arr->data->phoneNumber2,
+                            "address" => $res_arr->data->residentialAddress,
+                            "state_of_residence" => ["id" => $state_of_res, "description" => $res_arr->data->stateOfResidence],
+                            "lga_of_residence" => ["id" => $lga_of_res, "description" => $res_arr->data->lgaOfResidence]
+                        ];
+
+                        return response()->json([
+                            'success'=>true,
+                            'message'=> 'success',
+                            'data' => $data
+                            ], 200);
+
                     }
+                }else{
+                    $message = "";
+                   //Return the actual BVN Result
+                   if(isset($res_arr->message))
+                   {
+                    $message = $res_arr->message;
+                   }elseif(isset($res_arr->detail->number[0]))
+                   {
+                     $message = $res_arr->detail->number[0];
+                   }
 
-                    //get title code
-                    $title = $this->get_title_code($res_arr->bvn_data->title);
-                    $state_of_res = $this->get_state_code($res_arr->bvn_data->stateOfResidence);
-                    $lga_of_res = $this->get_lga_code($state_of_res, $res_arr->bvn_data->lgaOfResidence);;
+                   return response()->json([
+                    'success'=>false,
+                    'message'=> $message,
 
-                    $state_of_orig = $this->get_state_code($res_arr->bvn_data->stateOfOrigin);
-                    $lga_of_orig = $this->get_lga_code($state_of_orig, $res_arr->bvn_data->lgaOfOrigin);
-
-
-                    $profile = new Profile;
-                    $profile->user_id = Auth::user()->id;
-                    $profile->bvn_title  = $title;
-                    $profile->bvn_gender  =  $this->get_gender_code($res_arr->bvn_data->gender);
-                    $profile->bvn_marital_status  =  $this->get_marital_code($res_arr->bvn_data->maritalStatus);
-                    //$profile->  = $res_arr->bvn_data->watchListed; YES
-                    //$profile->  = $res_arr->bvn_data->levelOfAccount; Level 1 Account
-                    $profile->bvn  = $res_arr->bvn_data->bvn;
-                    $profile->bvn_first_name  = $res_arr->bvn_data->firstName;
-                    $profile->bvn_middle_name  = $res_arr->bvn_data->middleName;
-                    $profile->bvn_last_name  = $res_arr->bvn_data->lastName;
-                    $profile->bvn_email  = $res_arr->bvn_data->email;
-                    $profile->bvn_date_of_birth  = $res_arr->bvn_data->dateOfBirth;
-                    $profile->bvn_phone_number_1  = $res_arr->bvn_data->phoneNumber1;
-                    $profile->bvn_phone_number_2  = $res_arr->bvn_data->phoneNumber2;
-                    $profile->bvn_reg_date  = $res_arr->bvn_data->registrationDate;
-                    $profile->bvn_enroll_bank_code  = $res_arr->bvn_data->enrollmentBank;
-                    $profile->bvn_enroll_branch  = $res_arr->bvn_data->enrollmentBranch;
-                    $profile->business_email  = $res_arr->bvn_data->email;
-                    $profile->bvn_lga_of_origin  = $lga_of_orig;
-                    $profile->bvn_lga_of_residence  = $lga_of_res;
-                    $profile->bvn_nin  = $res_arr->bvn_data->nin;
-                    $profile->bvn_name_on_card  = $res_arr->bvn_data->nameOnCard;
-                    $profile->bvn_nationality  = $this->get_country_key($res_arr->bvn_data->nationality);
-                    $profile->bvn_residential_address  = $res_arr->bvn_data->residentialAddress;
-                    $profile->bvn_state_of_origin  = $state_of_orig;
-                    $profile->bvn_state_of_residence  = $state_of_res;
-                    $profile->bvn_verified = $status;
-                    $profile->save();
-
-                    $data = [
-                        "first_name" => $res_arr->bvn_data->firstName,
-                        "middle_name" => $res_arr->bvn_data->middleName,
-                        "last_name" => $res_arr->bvn_data->lastName,
-                        "phone_1" => $res_arr->bvn_data->phoneNumber1,
-                        "phone_2" => $res_arr->bvn_data->phoneNumber2,
-                        "address" => $res_arr->bvn_data->residentialAddress,
-                        "state_of_residence" => ["id" => $state_of_res, "description" => $res_arr->bvn_data->stateOfResidence],
-                        "lga_of_residence" => ["id" => $lga_of_res, "description" => $state_of_res, $res_arr->bvn_data->lgaOfResidence]
-                    ];
+                    ], 200);
 
                 }
 
-                return response()->json([
-                    'success'=>true,
-                    'message'=> 'success',
-                    'data' => $data
-                    ], 200);
+
+
+
                }
 
             }else
