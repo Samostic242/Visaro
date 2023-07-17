@@ -55,7 +55,7 @@
                     }
                 },
                 "responses": {
-                    "200": {
+                    "201": {
                         "description": "Successful Registration",
                         "content": {
                             "application/json": {

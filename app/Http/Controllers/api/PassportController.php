@@ -41,7 +41,7 @@ class PassportController extends Controller
      *    ),
      * ),
      * @OA\Response(
-     *    response=200,
+     *    response=201,
      *    description="Successful Registration",
      *    @OA\JsonContent(
      *       @OA\Property(property="success", type="boolean", example="true"),
@@ -615,6 +615,26 @@ class PassportController extends Controller
          if (auth()->attempt($input)) {
             $token = auth()->user()->createToken('passport_token')->accessToken;
          }
+
+            $link = "https://google.com";//verify email link
+            $data = array(
+                'full_name'=>auth()->user()->firstname." ".auth()->user()->lastname,
+                'link'=> $link,
+                'title' => 'New Account Creation',
+                'email_content' => "You've successfully set up an account with Visaro Nigeria. Please click the link below to finalize your profile.",
+
+
+            );
+
+            try{
+                Mail::send('emails.registration', $data, function($message) use ($data){
+                    $message->from("noreply@visarong.com", 'Visaro Nigeria');
+                    $message->to(auth()->user()->email);
+                    $message->subject('Visaro Registration');
+                });
+            }catch(\Exception $e){
+                // Get error here
+            }
 
         return response()->json([
             'success' => true,

@@ -29,7 +29,8 @@ class TransactionController extends Controller
 
         $fields = [
             'email' => Auth::user()->email,
-            'amount' => (int)DB::table('tbl_settings')->select('value')->where('name','BVN_amount')->get()[0]->value * 100 //paystack takes kobo
+            'amount' => (int)DB::table('tbl_settings')->select('value')->where('name','BVN_amount')->get()[0]->value * 100, //paystack takes kobo
+            'callback_url' => DB::table('tbl_settings')->select('value')->where('name','paystack_callback')->get()[0]->value
         ];
 
         $fields_string = http_build_query($fields);
