@@ -15,26 +15,25 @@ Route::prefix('v1')->group(function () {
     Route::get('/list_otp_types', [App\Http\Controllers\api\v1\MessageController::class, 'list_otp_types'])->name('list_otp_types');
 
 
-    // put all api protected routes here
+
     Route::middleware('auth:api')->group(function () {
        // Route::post('user-detail', [PassportController::class, 'userDetail']);
         Route::post('logout', [PassportController::class, 'logout']);
-
         Route::post('/validate_otp', [App\Http\Controllers\api\v1\MessageController::class, 'validate_otp'])->name('validate_otp');
-
         Route::get('/resend_otp/{otp_type}', [App\Http\Controllers\api\v1\MessageController::class, 'resend_otp'])->name('resend_otp');
         Route::post('/create_password', [App\Http\Controllers\api\v1\MessageController::class, 'create_password'])->name('create_password');
-        Route::post('/profile_update', [App\Http\Controllers\api\v1\MessageController::class, 'profile_update'])->name('profile_update');
-        Route::post('/company_profile_update', [App\Http\Controllers\api\v1\MessageController::class, 'company_profile_update'])->name('company_profile_update');
-
-
-        Route::post('/initialize_transaction', [App\Http\Controllers\api\v1\TransactionController::class, 'initialize_transaction'])->name('initialize_transaction');
         Route::post('/verify_transaction', [App\Http\Controllers\api\v1\TransactionController::class, 'verify_transaction'])->name('verify_transaction');
 
-        Route::post('/bvn_verification', [App\Http\Controllers\api\v1\TransactionController::class, 'bvn_verification'])->name('bvn_verification');
 
-        Route::post('/profile_update', [PassportController::class, 'profile_update'])->name('profile_update');
-
+        Route::group(['middleware' => 'checkUserStatus'], function () {
+            // Routes that require user status to be 1
+            // Add your routes here...
+            Route::post('/initialize_transaction', [App\Http\Controllers\api\v1\TransactionController::class, 'initialize_transaction'])->name('initialize_transaction');
+            Route::post('/bvn_verification', [App\Http\Controllers\api\v1\TransactionController::class, 'bvn_verification'])->name('bvn_verification');
+            Route::post('/profile_update', [PassportController::class, 'profile_update'])->name('profile_update');
+            Route::post('/profile_update', [App\Http\Controllers\api\v1\MessageController::class, 'profile_update'])->name('profile_update');
+            Route::post('/company_profile_update', [App\Http\Controllers\api\v1\MessageController::class, 'company_profile_update'])->name('company_profile_update');
+        });
 
 
 

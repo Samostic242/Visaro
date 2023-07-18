@@ -767,6 +767,71 @@
                 ]
             }
         },
+        "/get_profile_details": {
+            "get": {
+                "tags": [
+                    "Get Profile Details"
+                ],
+                "summary": "To get user profile details",
+                "description": "This will get all information about a user profile",
+                "operationId": "get_profile_details",
+                "responses": {
+                    "200": {
+                        "description": "Successful profile update",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Success"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "example": {
+                                                "account_type": {
+                                                    "id": 1,
+                                                    "description": "Personal"
+                                                },
+                                                "first_name": "TEST",
+                                                "middle_name": "test",
+                                                "last_name": "test",
+                                                "phone_1": "09082838483",
+                                                "phone_2": "08028323323",
+                                                "address": "yaba",
+                                                "state_of_residence": {
+                                                    "id": 803,
+                                                    "description": "Lagos"
+                                                },
+                                                "lga_of_residence": {
+                                                    "id": 1,
+                                                    "description": "yaba"
+                                                },
+                                                "profile_pics": "http://localhost:8181/uploads/profile_pics/test_pics.jpg",
+                                                "wallet": {
+                                                    "id": 1,
+                                                    "balance": 52000
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
         "/country_list": {
             "get": {
                 "tags": [

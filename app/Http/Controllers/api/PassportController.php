@@ -470,6 +470,56 @@ class PassportController extends Controller
      *     )
      * ),
      * **********************************************************************************************************************************
+     * @OA\GET(
+     * path="/get_profile_details",
+     * summary="To get user profile details",
+     * description="This will get all information about a user profile",
+     * operationId="get_profile_details",
+     * tags={"Get Profile Details"},
+     * security={{"bearer_token":{}}},
+     * @OA\Response(
+     *    response=200,
+     *   description="Successful profile update",
+     *     @OA\JsonContent(
+     *       @OA\Property(property="success", type="boolean", example="true"),
+     *       @OA\Property(property="message", type="string", example="Success"),
+     *       @OA\Property(
+     *          property="data",
+     *          type="object",
+     *                example={
+     *                       "account_type": {
+     *                        "id": 1,
+     *                        "description" : "Personal"
+     *                       },
+     *                       "first_name": "TEST",
+     *                       "middle_name": "test",
+     *                       "last_name": "test",
+     *                       "phone_1": "09082838483",
+     *                       "phone_2": "08028323323",
+     *                       "address": "yaba",
+     *                       "state_of_residence": {
+     *                       "id": 803,
+     *                       "description": "Lagos"
+     *                       },
+     *                       "lga_of_residence": {
+     *                       "id": 1,
+     *                       "description": "yaba"
+     *                       },
+     *                       "profile_pics": "http://localhost:8181/uploads/profile_pics/test_pics.jpg",
+     *                       "wallet": {
+     *                        "id": 1,
+     *                        "balance" : 52000
+     *                       },
+     *
+     *
+     *                },
+     *              ),
+     *
+     *        )**
+     *        )
+     *     )
+     * ),
+     * **********************************************************************************************************************************
      *
      * @OA\get(
      * path="/country_list",

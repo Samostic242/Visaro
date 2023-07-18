@@ -327,7 +327,7 @@ class MessageController extends Controller
             {
 
                 $update["otp_code"] = "";
-                $update["otp_login_verif"] = 0;
+                //$update["otp_login_verif"] = 0;
                 $update["otp_created_at"] = NULL;
                 $update["otp_expiry_time"] = NULL;
 
