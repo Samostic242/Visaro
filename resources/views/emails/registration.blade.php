@@ -161,7 +161,7 @@ line-height: 30px; margin: 0;padding: 0;-webkit-text-size-adjust: 100%;backgroun
   <div style="line-height: 140%; text-align: justify; word-wrap: break-word;">
     <p style="font-size: 12px; line-height: 140%; margin-bottom:10px"><strong> Hi {{strtoupper($full_name)}}</strong>,</p>
 <p style="font-size: 14px; line-height: 140%;">{{$email_content}}</p>
-
+<h3>{{$otp}}</h3>
 <p style="font-size: 14px; line-height: 140%;">
     Thank you for choosing our platform.
     <br/> <br/>

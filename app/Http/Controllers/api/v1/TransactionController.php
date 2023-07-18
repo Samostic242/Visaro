@@ -14,6 +14,8 @@ class TransactionController extends Controller
 
     public function initialize_transaction(Request $request)
     {
+
+
         $check = DB::table('trans_type')->where('trans_type_code', $request->transaction_type)->count();
 
         if($check < 1) //If transaction type not found
@@ -24,14 +26,31 @@ class TransactionController extends Controller
             ], 406);
         }
 
+        $value = $request->amount;
+
+        if ($request->amount == null && ! is_int($value)) {
+             return response()->json([
+                'success'=>false,
+                'message'=>'Invalid Amount',
+            ], 406);
+        }
+
+
+
+
 
         $url = "https://api.paystack.co/transaction/initialize";
 
         $fields = [
             'email' => Auth::user()->email,
             'amount' => (int)DB::table('tbl_settings')->select('value')->where('name','BVN_amount')->get()[0]->value * 100, //paystack takes kobo
-            'callback_url' => DB::table('tbl_settings')->select('value')->where('name','paystack_callback')->get()[0]->value
+            //'callback_url' => DB::table('tbl_settings')->select('value')->where('name','paystack_callback')->get()[0]->value
         ];
+
+        if (isset($request->callback_url) && $request->callback_url !="")
+        {
+            $fields['callback_url'] = $request->callback_url;
+        }
 
         $fields_string = http_build_query($fields);
 

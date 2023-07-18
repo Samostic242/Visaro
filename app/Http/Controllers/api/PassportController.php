@@ -603,12 +603,24 @@ class PassportController extends Controller
             ], 406);
         }
 
+        $otp = rand(1000,9000);
+        $otp_expiry_min =  10;
+        $date = date('Y-m-d H:i:s');
+        $currentDate = strtotime($date);
+        $futureDate = $currentDate+(60*$otp_expiry_min); //Add 10 minute to the current date
+        $expiry = date("Y-m-d H:i:s", $futureDate);
+
          $user = new User;
          /*$user->firstname = $input['firstname'];
          $user->middlename = $input['middlename'];
          $user->lastname = $input['lastname'];*/
          $user->email = $input['email'];
          $user->password = Hash::make($input['password']);
+         $user->otp_code = $otp;
+         $user->otp_type = 1; //login validation
+         $user->otp_login_verif = 0;
+         $user->otp_created_at = $date;
+         $user->otp_expiry_time = $expiry;
          $user->save();
 
          // authentication attempt
@@ -620,8 +632,9 @@ class PassportController extends Controller
             $data = array(
                 'full_name'=>auth()->user()->firstname." ".auth()->user()->lastname,
                 'link'=> $link,
-                'title' => 'New Account Creation',
-                'email_content' => "You've successfully set up an account with Visaro Nigeria. Please click the link below to finalize your profile.",
+                'otp' => $otp,
+                'title' => 'Registration Confirmation: One-Time Password (OTP)',
+                'email_content' => "Congratulations! Your registration with Visaro Nigeria is now complete. To finalize your profile, kindly input the One-Time Password (OTP) provided below",
 
 
             );
