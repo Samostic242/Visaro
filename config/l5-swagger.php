@@ -1,6 +1,7 @@
 <?php
 
 return [
+
     'default' => 'default',
     'documentations' => [
         'default' => [
@@ -14,6 +15,7 @@ return [
                 */
                 'api' => 'api/documentation',
             ],
+            'secure_protocol' => 'https',
             'paths' => [
                 /*
                  * Edit to include full URL in ui for assets
