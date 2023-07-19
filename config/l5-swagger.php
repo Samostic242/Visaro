@@ -15,7 +15,6 @@ return [
                 */
                 'api' => 'api/documentation',
             ],
-            'secure_protocol' => 'https',
             'paths' => [
                 /*
                  * Edit to include full URL in ui for assets
@@ -74,7 +73,7 @@ return [
             */
             'group_options' => [],
         ],
-
+        'secure_protocol' => true, // Use HTTPS for API documentation URL
         'paths' => [
             /*
              * Absolute path to location where parsed annotations will be stored
