@@ -16,6 +16,9 @@
         {
             "url": "http://localhost:8181/api/v1",
             "description": "Visaro Nigeria"
+        },
+        {
+            "url": "http://localhost:8181"
         }
     ],
     "paths": {
