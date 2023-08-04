@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Laravel\Passport\TokenRepository;
 use Laravel\Passport\RefreshTokenRepository;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Utilities;
 use Mail;
 use DB;
 use Auth;
@@ -281,7 +282,46 @@ class PassportController extends Controller
      *        )
      *     )
      * ),
+     * ********************************************************************************************************************************
+     * @OA\get(
+     * path="/verify_transaction/{reference}",
+     * summary="To Verify if a payment is successful",
+     * description="This endpoint will return the status of any payment done on visaro",
+     * operationId="verify_transaction",
+     * tags={"Verify Transaction"},
+     * security={{"bearer_token":{}}},
+     * @OA\Parameter(
+     *          name="reference",
+     *          description="Transaction Reference",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="string"
+     *          )
+     *      ),
+     * @OA\Response(
+     *    response=200,
+     *    description="Verify Transaction Successful Response",
+     *     @OA\JsonContent(
+     *       @OA\Property(property="success", type="boolean", example="true"),
+     *       @OA\Property(property="message", type="string", example="Success"),
+     *       @OA\Property(
+     *          property="data",
+     *          type="object",
+     *                example={
+     *                 {
+     *                     "amount": "100",
+     *                     "created_at": "2023-08-04 14:12:49",
+     *                     "trans_type": "BVN Charge",
+     *                     "visaro_status": "Successful",
+     *                     "paystack_status": "success"
+     *                 }
+     *                },
+     *              ),
      *
+     *        )
+     *     )
+     * ),
      * ********************************************************************************************************************************
      * @OA\Post(
      * path="/bvn_verification",
@@ -417,12 +457,13 @@ class PassportController extends Controller
      *    @OA\MediaType(
      *             mediaType="multipart/form-data",
      *             @OA\Schema(
-     *                 required={"profile_pics","business_name","business_address","business_email","country_of_origin","port_of_origin","certificate_of_incoporation","memart","acfta_certificate"},
+     *                 required={"account_type","profile_pics","business_name","business_address","business_email","country_of_origin","port_of_origin","certificate_of_incoporation","memart","acfta_certificate"},
      *                 @OA\Property(property="business_name", type="string",  example="Smart Pay Limited"),
      *                 @OA\Property(property="business_address", type="string",  example="No. 5 Bourdilon Road Ikoyi"),
      *                 @OA\Property(property="business_email", type="string",  example="info@smartpay.com"),
      *                 @OA\Property(property="country_of_origin", type="string", example="NG"),
      *                 @OA\Property(property="port_of_origin", type="string", example="803"),
+     *                 @OA\Property(property="account_type", type="integer",  example="2"),
      *                 @OA\Property(
      *                     description="Certificate of Incoporation",
      *                     property="certificate_of_incoporation",
@@ -471,11 +512,11 @@ class PassportController extends Controller
      * ),
      * **********************************************************************************************************************************
      * @OA\GET(
-     * path="/get_profile_details",
+     * path="/profile_details",
      * summary="To get user profile details",
      * description="This will get all information about a user profile",
-     * operationId="get_profile_details",
-     * tags={"Get Profile Details"},
+     * operationId="profile_details",
+     * tags={"Profile Details"},
      * security={{"bearer_token":{}}},
      * @OA\Response(
      *    response=200,
@@ -507,8 +548,9 @@ class PassportController extends Controller
      *                       },
      *                       "profile_pics": "http://localhost:8181/uploads/profile_pics/test_pics.jpg",
      *                       "wallet": {
-     *                        "id": 1,
-     *                        "balance" : 52000
+     *                         "visaro_balance": "0.00",
+     *                         "visaro_credit": "0.00",
+     *                         "status": "Active"
      *                       },
      *
      *
@@ -529,7 +571,7 @@ class PassportController extends Controller
      * tags={"Country List"},
      * @OA\Response(
      *    response=200,
-     *    description="List of Country",
+     *    description="List of Country Successful Response",
      *     @OA\JsonContent(
      *       @OA\Property(property="success", type="boolean", example="true"),
      *       @OA\Property(property="message", type="string", example="your query was successful"),
@@ -584,7 +626,7 @@ class PassportController extends Controller
      *      ),
      * @OA\Response(
      *    response=200,
-     *    description="List of region",
+     *    description="List of region Successful Response",
      *     @OA\JsonContent(
      *       @OA\Property(property="success", type="boolean", example="true"),
      *       @OA\Property(property="message", type="string", example="your query was successful"),
@@ -620,7 +662,143 @@ class PassportController extends Controller
      *        )
      *     )
      * ),
+     ****************************************************************************************************************
+     * @OA\get(
+     * path="/dashboard",
+     * summary="To get application dashboard",
+     * description="This end point will return the application dashboard when the onboarding has been completed by the user",
+     * operationId="dashboard",
+     * tags={"Dashboard"},
+     * security={{"bearer_token":{}}},
+     * @OA\Response(
+     *    response=200,
+     *    description="User Dashboard Successful Response",
+     *     @OA\JsonContent(
+     *       @OA\Property(property="success", type="boolean", example="true"),
+     *       @OA\Property(property="message", type="string", example="Success"),
+     *       @OA\Property(
+     *          property="data",
+     *          type="object",
+     *                example={
      *
+     *                   "wallet": {
+     *                   "visaro_balance": "37000.00",
+     *                   "visaro_credit": "2000.00",
+     *                   "status": "Active"
+     *                   },
+     *                   "bnpl_services": {
+     *                   0: {
+     *                       "bnpl_service_name": "Aviation",
+     *                       "thumbnails": "http://localhost:8181/uploads/bnpl_services/airplane-sunset.jpg",
+     *                       "display_img": "http://localhost:8181/uploads/bnpl_services/airplane-sunset.jpg"
+     *                      },
+     *                   1: {
+     *                       "bnpl_service_name": "HMO",
+     *                       "thumbnails": "http://localhost:8181/uploads/bnpl_services/health.jpg",
+     *                       "display_img": "http://localhost:8181/uploads/bnpl_services/health.jpg"
+     *                      },
+     *                   2: {
+     *                       "bnpl_service_name": "School Fee",
+     *                       "thumbnails": "http://localhost:8181/uploads/bnpl_services/books.jpg",
+     *                       "display_img": "http://localhost:8181/uploads/bnpl_services/books.jpg"
+     *                      }
+     *                   },
+     *                   "activities_log": {
+     *                   0: {
+     *                       "activity_description": "Your wallet was created successfully",
+     *                       "created_at": "2023-08-04 11:09:50"
+     *                      }
+     *                    },
+     *                    "registered_hospital": {
+        *                 0: {
+        *                       "hospital_name": "Lagos State University Teaching Hospital (LASUTH)",
+        *                       "thumbnail": "http://localhost:8181/uploads/hospitals/lasuth.jpg",
+        *                       "display_img": "http://localhost:8181/uploads/hospitals/lasuth.jpg"
+        *                   },
+        *                  1: {
+        *                       "hospital_name": "National Orthopaedic Hospital",
+        *                       "thumbnail": "http://localhost:8181/uploads/hospitals/noi-1959-57b675f19dbf3.jpg",
+        *                       "display_img": "http://localhost:8181/uploads/hospitals/noi-1959-57b675f19dbf3.jpg"
+        *                    }
+     *                    },
+     *
+     *                },
+     *              ),
+     *
+     *        )
+     *     )
+     * ),
+     *
+     * *********************************************************************************************************
+     * @OA\get(
+     * path="/balance_enquiry",
+     * summary="To get user balance",
+     * description="This end point will return the account balance of the user",
+     * operationId="balance_enquiry",
+     * tags={"Balance Enquiry"},
+     * security={{"bearer_token":{}}},
+     * @OA\Response(
+     *    response=200,
+     *    description="Balance Enquiry Successful Response",
+     *     @OA\JsonContent(
+     *       @OA\Property(property="success", type="boolean", example="true"),
+     *       @OA\Property(property="message", type="string", example="Success"),
+     *       @OA\Property(
+     *          property="data",
+     *          type="object",
+     *                example={
+     *                 "wallet": {
+     *                         "visaro_balance": "47000.00",
+     *                         "visaro_credit": "300.00",
+     *                         "status": "Active"
+     *                       },
+     *
+     *                },
+     *              ),
+     *
+     *        )
+     *     )
+     * ),
+     ** ********************************************************************************************************************************
+     * @OA\get(
+     * path="/username_check/{user_email}",
+     * summary="Get user info",
+     * description="This endpoint is used in getting the user info before fund transfer is done  ",
+     * operationId="username_check",
+     * tags={"Username Check"},
+     * security={{"bearer_token":{}}},
+     * @OA\Parameter(
+     *          name="user_email",
+     *          description="User Email",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="string"
+     *          )
+     *      ),
+     * @OA\Response(
+     *    response=200,
+     *    description="Username Check Successful Response",
+     *     @OA\JsonContent(
+     *       @OA\Property(property="success", type="boolean", example="true"),
+     *       @OA\Property(property="message", type="string", example="Success"),
+     *       @OA\Property(
+     *          property="data",
+     *          type="object",
+     *                example={
+     *                 {
+     *                     "amount": "100",
+     *                     "created_at": "2023-08-04 14:12:49",
+     *                     "trans_type": "BVN Charge",
+     *                     "visaro_status": "Successful",
+     *                     "paystack_status": "success"
+     *                 }
+     *                },
+     *              ),
+     *
+     *        )
+     *     )
+     * ),
      *
      */
 
@@ -631,7 +809,7 @@ class PassportController extends Controller
 
         $validate_data = [
             'email' => 'required|email',
-            'password' => 'required|min:8',
+            'password' => 'required|strong_password',
         ];
 
         $validator = Validator::make($input, $validate_data);
@@ -673,10 +851,21 @@ class PassportController extends Controller
          $user->otp_expiry_time = $expiry;
          $user->save();
 
+         //Set Role
+         DB::table('users_roles')->insert([
+            "user_id" => $user->id,
+            "role_id" => 2, //User Role
+            "description" => "User"
+         ]);
+
+        Utilities::log_this_activity("Registration was successful", $user->id);
+
          // authentication attempt
          if (auth()->attempt($input)) {
             $token = auth()->user()->createToken('passport_token')->accessToken;
          }
+
+
 
             $link = "https://google.com";//verify email link
             $data = array(
@@ -858,6 +1047,7 @@ class PassportController extends Controller
                 ->leftjoin('region as r','r.id','p.bvn_state_of_residence')
                 ->get();
 
+                Utilities::log_this_activity("Profile update was successful");
 
                 return response()->json([
                     'success' => true,

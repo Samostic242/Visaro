@@ -489,6 +489,66 @@
                 ]
             }
         },
+        "/verify_transaction/{reference}": {
+            "get": {
+                "tags": [
+                    "Verify Transaction"
+                ],
+                "summary": "To Verify if a payment is successful",
+                "description": "This endpoint will return the status of any payment done on visaro",
+                "operationId": "verify_transaction",
+                "parameters": [
+                    {
+                        "name": "reference",
+                        "in": "path",
+                        "description": "Transaction Reference",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Verify Transaction Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Success"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "example": [
+                                                {
+                                                    "amount": "100",
+                                                    "created_at": "2023-08-04 14:12:49",
+                                                    "trans_type": "BVN Charge",
+                                                    "visaro_status": "Successful",
+                                                    "paystack_status": "success"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
         "/bvn_verification": {
             "post": {
                 "tags": [
@@ -679,6 +739,7 @@
                         "multipart/form-data": {
                             "schema": {
                                 "required": [
+                                    "account_type",
                                     "profile_pics",
                                     "business_name",
                                     "business_address",
@@ -709,6 +770,10 @@
                                     "port_of_origin": {
                                         "type": "string",
                                         "example": "803"
+                                    },
+                                    "account_type": {
+                                        "type": "integer",
+                                        "example": "2"
                                     },
                                     "certificate_of_incoporation": {
                                         "description": "Certificate of Incoporation",
@@ -770,14 +835,14 @@
                 ]
             }
         },
-        "/get_profile_details": {
+        "/profile_details": {
             "get": {
                 "tags": [
-                    "Get Profile Details"
+                    "Profile Details"
                 ],
                 "summary": "To get user profile details",
                 "description": "This will get all information about a user profile",
-                "operationId": "get_profile_details",
+                "operationId": "profile_details",
                 "responses": {
                     "200": {
                         "description": "Successful profile update",
@@ -816,8 +881,9 @@
                                                 },
                                                 "profile_pics": "http://localhost:8181/uploads/profile_pics/test_pics.jpg",
                                                 "wallet": {
-                                                    "id": 1,
-                                                    "balance": 52000
+                                                    "visaro_balance": "0.00",
+                                                    "visaro_credit": "0.00",
+                                                    "status": "Active"
                                                 }
                                             }
                                         }
@@ -845,7 +911,7 @@
                 "operationId": "country_list",
                 "responses": {
                     "200": {
-                        "description": "List of Country",
+                        "description": "List of Country Successful Response",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -913,7 +979,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "List of region",
+                        "description": "List of region Successful Response",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -958,6 +1024,195 @@
                         }
                     }
                 }
+            }
+        },
+        "/dashboard": {
+            "get": {
+                "tags": [
+                    "Dashboard"
+                ],
+                "summary": "To get application dashboard",
+                "description": "This end point will return the application dashboard when the onboarding has been completed by the user",
+                "operationId": "dashboard",
+                "responses": {
+                    "200": {
+                        "description": "User Dashboard Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Success"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "example": {
+                                                "wallet": {
+                                                    "visaro_balance": "37000.00",
+                                                    "visaro_credit": "2000.00",
+                                                    "status": "Active"
+                                                },
+                                                "bnpl_services": [
+                                                    {
+                                                        "bnpl_service_name": "Aviation",
+                                                        "thumbnails": "http://localhost:8181/uploads/bnpl_services/airplane-sunset.jpg",
+                                                        "display_img": "http://localhost:8181/uploads/bnpl_services/airplane-sunset.jpg"
+                                                    },
+                                                    {
+                                                        "bnpl_service_name": "HMO",
+                                                        "thumbnails": "http://localhost:8181/uploads/bnpl_services/health.jpg",
+                                                        "display_img": "http://localhost:8181/uploads/bnpl_services/health.jpg"
+                                                    },
+                                                    {
+                                                        "bnpl_service_name": "School Fee",
+                                                        "thumbnails": "http://localhost:8181/uploads/bnpl_services/books.jpg",
+                                                        "display_img": "http://localhost:8181/uploads/bnpl_services/books.jpg"
+                                                    }
+                                                ],
+                                                "activities_log": [
+                                                    {
+                                                        "activity_description": "Your wallet was created successfully",
+                                                        "created_at": "2023-08-04 11:09:50"
+                                                    }
+                                                ],
+                                                "registered_hospital": [
+                                                    {
+                                                        "hospital_name": "Lagos State University Teaching Hospital (LASUTH)",
+                                                        "thumbnail": "http://localhost:8181/uploads/hospitals/lasuth.jpg",
+                                                        "display_img": "http://localhost:8181/uploads/hospitals/lasuth.jpg"
+                                                    },
+                                                    {
+                                                        "hospital_name": "National Orthopaedic Hospital",
+                                                        "thumbnail": "http://localhost:8181/uploads/hospitals/noi-1959-57b675f19dbf3.jpg",
+                                                        "display_img": "http://localhost:8181/uploads/hospitals/noi-1959-57b675f19dbf3.jpg"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
+        "/balance_enquiry": {
+            "get": {
+                "tags": [
+                    "Balance Enquiry"
+                ],
+                "summary": "To get user balance",
+                "description": "This end point will return the account balance of the user",
+                "operationId": "balance_enquiry",
+                "responses": {
+                    "200": {
+                        "description": "Balance Enquiry Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Success"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "example": {
+                                                "wallet": {
+                                                    "visaro_balance": "47000.00",
+                                                    "visaro_credit": "300.00",
+                                                    "status": "Active"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
+        "/username_check/{user_email}": {
+            "get": {
+                "tags": [
+                    "Username Check"
+                ],
+                "summary": "Get user info",
+                "description": "This endpoint is used in getting the user info before fund transfer is done  ",
+                "operationId": "username_check",
+                "parameters": [
+                    {
+                        "name": "user_email",
+                        "in": "path",
+                        "description": "User Email",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Username Check Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Success"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "example": [
+                                                {
+                                                    "amount": "100",
+                                                    "created_at": "2023-08-04 14:12:49",
+                                                    "trans_type": "BVN Charge",
+                                                    "visaro_status": "Successful",
+                                                    "paystack_status": "success"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
             }
         }
     },

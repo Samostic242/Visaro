@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use DB;
 use Auth;
 use App\Models\Profile;
+use App\Http\Controllers\Utilities;
 
 class TransactionController extends Controller
 {
@@ -126,7 +127,7 @@ class TransactionController extends Controller
         if(count($check) > 0) //If true
         {
             //Verify if the payment was successful
-            $result = $this->verify_transaction($request->payment_reference);
+            $result = $this->verify_paystack($request->payment_reference);
 
 
             if($result['data']['status'] == "success") //If successful
@@ -231,6 +232,8 @@ class TransactionController extends Controller
                         if($res_arr->verification->status == "VERIFIED")
                         {
                            $status = 1;
+
+                           Utilities::log_this_activity("BVN verification completed");
                         }else
                         {
                             $status = 0;
@@ -252,7 +255,7 @@ class TransactionController extends Controller
                         $profile->bvn_marital_status  =  $this->get_marital_code($res_arr->data->maritalStatus);
                         //$profile->  = $res_arr->data->watchListed; YES
                         //$profile->  = $res_arr->data->levelOfAccount; Level 1 Account
-                        $profile->bvn  = $res_arr->data->bvn;
+                        $profile->bvn  = encrypt($res_arr->data->bvn);
                         $profile->bvn_first_name  = $res_arr->data->firstName;
                         $profile->bvn_middle_name  = $res_arr->data->middleName;
                         $profile->bvn_last_name  = $res_arr->data->lastName;
@@ -266,15 +269,13 @@ class TransactionController extends Controller
                         $profile->business_email  = $res_arr->data->email;
                         $profile->bvn_lga_of_origin  = $lga_of_orig;
                         $profile->bvn_lga_of_residence  = $lga_of_res;
-                        $profile->bvn_nin  = $res_arr->data->nin;
+                        $profile->bvn_nin  = encrypt($res_arr->data->nin);
                         $profile->bvn_name_on_card  = $res_arr->data->nameOnCard;
                         $profile->bvn_nationality  = $this->get_country_key($res_arr->data->nationality);
                         $profile->bvn_residential_address  = $res_arr->data->residentialAddress;
                         $profile->bvn_state_of_origin  = $state_of_orig;
                         $profile->bvn_state_of_residence  = $state_of_res;
                         $profile->bvn_verified = $status;
-
-
 
                         $uploadpath   = 'uploads/profile_pics/';
 
@@ -444,8 +445,122 @@ class TransactionController extends Controller
         return $state_code;
     }
 
+    public function verify_transaction($ref)
+    {
 
-    public function verify_transaction($payment_reference){
+
+
+       //check if transaction exist using the User ID and Payment
+       $check = DB::table('transactions')
+       ->where('paystack_ref', $ref)
+       //->where('user_id', Auth::user()->id) Not needed
+       ->get();
+
+       if(count($check) > 0)
+       {
+           if($check[0]->user_id == Auth::user()->id)
+           {
+                    if($check[0]->paystack_status == "")
+                    {
+
+
+                        $result = $this->verify_paystack($ref);
+
+                        if($result['status'] == false)
+                        {
+                            return response()->json([
+                                'success'=>false,
+                                'message'=>'Transaction reference not found on paystack',
+                            ], 401);
+                        }
+
+
+
+                        if($result['data']['status'] == "success") //If successful
+                        {
+                            $payment_status = 1;
+                        }else
+                        {
+                            $payment_status = 2;
+                        }
+
+                        //Update the transaction status on the transaction log
+                        $log = DB::table('transactions')->where('paystack_ref', $ref)
+                        ->update(
+                            [
+                                "paystack_status" => $result['data']['status'],
+                                "status" => $payment_status,
+                                "processed_amt" => ((int)$result['data']['amount']/100) //convert kobo to naira
+                            ]);
+
+                            if($payment_status == 1)
+                            {
+                                $status = "Successful";
+                            }else if($payment_status == 2)
+                            {
+                                $status = "Failed";
+                            }else if($payment_status == 2)
+                            {
+                                $status = "Fruadulent";
+                            }
+
+                        $data = [
+                            "amount" => ((int)$result['data']['amount']/100), //convert kobo to naira
+                            "created_at" => $check[0]->created_at,
+                            "trans_type" => DB::table('trans_type')->where('trans_type_code',$check[0]->trans_type)->first()->description,
+                            "trans_status" => $status,
+                            "paystack_status" => $result['data']['status'],
+                        ];
+
+                    }
+                    else
+                    {
+                        if($check[0]->status == 1)
+                        {
+                            $status = "Successful";
+                        }else if($check[0]->status == 2)
+                        {
+                            $status = "Failed";
+                        }else if($check[0]->status == 2)
+                        {
+                            $status = "Fruadulent";
+                        }
+
+                        $data = [
+                            "amount" => $check[0]->processed_amt,
+                            "created_at" => $check[0]->created_at,
+                            "trans_type" => DB::table('trans_type')->where('trans_type_code', $check[0]->trans_type)->first()->description,
+                            "visaro_status" => $status,
+                            "paystack_status" => $check[0]->paystack_status,
+                        ];
+                    }
+
+                    return response()->json([
+                        'success'=>true,
+                        'message'=>'Successful',
+                        'data'=> $data
+                    ], 200);
+
+
+           }else
+           {
+                return response()->json([
+                    'success'=>false,
+                    'message'=>'You are not authorize to verify this transaction details',
+                ], 401);
+           }
+       }else
+       {
+            return response()->json([
+                'success'=>false,
+                'message'=>'Transaction Not Found',
+            ], 406);
+       }
+    }
+
+
+    public function verify_paystack($payment_reference){
+
         $reference = $payment_reference;
         $paystack_secrete_key = DB::table('tbl_settings')->select('value')->where('name','paystack_secrete_key')->get()[0]->value;
         $url = 'https://api.paystack.co/transaction/verify/'.$reference;
@@ -466,6 +581,7 @@ class TransactionController extends Controller
 
         //send request
         $request_data = curl_exec($ch);//close connection
+
         $err = curl_error($ch);
         //curl_close($ch);//declare an array that will contain the result
         $result = array();
