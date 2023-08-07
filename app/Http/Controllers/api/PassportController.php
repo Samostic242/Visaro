@@ -1100,26 +1100,49 @@ class PassportController extends Controller
         ], 200);
     }
 
+
     /**
-     * Logout user.
-     *
-     * @return json
-     */
-    public function logout()
-    {
-        $access_token = auth()->user()->token();
+     ******************************************************************************************************************************
+     * @OA\Post(
+     * path="/logout",
+     * summary="Logout User",
+     * description="Logout User and Destroy Access Token",
+     * operationId="logout",
+     * tags={"Logout"},
+     * security={{"bearer_token":{}}},
+     * @OA\Response(
+     *    response=200,
+     *    description="Successful Logout",
+     *    @OA\JsonContent(
+     *       @OA\Property(property="success", type="boolean", example="true"),
+     *       @OA\Property(property="message", type="string", example="User logout successfully"),
+     *       )
+     *     )
+     * )
+     * ********/
 
-        // logout from only current device
-        $tokenRepository = app(TokenRepository::class);
-        $tokenRepository->revokeAccessToken($access_token->id);
 
-        // use this method to logout from all devices
-        // $refreshTokenRepository = app(RefreshTokenRepository::class);
-        // $refreshTokenRepository->revokeRefreshTokensByAccessTokenId($$access_token->id);
 
-        return response()->json([
-            'success' => true,
-            'message' => 'User logout successfully.'
-        ], 200);
-    }
+     public function logout()
+     {
+         // Check if the user is authenticated
+         if (Auth::check()) {
+             // Get the authenticated user
+             $user = Auth::user();
+
+             // Revoke the user's access token
+             $user->token()->revoke();
+
+             return response()->json([
+                 'success' => true,
+                 'message' => 'User logged out successfully.',
+             ], 200);
+         }
+
+         return response()->json([
+             'success' => false,
+             'message' => 'User is not authenticated.',
+         ], 401);
+     }
+
 }

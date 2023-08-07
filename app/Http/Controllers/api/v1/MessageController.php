@@ -36,6 +36,7 @@ class MessageController extends Controller
                 'success'=>false,
                 'message'=>'This email address is not associated with any account on visaro',
             ], 406);
+
         }else
         {
 
