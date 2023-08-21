@@ -985,7 +985,7 @@ class PassportController extends Controller
     public function profile_update(Request $request)
     {
         $rules = [
-            "phone_1" => "required",
+            "phone_1" => "sometimes",
             "phone_2" => "sometimes",
             "account_type" => "sometimes|integer",
             "profile_pics" => 'sometimes|image|mimes:jpg,png,jpeg,gif,svg|max:2048|dimensions:min_width=100,min_height=100,max_width=1300,max_height=1300',
@@ -1003,7 +1003,13 @@ class PassportController extends Controller
         {
             if($check[0]->bvn_verified ==1)
             {
-                $insert["bvn_phone_number_1"] = $request->phone_1;
+
+
+                if(isset($request->phone_1) && $request->phone_1 != "")
+                {
+                   $insert["bvn_phone_number_1"] = $request->phone_1;
+                }
+
 
                 if(isset($request->phone_2) && $request->phone_2 != "")
                 {
