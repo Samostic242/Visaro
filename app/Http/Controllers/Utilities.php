@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 use App\Email_notification;
 use App\user;
 use Mail;
+use Hash;
 
 
 class Utilities
@@ -20,6 +21,40 @@ class Utilities
          "created_at" => NOW(),
          "created_by" => $id == null ? Auth::user()->id: $id
        ]);
+    }
+
+
+    public static function verify_transaction_pin($enteredPin)
+    {
+        $hashedPinFromDatabase = Auth::user()->trans_pin;
+
+        // Check if the entered pin matches the saved pin hash
+        if (Hash::check($enteredPin, $hashedPinFromDatabase)) {
+            return true;
+
+        } else {
+
+
+            // Log pin failed trials counter
+
+
+           return false;
+        }
+    }
+
+    public static function verify_password($enteredPassword)
+    {
+        $savedPasswordHash = Auth::user()->password; // Assuming $user is the user model
+
+        // Check if the entered password matches the saved password hash
+        if (Hash::check($enteredPassword, $savedPasswordHash)) {
+            return true;
+        } else {
+            // Log password failed trials counter
+
+
+           return false;
+        }
     }
 
     public static function getnextid($tablename)

@@ -22,6 +22,86 @@ class MessageController extends Controller
         $this->messageService = $messageService;
     }
 
+    /**
+     ******************************************************************************************************************************
+     * @OA\Post(
+     * path="/create_transaction_pin",
+     * summary="Create Transaction Pin",
+     * description="Create a transaction pin",
+     * operationId="create_transaction_pin",
+     * tags={"Create Transaction Pin"},
+     * security={{"bearer_token":{}}},
+     * @OA\RequestBody(
+     *    required=true,
+     *    description="Request body",
+     *    @OA\JsonContent(
+     *       required={"pin","pin_confirmation"},
+     *       @OA\Property(property="pin", type="string", format="password", example="1234"),
+     *       @OA\Property(property="pin_confirmation", type="string", format="password", example="1234")
+     *    ),
+     * ),
+     * @OA\Response(
+     *    response=200,
+     *    description="Successful Pin Change",
+     *    @OA\JsonContent(
+     *       @OA\Property(property="success", type="boolean", example="true"),
+     *       @OA\Property(property="message", type="string", example="Pin was change successfully"),
+     *       )
+     *     )
+     * )
+     * ********/
+
+    public function create_transaction_pin(Request $request)
+    {
+        $rules =[
+            "pin" => "required|digits:4",
+            "pin_confirmation" => "required|digits:4",
+        ];
+
+        $this->validate($request, $rules);
+
+        $pin = $request->pin;
+        $pin_confirmation = $request->pin_confirmation;
+
+        if($pin != $pin_confirmation)
+        {
+            return response()->json([
+                'success'=>false,
+                'message'=>'Pin Mismatched',
+            ], 406);
+
+        }else
+        {
+            $user_details =  DB::table('users')->where('id', Auth::user()->id)->get();
+
+            //If access granted to create pin and grace period time given on OTP validation has not expired
+            if($user_details[0]->otp_trans_pin_flag == 1 && new DateTime(date('Y-m-d H:i:s')) < new DateTime($user_details[0]->otp_trans_pin_grace))
+            {
+                $hashedPin = Hash::make($pin);
+
+                $user = User::find(Auth::user()->id);
+                $user->trans_pin = $hashedPin;
+                $user->otp_trans_pin_flag = 0; //revoke access to create pin
+                $user->setup_trans_pin = 1; //Transaction pin has been setup for this user
+                $user->save();
+
+                Utilities::log_this_activity("Your transaction pin has been changed");
+
+                return response()->json([
+                    'success'=>true,
+                    'message'=>'Pin was successfully changed',
+                ], 200);
+
+            }else
+            {
+                return response()->json([
+                    'success'=>false,
+                    'message'=>'This create pin session has expired',
+                ], 406);
+            }
+        }
+    }
+
     public function create_password(Request $request)
     {
 
@@ -34,7 +114,7 @@ class MessageController extends Controller
 
             return response()->json([
                 'success'=>false,
-                'message'=>'This email address is not associated with any account on visaro',
+                'message'=>'Password Mismatched',
             ], 406);
 
         }else
@@ -42,11 +122,12 @@ class MessageController extends Controller
 
               $user_details =  DB::table('users')->where('id', Auth::user()->id)->get();
 
-              if($user_details[0]->otp_forgot_pass_verif ==1 && new DateTime(date('Y-m-d H:i:s')) < new DateTime($user_details[0]->otp_forgot_grace))
+              //If access granted to create password and grace period time given on OTP validation has not expired
+              if($user_details[0]->otp_forgot_pass_verif == 1 && new DateTime(date('Y-m-d H:i:s')) < new DateTime($user_details[0]->otp_forgot_grace))
               {
 
                 $user = User::find(Auth::user()->id);
-                $user->otp_forgot_grace = NOW();
+                //$user->otp_forgot_grace = NOW();
                 $user->password = Hash::make($password);
                 $user->save();
 
@@ -398,7 +479,7 @@ class MessageController extends Controller
                 $sent_to = $check[0]->email;
 
 
-                $link = "https://google.com";//verify email link
+                $link = "https://visaro.ng";//verify email link
                 $data = array(
                     'full_name'=>$check[0]->firstname." ".$check[0]->lastname,
                     'link'=> $link,
@@ -516,7 +597,7 @@ class MessageController extends Controller
 
                 $sent_to = Auth::user()->email;
 
-                $link = "https://google.com";//verify email link
+                $link = "https://visaro.ng";//verify email link
                 $data = array(
                     'full_name'=>auth()->user()->firstname." ".auth()->user()->lastname,
                     'link'=> $link,
@@ -543,7 +624,7 @@ class MessageController extends Controller
                 $sent_to = Auth::user()->email;
 
 
-                $link = "https://google.com";//verify email link
+                $link = "https://visaro.ng";//verify email link
                 $data = array(
                     'full_name'=>auth()->user()->firstname." ".auth()->user()->lastname,
                     'link'=> $link,
@@ -572,6 +653,34 @@ class MessageController extends Controller
 
                 $sent_to = Auth::user()->phone;
             }
+            else if($otp_type == 4) //Transaction Pin
+            {
+
+                $update['otp_trans_pin_flag'] = 0;
+                $sent_to = Auth::user()->email;
+
+
+                $link = "https://visaro.ng";//verify email link
+                $data = array(
+                    'full_name'=>auth()->user()->firstname." ".auth()->user()->lastname,
+                    'link'=> $link,
+                    'otp' => $otp,
+                    'title' => 'Verify your change transaction pin',
+                    'email_content' => 'Please use the OTP below to create a new transaction pin',
+                    'otp_expiry_min' => $otp_expiry_min
+
+                );
+
+                try{
+                    Mail::send('emails.otp', $data, function($message) use ($data){
+                        $message->from("noreply@visarong.com", 'Visaro Nigeria');
+                        $message->to(auth()->user()->email);
+                        $message->subject('OTP Request');
+                    });
+                }catch(\Exception $e){
+                // Get error here
+                }
+            }
 
 
             //Flag OTP as used
@@ -596,7 +705,149 @@ class MessageController extends Controller
          }
     }
 
-    //
+    /**
+     ******************************************************************************************************************************
+     * @OA\Post(
+     * path="/initialize_change_password",
+     * summary="Initialize Change Password",
+     * description="Initialize change password",
+     * operationId="initialize_change_password",
+     * tags={"Initialize Change Password"},
+     * security={{"bearer_token":{}}},
+     * @OA\RequestBody(
+     *    required=true,
+     *    description="Request body",
+     *    @OA\JsonContent(
+     *       required={"old_password"},
+     *       @OA\Property(property="old_password", type="string", format="password", example="password@1234")
+     *    ),
+     * ),
+     * @OA\Response(
+     *    response=200,
+     *    description="Successful Pin Change",
+     *    @OA\JsonContent(
+     *       @OA\Property(property="success", type="boolean", example="true"),
+     *       @OA\Property(property="message", type="string", example="Initialize password change was successful"),
+     *       )
+     *     )
+     * )
+     * ********/
+
+    public function initialize_change_password(Request $request)
+    {
+        $rules = [
+            "old_password" => "required"
+        ];
+
+        $this->validate($request, $rules);
+
+        if (Utilities::verify_password($request->old_password)) {
+
+            $otp_screen_expiry_time =  1;
+            $date = date('Y-m-d H:i:s');
+            $currentDate = strtotime($date);
+            $futureDate = $currentDate+(60*$otp_screen_expiry_time); //Add 1 minute to the current date
+
+            $expiry = date("Y-m-d H:i:s", $futureDate); //When initialize pin is successful, the users must change  pin etc before the grace period elapses
+
+            User::where('id', auth()->user()->id)
+            ->update([
+                "otp_forgot_grace" => $expiry,
+                "otp_forgot_pass_verif" => 1 //Grant access to change pin
+            ]);
+
+            return response()->json([
+                'success'=>true,
+                'message'=>'Initialize password change was successful',
+
+              ], 200);
+
+
+
+        }else
+        {
+            return response()->json([
+                'success'=>false,
+                'message'=>'Invalid Password',
+            ], 406);
+        }
+
+
+
+    }
+
+
+
+    /**
+     ******************************************************************************************************************************
+     * @OA\Post(
+     * path="/initialize_change_transaction_pin",
+     * summary="Initialize Change Transaction Pin",
+     * description="Initialize change transaction pin process",
+     * operationId="initialize_change_transaction_pin",
+     * tags={"Initialize Change Transaction Pin"},
+     * security={{"bearer_token":{}}},
+     * @OA\RequestBody(
+     *    required=true,
+     *    description="Request body",
+     *    @OA\JsonContent(
+     *       required={"old_pin"},
+     *       @OA\Property(property="old_pin", type="string", format="password", example="1234")
+     *    ),
+     * ),
+     * @OA\Response(
+     *    response=200,
+     *    description="Successful Pin Change",
+     *    @OA\JsonContent(
+     *       @OA\Property(property="success", type="boolean", example="true"),
+     *       @OA\Property(property="message", type="string", example="Initialize pin change was successful"),
+     *       )
+     *     )
+     * )
+     * ********/
+
+
+
+    public function initialize_change_transaction_pin(Request $request)
+    {
+            $rules =[
+                "old_pin" => "required|digits:4",
+            ];
+
+            $this->validate($request, $rules);
+
+
+            if (Utilities::verify_transaction_pin($request->old_pin)) {
+                // The entered pin is correct
+
+                $otp_screen_expiry_time =  1;
+                $date = date('Y-m-d H:i:s');
+                $currentDate = strtotime($date);
+                $futureDate = $currentDate+(60*$otp_screen_expiry_time); //Add 1 minute to the current date
+
+                $expiry = date("Y-m-d H:i:s", $futureDate); //When initialize pin is successful, the users must change  pin etc before the grace period elapses
+
+                User::where('id', auth()->user()->id)
+                ->update([
+                    "otp_trans_pin_grace" => $expiry,
+                    "otp_trans_pin_flag" => 1 //Grant access to change pin
+                ]);
+
+                return response()->json([
+                    'success'=>true,
+                    'message'=>'Initialize pin change was successful',
+
+                  ], 200);
+
+            } else {
+                return response()->json([
+                    'success'=>false,
+                    'message'=>'Invalid Pin',
+                ], 406);
+            }
+
+    }
+
     public function validate_otp(Request $request)
     {
 
@@ -609,7 +860,7 @@ class MessageController extends Controller
         ->where('id', $user_id)
         ->get();
 
-        if(count($otp_collection) >0 )
+        if(count($otp_collection) > 0 )
         {
             if($otp_collection[0]->otp_expiry_time < date('Y-m-d H:i:s'))
             {
@@ -618,7 +869,7 @@ class MessageController extends Controller
                     'success'=>true,
                     'message'=>'OTP has expired',
 
-                ], 200);
+                ], 406);
 
             }else
             {
@@ -632,7 +883,8 @@ class MessageController extends Controller
                 $date = date('Y-m-d H:i:s');
                 $currentDate = strtotime($date);
                 $futureDate = $currentDate+(60*$otp_screen_expiry_time); //Add 1 minute to the current date
-                $expiry = date("Y-m-d H:i:s", $futureDate);
+
+                $expiry = date("Y-m-d H:i:s", $futureDate); //When OTP validation is successful, users must change password, pin etc before the grace period elapses
 
                 if($otp_collection[0]->otp_type == 1) //Login Verification
                 {
@@ -651,6 +903,11 @@ class MessageController extends Controller
 
                     $update['otp_phone_verif'] = 1;
                     $update['otp_phone_grace'] = $expiry;
+                }else if($otp_collection[0]->otp_type == 4) //Change transaction Pin Profiling
+                {
+
+                    $update['otp_trans_pin_flag'] = 1; //You have been granted access to change pin
+                    $update['otp_trans_pin_grace'] = $expiry;
                 }
 
                 //Flag OTP as used
@@ -674,10 +931,6 @@ class MessageController extends Controller
 
               ], 406);
         }
-
-
-
-
          exit;
 
         return $this->successResponse($this->messageService->validate_otp($request->all()));

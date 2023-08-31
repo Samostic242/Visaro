@@ -30,6 +30,9 @@ Route::prefix('v1')->group(function () {
             Route::post('/initialize_transaction', [App\Http\Controllers\api\v1\TransactionController::class, 'initialize_transaction'])->name('initialize_transaction');
             Route::get('/verify_transaction/{ref}', [App\Http\Controllers\api\v1\TransactionController::class, 'verify_transaction'])->name('verify_transaction');
 
+            Route::post('/initialize_change_transaction_pin', [App\Http\Controllers\api\v1\MessageController::class, 'initialize_change_transaction_pin'])->name('initialize_change_transaction_pin');
+            Route::post('/initialize_change_password', [App\Http\Controllers\api\v1\MessageController::class, 'initialize_change_password'])->name('initialize_change_transaction_pin');
+
 
             Route::post('/bvn_verification', [App\Http\Controllers\api\v1\TransactionController::class, 'bvn_verification'])->name('bvn_verification');
             Route::post('/profile_update', [PassportController::class, 'profile_update'])->name('profile_update');
@@ -40,8 +43,7 @@ Route::prefix('v1')->group(function () {
 
             Route::get('/balance_enquiry', [App\Http\Controllers\api\v1\MessageController::class, 'balance_enquiry'])->name('balance_enquiry');
             Route::get('/username_check/{email}', [App\Http\Controllers\api\v1\MessageController::class, 'username_check'])->name('username_check');
-
-
+            Route::post('/create_transaction_pin', [App\Http\Controllers\api\v1\MessageController::class, 'create_transaction_pin'])->name('create_transaction_pin');
 
         });
 

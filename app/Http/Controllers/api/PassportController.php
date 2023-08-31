@@ -803,6 +803,7 @@ class PassportController extends Controller
      */
 
 
+
     public function register(Request $request)
     {
         $input = $request->only(['email', 'password']);

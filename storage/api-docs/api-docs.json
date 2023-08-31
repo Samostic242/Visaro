@@ -1251,6 +1251,186 @@
                     }
                 ]
             }
+        },
+        "/create_transaction_pin": {
+            "post": {
+                "tags": [
+                    "Create Transaction Pin"
+                ],
+                "summary": "Create Transaction Pin",
+                "description": "Create a transaction pin",
+                "operationId": "create_transaction_pin",
+                "requestBody": {
+                    "description": "Request body",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "pin",
+                                    "pin_confirmation"
+                                ],
+                                "properties": {
+                                    "pin": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "1234"
+                                    },
+                                    "pin_confirmation": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "1234"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Pin Change",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Pin was change successfully"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
+        "/initialize_change_password": {
+            "post": {
+                "tags": [
+                    "Initialize Change Password"
+                ],
+                "summary": "Initialize Change Password",
+                "description": "Initialize change password",
+                "operationId": "initialize_change_password",
+                "requestBody": {
+                    "description": "Request body",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "old_password"
+                                ],
+                                "properties": {
+                                    "old_password": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "password@1234"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Pin Change",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Initialize password change was successful"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
+        "/initialize_change_transaction_pin": {
+            "post": {
+                "tags": [
+                    "Initialize Change Transaction Pin"
+                ],
+                "summary": "Initialize Change Transaction Pin",
+                "description": "Initialize change transaction pin process",
+                "operationId": "initialize_change_transaction_pin",
+                "requestBody": {
+                    "description": "Request body",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "old_pin"
+                                ],
+                                "properties": {
+                                    "old_pin": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "1234"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Pin Change",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Initialize pin change was successful"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
         }
     },
     "components": {
