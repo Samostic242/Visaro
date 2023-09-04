@@ -750,7 +750,13 @@ class PassportController extends Controller
     *          property="data",
     *          type="object",
     *                example={
-    *
+    *                     "onboarding": {
+    *                        "bvn_verification": true,
+    *                        "profile_picture_upload": true,
+    *                        "setup_trans_pin": true,
+    *                        "account_type": "Personal Account",
+    *                        "phone_no_verification": false
+    *                    },
     *                   "wallet": {
     *                   "visaro_balance": "37000.00",
     *                   "visaro_credit": "2000.00",
