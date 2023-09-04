@@ -496,7 +496,7 @@ class MessageController extends Controller
             }else
             {
                 return response()->json([
-                    'success'=>false,
+                    'success'=>true,
                     'message'=>'Your onboarding process is not completed',
                     'data' =>[
                         "onboarding" => $onboarding,
@@ -511,7 +511,7 @@ class MessageController extends Controller
 
          }else{
             return response()->json([
-                'success'=>false,
+                'success'=>true,
                 'message'=>'Your onboarding process is not completed',
                 'data' =>[
                     "onboarding" => $onboarding,
