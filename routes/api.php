@@ -44,6 +44,8 @@ Route::prefix('v1')->group(function () {
             Route::get('/balance_enquiry', [App\Http\Controllers\api\v1\MessageController::class, 'balance_enquiry'])->name('balance_enquiry');
             Route::get('/username_check/{email}', [App\Http\Controllers\api\v1\MessageController::class, 'username_check'])->name('username_check');
             Route::post('/create_transaction_pin', [App\Http\Controllers\api\v1\MessageController::class, 'create_transaction_pin'])->name('create_transaction_pin');
+            Route::get('/get_bank_list', [App\Http\Controllers\api\v1\MessageController::class, 'get_bank_list'])->name('get_bank_list');
+
 
         });
 

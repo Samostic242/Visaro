@@ -1320,6 +1320,43 @@
                 ]
             }
         },
+        "/get_bank_list": {
+            "get": {
+                "tags": [
+                    "Get Bank List"
+                ],
+                "summary": "Get Bank List",
+                "description": "Get Bank List",
+                "operationId": "get_bank_list",
+                "responses": {
+                    "200": {
+                        "description": "Successful Pin Change",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Initialize pin change was successful"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
         "/initialize_change_password": {
             "post": {
                 "tags": [

@@ -12,6 +12,7 @@ use Mail;
 use DateTime;
 use Hash;
 use App\Http\Controllers\Utilities;
+use App\Http\Controllers\api\VbaasController;
 
 class MessageController extends Controller
 {
@@ -100,6 +101,44 @@ class MessageController extends Controller
                 ], 406);
             }
         }
+    }
+
+    /**
+     ******************************************************************************************************************************
+     * @OA\Get(
+     * path="/get_bank_list",
+     * summary="Get Bank List",
+     * description="Get Bank List",
+     * operationId="get_bank_list",
+     * tags={"Get Bank List"},
+     * security={{"bearer_token":{}}},
+     * @OA\Response(
+     *    response=200,
+     *    description="Successful Bank List",
+     *    @OA\JsonContent(
+     *       @OA\Property(property="success", type="boolean", example="true"),
+     *       @OA\Property(property="message", type="string", example="Initialize pin change was successful"),
+     *       )
+     *     )
+     * )
+     * ********/
+
+    public function get_bank_list()
+    {
+
+       $settings = DB::table('tbl_settings')->get();
+       $parameter_status = $settings->where('name','visaro_vbaas_get_parameters')->first()->value;
+
+       if($parameter_status == 0) //run get parameters from Vbaas endpoint
+       {
+           $vbaas = new VbaasController;
+           $parameter = $vbaas->run_parameter();
+
+
+
+
+       }
+
     }
 
     public function create_password(Request $request)
@@ -381,8 +420,11 @@ class MessageController extends Controller
          $check = DB::table('profile')
          ->where('user_id', Auth::user()->id)->get();
 
+        //get wallet balance
+        $wallet_collection = $this->get_wallet();
+
         $onboarding = [
-            "bvn_verification" => count($check) > 0 ? true:false,
+            "bvn_verification" => count($check) > 0 ?($check[0]->bvn_verified == 1?true:false):false,
             "profile_picture_upload" => count($check) > 0 ? ($check[0]->profile_pics_file_name != ""?true:false):false,
             "account_type" => count($check) > 0 ?($check[0]->account_type == 1?"Personal Account":($check[0]->account_type == NULL?"Not Set":"Company Account")):"Not Set",
             "setup_trans_pin" => Auth::user()->setup_trans_pin == 1?true:false,
@@ -391,56 +433,52 @@ class MessageController extends Controller
 
 
 
+
+
+        $wallet = [
+            "visaro_balance" => $wallet_collection[0]->visaro_balance,
+            "visaro_credit" => $wallet_collection[0]->visaro_credit,
+            "status" => $wallet_collection[0]->status == 1?"Active":"Inactive"
+         ];
+
+         //BNPL Services
+         $bnpl_services_collection = DB::table('bnpl_services')->select('bnpl_service_name','thumbnails','display_img')->get(3); //get 3 services
+
+         foreach($bnpl_services_collection as $val)
+         {
+            $bnpl_services [] = [
+               "bnpl_service_name" => $val->bnpl_service_name,
+               "thumbnail" => url('/uploads/bnpl_services').'/'.$val->thumbnails,
+               "display_img" => url('/uploads/bnpl_services').'/'.$val->display_img,
+            ];
+         }
+
+         //BNPL Services
+         $hospital_collection = DB::table('hospitals')->select('hospital_name','thumbnails','display_img')->get(3); //get 3 services
+
+         foreach($hospital_collection as $val)
+         {
+            $hospital [] = [
+               "hospital_name" => $val->hospital_name,
+               "thumbnail" => url('/uploads/hospitals').'/'.$val->thumbnails,
+               "display_img" => url('/uploads/hospitals').'/'.$val->display_img,
+            ];
+         }
+
+         //get activities log
+         $activities = DB::table('activity_log')->select('activity_description', 'created_at')
+         ->where('created_by', Auth::user()->id)
+         ->orderBy('created_at','desc')->get();
+
+
          if(count($check) > 0)
          {
             //Check if BVN is verified
             if($check[0]->profile_pics_file_name != "")
             {
-               //get wallet balance
-               $wallet_collection = $this->get_wallet();
 
-               $onboarding = [
-                  "bvn_verification" => $check[0]->bvn_verified == 1?true:false,
-                 "profile_picture_upload" => $check[0]->profile_pics_file_name != ""?true:false,
-                 "setup_trans_pin" => Auth::user()->setup_trans_pin == 1?true:false,
-                 "account_type" => $check[0]->account_type !=NULL? ($check[0]->account_type == 1?"Personal Account":"Company Account") : "Not Set",
-                 "phone_no_verification" => Auth::user()->otp_phone_verif == 1?true:false,
-               ];
 
-               $wallet = [
-                  "visaro_balance" => $wallet_collection[0]->visaro_balance,
-                  "visaro_credit" => $wallet_collection[0]->visaro_credit,
-                  "status" => $wallet_collection[0]->status == 1?"Active":"Inactive"
-               ];
 
-               //BNPL Services
-               $bnpl_services_collection = DB::table('bnpl_services')->select('bnpl_service_name','thumbnails','display_img')->get(3); //get 3 services
-
-               foreach($bnpl_services_collection as $val)
-               {
-                  $bnpl_services [] = [
-                     "bnpl_service_name" => $val->bnpl_service_name,
-                     "thumbnail" => url('/uploads/bnpl_services').'/'.$val->thumbnails,
-                     "display_img" => url('/uploads/bnpl_services').'/'.$val->display_img,
-                  ];
-               }
-
-               //BNPL Services
-               $hospital_collection = DB::table('hospitals')->select('hospital_name','thumbnails','display_img')->get(3); //get 3 services
-
-               foreach($hospital_collection as $val)
-               {
-                  $hospital [] = [
-                     "hospital_name" => $val->hospital_name,
-                     "thumbnail" => url('/uploads/hospitals').'/'.$val->thumbnails,
-                     "display_img" => url('/uploads/hospitals').'/'.$val->display_img,
-                  ];
-               }
-
-               //get activities log
-               $activities = DB::table('activity_log')->select('activity_description', 'created_at')
-               ->where('created_by', Auth::user()->id)
-               ->orderBy('created_at','desc')->get();
 
                return response()->json([
                 'success'=> true,
@@ -462,8 +500,13 @@ class MessageController extends Controller
                     'message'=>'Your onboarding process is not completed',
                     'data' =>[
                         "onboarding" => $onboarding,
+                        "wallet" => $wallet,
+                        "bnpl_services" => $bnpl_services,
+                        "activities_log" => $activities,
+                        "registered_hospital" => $hospital
+
                     ]
-                ], 406);
+                ], 200);
             }
 
          }else{
@@ -472,8 +515,12 @@ class MessageController extends Controller
                 'message'=>'Your onboarding process is not completed',
                 'data' =>[
                     "onboarding" => $onboarding,
+                    "wallet" => $wallet,
+                    "bnpl_services" => $bnpl_services,
+                    "activities_log" => $activities,
+                    "registered_hospital" => $hospital
                 ]
-            ], 406);
+            ], 200);
          }
 
     }
