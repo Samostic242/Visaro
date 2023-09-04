@@ -390,7 +390,7 @@ class PassportController extends Controller
      *    @OA\MediaType(
      *             mediaType="multipart/form-data",
      *             @OA\Schema(
-     *                 required={"phone_1"},
+     *
      *                 @OA\Property(property="account_type", type="integer",  example="1"),
      *                 @OA\Property(property="phone_1", type="string",  example="08091270000"),
      *                 @OA\Property(property="phone_2", type="string",  example="08051200000"),
@@ -662,75 +662,7 @@ class PassportController extends Controller
      *        )
      *     )
      * ),
-     ****************************************************************************************************************
-     * @OA\get(
-     * path="/dashboard",
-     * summary="To get application dashboard",
-     * description="This end point will return the application dashboard when the onboarding has been completed by the user",
-     * operationId="dashboard",
-     * tags={"Dashboard"},
-     * security={{"bearer_token":{}}},
-     * @OA\Response(
-     *    response=200,
-     *    description="User Dashboard Successful Response",
-     *     @OA\JsonContent(
-     *       @OA\Property(property="success", type="boolean", example="true"),
-     *       @OA\Property(property="message", type="string", example="Success"),
-     *       @OA\Property(
-     *          property="data",
-     *          type="object",
-     *                example={
-     *
-     *                   "wallet": {
-     *                   "visaro_balance": "37000.00",
-     *                   "visaro_credit": "2000.00",
-     *                   "status": "Active"
-     *                   },
-     *                   "bnpl_services": {
-     *                   0: {
-     *                       "bnpl_service_name": "Aviation",
-     *                       "thumbnails": "http://localhost:8181/uploads/bnpl_services/airplane-sunset.jpg",
-     *                       "display_img": "http://localhost:8181/uploads/bnpl_services/airplane-sunset.jpg"
-     *                      },
-     *                   1: {
-     *                       "bnpl_service_name": "HMO",
-     *                       "thumbnails": "http://localhost:8181/uploads/bnpl_services/health.jpg",
-     *                       "display_img": "http://localhost:8181/uploads/bnpl_services/health.jpg"
-     *                      },
-     *                   2: {
-     *                       "bnpl_service_name": "School Fee",
-     *                       "thumbnails": "http://localhost:8181/uploads/bnpl_services/books.jpg",
-     *                       "display_img": "http://localhost:8181/uploads/bnpl_services/books.jpg"
-     *                      }
-     *                   },
-     *                   "activities_log": {
-     *                   0: {
-     *                       "activity_description": "Your wallet was created successfully",
-     *                       "created_at": "2023-08-04 11:09:50"
-     *                      }
-     *                    },
-     *                    "registered_hospital": {
-        *                 0: {
-        *                       "hospital_name": "Lagos State University Teaching Hospital (LASUTH)",
-        *                       "thumbnail": "http://localhost:8181/uploads/hospitals/lasuth.jpg",
-        *                       "display_img": "http://localhost:8181/uploads/hospitals/lasuth.jpg"
-        *                   },
-        *                  1: {
-        *                       "hospital_name": "National Orthopaedic Hospital",
-        *                       "thumbnail": "http://localhost:8181/uploads/hospitals/noi-1959-57b675f19dbf3.jpg",
-        *                       "display_img": "http://localhost:8181/uploads/hospitals/noi-1959-57b675f19dbf3.jpg"
-        *                    }
-     *                    },
-     *
-     *                },
-     *              ),
-     *
-     *        )
-     *     )
-     * ),
-     *
-     * *********************************************************************************************************
-     * @OA\get(
+      * @OA\get(
      * path="/balance_enquiry",
      * summary="To get user balance",
      * description="This end point will return the account balance of the user",
@@ -800,7 +732,75 @@ class PassportController extends Controller
      *     )
      * ),
      *
-     */
+     * /****************************************************************************************************************
+    * @OA\get(
+    * path="/dashboard",
+    * summary="To get application dashboard",
+    * description="This end point will return the application dashboard when the onboarding has been completed by the user",
+    * operationId="dashboard",
+    * tags={"Dashboard"},
+    * security={{"bearer_token":{}}},
+    * @OA\Response(
+    *    response=200,
+    *    description="User Dashboard Successful Response",
+    *     @OA\JsonContent(
+    *       @OA\Property(property="success", type="boolean", example="true"),
+    *       @OA\Property(property="message", type="string", example="Success"),
+    *       @OA\Property(
+    *          property="data",
+    *          type="object",
+    *                example={
+    *
+    *                   "wallet": {
+    *                   "visaro_balance": "37000.00",
+    *                   "visaro_credit": "2000.00",
+    *                   "status": "Active"
+    *                   },
+    *                   "bnpl_services": {
+    *                   0: {
+    *                       "bnpl_service_name": "Aviation",
+    *                       "thumbnails": "http://localhost:8181/uploads/bnpl_services/airplane-sunset.jpg",
+    *                       "display_img": "http://localhost:8181/uploads/bnpl_services/airplane-sunset.jpg"
+    *                      },
+    *                   1: {
+    *                       "bnpl_service_name": "HMO",
+    *                       "thumbnails": "http://localhost:8181/uploads/bnpl_services/health.jpg",
+    *                       "display_img": "http://localhost:8181/uploads/bnpl_services/health.jpg"
+    *                      },
+    *                   2: {
+    *                       "bnpl_service_name": "School Fee",
+    *                       "thumbnails": "http://localhost:8181/uploads/bnpl_services/books.jpg",
+    *                       "display_img": "http://localhost:8181/uploads/bnpl_services/books.jpg"
+    *                      }
+    *                   },
+    *                   "activities_log": {
+    *                   0: {
+    *                       "activity_description": "Your wallet was created successfully",
+    *                       "created_at": "2023-08-04 11:09:50"
+    *                      }
+    *                    },
+    *                    "registered_hospital": {
+       *                 0: {
+       *                       "hospital_name": "Lagos State University Teaching Hospital (LASUTH)",
+       *                       "thumbnail": "http://localhost:8181/uploads/hospitals/lasuth.jpg",
+       *                       "display_img": "http://localhost:8181/uploads/hospitals/lasuth.jpg"
+       *                   },
+       *                  1: {
+       *                       "hospital_name": "National Orthopaedic Hospital",
+       *                       "thumbnail": "http://localhost:8181/uploads/hospitals/noi-1959-57b675f19dbf3.jpg",
+       *                       "display_img": "http://localhost:8181/uploads/hospitals/noi-1959-57b675f19dbf3.jpg"
+       *                    }
+    *                    },
+    *
+    *                },
+    *              ),
+    *
+    *        )
+    *     )
+    * ),
+    *
+    * *********************************************************************************************************/
+
 
 
 

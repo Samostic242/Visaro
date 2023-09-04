@@ -644,9 +644,6 @@
                     "content": {
                         "multipart/form-data": {
                             "schema": {
-                                "required": [
-                                    "phone_1"
-                                ],
                                 "properties": {
                                     "account_type": {
                                         "type": "integer",
@@ -1026,88 +1023,6 @@
                 }
             }
         },
-        "/dashboard": {
-            "get": {
-                "tags": [
-                    "Dashboard"
-                ],
-                "summary": "To get application dashboard",
-                "description": "This end point will return the application dashboard when the onboarding has been completed by the user",
-                "operationId": "dashboard",
-                "responses": {
-                    "200": {
-                        "description": "User Dashboard Successful Response",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "success": {
-                                            "type": "boolean",
-                                            "example": "true"
-                                        },
-                                        "message": {
-                                            "type": "string",
-                                            "example": "Success"
-                                        },
-                                        "data": {
-                                            "type": "object",
-                                            "example": {
-                                                "wallet": {
-                                                    "visaro_balance": "37000.00",
-                                                    "visaro_credit": "2000.00",
-                                                    "status": "Active"
-                                                },
-                                                "bnpl_services": [
-                                                    {
-                                                        "bnpl_service_name": "Aviation",
-                                                        "thumbnails": "http://localhost:8181/uploads/bnpl_services/airplane-sunset.jpg",
-                                                        "display_img": "http://localhost:8181/uploads/bnpl_services/airplane-sunset.jpg"
-                                                    },
-                                                    {
-                                                        "bnpl_service_name": "HMO",
-                                                        "thumbnails": "http://localhost:8181/uploads/bnpl_services/health.jpg",
-                                                        "display_img": "http://localhost:8181/uploads/bnpl_services/health.jpg"
-                                                    },
-                                                    {
-                                                        "bnpl_service_name": "School Fee",
-                                                        "thumbnails": "http://localhost:8181/uploads/bnpl_services/books.jpg",
-                                                        "display_img": "http://localhost:8181/uploads/bnpl_services/books.jpg"
-                                                    }
-                                                ],
-                                                "activities_log": [
-                                                    {
-                                                        "activity_description": "Your wallet was created successfully",
-                                                        "created_at": "2023-08-04 11:09:50"
-                                                    }
-                                                ],
-                                                "registered_hospital": [
-                                                    {
-                                                        "hospital_name": "Lagos State University Teaching Hospital (LASUTH)",
-                                                        "thumbnail": "http://localhost:8181/uploads/hospitals/lasuth.jpg",
-                                                        "display_img": "http://localhost:8181/uploads/hospitals/lasuth.jpg"
-                                                    },
-                                                    {
-                                                        "hospital_name": "National Orthopaedic Hospital",
-                                                        "thumbnail": "http://localhost:8181/uploads/hospitals/noi-1959-57b675f19dbf3.jpg",
-                                                        "display_img": "http://localhost:8181/uploads/hospitals/noi-1959-57b675f19dbf3.jpg"
-                                                    }
-                                                ]
-                                            }
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "bearer_token": []
-                    }
-                ]
-            }
-        },
         "/balance_enquiry": {
             "get": {
                 "tags": [
@@ -1200,6 +1115,88 @@
                                                     "paystack_status": "success"
                                                 }
                                             ]
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
+        "/dashboard": {
+            "get": {
+                "tags": [
+                    "Dashboard"
+                ],
+                "summary": "To get application dashboard",
+                "description": "This end point will return the application dashboard when the onboarding has been completed by the user",
+                "operationId": "dashboard",
+                "responses": {
+                    "200": {
+                        "description": "User Dashboard Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Success"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "example": {
+                                                "wallet": {
+                                                    "visaro_balance": "37000.00",
+                                                    "visaro_credit": "2000.00",
+                                                    "status": "Active"
+                                                },
+                                                "bnpl_services": [
+                                                    {
+                                                        "bnpl_service_name": "Aviation",
+                                                        "thumbnails": "http://localhost:8181/uploads/bnpl_services/airplane-sunset.jpg",
+                                                        "display_img": "http://localhost:8181/uploads/bnpl_services/airplane-sunset.jpg"
+                                                    },
+                                                    {
+                                                        "bnpl_service_name": "HMO",
+                                                        "thumbnails": "http://localhost:8181/uploads/bnpl_services/health.jpg",
+                                                        "display_img": "http://localhost:8181/uploads/bnpl_services/health.jpg"
+                                                    },
+                                                    {
+                                                        "bnpl_service_name": "School Fee",
+                                                        "thumbnails": "http://localhost:8181/uploads/bnpl_services/books.jpg",
+                                                        "display_img": "http://localhost:8181/uploads/bnpl_services/books.jpg"
+                                                    }
+                                                ],
+                                                "activities_log": [
+                                                    {
+                                                        "activity_description": "Your wallet was created successfully",
+                                                        "created_at": "2023-08-04 11:09:50"
+                                                    }
+                                                ],
+                                                "registered_hospital": [
+                                                    {
+                                                        "hospital_name": "Lagos State University Teaching Hospital (LASUTH)",
+                                                        "thumbnail": "http://localhost:8181/uploads/hospitals/lasuth.jpg",
+                                                        "display_img": "http://localhost:8181/uploads/hospitals/lasuth.jpg"
+                                                    },
+                                                    {
+                                                        "hospital_name": "National Orthopaedic Hospital",
+                                                        "thumbnail": "http://localhost:8181/uploads/hospitals/noi-1959-57b675f19dbf3.jpg",
+                                                        "display_img": "http://localhost:8181/uploads/hospitals/noi-1959-57b675f19dbf3.jpg"
+                                                    }
+                                                ]
+                                            }
                                         }
                                     },
                                     "type": "object"

@@ -96,7 +96,7 @@ class MessageController extends Controller
             {
                 return response()->json([
                     'success'=>false,
-                    'message'=>'This create pin session has expired',
+                    'message'=>'This create pin OTP session has expired',
                 ], 406);
             }
         }
@@ -142,7 +142,7 @@ class MessageController extends Controller
               {
                 return response()->json([
                     'success'=>false,
-                    'message'=>'This create password session has expired',
+                    'message'=>'This create password OTP session has expired',
                 ], 406);
               }
         }
@@ -381,13 +381,31 @@ class MessageController extends Controller
          $check = DB::table('profile')
          ->where('user_id', Auth::user()->id)->get();
 
+        $onboarding = [
+            "bvn_verification" => count($check) > 0 ? true:false,
+            "profile_picture_upload" => count($check) > 0 ? ($check[0]->profile_pics_file_name != ""?true:false):false,
+            "account_type" => count($check) > 0 ?($check[0]->account_type == 1?"Personal Account":($check[0]->account_type == NULL?"Not Set":"Company Account")):"Not Set",
+            "setup_trans_pin" => Auth::user()->setup_trans_pin == 1?true:false,
+            "phone_no_verification" => Auth::user()->otp_phone_verif == 1?true:false,
+        ];
+
+
+
          if(count($check) > 0)
          {
             //Check if BVN is verified
-            if($check[0]->bvn_verified == 1)
+            if($check[0]->profile_pics_file_name != "")
             {
                //get wallet balance
                $wallet_collection = $this->get_wallet();
+
+               $onboarding = [
+                  "bvn_verification" => $check[0]->bvn_verified == 1?true:false,
+                 "profile_picture_upload" => $check[0]->profile_pics_file_name != ""?true:false,
+                 "setup_trans_pin" => Auth::user()->setup_trans_pin == 1?true:false,
+                 "account_type" => $check[0]->account_type !=NULL? ($check[0]->account_type == 1?"Personal Account":"Company Account") : "Not Set",
+                 "phone_no_verification" => Auth::user()->otp_phone_verif == 1?true:false,
+               ];
 
                $wallet = [
                   "visaro_balance" => $wallet_collection[0]->visaro_balance,
@@ -428,6 +446,7 @@ class MessageController extends Controller
                 'success'=> true,
                 'message'=>'Success',
                 'data' =>[
+                    "onboarding" => $onboarding,
                     "wallet" => $wallet,
                     "bnpl_services" => $bnpl_services,
                     "activities_log" => $activities,
@@ -440,7 +459,10 @@ class MessageController extends Controller
             {
                 return response()->json([
                     'success'=>false,
-                    'message'=>'Your BVN is not verified',
+                    'message'=>'Your onboarding process is not completed',
+                    'data' =>[
+                        "onboarding" => $onboarding,
+                    ]
                 ], 406);
             }
 
@@ -448,6 +470,9 @@ class MessageController extends Controller
             return response()->json([
                 'success'=>false,
                 'message'=>'Your onboarding process is not completed',
+                'data' =>[
+                    "onboarding" => $onboarding,
+                ]
             ], 406);
          }
 
