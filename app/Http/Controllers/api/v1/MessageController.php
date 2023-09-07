@@ -263,8 +263,8 @@ class MessageController extends Controller
      ******************************************************************************************************************************
      * @OA\Get(
      * path="/beneficial_enquiry?account_no={account_no}&bank_code={bank_code}",
-     * summary="This endpoint is used to get a transfer recipient account details, e.g account_no =1111111103 & bank_code=000002",
-     * description="This endpoint is used to get a transfer recipient account details",
+     * summary="This endpoint is used to get a transfer recipient account details",
+     * description="This endpoint is used to get a transfer recipient account details, e.g account_no =1111111103 & bank_code=000002",
      * operationId="beneficial_enquiry",
      * tags={"Beneficial Enquiry"},
      * security={{"bearer_token":{}}},

@@ -694,8 +694,8 @@ class PassportController extends Controller
      ** ********************************************************************************************************************************
      * @OA\get(
      * path="/username_check/{user_email}",
-     * summary="Get user info",
-     * description="This endpoint is used in getting the user info before fund transfer is done  ",
+     * summary="Get visaro user info",
+     * description="This endpoint is used in getting the user info before fund transfer is done e.g user_email = esekelvin24@gmail.com ",
      * operationId="username_check",
      * tags={"Username Check"},
      * security={{"bearer_token":{}}},
