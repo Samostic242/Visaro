@@ -719,11 +719,7 @@ class PassportController extends Controller
      *          type="object",
      *                example={
      *                 {
-     *                     "amount": "100",
-     *                     "created_at": "2023-08-04 14:12:49",
-     *                     "trans_type": "BVN Charge",
-     *                     "visaro_status": "Successful",
-     *                     "paystack_status": "success"
+     *                     "full_name": "John Thomas Usman",
      *                 }
      *                },
      *              ),

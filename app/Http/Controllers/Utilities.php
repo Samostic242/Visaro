@@ -30,15 +30,16 @@ class Utilities
 
         // Check if the entered pin matches the saved pin hash
         if (Hash::check($enteredPin, $hashedPinFromDatabase)) {
-            return true;
-
+            return response()->json([
+                'success'=> true,
+                'message'=> "Success",
+            ], 200);
         } else {
-
-
-            // Log pin failed trials counter
-
-
-           return false;
+            // Log pin failed trials counte
+            return response()->json([
+                'success'=> false,
+                'message'=> "Invalid Transaction Pin",
+            ], 406);
         }
     }
 

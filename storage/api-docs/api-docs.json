@@ -1108,11 +1108,7 @@
                                             "type": "object",
                                             "example": [
                                                 {
-                                                    "amount": "100",
-                                                    "created_at": "2023-08-04 14:12:49",
-                                                    "trans_type": "BVN Charge",
-                                                    "visaro_status": "Successful",
-                                                    "paystack_status": "success"
+                                                    "full_name": "John Thomas Usman"
                                                 }
                                             ]
                                         }
@@ -1330,6 +1326,226 @@
                 "operationId": "get_bank_list",
                 "responses": {
                     "200": {
+                        "description": "Successful Bank List",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Success"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "example": [
+                                                {
+                                                    "bank_code": "02913",
+                                                    "bank_name": "First Bank",
+                                                    "display_img": "https://visaron.ng/logo.png"
+                                                },
+                                                {
+                                                    "bank_code": "39291",
+                                                    "bank_name": "Stanbic Bank",
+                                                    "display_img": "https://visaron.ng/logo.png"
+                                                },
+                                                {
+                                                    "bank_code": "03091",
+                                                    "bank_name": "Zenith Bank",
+                                                    "display_img": "https://visaron.ng/logo.png"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
+        "/get_bill_payment_category": {
+            "get": {
+                "tags": [
+                    "Get Bill Payment Category"
+                ],
+                "summary": "Get Bill Payment Category",
+                "description": "Get Bill Payment Category",
+                "operationId": "get_bill_payment_category",
+                "responses": {
+                    "200": {
+                        "description": "Successful Bill Payments Category",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Success"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "example": [
+                                                {
+                                                    "category_code": "ELECTRICITY",
+                                                    "category_name": "ELECTRICITY"
+                                                },
+                                                {
+                                                    "category_code": "AIRTIME",
+                                                    "category_name": "AIRTIME"
+                                                },
+                                                {
+                                                    "category_code": "CABLE",
+                                                    "category_name": "CABLE"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
+        "/beneficial_enquiry?account_no={account_no}&bank_code={bank_code}": {
+            "get": {
+                "tags": [
+                    "Beneficial Enquiry"
+                ],
+                "summary": "This endpoint is used to get a transfer recipient account details, e.g account_no =1111111103 & bank_code=000002",
+                "description": "This endpoint is used to get a transfer recipient account details",
+                "operationId": "beneficial_enquiry",
+                "parameters": [
+                    {
+                        "name": "account_no",
+                        "in": "path",
+                        "description": "User Account No",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "bank_code",
+                        "in": "path",
+                        "description": "User Bank Code",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Recipient details",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Success"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "example": [
+                                                {
+                                                    "full_name": "John Thomas Usman"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
+        "/transfer": {
+            "post": {
+                "tags": [
+                    "Transfer Fund"
+                ],
+                "summary": "To transfer fund to a beneficiary",
+                "description": "This will enable visaro users to transfer fund to a bank account or to a visaro user",
+                "operationId": "transfer",
+                "requestBody": {
+                    "description": "Request body",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "to_bank_code",
+                                    "to_account_no",
+                                    "amount",
+                                    "transaction_pin"
+                                ],
+                                "properties": {
+                                    "to_bank_code": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "000002"
+                                    },
+                                    "to_account_no": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "1111111103"
+                                    },
+                                    "amount": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "100.00"
+                                    },
+                                    "transaction_pin": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "1234"
+                                    },
+                                    "transfer_type": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "inter"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
                         "description": "Successful Pin Change",
                         "content": {
                             "application/json": {
@@ -1341,7 +1557,7 @@
                                         },
                                         "message": {
                                             "type": "string",
-                                            "example": "Initialize pin change was successful"
+                                            "example": "success"
                                         }
                                     },
                                     "type": "object"

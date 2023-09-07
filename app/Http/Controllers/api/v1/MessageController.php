@@ -117,7 +117,30 @@ class MessageController extends Controller
      *    description="Successful Bank List",
      *    @OA\JsonContent(
      *       @OA\Property(property="success", type="boolean", example="true"),
-     *       @OA\Property(property="message", type="string", example="Initialize pin change was successful"),
+     *       @OA\Property(property="message", type="string", example="Success"),
+     *       @OA\Property(
+     *       property="data",
+     *          type="object",
+     *                example={
+     *                 0: {
+     *                       "bank_code":"02913",
+     *                       "bank_name":"First Bank",
+     *                       "display_img":"https://visaron.ng/logo.png",
+     *                    },
+     *                 1: {
+     *                       "bank_code":"39291",
+     *                       "bank_name":"Stanbic Bank",
+     *                       "display_img":"https://visaron.ng/logo.png",
+     *                    },
+     *                 2: {
+     *                       "bank_code":"03091",
+     *                       "bank_name":"Zenith Bank",
+     *                       "display_img":"https://visaron.ng/logo.png",
+     *
+     *                   }
+     *
+     *                },
+     *              ),
      *       )
      *     )
      * )
@@ -128,18 +151,304 @@ class MessageController extends Controller
 
        $settings = DB::table('tbl_settings')->get();
        $parameter_status = $settings->where('name','visaro_vbaas_get_parameters')->first()->value;
-
+       $data = array();
        if($parameter_status == 0) //run get parameters from Vbaas endpoint
        {
            $vbaas = new VbaasController;
            $parameter = $vbaas->run_parameter();
 
+       }
+
+        $bank_collection = DB::table('banks')->select('bank_code','bank_name','display_img')->get();
 
 
+
+       foreach($bank_collection as $bank)
+       {
+          $data[] =
+          [
+              "bank_code" => $bank->bank_code,
+              "bank_name" => $bank->bank_name,
+              "display_img" => url('/uploads/banks/'.$bank->display_img)
+          ];
+       }
+
+        return response()->json([
+            'success'=>true,
+            'message'=>'success',
+            'data' => $data
+
+        ], 200);
+    }
+
+     /**
+     ******************************************************************************************************************************
+     * @OA\Get(
+     * path="/get_bill_payment_category",
+     * summary="Get Bill Payment Category",
+     * description="Get Bill Payment Category",
+     * operationId="get_bill_payment_category",
+     * tags={"Get Bill Payment Category"},
+     * security={{"bearer_token":{}}},
+     * @OA\Response(
+     *    response=200,
+     *    description="Successful Bill Payments Category",
+     *    @OA\JsonContent(
+     *       @OA\Property(property="success", type="boolean", example="true"),
+     *       @OA\Property(property="message", type="string", example="Success"),
+     *       @OA\Property(
+     *       property="data",
+     *          type="object",
+     *                example={
+     *                 0: {
+     *                       "category_code":"ELECTRICITY",
+     *                       "category_name":"ELECTRICITY"
+     *                    },
+     *                 1: {
+     *                      "category_code":"AIRTIME",
+     *                      "category_name":"AIRTIME"
+     *                    },
+     *                 2: {
+     *                      "category_code":"CABLE",
+     *                      "category_name":"CABLE"
+     *                   }
+     *
+     *                },
+     *              ),
+     *
+     *
+     *
+     *       )
+     *     )
+     * )
+     * ********/
+
+    public function get_bill_payment_category()
+    {
+
+       $settings = DB::table('tbl_settings')->get();
+       $parameter_status = $settings->where('name','visaro_vbaas_get_parameters')->first()->value;
+       $data = array();
+       if($parameter_status == 0) //run get parameters from Vbaas endpoint
+       {
+           $vbaas = new VbaasController;
+           $parameter = $vbaas->run_parameter();
 
        }
 
+       $category_collection = DB::table('bill_payment_category')->select('category_name','category_code')->get();
+
+
+       foreach($category_collection as $cat)
+       {
+          $data[] =
+          [
+              "category_code" => $cat->category_code,
+              "category_name" => $cat->category_name
+          ];
+       }
+
+        return response()->json([
+            'success'=>true,
+            'message'=>'success',
+            'data' => $data
+
+        ], 200);
+
     }
+
+
+
+    /**
+     ******************************************************************************************************************************
+     * @OA\Get(
+     * path="/beneficial_enquiry?account_no={account_no}&bank_code={bank_code}",
+     * summary="This endpoint is used to get a transfer recipient account details, e.g account_no =1111111103 & bank_code=000002",
+     * description="This endpoint is used to get a transfer recipient account details",
+     * operationId="beneficial_enquiry",
+     * tags={"Beneficial Enquiry"},
+     * security={{"bearer_token":{}}},
+     * @OA\Parameter(
+     *          name="account_no",
+     *          description="User Account No",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="string"
+     *          )
+     * ),
+     * @OA\Parameter(
+     *          name="bank_code",
+     *          description="User Bank Code",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="string"
+     *          )
+     * ),
+     * @OA\Response(
+     *    response=200,
+     *    description="Successful Recipient details",
+     *    @OA\JsonContent(
+     *       @OA\Property(property="success", type="boolean", example="true"),
+     *       @OA\Property(property="message", type="string", example="Success"),
+     *       @OA\Property(
+     *       property="data",
+     *          type="object",
+     *                example={
+     *                 0: {
+     *                      "full_name": "John Thomas Usman",
+     *                    }
+     *
+     *                },
+     *              ),
+     *
+     *
+     *
+     *       )
+     *     )
+     * )
+     * ********/
+
+    public function beneficial_enquiry(Request $request)
+    {
+
+        $rules = [
+            "account_no" => "required|numeric:4",
+            "bank_code" => "required",
+         ];
+
+        $this->validate($request, $rules);
+
+        $vbaas = new VbaasController;
+        $arr_response = $vbaas->beneficial_enquiry($request->account_no, $request->bank_code);
+
+
+
+        if(!isset($arr_response->status))
+        {
+            if(isset($arr_response['status']) && $arr_response['status'] == "00") //successful account get
+            {
+                return response()->json([
+                    'success'=>true,
+                    'message'=>'Success',
+                    'data' => [
+                    'full_name' => $arr_response['data']['name']
+                    ]
+                ], 200);
+            }
+        }else
+        {
+            return response()->json([
+                'success'=> false,
+                'message'=> $arr_response->message,
+                'data' => []
+            ], 406);
+        }
+    }
+
+    /**
+     ******************************************************************************************************************************
+     * @OA\Post(
+     * path="/transfer",
+     * summary="To transfer fund to a beneficiary",
+     * description="This will enable visaro users to transfer fund to a bank account or to a visaro user",
+     * operationId="transfer",
+     * tags={"Transfer Fund"},
+     * security={{"bearer_token":{}}},
+     * @OA\RequestBody(
+     *    required=true,
+     *    description="Request body",
+     *    @OA\JsonContent(
+     *       required={"to_bank_code","to_account_no","amount","transaction_pin"},
+     *       @OA\Property(property="to_bank_code", type="string", format="text", example="000002"),
+     *       @OA\Property(property="to_account_no", type="string", format="text", example="1111111103"),
+     *       @OA\Property(property="amount", type="string", format="text", example="100.00"),
+     *       @OA\Property(property="transaction_pin", type="string", format="password", example="1234"),
+     *       @OA\Property(property="transfer_type", type="string", format="text", example="inter"),
+     *
+     *    ),
+     * ),
+     * @OA\Response(
+     *    response=200,
+     *    description="Successful Pin Change",
+     *    @OA\JsonContent(
+     *       @OA\Property(property="success", type="boolean", example="true"),
+     *       @OA\Property(property="message", type="string", example="success"),
+     *       )
+     *     )
+     * )
+     * ********/
+
+     public function transfer(Request $request)
+     {
+        $rules = [
+            "to_bank_code" => "required",
+            "to_account_no" => "required",
+            "amount" => ["required", "regex:/^\d+(\.\d{1,2})?$/"],
+            "transaction_pin" => "required",
+            "transfer_type" => "required",
+         ];
+
+        $this->validate($request, $rules);
+
+
+        //pin check
+        $check_pin = Utilities::verify_transaction_pin($request->transaction_pin); //1 - Matched
+
+
+        if(json_decode($check_pin->getContent())->success == true)
+        {
+            //check balance of this user
+            $wallet = DB::table('wallet')->where('owners_id', Auth::user()->id)->get();
+            if(count($wallet) > 0)
+            {
+            if($wallet[0]->status ==  1) //Wallet is active
+            {
+                if($wallet[0]->visaro_balance > $request->amount)
+                {
+                    //check account enquiry check to get user BVN
+
+
+                    //Debit User Account
+
+
+                    //Credit other account
+
+                }
+                else
+                {
+                    return response()->json([
+                        'success'=> false,
+                        'message'=> "Insufficient Fund",
+
+                    ], 406);
+                }
+
+            }else
+            {
+                    return response()->json([
+                        'success'=> false,
+                        'message'=> "Your wallet has been deactivated",
+
+                    ], 406);
+            }
+            }else
+            {
+                return response()->json([
+                    'success'=> false,
+                    'message'=> "Wallet Not Found",
+
+                ], 406);
+            }
+
+        }else
+        {
+            return $check_pin;
+        }
+
+     }
+
 
     public function create_password(Request $request)
     {
@@ -149,8 +458,6 @@ class MessageController extends Controller
 
         if($password != $password_confirmation)
         {
-
-
             return response()->json([
                 'success'=>false,
                 'message'=>'Password Mismatched',
@@ -158,7 +465,6 @@ class MessageController extends Controller
 
         }else
         {
-
               $user_details =  DB::table('users')->where('id', Auth::user()->id)->get();
 
               //If access granted to create password and grace period time given on OTP validation has not expired
@@ -323,6 +629,8 @@ class MessageController extends Controller
       }
 
     }
+
+
 
     public function balance_enquiry()
     {
