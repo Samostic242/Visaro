@@ -1037,7 +1037,7 @@ class PassportController extends Controller
                 {
                     $file = $request->file('profile_pics');
                     $extension = $request->file('profile_pics')->getClientOriginalExtension();
-                    $filename = Auth::user()->id.'_'.Auth::user()->email . '_profile_pics.' . $extension; // renameing image
+                    $filename = Auth::user()->id.'_'.base64_encode(Auth::user()->email) . '_profile_pics.' . $extension; // renameing image
                     $destinationPath = 'uploads/profile_pics/';//its refers project/public/uploads/jsa directory
                     //$work_permit_log->jsa_upload = $filename;
                     $upload_success = $file->move($destinationPath, $filename);

@@ -12,6 +12,7 @@ storage/dbdata
 public/storage
 public/hot
 public/applications
+public/uploads/profile_pics/
 
 # Laravel 5 & Lumen specific with changed public path
 public_html/storage

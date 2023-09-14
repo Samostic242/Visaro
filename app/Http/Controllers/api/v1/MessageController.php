@@ -511,8 +511,7 @@ class MessageController extends Controller
        $this->validate($request, $rules);
        $check =  DB::table('profile')->where('user_id', Auth::user()->id)->get();
 
-       if(count($check) > 0)
-       {
+
             if (isset($request->account_type) && $request->account_type != 2)
             {
                 return response()->json([
@@ -567,7 +566,7 @@ class MessageController extends Controller
             $insert["port_of_origin"] = $request->port_of_origin;
 
             DB::table('profile')->where('user_id',Auth::user()->id)->update($insert);
-       }
+
     }
 
     function get_wallet()
@@ -634,12 +633,7 @@ class MessageController extends Controller
 
     public function balance_enquiry()
     {
-        //check if onboarding is completed by this users
-        $check = DB::table('profile')
-        ->where('user_id', Auth::user()->id)->get();
 
-        if(count($check) > 0)
-        {
               //get wallet balance
               $wallet_collection = $this->get_wallet();
 
@@ -661,13 +655,7 @@ class MessageController extends Controller
 
 
 
-        }else
-        {
-            return response()->json([
-                'success'=>false,
-                'message'=>'Your BVN is not verified',
-            ], 406);
-        }
+
     }
 
     public function profile_details()
@@ -738,9 +726,6 @@ class MessageController extends Controller
             "setup_trans_pin" => Auth::user()->setup_trans_pin == 1?true:false,
             "phone_no_verification" => Auth::user()->otp_phone_verif == 1?true:false,
         ];
-
-
-
 
 
         $wallet = [
@@ -1121,6 +1106,7 @@ class MessageController extends Controller
 
         $this->validate($request, $rules);
 
+
         if (Utilities::verify_password($request->old_password)) {
 
             $otp_screen_expiry_time =  1;
@@ -1196,8 +1182,10 @@ class MessageController extends Controller
 
             $this->validate($request, $rules);
 
+            $process = Utilities::verify_transaction_pin($request->old_password)->getContent();
+            $res =  json_decode($process);
 
-            if (Utilities::verify_transaction_pin($request->old_pin)) {
+            if ($res->success == 1) {
                 // The entered pin is correct
 
                 $otp_screen_expiry_time =  1;
@@ -1220,10 +1208,7 @@ class MessageController extends Controller
                   ], 200);
 
             } else {
-                return response()->json([
-                    'success'=>false,
-                    'message'=>'Invalid Pin',
-                ], 406);
+                return $process;
             }
 
     }

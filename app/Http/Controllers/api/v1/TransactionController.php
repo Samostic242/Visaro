@@ -280,7 +280,7 @@ class TransactionController extends Controller
                         $uploadpath   = 'uploads/profile_pics/';
 
                         $imagebase64  = base64_decode($res_arr->data->base64Image);
-                        $file_name         = Auth::user()->id.'_'.Auth::user()->email . '_bvn_pics.' . '.png';
+                        $file_name         = Auth::user()->id.'_'.base64_encode(Auth::user()->email) . '_bvn_pics.' . '.png';
                         file_put_contents($uploadpath.$file_name, $imagebase64);
 
                         $profile->bvn_pics_file_name =  $file_name;
