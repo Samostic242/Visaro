@@ -8,6 +8,11 @@ use App\Http\Controllers\api\PassportController;
 Route::prefix('v1')->group(function () {
     Route::post('register', [PassportController::class, 'register']);
     Route::post('login', [PassportController::class, 'login']);
+
+     // Refresh Token Route
+     Route::post('/refresh-token', [PassportController::class, 'refreshToken'])->name('refresh-token');
+
+
     Route::get('/region_list/{country_key}', [App\Http\Controllers\api\v1\MessageController::class, 'region_list'])->name('region_list');
     Route::get('/country_list', [App\Http\Controllers\api\v1\MessageController::class, 'country_list'])->name('country_list');
 
@@ -17,6 +22,8 @@ Route::prefix('v1')->group(function () {
 
 
     Route::middleware('auth:api')->group(function () {
+
+
        // Route::post('user-detail', [PassportController::class, 'userDetail']);
         Route::post('logout', [PassportController::class, 'logout']);
         Route::post('/validate_otp', [App\Http\Controllers\api\v1\MessageController::class, 'validate_otp'])->name('validate_otp');

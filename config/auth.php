@@ -43,6 +43,8 @@ return [
         'api' => [
             'driver' => 'passport',
             'provider' => 'users',
+            'expire_in' => 15, // Set the access token lifetime in minutes (15 minutes)
+            'refresh_in' => 10080, // Set the refresh token lifetime in minutes (7 days)
         ],
     ],
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api;
 use DB;
 use GuzzleHttp\Client;
+use App\Http\Controllers\Utilities;
 
 class VbaasController
 {
@@ -26,29 +27,143 @@ class VbaasController
     public function Onboarding()
     {
 
+        $settings = DB::table('tbl_settings')->get();
+        $username = $settings->where('name','vbaas_username')->first()->value;
+        $wallet_name = $settings->where('name','vbass_wallet_name')->first()->value;
+        $short_name = $settings->where('name','vbass_short_name')->first()->value;
+
         $url = $this->vbaas_base_url."/wallet2/onboarding?wallet-credentials=" . urlencode($this->vbaas_wallet_credentials); // Replace with your actual POST URL
 
         $data = [
-            "username" => "visaro",
-            "walletName" => "Visaro Nigeria",
+            "username" => $username,
+            "walletName" => $wallet_name,
             "webhookUrl" => "",
-            "shortName" => "visa",
+            "shortName" => $short_name,
             "implementation" => "Pool"
         ];
 
         $headers = [
             'Authorization' => 'Bearer '. $this->vbaas_access_token,
-            'Content-Type' => 'application/json'
+            'Content-Type' => 'application/json',
         ];
 
         $client = new Client();
         $response = $client->post($url, [
             'headers' => $headers,
-            'json' => $data
+            'json' => $data,
+            'http_errors' => false // Handle 404 error code
         ]);
 
-        $responseBody = $response->getBody();
-        echo $responseBody;
+        $statusCode = $response->getStatusCode();
+        $responseBody = $response->getBody()->getContents();
+
+
+        $arr = json_decode($responseBody, true);
+
+        if($arr['status'] == "00")
+        {
+            DB::table('tbl_settings')->where('name', 'vbaas_onboarding')->update(['value' => 1]);
+            return 1;
+        }else if($arr['status'] == "99") //Already Exist
+        {
+            DB::table('tbl_settings')->where('name', 'vbaas_onboarding')->update(['value' => 1]);
+            return 1;
+        }else
+        {
+            return 0;
+        }
+    }
+
+    public function transfer($to_bank, $to_account, $amount, $naration, $transfer_type = "inter")
+    {
+        //check account enquiry check to get user BVN
+        $settings = DB::table('tbl_settings')->get();
+
+        $vbaas = new VbaasController;
+        $arr_response = $vbaas->beneficial_enquiry($to_account, $to_bank);
+
+
+        if(!isset($arr_response->status))
+        {
+
+            if(isset($arr_response['status']) && $arr_response['status'] == "00") //successful account get
+            {
+                $from_acc = DB::table('vbaas_account_details')->first();
+                $wallet_name =  $settings->where('name','vbass_wallet_name')->first()->value;
+
+                $to_client_id = $arr_response['data']["clientId"];
+                $to_client = $arr_response['data']["name"];
+                $to_savings_id =  $arr_response['data']["account"]["id"];
+                $to_session =  $arr_response['data']["account"]["id"];
+                $to_kyc = $arr_response['status'];
+                $to_bvn = $arr_response['data']["bvn"];
+                $to_account_no = $arr_response['data']["account"]["number"];
+                $to_bank = $to_bank;
+
+                $remark = $naration;
+                $transfer_type = $transfer_type;
+                $reference = $wallet_name."-".Utilities::generateUniqueTransactionId(14);
+
+                $concatenatedString = $from_acc->account_no . $to_account_no;
+                $hashValue = hash('sha512', $concatenatedString);
+
+
+                $data = [
+                    "fromAccount" => $from_acc->account_no,
+                    "fromClientId" => $from_acc->client_id,
+                    "fromClient" => $from_acc->client,
+                    "fromSavingsId" => $from_acc->account_id,
+                    "fromBvn" => "",
+                    "toClientId" => $to_client_id,
+                    "toClient" =>  $to_client,
+                    "toSavingsId" => $to_savings_id,
+                    "toSession" => $to_session,
+                    "toBvn" => $to_bvn !=""?$to_bvn:"",
+                    "toAccount" => $to_account_no,
+                    "toBank" => $to_bank,
+                    "signature" => $hashValue,
+                    "amount" => $amount,
+                    "remark" => $naration,
+                    "transferType" => $transfer_type,
+                    "reference" => $reference
+                ];
+
+                $baseURL = $this->vbaas_base_url;
+                $endpoint = "/wallet2/transfer";
+
+                // Build the URL for the API request
+                $url = $baseURL . $endpoint . "?wallet-credentials=" . urlencode($this->vbaas_wallet_credentials);
+
+                $headers = [
+                    'Authorization' => 'Bearer '. $this->vbaas_access_token,
+                    'Content-Type' => 'application/json',
+                ];
+
+                $client = new Client();
+                $response = $client->post($url, [
+                    'headers' => $headers,
+                    'json' => $data,
+                    'http_errors' => false // Handle 404 error code
+                ]);
+
+                $statusCode = $response->getStatusCode();
+                $responseBody = $response->getBody()->getContents();
+
+                $arr = json_decode($responseBody, true);
+                return $arr;
+
+            }else
+            {
+                return $arr_response;
+            }
+        }else
+        {
+
+            return response()->json([
+                'success'=> false,
+                'message'=> "Unable to determine beneficiary account no",
+            ], 406);
+        }
     }
 
     public function get_client_account($accountNo, $bank)
@@ -173,11 +288,13 @@ class VbaasController
             $statusCode = $response->getStatusCode();
             $responseBody = $response->getBody()->getContents();
 
+            /*
             if ($statusCode == 404) {
                 return json_decode($responseBody);
             } else if ($statusCode != 200) {
                 return json_decode($responseBody);
             }
+            */
 
             $arr = json_decode($responseBody, true);
 
@@ -309,9 +426,14 @@ class VbaasController
 
     public function run_parameter()
     {
+        $onbording = $this->Onboarding();
+
+
+        if($onbording == 1)
         $insert_bank = $this->get_bank_list();
         $insert_account_enq = $this->get_acct_enquiry();
         $insert_biller_cat = $this->get_biller_category();
+
 
         if($insert_bank == 1 && $insert_account_enq == 1 && $insert_biller_cat ==1)
         {
