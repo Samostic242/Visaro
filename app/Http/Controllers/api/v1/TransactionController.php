@@ -84,7 +84,8 @@ class TransactionController extends Controller
                     "user_id" => Auth::user()->id,
                     "trans_type" => $request->transaction_type,
                     "amount" => $request->amount,
-                    "created_at" => NOW()
+                    "created_at" => NOW(),
+                    "visaro_unique_id" =>  Utilities::generateUniqueTransactionId(20),
                 ]);
 
                 if($check)
