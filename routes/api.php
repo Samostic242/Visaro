@@ -56,6 +56,8 @@ Route::prefix('v1')->group(function () {
                 Route::post('/create_transaction_pin', [App\Http\Controllers\api\v1\MessageController::class, 'create_transaction_pin'])->name('create_transaction_pin');
                 Route::get('/beneficial_enquiry', [App\Http\Controllers\api\v1\MessageController::class, 'beneficial_enquiry'])->name('beneficial_enquiry');
                 Route::post('/transfer', [App\Http\Controllers\api\v1\MessageController::class, 'transfer'])->name('transfer');
+                Route::post('/transfer_to_visaro', [App\Http\Controllers\api\v1\MessageController::class, 'transfer_to_visaro'])->name('transfer_to_visaro');
+
                 Route::post('/company_profile_update', [App\Http\Controllers\api\v1\MessageController::class, 'company_profile_update'])->name('company_profile_update');
                 Route::post('/profile_update', [PassportController::class, 'profile_update'])->name('profile_update');
             });

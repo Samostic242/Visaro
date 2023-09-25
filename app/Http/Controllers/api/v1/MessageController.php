@@ -257,6 +257,17 @@ class MessageController extends Controller
 
     }
 
+    public function list_saved_beneficiary()
+    {
+
+    }
+
+
+    public function saved_beneficiary()
+    {
+
+    }
+
 
 
     /**
@@ -350,22 +361,229 @@ class MessageController extends Controller
     /**
      ******************************************************************************************************************************
      * @OA\Post(
-     * path="/transfer",
-     * summary="To transfer fund to a beneficiary",
-     * description="This will enable visaro users to transfer fund to a bank account or to a visaro user",
-     * operationId="transfer",
-     * tags={"Transfer Fund"},
+     * path="/transfer_to_visaro",
+     * summary="To transfer fund to a Visaro User",
+     * description="This will enable visaro users to transfer fund to other visaro users",
+     * operationId="transfer_to_visaro",
+     * tags={"Transfer To Visaro User"},
      * security={{"bearer_token":{}}},
      * @OA\RequestBody(
      *    required=true,
      *    description="Request body",
      *    @OA\JsonContent(
-     *       required={"to_bank_code","to_account_no","amount","transaction_pin","transfer_type","naratation"},
+     *       required={"username","amount","transaction_pin","transfer_type","naratation"},
+     *       @OA\Property(property="username", type="string", format="text", example="es@yahoo.com"),
+     *       @OA\Property(property="amount", type="string", format="text", example="100.00"),
+     *       @OA\Property(property="transaction_pin", type="string", format="password", example="1234"),
+     *       @OA\Property(property="naration", type="string", format="text", example="school fees for next year"),
+     *
+     *    ),
+     * ),
+     * @OA\Response(
+     *    response=200,
+     *    description="Successful Pin Change",
+     *    @OA\JsonContent(
+     *       @OA\Property(property="success", type="boolean", example="true"),
+     *       @OA\Property(property="message", type="string", example="success"),
+     *       @OA\Property(
+     *       property="data",
+     *          type="object",
+     *                example={
+     *                       "trans_id":"visaro-nigeria-28335603651132",
+     *                },
+     *              ),
+     *       )
+     *     )
+     * )
+     * ********/
+
+    public function transfer_to_visaro(Request $request)
+    {
+       $rules = [
+           "username" => "required",
+           "amount" => ["required", "regex:/^\d+(\.\d{1,2})?$/"],
+           "transaction_pin" => "required",
+           "naration" => "required"
+        ];
+
+       $this->validate($request, $rules);
+
+
+       //pin check
+       $check_pin = Utilities::verify_transaction_pin($request->transaction_pin); //1 - Matched
+
+
+       if(json_decode($check_pin->getContent())->success == true)
+       {
+           //check balance of this user
+           $wallet = DB::table('wallet')->where('owners_id', Auth::user()->id)->get();
+           if(count($wallet) > 0)
+           {
+           if($wallet[0]->status ==  1) //Wallet is active
+           {
+               if($wallet[0]->visaro_balance > $request->amount)
+               {
+                   $visaro_session_id = Utilities::generateUniqueTransactionId(20);
+                   //Debit user wallet
+                   $query_debit = DB::table('wallet')->where('owners_id', Auth::user()->id)->decrement('visaro_balance', $request->amount);
+                   $current_bal = DB::table('wallet')->where('owners_id', Auth::user()->id)->get();
+
+                   //Log transaction
+                   $log_query =  DB::table('transactions')->insert([
+                        "trans_type" => "02", //Transfer
+                        "amount" => $request->amount,
+                        "user_id" => Auth::user()->id,
+                        "created_at" => NOW(),
+                        "prev_wall_bal" => $wallet[0]->visaro_balance,
+                        "curr_wall_bal" => $current_bal[0]->visaro_balance,
+                        "visaro_unique_id" => $visaro_session_id,
+                        "status" => 1
+                   ]);
+
+
+                        if ($request->username == Auth::user()->email)
+                        {
+                             //Reverse Amount
+                             $query_debit = DB::table('wallet')->where('owners_id', Auth::user()->id)->increment('visaro_balance', $request->amount);
+
+                             //Log transaction
+                             $log_query =  DB::table('transactions')->insert([
+                                     "trans_type" => "03", // Reversal
+                                     "amount" => $request->amount,
+                                     "user_id" => Auth::user()->id,
+                                     "created_at" => NOW(),
+                                     "prev_wall_bal" => $current_bal[0]->visaro_balance,
+                                     "curr_wall_bal" => $wallet[0]->visaro_balance,
+                                     "visaro_unique_id" =>  Utilities::generateUniqueTransactionId(20),
+                                     "status" => 1,
+                                     "reversal_of" => $visaro_session_id
+                             ]);
+
+                             //Reverse user account
+                             return response()->json([
+                                 'success'=>false,
+                                 'message'=>'An error occured while trying to credit '.$request->username.' please try again later',
+                             ], 406);
+                        }else
+                        {
+                               //Get Receiver details
+
+                               $receiver_collections = DB::table('users')
+                               ->where('email', $request->username)
+                               ->join('wallet','owners_id', 'id')
+                               ->get();
+
+                               if(count($receiver_collections) > 0)
+                               {
+
+                                   //Credit Reciever
+                                   $query_credit = DB::table('wallet')->where('owners_id', $receiver_collections[0]->id)->increment('visaro_balance', $request->amount);
+
+                                   $trans_id = Utilities::generateUniqueTransactionId(20);
+                                   //Log transaction
+                                   $log_query =  DB::table('transactions')->insert([
+                                       "trans_type" => "04", //Credit
+                                       "amount" => $request->amount,
+                                       "user_id" => $receiver_collections[0]->id,
+                                       "created_at" => NOW(),
+                                       "prev_wall_bal" => $receiver_collections[0]->visaro_balance,
+                                       "curr_wall_bal" => ($receiver_collections[0]->visaro_balance + $request->amount),
+                                       "visaro_unique_id" => $trans_id,
+                                       "status" => 1
+                                   ]);
+
+
+                                   return response()->json([
+                                       'success'=> true,
+                                       'message'=> "Success",
+                                       'data' => [
+                                           "trans_id" => $trans_id
+                                       ]
+                                   ], 200);
+
+
+
+
+                               }else
+                               {
+
+                                   //Reverse Amount
+                                   $query_debit = DB::table('wallet')->where('owners_id', Auth::user()->id)->increment('visaro_balance', $request->amount);
+
+                                   //Log transaction
+                                   $log_query =  DB::table('transactions')->insert([
+                                           "trans_type" => "03", // Reversal
+                                           "amount" => $request->amount,
+                                           "user_id" => Auth::user()->id,
+                                           "created_at" => NOW(),
+                                           "prev_wall_bal" => $current_bal[0]->visaro_balance,
+                                           "curr_wall_bal" => $wallet[0]->visaro_balance,
+                                           "visaro_unique_id" =>  Utilities::generateUniqueTransactionId(20),
+                                           "status" => 1,
+                                           "reversal_of" => $visaro_session_id
+                                   ]);
+
+
+                                   //Reverse user account
+                                   return response()->json([
+                                       'success'=>false,
+                                       'message'=>'Unable to determine beneficiary',
+                                   ], 406);
+                               }
+                        }
+
+
+               }
+               else
+               {
+                   return response()->json([
+                       'success'=> false,
+                       'message'=> "Insufficient Fund",
+
+                   ], 406);
+               }
+
+           }else
+           {
+                   return response()->json([
+                       'success'=> false,
+                       'message'=> "Your wallet has been deactivated",
+
+                   ], 406);
+           }
+           }else
+           {
+               return response()->json([
+                   'success'=> false,
+                   'message'=> "Wallet Not Found",
+
+               ], 406);
+           }
+
+       }else
+       {
+           return $check_pin;
+       }
+    }
+
+    /**
+     ******************************************************************************************************************************
+     * @OA\Post(
+     * path="/transfer",
+     * summary="To transfer fund to a beneficiary",
+     * description="This will enable visaro users to transfer fund to a bank account or to a visaro user",
+     * operationId="transfer",
+     * tags={"Transfer To Bank Account"},
+     * security={{"bearer_token":{}}},
+     * @OA\RequestBody(
+     *    required=true,
+     *    description="Request body",
+     *    @OA\JsonContent(
+     *       required={"to_bank_code","to_account_no","amount","transaction_pin","naratation"},
      *       @OA\Property(property="to_bank_code", type="string", format="text", example="000002"),
      *       @OA\Property(property="to_account_no", type="string", format="text", example="1111111103"),
      *       @OA\Property(property="amount", type="string", format="text", example="100.00"),
      *       @OA\Property(property="transaction_pin", type="string", format="password", example="1234"),
-     *       @OA\Property(property="transfer_type", type="string", format="text", example="inter"),
      *       @OA\Property(property="naration", type="string", format="text", example="school fees for next year"),
      *
      *    ),
@@ -397,7 +615,6 @@ class MessageController extends Controller
             "to_account_no" => "required",
             "amount" => ["required", "regex:/^\d+(\.\d{1,2})?$/"],
             "transaction_pin" => "required",
-            "transfer_type" => "required",
             "naration" => "required"
          ];
 
@@ -442,15 +659,12 @@ class MessageController extends Controller
                          "prev_wall_bal" => $wallet[0]->visaro_balance,
                          "curr_wall_bal" => $current_bal[0]->visaro_balance,
                          "visaro_unique_id" => $visaro_session_id,
-                         "status" => 0
+                         "status" => 1
                     ]);
 
 
-                    if($request->transfer_type == "inter")// From Visaro to Other banks
-                    {
+
                         $arr_response = $vbaas->transfer($request->to_bank_code, $request->to_account_no, $request->amount, $request->naration);
-
-
 
                         //Successful
                         if(isset($arr_response["status"]) && $arr_response["status"] == "00")
@@ -465,7 +679,6 @@ class MessageController extends Controller
                                 "transfer_server_status" => $arr_response["status"],
                                 "transfer_server_message" => $arr_response["message"],
                             ]);
-
 
                             return response()->json([
                                 'success'=> true,
@@ -488,8 +701,8 @@ class MessageController extends Controller
                                     "amount" => $request->amount,
                                     "user_id" => Auth::user()->id,
                                     "created_at" => NOW(),
-                                    //"prev_wall_bal" => $wallet[0]->visaro_balance,
-                                    //"curr_wall_bal" => $current_bal[0]->visaro_balance,
+                                    "prev_wall_bal" => $current_bal[0]->visaro_balance, //Switch it
+                                    "curr_wall_bal" =>  $wallet[0]->visaro_balance,
                                     "visaro_unique_id" =>  Utilities::generateUniqueTransactionId(20),
                                     "status" => 1,
                                     "reversal_of" => $visaro_session_id
@@ -502,18 +715,6 @@ class MessageController extends Controller
                             ], 406);
 
                         }
-                    }else if($request->transfer_type == "intra")// From Visaro to visaro account
-                    {
-                        //Debit
-
-                    }else
-                    {
-                        return response()->json([
-                            'success'=> false,
-                            'message'=> "Invalid Transfer Type",
-
-                        ], 406);
-                    }
 
                 }
                 else

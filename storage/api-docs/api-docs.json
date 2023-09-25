@@ -1560,10 +1560,93 @@
                 ]
             }
         },
+        "/transfer_to_visaro": {
+            "post": {
+                "tags": [
+                    "Transfer To Visaro User"
+                ],
+                "summary": "To transfer fund to a Visaro User",
+                "description": "This will enable visaro users to transfer fund to other visaro users",
+                "operationId": "transfer_to_visaro",
+                "requestBody": {
+                    "description": "Request body",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "username",
+                                    "amount",
+                                    "transaction_pin",
+                                    "transfer_type",
+                                    "naratation"
+                                ],
+                                "properties": {
+                                    "username": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "es@yahoo.com"
+                                    },
+                                    "amount": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "100.00"
+                                    },
+                                    "transaction_pin": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "1234"
+                                    },
+                                    "naration": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "school fees for next year"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Pin Change",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "success"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "example": {
+                                                "trans_id": "visaro-nigeria-28335603651132"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
         "/transfer": {
             "post": {
                 "tags": [
-                    "Transfer Fund"
+                    "Transfer To Bank Account"
                 ],
                 "summary": "To transfer fund to a beneficiary",
                 "description": "This will enable visaro users to transfer fund to a bank account or to a visaro user",
@@ -1579,7 +1662,6 @@
                                     "to_account_no",
                                     "amount",
                                     "transaction_pin",
-                                    "transfer_type",
                                     "naratation"
                                 ],
                                 "properties": {
@@ -1602,11 +1684,6 @@
                                         "type": "string",
                                         "format": "password",
                                         "example": "1234"
-                                    },
-                                    "transfer_type": {
-                                        "type": "string",
-                                        "format": "text",
-                                        "example": "inter"
                                     },
                                     "naration": {
                                         "type": "string",
