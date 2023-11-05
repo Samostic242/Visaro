@@ -33,6 +33,15 @@ return [
     'article' => [
         'base_uri' => env('PRODUCTS_SERVICE_BASE_URI'),
         'secret' => env('PRODUCTS_SERVICE_SECRET')
+    ],
+    'messaging' => [
+        'sms' => [
+            'termii' => [
+                'sender_id' => env('TERMII_SENDER_ID'),
+                'api_key' => env('TERMII_API_KEY'),
+                'secret_key' => env('TERMII_SECRET_KEY')
+            ]
+        ]
     ]
 
 

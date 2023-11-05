@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\api\v1;
 
-use App\Http\Controllers\Controller;
+use DateTime;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Services\MessageService;
-use Auth;
-use DB;
-use App\Models\User;
-use Mail;
-use DateTime;
-use Hash;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Utilities;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\api\VbaasController;
 
 class MessageController extends Controller

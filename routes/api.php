@@ -12,7 +12,6 @@ Route::prefix('v1')->group(function () {
      // Refresh Token Route
      Route::post('/refresh-token', [PassportController::class, 'refreshToken'])->name('refresh-token');
 
-
     Route::get('/region_list/{country_key}', [App\Http\Controllers\api\v1\MessageController::class, 'region_list'])->name('region_list');
     Route::get('/country_list', [App\Http\Controllers\api\v1\MessageController::class, 'country_list'])->name('country_list');
 
@@ -22,8 +21,6 @@ Route::prefix('v1')->group(function () {
 
 
     Route::middleware('auth:api')->group(function () {
-
-
        // Route::post('user-detail', [PassportController::class, 'userDetail']);
         Route::post('logout', [PassportController::class, 'logout']);
         Route::post('/validate_otp', [App\Http\Controllers\api\v1\MessageController::class, 'validate_otp'])->name('validate_otp');
@@ -38,7 +35,6 @@ Route::prefix('v1')->group(function () {
             Route::get('/verify_transaction/{ref}', [App\Http\Controllers\api\v1\TransactionController::class, 'verify_transaction'])->name('verify_transaction');
 
              Route::post('/initialize_change_password', [App\Http\Controllers\api\v1\MessageController::class, 'initialize_change_password'])->name('initialize_change_transaction_pin');
-
 
             Route::post('/bvn_verification', [App\Http\Controllers\api\v1\TransactionController::class, 'bvn_verification'])->name('bvn_verification');
 
@@ -65,10 +61,7 @@ Route::prefix('v1')->group(function () {
 
         });
 
-
-
         Route::apiResource('articles',App\Http\Controllers\api\v1\ArticleController::class);
-
         Route::get('/articles/{id}/comments', [App\Http\Controllers\api\v1\ArticleController::class, 'show_comments'])->name('show_comment');
         Route::post('/articles/{id}/comments', [App\Http\Controllers\api\v1\ArticleController::class, 'store_comments'])->name('store_comments');
 

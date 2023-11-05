@@ -1,6 +1,9 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Support\Str;
+use Okolaa\TermiiPHP\Termii;
+use Illuminate\Support\Facades\Log;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use App\Actions\Services\Notifications\NotificationService;
 
@@ -83,5 +86,66 @@ if (!function_exists('sendEmailVerificationMail')) {
         //     ->setView('email.school.onboarding.verify-email')
         //     ->sendEmail();
         // return $notification;
+    }
+}
+
+if (!function_exists('sendSmsMessage')) {
+    function sendSmsMessage(String $phone_number, String $message, String $purpose = 'transaction')
+    {
+        $termii = new Termii('TERMII_SENDER_ID', 'TERMII_API_KEY');
+        try {
+            $termii->sendMessage(
+                [
+                    "phone_number" => $phone_number,
+                    "message" => $message
+                ]
+            );
+            return true;
+        } catch (\Throwable $e) {
+            Log::error("Failed to send sms message {$e->getMessage()}");
+            return false;
+        }
+        return true;
+    }
+}
+if (!function_exists('sendSmsToken')) {
+    function sendSmsToken(String $phone_number, String $purpose = 'transaction')
+    {
+        try {
+            $termii = new Termii(config('services.messaging.sms.termii.sender_id', config('services.messaging.sms.termii.api_key')));
+            $termii
+                ->setPinTimeToLive(10)
+                ->SetPinLength(4)
+                ->setPinType("NUMERIC")
+                ->setMaxAttempts(5)
+                ->sendToken(
+                    [
+                        "phone_number" => $phone_number,
+                        "message" => "Your VISARO pin is < _pin_ >"
+                    ]
+                );
+            return true;
+        } catch (\Throwable $e) {
+            Log::error("Failed to verify sms token {$e->getMessage()}", [$e]);
+            return false;
+        }
+    }
+}
+if (!function_exists('verifySmsToken')) {
+    function verifySmsToken(User $user, String $token, String $token_id)
+    {
+        try {
+            $termii = new Termii(config('services.messaging.sms.termii.sender_id', config('services.messaging.sms.termii.api_key')));
+            $termii->verifyToken(
+                [
+                    "pin_id" => $token_id,
+                    "pin" => $token,
+                ]
+            );
+            return true;
+        } catch (\Throwable $e) {
+            Log::error("Failed to send sms token {$e->getMessage()}", [$e]);
+            return false;
+        }
     }
 }
