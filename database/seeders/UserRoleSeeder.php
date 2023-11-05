@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\UserRole;
 use Illuminate\Database\Seeder;
-use DB;
+use Illuminate\Support\Facades\DB;
 
 class UserRoleSeeder extends Seeder
 {
@@ -15,15 +16,15 @@ class UserRoleSeeder extends Seeder
     public function run()
     {
 
-         //Admin
-         DB::table('users_roles')->insert(
-            ['user_id' => 1,'role_id' => 1, 'description'=> 'Admin User'],
+        //Admin
+        DB::table('users_roles')->insert(
+            ['user_id' => 1, 'role_id' => 1, 'description' => 'Admin User'],
 
         );
 
         //User
         DB::table('users_roles')->insert(
-            ['user_id' => 2,'role_id' => 2, 'description'=> 'User'],
+            ['user_id' => 2, 'role_id' => 2, 'description' => 'User'],
         );
     }
 }

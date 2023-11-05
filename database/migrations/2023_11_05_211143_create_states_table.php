@@ -4,20 +4,17 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLgaTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
-        Schema::create('lga', function (Blueprint $table) {
-            $table->id();
+        Schema::create('states', function (Blueprint $table) {
+            $table->increments('id');
             $table->uuid('public_id')->nullable();
             $table->foreignUuid('country_id');
-            $table->foreignUuid('state_id')->nullable();
             $table->string('name')->nullable();
             $table->string('code')->nullable();
             $table->string('type')->nullable();
@@ -32,11 +29,9 @@ class CreateLgaTable extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
-        Schema::dropIfExists('lga');
+        Schema::dropIfExists('states');
     }
-}
+};

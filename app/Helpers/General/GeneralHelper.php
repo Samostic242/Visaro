@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\User;
+use App\Models\Country;
 use Illuminate\Support\Str;
 use Okolaa\TermiiPHP\Termii;
 use Illuminate\Support\Facades\Log;
@@ -147,5 +148,11 @@ if (!function_exists('verifySmsToken')) {
             Log::error("Failed to send sms token {$e->getMessage()}", [$e]);
             return false;
         }
+    }
+}
+if (!function_exists('getCountry')) {
+    function getCountry(String $code): Object|null
+    {
+        return Country::where('code', $code)->first();
     }
 }

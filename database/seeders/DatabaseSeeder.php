@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Database\Seeders\CountrySeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,6 +19,10 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             RoleSeeder::class,
             UserRoleSeeder::class,
+            CountrySeeder::class,
+            CurrencySeeder::class,
+            CountryStatesSeeder::class,
+            NigeriaStatesLgaSeeder::class,
 
         ]);
     }
