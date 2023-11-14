@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             CurrencySeeder::class,
             CountryStatesSeeder::class,
             NigeriaStatesLgaSeeder::class,
+            PaymentOptionSeeder::class,
 
         ]);
     }

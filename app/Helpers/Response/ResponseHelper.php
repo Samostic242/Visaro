@@ -3,9 +3,10 @@
 use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 if (!function_exists('respondSuccess')) {
-    function respondSuccess(String $message, array|object $data = null, Int $code = 200)
+    function respondSuccess(String $message, array|object $data = null, Int $code = 200): JsonResponse
     {
         return response()->json([
             'code' => '00',
@@ -16,14 +17,13 @@ if (!function_exists('respondSuccess')) {
     }
 }
 if (!function_exists('respondError')) {
-    function respondError(Int $status_code, String $status,  String $message, array $data = null)
+    function respondError(String $status,  String $message, array|object $data = null, Int $status_code = 400): JsonResponse
     {
         $possible_status = ['00', '01', '02', '03', '04', '05', '06'];
         $new_status = in_array($status, $possible_status) ? $status : '01';
         return response()->json([
             'code' => $new_status,
-            'status' => false,
-            'status_code' => $status_code,
+            'success' => false,
             'message' => $message,
             'data' => empty($data) ? null  : $data,
         ], $status_code);
@@ -35,8 +35,7 @@ if (!function_exists('validationError')) {
         throw new HttpResponseException(
             response()->json([
                 'code' => '02',
-                'status' => false,
-                'status_code' => 422,
+                'success' => false,
                 'message' => $message,
                 'errors' => $errors
             ], JsonResponse::HTTP_UNPROCESSABLE_ENTITY)

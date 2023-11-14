@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('states', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('flight_ticket_details', function (Blueprint $table) {
+            $table->id();
             $table->uuid('public_id')->nullable();
-            $table->foreignId('country_id');
-            $table->string('name')->nullable();
-            $table->string('code')->nullable();
-            $table->string('type')->nullable();
-            $table->string('longitude')->nullable();
-            $table->string('latitude')->nullable();
+            $table->foreignId('user_id');
+            $table->foreignId('flight_booking_id');
+            $table->bigInteger('price')->default(0);
+            $table->string('confirmation_code')->nullable();
+            $table->string('session')->nullable();
+            $table->json('copy')->nullable();
             $table->json('meta')->nullable();
             $table->boolean('active')->default(true);
             $table->timestamps();
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('states');
+        Schema::dropIfExists('flight_ticket_details');
     }
 };

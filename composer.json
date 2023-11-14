@@ -19,6 +19,8 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "^4.2",
         "okolaa/termiiphp": "^1.0",
+        "saloonphp/laravel-plugin": "^3.0",
+        "saloonphp/saloon": "^3.0",
         "simplesoftwareio/simple-qrcode": "^4.2"
     },
     "require-dev": {

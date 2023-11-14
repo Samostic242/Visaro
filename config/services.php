@@ -42,6 +42,24 @@ return [
                 'secret_key' => env('TERMII_SECRET_KEY')
             ]
         ]
+    ],
+    'sectors' => [
+        'aviation' => [
+            'providers' => [
+                'trips' => [
+                    'base_url' => env('TRIPS_BASE_URL'),
+                    'authorization_code' => env('TRIPS_AUTHORIZATION_TOKEN'),
+                    'merchant_code' => env('TRIPS_MERCHANT_CODE'),
+                    'merchant_id' => env('TRIPS_MERCHANT_ID'),
+                    'merchant_name' => env('TRIPS_MERCHANT_NAME'),
+                ],
+            ],
+            'payment' => [
+                'fee' => env('AVIATION_BOOKING_CHARGE',100000),
+
+            ],
+        ],
+        'health' => []
     ]
 
 

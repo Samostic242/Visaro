@@ -1845,6 +1845,119 @@
                     }
                 ]
             }
+        },
+        "/aviation/authorize": {
+            "get": {
+                "tags": [
+                    "Get aviation widget token"
+                ],
+                "summary": "Get aviation widget token",
+                "description": "Get aviation widget token",
+                "operationId": "aviation.authorize",
+                "responses": {
+                    "200": {
+                        "description": "Authorization initalized successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Authorization initalized successfully"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "example": {
+                                                "token": "a3d174d829eaf55778187ea3c5b25a35ec21dd26054c48f2d42cb337db0cb0d9b6a86061d4bae642c60cd23341cbf4a75e7a4728d30b512808a2b3ad6cf31874",
+                                                "url": "https://tripswebwidget.staging.vggdev.com/?MerchantCode=VISA&MerchantHash=a3d174d829eaf55778187ea3c5b25a35ec21dd26054c48f2d42cb337db0cb0d9b6a86061d4bae642c60cd23341cbf4a75e7a4728d30b512808a2b3ad6cf31874&CustomerNmae=Maxwell Agu&CustomeId=23"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
+        "/profile/phone/verification/initiate": {
+            "post": {
+                "tags": [
+                    "Initiate Phone number verification"
+                ],
+                "summary": "Initiate Phone number verification",
+                "description": "Initiate Phone number verification",
+                "operationId": "phone.verification.initiate",
+                "requestBody": {
+                    "description": "Request body",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "phone_code",
+                                    "phone_number"
+                                ],
+                                "properties": {
+                                    "phone_code": {
+                                        "type": "string",
+                                        "example": "+234"
+                                    },
+                                    "phone_number": {
+                                        "type": "string",
+                                        "example": "8069449097"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Token sent to phone number",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": "true"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Token sent to phone number"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "example": {
+                                                "code_id": "9a78d1b6-2350-43d4-9253-18df4948bb3c",
+                                                "code": "1234"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
         }
     },
     "components": {

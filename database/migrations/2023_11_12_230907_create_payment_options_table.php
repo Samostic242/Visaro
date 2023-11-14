@@ -11,27 +11,26 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('states', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('payment_options', function (Blueprint $table) {
+            $table->id();
             $table->uuid('public_id')->nullable();
-            $table->foreignId('country_id');
             $table->string('name')->nullable();
             $table->string('code')->nullable();
-            $table->string('type')->nullable();
-            $table->string('longitude')->nullable();
-            $table->string('latitude')->nullable();
-            $table->json('meta')->nullable();
+            $table->text('description')->nullable();
+            $table->string('service')->nullable();
             $table->boolean('active')->default(true);
+            $table->json('meta')->nullable();
             $table->timestamps();
             $table->softdeletes();
         });
     }
+
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('states');
+        Schema::dropIfExists('payment_options');
     }
 };
