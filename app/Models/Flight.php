@@ -15,6 +15,7 @@ class Flight extends Model
         'flight_booking_id',
         'booked_flight_id',
         'flight_number',
+        'type',
         'aircraft',
 
         'marketing_airline_name',

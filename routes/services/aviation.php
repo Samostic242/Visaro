@@ -19,7 +19,6 @@ Route::prefix('/flights')->group(function () {
                 Route::get('/options', [FlightPaymentController::class, 'fetchPaymentOptions'])->name('aviation.flights.payment.options');
                 Route::get('/options/{option_id}', [FlightPaymentController::class, 'selectPaymentOption'])->name('aviation.flights.payment.select');
                 Route::post('/confirm', [FlightPaymentController::class, 'confirmBookingPaymentTerms'])->name('aviation.flights.payment.confirm');
-
                 Route::post('/complete', [FlightPaymentController::class, 'completePayment'])->name('aviation.flights.payment.complete');
             });
         });

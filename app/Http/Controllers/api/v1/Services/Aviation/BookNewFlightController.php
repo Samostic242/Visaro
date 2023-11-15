@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Log;
 
 class BookNewFlightController extends Controller
 {
-    public function submitNewFlightBookingDataFromWidget(NewFlightBookingRequest $request):object|string|array
+    public function submitNewFlightBookingDataFromWidget(NewFlightBookingRequest $request): object|string|array
     {
         $user = Auth::user();
         $widget_data = (object) $request->widget_data;
@@ -53,10 +53,10 @@ class BookNewFlightController extends Controller
 
         return respondSuccess("Entry successfully", new FlightBookingResource($booking));
     }
-    public function fetchUserFlightBookings($paginate=10): object
+    public function fetchUserFlightBookings($paginate = 10): object
     {
         try {
-            $bookings = FlightBooking::where('user_id',auth()->user()->id)
+            $bookings = FlightBooking::where('user_id', auth()->user()->id)
                 ->paginate($paginate);
             return respondSuccess("Entry successfully",  FlightBookingResource::collection($bookings));
         } catch (\Throwable $th) {
@@ -67,11 +67,11 @@ class BookNewFlightController extends Controller
     public function fetchFlightBooking($id): object
     {
         try {
-            $booking = FlightBooking::where('user_id',auth()->user()->id)
-                ->where('id',$id)
+            $booking = FlightBooking::where('user_id', auth()->user()->id)
+                ->where('id', $id)
                 ->first();
-            if (!$booking){
-                return respondError('01', "Booking not found",status_code: 404);
+            if (!$booking) {
+                return respondError('01', "Booking not found", status_code: 404);
             }
             return respondSuccess("Booking fetched successfully",  new FlightBookingResource($booking));
         } catch (\Throwable $th) {
@@ -79,33 +79,33 @@ class BookNewFlightController extends Controller
             return respondError('01', "Error fetching travel bookings - {$th->getMessage()}");
         }
     }
-    public function confirmBooking(ConfirmBookingRequest $request,$id): object
+    public function confirmBooking(ConfirmBookingRequest $request, $id): object
     {
         try {
-            $booking = FlightBooking::where('user_id',auth()->user()->id)
-                ->where('id',$id)
+            $booking = FlightBooking::where('user_id', auth()->user()->id)
+                ->where('id', $id)
                 ->first();
-            if (!$booking){
-                return respondError('01', "Booking not found",status_code: 404);
+            if (!$booking) {
+                return respondError('01', "Booking not found", status_code: 404);
             }
             $booking->status = 'confirmed';
             $booking->save();
 
             $payment_options = [
-                "payment_options"=>[
+                "payment_options" => [
                     [
-                        'id'=>1,
-                        'name'=>'Pay with Credit (Instalments)',
-                        'code'=>'002',
-                        'description'=>'Make payment for this booking in 3 installments',
-                        'active'=>true,
+                        'id' => 1,
+                        'name' => 'Pay with Credit (Instalments)',
+                        'code' => '002',
+                        'description' => 'Make payment for this booking in 3 installments',
+                        'active' => true,
                     ],
                     [
-                        'id'=>2,
-                        'name'=>'Pay Now (One time)',
-                        'code'=>'001',
-                        'description'=>'Make an instant one-time payment for this booking',
-                        'active'=>false,
+                        'id' => 2,
+                        'name' => 'Pay Now (One time)',
+                        'code' => '001',
+                        'description' => 'Make an instant one-time payment for this booking',
+                        'active' => false,
                     ],
                 ]
             ];
@@ -117,7 +117,7 @@ class BookNewFlightController extends Controller
     }
 
 
-    private function storeBookingBaseData($widget_data,$origin, $user): FlightBooking|string
+    private function storeBookingBaseData($widget_data, $origin, $user): FlightBooking|string
     {
         try {
             $booking = new FlightBooking();
@@ -128,7 +128,7 @@ class BookNewFlightController extends Controller
             $booking->type = $widget_data->TripsType;
             $booking->hash = $widget_data->Hash;
             $booking->session = $widget_data->PassengerDetails['SessionId'];
-            $booking->amount_paid = $widget_data->PassengerDetails['AmountPaid']??0;
+            $booking->amount_paid = $widget_data->PassengerDetails['AmountPaid'] ?? 0;
             $booking->payment_type = $widget_data->PassengerDetails['PaymentType'];
             $booking->ticket_type = $widget_data->PassengerDetails['TicketType'];
             $booking->promo_code = $widget_data->PassengerDetails['PromoCode'];
@@ -138,7 +138,7 @@ class BookNewFlightController extends Controller
             return $booking;
         } catch (\Throwable $th) {
             //throw $th;
-            return $th->getMessage().'storeBookingBaseData';
+            return $th->getMessage() . 'storeBookingBaseData';
         }
     }
 
@@ -214,28 +214,27 @@ class BookNewFlightController extends Controller
                 $traveller->number_of_bagages1 = $traveller1->NumberOfBaggages1;
                 $traveller->hand_luggages = $traveller1->HandLuggages;
                 $traveller->hand_luggages1 = $traveller1->HandLuggages1;
-                $traveller->amount_paid = $traveller1->AmountPaid??0;
+                $traveller->amount_paid = $traveller1->AmountPaid ?? 0;
                 $traveller->frequent_flyer_number = $traveller1->FrequentFlyerNumber;
                 $traveller->frequent_flyer_airline = $traveller1->FrequentFlyerAirline;
                 $traveller->birth_date = $traveller1->BirthDate;
                 $traveller->birth_date_string = $traveller1->BirthDateString;
                 $traveller->gender_name = $traveller1->GenderName;
                 $traveller->copy = $traveller1;
-               if ($traveller->save()){
-                   $add_address = $this->addAirTravellersAddress($traveller1->Address, $booking, $traveller, $user);
-                   if (!$add_address) {
-                       return 'error-address';
-                   }
-                   $add_address = $this->addAirTravellerDocuments($traveller1->Documents, $booking, $traveller, $user);
-                   if (!$add_address) {
-                       return 'error-documents';
-                   }
-               }
-
+                if ($traveller->save()) {
+                    $add_address = $this->addAirTravellersAddress($traveller1->Address, $booking, $traveller, $user);
+                    if (!$add_address) {
+                        return 'error-address';
+                    }
+                    $add_address = $this->addAirTravellerDocuments($traveller1->Documents, $booking, $traveller, $user);
+                    if (!$add_address) {
+                        return 'error-documents';
+                    }
+                }
             }
             return true;
         } catch (\Throwable $th) {
-            Log::error("Error Adding Booking Air Travellers - {$th->getMessage()}",[$travellers]);
+            Log::error("Error Adding Booking Air Travellers - {$th->getMessage()}", [$travellers]);
             return false;
         }
     }
@@ -261,7 +260,7 @@ class BookNewFlightController extends Controller
             $address->save();
             return true;
         } catch (\Throwable $th) {
-            Log::error("Error Adding Air travellers address {$billing_address->ContactEmail} - {$th->getMessage()}",[$billing_address]);
+            Log::error("Error Adding Air travellers address {$billing_address->ContactEmail} - {$th->getMessage()}", [$billing_address]);
             return false;
         }
     }
@@ -293,7 +292,7 @@ class BookNewFlightController extends Controller
 
             return true;
         } catch (\Throwable $th) {
-            Log::error("Error Adding Air Traveller document - {$th->getMessage()}",[$documents]);
+            Log::error("Error Adding Air Traveller document - {$th->getMessage()}", [$documents]);
             return false;
         }
     }
@@ -319,9 +318,8 @@ class BookNewFlightController extends Controller
             ]);
             return true;
         } catch (\Throwable $th) {
-            Log::error("Error Adding Air Travel Ticket details - {$th->getMessage()}",[$ticket_details]);
+            Log::error("Error Adding Air Travel Ticket details - {$th->getMessage()}", [$ticket_details]);
             return false;
         }
     }
-
 }

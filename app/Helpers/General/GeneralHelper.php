@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 use Okolaa\TermiiPHP\Termii;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Http;
+use function PHPUnit\Framework\isType;
 
 if (!function_exists('uuid')) {
     function uuid(): string
@@ -133,13 +134,13 @@ if (!function_exists('getCountry')) {
 if (!function_exists('nairaToKobo')) {
     function nairaToKobo(Int $amount): int
     {
-        return $amount*100;
+        return $amount * 100;
     }
 }
 if (!function_exists('koboToNaira')) {
     function koboToNaira(Int $amount): int
     {
-        return $amount/100;
+        return $amount / 100;
     }
 }
 if (!function_exists('formatMoney')) {
@@ -170,6 +171,7 @@ if (!function_exists('bookFlightOnTrips')) {
     function bookFlightOnTrips($booking, $user_id)
     {
         try {
+            $user = auth()->user();
             $base_url = config('services.sectors.aviation.providers.trips.base_url');
             $headers = [
                 "Authorization" => "Bearer " . config('services.sectors.aviation.providers.trips.authorization_code'),
@@ -191,33 +193,50 @@ if (!function_exists('bookFlightOnTrips')) {
             ];
             $flight = Http::withHeaders($headers)
                 ->post("$base_url/Flight/Domestic/BookFlight", $data);
-            if (!$flight || $flight->failed()){
-                Log::error("Error booking flight 1",[
-                    'booking'=>$booking,
-                    'response'=>$flight,
+            if (!$flight || $flight->failed()) {
+                Log::error("Error booking flight 1", [
+                    'booking' => $booking,
+                    'response' => $flight->json(),
+                ]);
+                $result = $flight->json()[0];
+                if (isset($result['Errors']) && str_contains($result['Errors'][0], 'ticket for a similar booking')) {
+                    $flight = BookedFlight::where('user_id', $user->id)
+                        ->where('flight_booking_id', $booking->id)
+                        ->where('type', $booking->type)
+                        ->first();
+                    if ($flight) {
+                        $flight_entries = $flight->flight_sets;
+                        $tickets = saveFlight($flight, $flight_entries);
+                        $flight->tickets = $tickets;
+                        return $flight;
+                    } else {
+                        Log::error('Not found', [$result]);
+                    }
+                } else {
+                    Log::error('Does not contain', [$result]);
+                }
+                return false;
+            }
+            if ($flight->successful()) {
+                if ($store = saveBookedFlightOnTrips($booking, $flight[0])) {
+                    return $store;
+                }
+                Log::error("Error booking flight - store", [
+                    'booking' => $booking,
+                    'response' => $flight,
+                    'store' => $store,
                 ]);
                 return false;
             }
-            if ($flight->successful()){
-               if ($store =saveBookedFlightOnTrips($booking, $flight[0])) {
-                   return $store;
-               }
-                Log::error("Error booking flight - store",[
-                    'booking'=>$booking,
-                    'response'=>$flight,
-                    'store'=>$store,
-                ]);
-               return false;
-            }
-            Log::error("Error booking flight  -2",[
-                'booking'=>$booking,
-                'response'=>$flight,
+            Log::error("Error booking flight  -2", [
+                'booking' => $booking,
+                'response' => $flight,
             ]);
             return false;
         } catch (\Throwable $th) {
-            Log::error("Error booking flight- {$th->getMessage()}",[
-                'booking'=>$booking,
-                'data'=>$data,
+            Log::error("Error booking flight- {$th->getMessage()}", [
+                'booking' => $booking,
+                'data' => $data,
             ]);
             return false;
         }
@@ -228,11 +247,11 @@ if (!function_exists('saveBookedFlightOnTrips')) {
     {
         try {
             $user = auth()->user();
-            $flight = BookedFlight::where('user_id',$user->id)
-                ->where('flight_booking_id',$booking->id)
-                ->where('type',$booking->type)
+            $flight = BookedFlight::where('user_id', $user->id)
+                ->where('flight_booking_id', $booking->id)
+                ->where('type', $booking->type)
                 ->first();
-            if (!$flight){
+            if (!$flight) {
                 $flight = new BookedFlight();
                 $flight->user_id = $user->id;
                 $flight->public_id = uuid();
@@ -240,84 +259,89 @@ if (!function_exists('saveBookedFlightOnTrips')) {
                 $flight->type = $booking->type;
                 $flight->session = $booking->session;
             }
-            $flight->reference_number=$data['ReferenceNumber'];
-            $flight->booking_reference_id=$data['BookingReferenceId'];
-            $flight->booking_reference_type=$data['BookingReferenceType'];
-            $flight->ticket_time_limit=$data['TicketTimeLimit'];
-            $flight->air_travelers=$data['AirTravellers'];
-            $flight->flight_sets=$data['FlightSets'];
-            $flight->flight_rules=$data['FlightRules'];
-            $flight->flight_rule_penalties= $data['FlightRulePenalties'];
-            $flight->new_passenger_fares=$data['NewPassengerFares'];
-            $flight->errors=$data['Errors'];
-            $flight->warnings=$data['Warnings'];
-            $flight->copy=$data;
+            $flight->reference_number = $data['ReferenceNumber'];
+            $flight->booking_reference_id = $data['BookingReferenceId'];
+            $flight->booking_reference_type = $data['BookingReferenceType'];
+            $flight->ticket_time_limit = $data['TicketTimeLimit'];
+            $flight->air_travelers = $data['AirTravellers'];
+            $flight->flight_sets = $data['FlightSets'];
+            $flight->flight_rules = $data['FlightRules'];
+            $flight->flight_rule_penalties = $data['FlightRulePenalties'];
+            $flight->new_passenger_fares = $data['NewPassengerFares'];
+            $flight->errors = $data['Errors'];
+            $flight->warnings = $data['Warnings'];
+            $flight->copy = $data;
             $flight->save();
-            saveFlight($flight, $data['FlightSets']);
+            $tickets = saveFlight($flight, $data['FlightSets']);
+            $flight->tickets = $tickets;
             return $flight;
         } catch (\Throwable $th) {
-            Log::error("Error saving booking - {$th->getMessage()}",[
-                'booking'=>$booking,
-                'response'=>$data,
+            Log::error("Error saving booking - {$th->getMessage()}", [
+                'booking' => $booking,
+                'response' => $data,
             ]);
             return false;
         }
     }
-
 }
 if (!function_exists('saveFlight')) {
-    function saveFlight($booked_flight, $flight_sets): bool
+    function saveFlight($booked_flight, $flight_sets): array|bool
     {
+        Log::info('saving data', [$flight_sets]);
         try {
-            foreach ($flight_sets as $flight_entries){
-                foreach ($flight_entries['FlightEntries'] as $key=>$data){
+            $tickets = [];
+            foreach ($flight_sets as $flight_entries) {
+                foreach ($flight_entries['FlightEntries'] as $key => $data) {
                     $user = auth()->user();
-                    $flight = Flight::where('user_id',$user->id)
-                        ->where('flight_booking_id',$booked_flight->flight_booking_id)
-                        ->where('booked_flight_id',$booked_flight->id)
-                        ->where('type',$booked_flight->type)
+                    $ticket = Flight::where('user_id', $user->id)
+                        ->where('flight_booking_id', $booked_flight->flight_booking_id)
+                        ->where('booked_flight_id', $booked_flight->id)
+                        ->where('type', $booked_flight->type)
                         ->first();
-                    if (!$flight){
-                        $flight = new Flight();
-                        $flight->user_id = $user->id;
-                        $flight->public_id = uuid();
-                        $flight->flight_booking_id = $booked_flight->flight_booking_id;
-                        $flight->booked_flight_id = $booked_flight->id;
-                        $flight->type = $booked_flight->type;
-                        $flight->session = $booked_flight->session;
+                    if (!$ticket) {
+                        $ticket = new Flight();
+                        $ticket->user_id = $user->id;
+                        $ticket->public_id = uuid();
+                        $ticket->flight_booking_id = $booked_flight->flight_booking_id;
+                        $ticket->booked_flight_id = $booked_flight->id;
+                        $ticket->type = $booked_flight->type;
+                        $ticket->session = $booked_flight->session;
                     }
-                    $flight->flight_number=$data['FlightNumber'];
-                    $flight->aircraft=$data['Aircraft'];
-                    $flight->marketing_airline_name=$data['MarketingAirlineName'];
-                    $flight->marketing_airline_code=$data['MarketingAirlineCode'];
-                    $flight->operating_airline_code=$data['OperatingAirlineCode'];
-                    $flight->operating_airline_name=$data['OperatingAirlineName'];
-                    $flight->flight_class=$data['FlightClass'];
-                    $flight->departure_date= $data['DepartureDate'];
-                    $flight->departure_airport_code=$data['DepartureAirportCode'];
-                    $flight->departure_airport_name=$data['DepartureAirportName'];
-                    $flight->departure_airport_fullname=$data['DepartureAirportFullName'];
-                    $flight->departure_terminal=$data['DepartureTerminal'];
-                    $flight->departure_gate=$data['DepartureGate'];
-                    $flight->arrival_date=$data['ArrivalDate'];
-                    $flight->arrival_airport_code=$data['ArrivalAirportCode'];
-                    $flight->arrival_airport_name=$data['ArrivalAirportName'];
-                    $flight->arrival_airport_fullname=$data['ArrivalAirportFullName'];
-                    $flight->arrival_terminal=$data['ArrivalTerminal'];
-                    $flight->arrival_gate=$data['ArrivalGate'];
-                    $flight->copy=$data;
-                    $flight->save();
+                    $ticket->flight_number = $data['FlightNumber'];
+                    $ticket->aircraft = $data['Aircraft'];
+                    $ticket->marketing_airline_name = $data['MarketingAirlineName'];
+                    $ticket->marketing_airline_code = $data['MarketingAirlineCode'];
+                    $ticket->operating_airline_code = $data['OperatingAirlineCode'];
+                    $ticket->operating_airline_name = $data['OperatingAirlineName'];
+                    $ticket->flight_class = $data['FlightClass'];
+                    $ticket->departure_date = $data['DepartureDate'];
+                    $ticket->departure_airport_code = $data['DepartureAirportCode'];
+                    $ticket->departure_airport_name = $data['DepartureAirportName'];
+                    $ticket->departure_airport_fullname = $data['DepartureAirportFullName'];
+                    $ticket->departure_terminal = $data['DepartureTerminal'];
+                    $ticket->departure_gate = $data['DepartureGate'];
+
+                    $ticket->arrival_date = $data['ArrivalDate'];
+                    $ticket->arrival_airport_code = $data['ArrivalAirportCode'];
+                    $ticket->arrival_airport_name = $data['ArrivalAirportName'];
+                    $ticket->arrival_airport_fullname = $data['ArrivalAirportFullName'];
+                    $ticket->arrival_terminal = $data['ArrivalTerminal'];
+                    $ticket->arrival_gate = $data['ArrivalGate'];
+
+                    $ticket->copy = $data;
+                    $ticket->save();
+                    array_push($tickets, $ticket);
+                    // $tickets[] = $ticket;
                 }
             }
-            return true;
+            return $tickets;
         } catch (\Throwable $th) {
-            Log::error("Error saving flight - {$th->getMessage()}",[
-                'booked_flight'=>$booked_flight,
-                'flight_sets'=>$flight_sets,
+            Log::error("Error saving flight - {$th->getMessage()}", [
+                'booked_flight' => $booked_flight,
+                'flight_sets' => $flight_sets,
+                'line' => $th->getLine(),
             ]);
             return false;
         }
     }
-
-
 }
