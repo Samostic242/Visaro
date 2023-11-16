@@ -15,7 +15,7 @@ class TripsAuthorizationController extends Controller
     /**
      ******************************************************************************************************************************
      * @OA\Get(
-     * path="/aviation/authorize",
+     * path="/aviation/widget/initialize",
      * summary="Get aviation widget token",
      * description="Get aviation widget token",
      * operationId="aviation.authorize",
