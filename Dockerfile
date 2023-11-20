@@ -1,6 +1,7 @@
 # Stage 1: Build stage
 FROM php:8.2-fpm-alpine AS build
 
+# Install build dependencies and necessary packages
 RUN apk --no-cache add \
     $PHPIZE_DEPS \
     autoconf \
@@ -13,13 +14,11 @@ RUN apk --no-cache add \
     make \
     pkgconf \
     re2c \
-    openssl-dev
-
-# Install pdo, pdo_mysql, and sockets
-RUN apk --no-cache add \
-    pdo \
-    pdo_mysql \
-    sockets
+    openssl-dev \
+    php8-pdo \
+    php8-pdo_mysql \
+    php8-sockets && \
+    rm -rf /var/cache/apk/*
 
 # Stage 2: Final stage
 FROM php:8.2-fpm-alpine
