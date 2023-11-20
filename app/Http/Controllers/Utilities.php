@@ -92,7 +92,7 @@ class Utilities
         return $id;
      }
 
-     function generateUniqueTransactionId($length) {
+     public static function generateUniqueTransactionId($length) {
         $transactionId = '';
 
         $characters = '0123456789';
