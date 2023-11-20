@@ -14,6 +14,7 @@ Kindly note that I deployed my applications using docker container. the docker-c
 You can change the database hostname to localhost in your .env file if you are not using docker
 
 - 	git clone ...
+-       composer install
 - 	php artisan migrate
 - 	php artisan db:seed
 - 	php artisan serve
