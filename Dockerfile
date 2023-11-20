@@ -1,38 +1,15 @@
-# Stage 1: Build stage
-FROM php:8.2-fpm-alpine AS build
+FROM php:8.1-fpm-alpine
 
-RUN apk --no-cache add \
-    $PHPIZE_DEPS \
-    autoconf \
-    dpkg-dev \
-    dpkg \
-    file \
-    g++ \
-    gcc \
-    libc-dev \
-    make \
-    pkgconf \
-    re2c \
-    openssl-dev
-
-# Install pdo, pdo_mysql, and sockets
-RUN apk --no-cache add \
-    php8-pdo \
-    php8-pdo_mysql \
-    php8-sockets
-
-# Stage 2: Final stage
-FROM php:8.2-fpm-alpine
-
-# Copy necessary files from the build stage
-COPY --from=build /usr/local/lib/php/extensions/ /usr/local/lib/php/extensions/
-
+RUN docker-php-ext-install pdo pdo_mysql sockets
 RUN curl -sS https://getcomposer.org/installer | php -- \
-    --install-dir=/usr/local/bin --filename=composer
+     --install-dir=/usr/local/bin --filename=composer
+
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
 
 WORKDIR /visaro_api_gateway
 COPY . .
-
 RUN composer install
 RUN php artisan l5-swagger:generate
 RUN php artisan passport:keys --force
+
