@@ -19,7 +19,7 @@ class CreateCountryTable extends Migration
             $table->uuid('public_id')->nullable();
             $table->string('name')->nullable();
             $table->string('capital')->nullable();
-            $table->string('flag')->nullable();
+            $table->text('flag')->collation('utf8mb4_unicode_ci')->nullable();
             $table->string('flag_icon')->nullable();
             $table->string('continent')->nullable();
             $table->string('phone_code')->nullable();
