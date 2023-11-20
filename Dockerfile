@@ -13,8 +13,7 @@ RUN apk --no-cache add \
     make \
     pkgconf \
     re2c \
-    openssl-dev \
-    libressl-dev
+    openssl-dev
 
 # Install pdo, pdo_mysql, and sockets
 RUN apk --no-cache add \
