@@ -11,6 +11,7 @@ COPY . .
 RUN composer update
 RUN composer install
 RUN php artisan l5-swagger:generate
+RUN php artisan passport:install
 RUN php artisan passport:keys --force
 RUN php artisan config:cache
 RUN php artisan cache:clear
