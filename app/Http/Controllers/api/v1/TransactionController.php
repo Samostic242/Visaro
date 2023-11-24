@@ -158,7 +158,7 @@ class TransactionController extends Controller
                $check_bvn = DB::table('profile as p')
                ->selectRaw('bvn_first_name, bvn_middle_name, bvn_last_name, bvn_phone_number_1,
                 bvn_phone_number_2, bvn_residential_address, bvn_state_of_residence,
-                bvn_lga_of_residence, r.description as stateOfResidence, l.description as lgaOfResidence,p.bvn_verified')
+                bvn_lga_of_residence, r.description as stateOfResidence, l.name as lgaOfResidence,p.bvn_verified')
                ->whereIn('bvn_verified',[0,1])
                ->where('user_id', Auth::user()->id)
                ->leftjoin('lga as l','l.id','p.bvn_lga_of_residence')
