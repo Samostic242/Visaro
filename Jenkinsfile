@@ -9,7 +9,7 @@ pipeline {
         GITHUB_USERNAME = 'your-github-username'
         GITHUB_PAT_CREDENTIAL_ID = 'your-credential-id-for-pat'
     }
-
+//test
     stages {
         stage('Connect to EC2') {
             steps {
