@@ -5,9 +5,131 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cefb265d-69cd-44c7-ba9c-3ac2144fb18f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.scribe/.filehashes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.scribe/auth.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.scribe/endpoints.cache/00.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.scribe/endpoints.cache/01.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.scribe/endpoints.cache/02.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.scribe/endpoints.cache/03.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.scribe/endpoints.cache/04.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.scribe/endpoints/00.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.scribe/endpoints/01.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.scribe/endpoints/02.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.scribe/endpoints/03.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.scribe/endpoints/04.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.scribe/endpoints/custom.0.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.scribe/intro.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/api/v1/Loans/Creditor/CreditorController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/api/v1/Loans/Credits/CreditController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/api/v1/Loans/Invoice/InvoiceController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/api/v1/Loans/Merchants/MerchantController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/V1/Loans/Credit/ConfirmCreditRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/V1/Loans/Credit/CreateNewCreditRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/V1/Loans/Credit/UpdateCreditRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/V1/Loans/Creditor/CreateNewCreditorRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/V1/Loans/Creditor/UpdateCreditorConditionsRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/V1/Loans/Creditor/UpdateCreditorRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/V1/Loans/Invoice/CreateNewInvoiceRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/V1/Loans/Invoice/UpdateInvoiceRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/V1/Loans/Merchant/CreateNewMerchantRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/V1/Loans/Merchant/UpdateMerchantComplianceRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/V1/Loans/Merchant/UpdateMerchantRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/V1/Loans/Merchant/UpdateMerchantSettingsRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Interfaces/Repositories/CreditRepositoryInterfaces/CreditInstallmentsRepositoryInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Interfaces/Repositories/CreditRepositoryInterfaces/CreditRepositoryInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Interfaces/Repositories/CreditRepositoryInterfaces/CreditRequestRepositoryInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Interfaces/Repositories/CreditorRepositoryInterfaces/CreditorConditionsRepositoryInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Interfaces/Repositories/CreditorRepositoryInterfaces/CreditorRepositoryInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Interfaces/Repositories/InvoiceRepositoryInterfaces/InvoiceRepositoryInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Interfaces/Repositories/MerchantRepositoryInterfaces/MerchantComplianceRepositoryInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Interfaces/Repositories/MerchantRepositoryInterfaces/MerchantRepositoryInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Interfaces/Repositories/MerchantRepositoryInterfaces/MerchantSettingsRepositoryInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Loans/Credits/Credit.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Loans/Credits/CreditInstallment.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Loans/Credits/CreditRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Loans/Invoice/Invoice.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Loans/Invoice/InvoiceCode.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Loans/Merchants/Merchant.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Loans/Merchants/MerchantCompliance.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Loans/Merchants/MerchantSetting.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Loans/Transactions/PayoutTransaction.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Loans/Transactions/SettlementTransaction.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Loans/Transactions/Transaction.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Observers/InvoiceObserver.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Observers/MerchantObserver.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Observers/UserObserver.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Providers/CustomProviders/CreditInstallmentsServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Providers/CustomProviders/CreditRequestServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Providers/CustomProviders/CreditServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Providers/CustomProviders/CreditorConditionsServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Providers/CustomProviders/CreditorServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Providers/CustomProviders/InvoiceServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Providers/CustomProviders/MerchantComplianceServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Providers/CustomProviders/MerchantServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Providers/CustomProviders/MerchantSettingsServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/CreditRepositories/CreditInstallmentsRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/CreditRepositories/CreditRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/CreditRepositories/CreditRequestRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/CreditorRepositories/CreditorConditionsRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/CreditorRepositories/CreditorRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/InvoiceRepositories/InvoiceRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/MerchantRepositories/MerchantComplianceRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/MerchantRepositories/MerchantRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/MerchantRepositories/MerchantSettingsRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/scribe.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2023_12_20_132949_create_merchant_compliances_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2023_12_20_133021_create_merchant_settings_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2023_12_20_133123_create_settlement_transactions_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2023_12_20_133227_create_payout_transactions_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2023_12_21_004936_create_credits_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2023_12_21_024323_create_credit_installments_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2023_12_21_150615_create_credit_requests_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2023_12_21_151806_create_invoices_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/docs/collection.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/docs/css/theme-default.print.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/docs/css/theme-default.style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/docs/images/navbar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/docs/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/docs/js/theme-default-4.26.0.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/docs/js/tryitout-4.26.0.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/docs/openapi.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/log-viewer/app.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/log-viewer/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/log-viewer/app.js.LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/log-viewer/img/log-viewer-128.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/log-viewer/img/log-viewer-32.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/log-viewer/img/log-viewer-64.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/log-viewer/mix-manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/scribe/css/theme-default.print.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/scribe/css/theme-default.style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/scribe/images/navbar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/scribe/js/theme-default-4.26.0.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/vendor/scribe/js/tryitout-4.26.0.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/scribe/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/api/v1/auth/auth.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/api/v1/loan/credit.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/api/v1/loan/creditors.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/api/v1/loan/merchants.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/api/v1/loan/transactions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/blade.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/blade.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/phpspec.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/phpspec.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/visaronigeria.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/visaronigeria.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Helpers/General/GeneralHelper.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/General/GeneralHelper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Creditor.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Loans/Creditor/Creditor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_11_05_172747_create_transactions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_11_05_172747_create_transactions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_11_05_172748_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_11_05_172748_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_12_09_223701_create_creditors_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_12_09_223701_create_creditors_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_12_09_231758_create_institutions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_12_20_132931_create_merchants_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/UserSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/UserSeeder.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,11 +142,20 @@
       <executable path="composer" />
     </execution>
   </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="OptimizeOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
   </component>
   <component name="PhpDebugGeneral" listening_started="true" />
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/opt/homebrew/Cellar/php/8.2.3/bin/php">
@@ -175,6 +306,16 @@
       <path value="$PROJECT_DIR$/vendor/darkaonline/l5-swagger" />
       <path value="$PROJECT_DIR$/vendor/laravel/telescope" />
       <path value="$PROJECT_DIR$/vendor/stella-maris/clock" />
+      <path value="$PROJECT_DIR$/vendor/spatie/data-transfer-object" />
+      <path value="$PROJECT_DIR$/vendor/knuckleswtf/scribe" />
+      <path value="$PROJECT_DIR$/vendor/symfony/var-exporter" />
+      <path value="$PROJECT_DIR$/vendor/mpociot/reflection-docblock" />
+      <path value="$PROJECT_DIR$/vendor/shalvah/upgrader" />
+      <path value="$PROJECT_DIR$/vendor/shalvah/clara" />
+      <path value="$PROJECT_DIR$/vendor/erusev/parsedown" />
+      <path value="$PROJECT_DIR$/vendor/_laravel_idea" />
+      <path value="$PROJECT_DIR$/vendor/opcodesio/mail-parser" />
+      <path value="$PROJECT_DIR$/vendor/opcodesio/log-viewer" />
     </include_path>
   </component>
   <component name="ProjectColorInfo">{
@@ -188,24 +329,43 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.laravel-idea.update-module-directories": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "creditors-service",
-    "last_opened_file_path": "/Users/maxwellagu/Herd/visaronigeria",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.general",
-    "typescript.add.unambiguous.imports.on.the.fly": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.laravel-idea.update-module-directories&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;creditors-service&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/maxwellagu/Herd/visaronigeria/routes/api/v1/loan&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
+    &quot;typescript.add.unambiguous.imports.on.the.fly&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
+    ]
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/routes/api/v1/loan" />
+      <recent name="$PROJECT_DIR$/app/Http/Requests/V1/Loans/Merchant" />
+      <recent name="$PROJECT_DIR$/app/Http/Requests/V1/Loans" />
+      <recent name="$PROJECT_DIR$/app/Services" />
+      <recent name="$PROJECT_DIR$/app/Repositories" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/routes/api/v1" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" scope="XML" use_alternative_configuration_file="true" />
@@ -225,12 +385,27 @@
       <workItem from="1699386419408" duration="30412000" />
       <workItem from="1699466101551" duration="31000" />
       <workItem from="1699812926108" duration="74447000" />
-      <workItem from="1702157399267" duration="3587000" />
+      <workItem from="1702157399267" duration="3648000" />
+      <workItem from="1702929818403" duration="1476000" />
+      <workItem from="1703073975003" duration="50826000" />
+      <workItem from="1703164638498" duration="18892000" />
+      <workItem from="1703260928116" duration="32479000" />
+      <workItem from="1703615902309" duration="690000" />
+      <workItem from="1703620805110" duration="2000" />
+      <workItem from="1703625623530" duration="3398000" />
+      <workItem from="1703665962096" duration="6435000" />
+      <workItem from="1703708112632" duration="1164000" />
+      <workItem from="1703709291741" duration="7367000" />
+      <workItem from="1703757272864" duration="27806000" />
+      <workItem from="1703861410145" duration="9797000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

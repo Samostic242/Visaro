@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -13,9 +12,32 @@ return new class extends Migration
     {
         Schema::create('creditors', function (Blueprint $table) {
             $table->id();
+            $table->uuid('public_id')->nullable();
+            $table->string('name')->nullable();
+            $table->string('slug')->nullable();
+            $table->string('acronym')->nullable();
+            $table->string('official_name')->nullable();
+            $table->string('website')->nullable();
+            $table->string('logo')->nullable();
+            $table->string('code')->nullable();
+            $table->foreignId('country_id');
+            $table->string('category')->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone_code')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('conflict_resolution_email')->nullable();
+            $table->string('conflict_resolution_phone_code')->nullable();
+            $table->string('conflict_resolution_phone')->nullable();
+            $table->string('entity')->nullable();  // individual, institution
+            $table->string('entity_category')->nullable(); // private, government, individual
+            $table->json('customization')->nullable();
+            $table->json('meta')->nullable();
+            $table->boolean('active')->default(true);
             $table->timestamps();
+            $table->softdeletes();
         });
     }
+
 
     /**
      * Reverse the migrations.

@@ -1,27 +1,20 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Loans\Merchants;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Creditor extends Model
+class MerchantSetting extends Model
 {
     use HasFactory;
     use SoftDeletes;
+
     protected $fillable = [
-        'name',
-        'acronym',
-        'official_name',
-        'website',
-        'logo',
-        'code',
-        'category',
-        'country_id',
-        'email',
-        'phone_code',
-        'phone',
+        'payout_interval',
+        'payout_frequency',
         'meta',
         'active',
     ];
@@ -29,4 +22,9 @@ class Creditor extends Model
         'active' => 'boolean',
         'meta' => 'array',
     ];
+
+    public function merchant(): BelongsTo
+    {
+        return $this->belongsTo(Merchant::class);
+    }
 }

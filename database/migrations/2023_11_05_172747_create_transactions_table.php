@@ -14,25 +14,34 @@ class CreateTransactionsTable extends Migration
     public function up()
     {
         Schema::create('transactions', function (Blueprint $table) {
-            $table->string('visaro_unique_id', 200)->primary();
-            $table->string('paystack_ref', 200)->nullable();
-            $table->string('paystack_access_code')->nullable();
-            $table->text('paystack_authorization_url')->nullable();
-            $table->bigInteger('user_id');
-            $table->string('trans_type', 10)->comment("01 - BVN, 02 - Transfer, 03 - Reversal, 04 - Credit");
-            $table->decimal('amount', 10, 2);
-            $table->decimal('processed_amt', 10, 0)->nullable();
-            $table->unsignedInteger('status')->default(0)->comment("0 - Initializing, 1 - Success, 2 - Failed, 3 - Fruadulent");
-            $table->string('paystack_status', 10)->nullable();
+            $table->id();
+            $table->string('public_id')->index();
+            $table->bigInteger('amount')->default(0);
+            $table->bigInteger('balance')->default(0);
+            $table->bigInteger('fee')->default(0);
+            $table->bigInteger('charge')->default(0);
+            $table->string('reference')->nullable()->index();
+            $table->string('session')->nullable()->index();
+            $table->string('narration')->nullable();
+            $table->string('title')->nullable();
+            $table->string('message')->nullable();
+            $table->string('status')->nullable();               // successful or failed or processing or initiated or abandoned
+            $table->string('source_model')->nullable();         // which model is it coming from
+            $table->string('source_table')->nullable();         // which table is it coming from
+            $table->string('currency')->default('NGN');
+            $table->enum('entry', ['credit', 'debit'])->default('credit'); // credit or debit
+            $table->string('destination')->nullable();
+            $table->string('channel')->nullable()->default('web');
+            $table->string('type')->nullable();
+            $table->string('mode')->nullable();
+            $table->json('beneficiary')->nullable();
+            $table->json('source')->nullable();
+            $table->json('meta')->nullable();
+            $table->json('object')->nullable();
+            $table->dateTime('transaction_date')->nullable();
+            $table->morphs('transactable');
+            $table->softdeletes();
             $table->timestamps();
-            $table->decimal('prev_wall_bal', 20, 2)->nullable();
-            $table->decimal('curr_wall_bal', 20, 2)->nullable();
-            $table->string('transfer_txnid')->nullable();
-            $table->string('transfer_session_id')->nullable();
-            $table->string('transfer_reference')->nullable();
-            $table->string('transfer_server_status', 10)->nullable();
-            $table->text('transfer_server_message')->nullable();
-            $table->string('reversal_of', 200)->nullable();
         });
     }
 

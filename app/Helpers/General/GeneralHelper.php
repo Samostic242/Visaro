@@ -1,15 +1,15 @@
 <?php
 
 use App\Models\BookedFlight;
-use App\Models\Flight;
-use App\Models\PaymentInstallment;
-use App\Models\User;
 use App\Models\Country;
+use App\Models\Flight;
+use App\Models\User;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Okolaa\TermiiPHP\Termii;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Http;
-use function PHPUnit\Framework\isType;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 if (!function_exists('uuid')) {
     function uuid(): string
@@ -17,8 +17,14 @@ if (!function_exists('uuid')) {
         return Str::uuid()->toString();
     }
 }
+if (!function_exists('ulid')) {
+    function ulid(): string
+    {
+        return Str::ulid();
+    }
+}
 if (!function_exists('slug')) {
-    function slug($string): String
+    function slug($string): string
     {
         return Str::slug($string, '-');
     }
@@ -26,11 +32,12 @@ if (!function_exists('slug')) {
 if (!function_exists('generateReference')) {
     function generateReference($length = 57, $type = 'mixed'): string
     {
-        srand((float) microtime() * 10000000000);
-        $rand = mt_rand(113167114121212511111, 999992121212129999099999978);
+        return ulid();
+        srand((float)microtime() * 10000000000);
+//        $rand = mt_rand(113167114121212511111, 999992121212129999099999978);
         $characters = $type == 'mixed'
-            ? str_replace('-', '', uuid()) . "ABCDEFGHIJKLMOPQRSTUVWXYZ012345678998765432100ZYXWVUTSRQPOMLKJIHGFEDCBA011223344556677889900998ABCDEFGHIJKLMOPQRSTUVWXYZ877665544332211{$rand}"
-            : "012345678998765432100011223344556677889900998877665544332211{$rand}";
+            ? str_replace('-', '', uuid()) . "ABCDEFGHIJKLMOPQRSTUVWXYZ012345678998765432100ZYXWVUTSRQPOMLKJIHGFEDCBA011223344556677889900998ABCDEFGHIJKLMOPQRSTUVWXYZ877665544332211"
+            : "012345678998765432100011223344556677889900998877665544332211";
         return substr(
             str_shuffle($characters),
             0,
@@ -41,11 +48,11 @@ if (!function_exists('generateReference')) {
 if (!function_exists('generateCode')) {
     function generateCode($string = null, $length = 6): string
     {
-        srand((float) microtime() * 10000000000);
+        srand((float)microtime() * 10000000000);
         $rand = mt_rand(12, 12);
-        $characters =  "{$string}012345678998765432100011223344556677889900998877665544332211{$rand}";
+        $characters = "{$string}012345678998765432100011223344556677889900998877665544332211{$rand}";
         return substr(
-            str_shuffle($characters),
+            str_shuffle(strtoupper($characters)),
             0,
             $length
         );
@@ -54,18 +61,15 @@ if (!function_exists('generateCode')) {
 if (!function_exists('generateRandomNumber')) {
     function generateRandomNumber($length = 6): ?int
     {
-        if ($length <= 0) {
-            return null; // Handle invalid input
-        }
 
         $min = pow(10, ($length - 1)); // Minimum value based on length
         $max = pow(10, $length) - 1;    // Maximum value based on length
 
-        return mt_rand($min, $max); // Generate a random number within the specified range
+        return mt_rand((int)$min, (int)$max); // Generate a random number within the specified range
     }
 }
 if (!function_exists('sendSmsMessage')) {
-    function sendSmsMessage(String $phone_number, String $message, String $purpose = 'transaction'): Termii|bool
+    function sendSmsMessage(string $phone_number, string $message, string $purpose = 'transaction'): Termii|bool
     {
         $termii = new Termii('TERMII_SENDER_ID', 'TERMII_API_KEY');
         try {
@@ -75,7 +79,7 @@ if (!function_exists('sendSmsMessage')) {
                     "message" => $message
                 ]
             );
-            return  $termii;
+            return $termii;
         } catch (\Throwable $e) {
             Log::error("Failed to send sms message {$e->getMessage()}");
             return false;
@@ -84,7 +88,7 @@ if (!function_exists('sendSmsMessage')) {
     }
 }
 if (!function_exists('sendSmsToken')) {
-    function sendSmsToken(String $phone_number, String $purpose = 'transaction'): Termii|bool
+    function sendSmsToken(string $phone_number, string $purpose = 'transaction'): Termii|bool
     {
         try {
             $termii = new Termii(config('services.messaging.sms.termii.sender_id', config('services.messaging.sms.termii.api_key')));
@@ -100,7 +104,7 @@ if (!function_exists('sendSmsToken')) {
                     ]
                 );
             Log::info("Message - token sent", [$termii]);
-            return  $termii;
+            return $termii;
         } catch (\Throwable $e) {
             Log::error("Failed to verify sms token {$e->getMessage()}", [$e]);
             return false;
@@ -108,7 +112,7 @@ if (!function_exists('sendSmsToken')) {
     }
 }
 if (!function_exists('verifySmsToken')) {
-    function verifySmsToken(User $user, String $token, String $token_id): Termii|bool
+    function verifySmsToken(User $user, string $token, string $token_id): Termii|bool
     {
         try {
             $termii = new Termii(config('services.messaging.sms.termii.sender_id', config('services.messaging.sms.termii.api_key')));
@@ -118,7 +122,7 @@ if (!function_exists('verifySmsToken')) {
                     "pin" => $token,
                 ]
             );
-            return  $termii;
+            return $termii;
         } catch (\Throwable $e) {
             Log::error("Failed to send sms token {$e->getMessage()}", [$e]);
             return false;
@@ -126,25 +130,25 @@ if (!function_exists('verifySmsToken')) {
     }
 }
 if (!function_exists('getCountry')) {
-    function getCountry(String $code): Object|null
+    function getCountry(string $code): object|null
     {
         return Country::where('code', $code)->first();
     }
 }
 if (!function_exists('nairaToKobo')) {
-    function nairaToKobo(Int $amount): int
+    function nairaToKobo(int $amount): int
     {
         return $amount * 100;
     }
 }
 if (!function_exists('koboToNaira')) {
-    function koboToNaira(Int $amount): int
+    function koboToNaira(int $amount): int
     {
         return $amount / 100;
     }
 }
 if (!function_exists('formatMoney')) {
-    function formatMoney(Int|float $amount): string
+    function formatMoney(int|float $amount): string
     {
         return number_format($amount, 2);
     }
@@ -345,3 +349,35 @@ if (!function_exists('saveFlight')) {
         }
     }
 }
+if (!function_exists('generateKey')) {
+    function generateKey(): string
+    {
+        return date('Ymd') . Str::ulid();
+    }
+}
+if (!function_exists('generateQrCode')) {
+    function generateQrCode(string $key, string $format = 'svg'): ?string
+    {
+        $path = '../storage/app/qrcode';
+        if (!File::exists($path)) {
+            File::makeDirectory($path, 0777, true);
+        }
+        $file = "{$path}/{$key}.{$format}";
+        QrCode::format($format)
+            ->size(512)
+            ->style('round')
+            ->backgroundColor(255, 255, 255, 0)
+            ->color(0, 0, 0, 90)
+            ->margin(2)
+            ->generate($key, $file);
+        if (File::exists($file)) {
+            Log::info('QrCode created, uploading to cloud');
+            return cloudinary()->upload($file, [
+                'folder' => 'qrcodes',
+                'public_id' => Str::uuid()->toString(),
+            ])->getSecurePath();
+        }
+        return $key;
+    }
+}
+

@@ -1,0 +1,520 @@
+name: Invoices
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/bnpl/merchants/manage/invoices
+    metadata:
+      groupName: Invoices
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Create new invoice.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      merchant_id:
+        name: merchant_id
+        description: ''
+        required: true
+        example: 6
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      code:
+        name: code
+        description: 'Must be at least 6 characters. Must not be greater than 6 characters.'
+        required: false
+        example: wnga
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      title:
+        name: title
+        description: ''
+        required: true
+        example: pariatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      currency:
+        name: currency
+        description: ''
+        required: true
+        example: USD
+        type: string
+        enumValues:
+          - NGN
+          - USD
+        exampleWasSpecified: false
+        custom: []
+      amount:
+        name: amount
+        description: ''
+        required: true
+        example: 26078361.9
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      vat:
+        name: vat
+        description: ''
+        required: true
+        example: 2080.63
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      tax:
+        name: tax
+        description: ''
+        required: true
+        example: 957769.41316218
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      items:
+        name: items
+        description: ''
+        required: false
+        example: null
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      terms_and_conditions:
+        name: terms_and_conditions
+        description: ''
+        required: false
+        example: ea
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      meta:
+        name: meta
+        description: ''
+        required: false
+        example: null
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      merchant_id: 6
+      code: wnga
+      title: pariatur
+      currency: USD
+      amount: 26078361.9
+      vat: 2080.63
+      tax: 957769.41316218
+      terms_and_conditions: ea
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/bnpl/merchants/manage/invoices
+    metadata:
+      groupName: Invoices
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Fetch all invoices.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"api_status":"401","message":"Unauthorized"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/bnpl/merchants/manage/invoices/user
+    metadata:
+      groupName: Invoices
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Fetch user active invoices.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"api_status":"401","message":"Unauthorized"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/bnpl/merchants/manage/invoices/{invoice_id}'
+    metadata:
+      groupName: Invoices
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get an invoice record.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      invoice_id:
+        name: invoice_id
+        description: 'The ID of the invoice.'
+        required: true
+        example: perferendis
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      invoice_id: perferendis
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"api_status":"401","message":"Unauthorized"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/bnpl/merchants/manage/invoices/code/{code}'
+    metadata:
+      groupName: Invoices
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Fetch invoice by code.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      code:
+        name: code
+        description: 'The code.'
+        required: true
+        example: qui
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      code: qui
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"api_status":"401","message":"Unauthorized"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/bnpl/merchants/manage/invoices/number/{number}'
+    metadata:
+      groupName: Invoices
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Fetch invoice by number.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      number:
+        name: number
+        description: 'The number.'
+        required: true
+        example: omnis
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      number: omnis
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"api_status":"401","message":"Unauthorized"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PATCH
+    uri: 'api/v1/bnpl/merchants/manage/invoices/{invoice_id}/update'
+    metadata:
+      groupName: Invoices
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update an invoice.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      invoice_id:
+        name: invoice_id
+        description: 'The ID of the invoice.'
+        required: true
+        example: at
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      invoice_id: at
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      merchant_id:
+        name: merchant_id
+        description: ''
+        required: true
+        example: 18
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      title:
+        name: title
+        description: ''
+        required: true
+        example: non
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      currency:
+        name: currency
+        description: ''
+        required: true
+        example: NGN
+        type: string
+        enumValues:
+          - NGN
+          - USD
+        exampleWasSpecified: false
+        custom: []
+      amount:
+        name: amount
+        description: ''
+        required: true
+        example: 128.0
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      vat:
+        name: vat
+        description: ''
+        required: true
+        example: 71381.96781625
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      tax:
+        name: tax
+        description: ''
+        required: true
+        example: 40933.9555964
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      items:
+        name: items
+        description: ''
+        required: true
+        example: []
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      meta:
+        name: meta
+        description: ''
+        required: true
+        example: []
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      merchant_id: 18
+      title: non
+      currency: NGN
+      amount: 128.0
+      vat: 71381.96781625
+      tax: 40933.9555964
+      items: []
+      meta: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/bnpl/merchants/manage/invoices/{invoice_id}/delete'
+    metadata:
+      groupName: Invoices
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Delete invoice.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      invoice_id:
+        name: invoice_id
+        description: 'The ID of the invoice.'
+        required: true
+        example: et
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      invoice_id: et
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

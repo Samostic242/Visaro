@@ -55,11 +55,28 @@ return [
                 ],
             ],
             'payment' => [
-                'fee' => env('AVIATION_BOOKING_CHARGE',100000),
+                'fee' => env('AVIATION_BOOKING_CHARGE', 100000),
 
             ],
         ],
         'health' => []
+    ],
+    'loan' => [
+        'charge' => env('BNPL_LOAN_CHARGE'),
+        'creditors' => [
+            'polaris' => [
+                'base_url' => env('TRIPS_BASE_URL'),
+                'authorization_type' => env('TRIPS_AUTHORIZATION_TOKEN'),
+                'public_key' => env('TRIPS_MERCHANT_CODE'),
+                'private_key' => env('TRIPS_MERCHANT_ID'),
+                'token' => env('TRIPS_MERCHANT_NAME'),
+            ],
+        ],
+        'payment' => [
+            'fee' => env('AVIATION_BOOKING_CHARGE', 100000),
+
+        ],
+
     ]
 
 

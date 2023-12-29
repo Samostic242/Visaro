@@ -52,6 +52,31 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/services/aviation.php'));
 
+            Route::prefix('api/v1/bnpl/creditors')
+                ->middleware(['api', 'auth:api', 'checkUserStatus'])
+                ->namespace($this->namespace)
+                ->group(base_path('routes/api/v1/loan/creditors.php'));
+
+            Route::prefix('api/v1/bnpl/merchants')
+                ->middleware(['api', 'auth:api', 'checkUserStatus'])
+                ->namespace($this->namespace)
+                ->group(base_path('routes/api/v1/loan/merchants.php'));
+
+            Route::prefix('api/v1/bnpl/credits')
+                ->middleware(['api', 'auth:api', 'checkUserStatus'])
+                ->namespace($this->namespace)
+                ->group(base_path('routes/api/v1/loan/credit.php'));
+
+            Route::prefix('api/v1/bnpl/transactions')
+                ->middleware(['api', 'auth:api', 'checkUserStatus'])
+                ->namespace($this->namespace)
+                ->group(base_path('routes/api/v1/loan/transactions.php'));
+
+            Route::prefix('api/v1/auth')
+                ->middleware(['api'])
+                ->namespace($this->namespace)
+                ->group(base_path('routes/api/v1/auth/auth.php'));
+
             Route::middleware('web')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
