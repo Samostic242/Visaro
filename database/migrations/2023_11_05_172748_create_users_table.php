@@ -15,6 +15,7 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
+            $table->uuid('public_id')->nullable();
             $table->string('firstname')->default('');
             $table->string('middlename')->default('');
             $table->string('lastname')->default('');
@@ -50,6 +51,8 @@ class CreateUsersTable extends Migration
             $table->integer('passchg_logon')->nullable();
             $table->string('vfd_account_no', 200)->nullable();
             $table->integer('vfd_loan_account_no')->nullable();
+            $table->string('code')->nullable()->index();
+            $table->string('qrcode')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

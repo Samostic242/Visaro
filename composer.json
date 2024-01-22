@@ -19,6 +19,7 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "^4.2",
         "okolaa/termiiphp": "^1.0",
+        "opcodesio/log-viewer": "^3.1",
         "saloonphp/laravel-plugin": "^3.0",
         "saloonphp/saloon": "^3.0",
         "simplesoftwareio/simple-qrcode": "^4.2"
@@ -26,6 +27,7 @@
     "require-dev": {
         "bennett-treptow/laravel-migration-generator": "^4.3",
         "fakerphp/faker": "^1.9.1",
+        "knuckleswtf/scribe": "^4.26",
         "laravel/sail": "^1.0.1",
         "laravel/telescope": "^4.17",
         "mockery/mockery": "^1.4.4",
