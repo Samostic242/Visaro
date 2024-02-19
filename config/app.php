@@ -54,6 +54,7 @@ return [
     */
 
     'url' => env('APP_URL', 'http://visaronigeria.test'),
+    // 'url' => env('APP_URL', 'http://localhost'),
 
     'asset_url' => env('ASSET_URL', null),
 
@@ -176,7 +177,17 @@ return [
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
+        App\Providers\CustomProviders\V2\RegistrationServiceProvider::class,
+        App\Providers\CustomProviders\V2\VerificationServiceProvider::class,
+        App\Providers\CustomProviders\V2\AuthenticationProvider::class,
+        App\Providers\CustomProviders\V2\NewsletterProvider::class,
+        App\Providers\CustomProviders\V2\BankingServiceProvider::class,
+
+
+
+
         App\Providers\EventServiceProvider::class,
+
         App\Providers\RouteServiceProvider::class,
         // App\Providers\TelescopeServiceProvider::class,
 
