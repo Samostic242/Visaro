@@ -22,7 +22,8 @@
         "opcodesio/log-viewer": "^3.1",
         "saloonphp/laravel-plugin": "^3.0",
         "saloonphp/saloon": "^3.0",
-        "simplesoftwareio/simple-qrcode": "^4.2"
+        "simplesoftwareio/simple-qrcode": "^4.2",
+        "tzsk/otp": "^7.0"
     },
     "require-dev": {
         "bennett-treptow/laravel-migration-generator": "^4.3",

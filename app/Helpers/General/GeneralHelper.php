@@ -381,3 +381,15 @@ if (!function_exists('generateQrCode')) {
     }
 }
 
+if(!function_exists('upload_to_cloudinary'))
+{
+    function upload_to_cloudinary(string $folder, $fil): ?string
+    {
+        $upload = cloudinary()->upload($fil, [
+            'folder' => $folder,
+            'public_id' => Str::uuid()->toString(),
+        ])->getSecurePath();
+        return $upload;
+    }
+}
+
