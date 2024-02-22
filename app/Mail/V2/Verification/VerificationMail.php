@@ -13,15 +13,15 @@ use Illuminate\Queue\SerializesModels;
 class VerificationMail extends Mailable
 {
     use Queueable, SerializesModels;
-    public $user;
+    public $email;
     public $otp;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($user, $otp)
+    public function __construct($email, $otp)
     {
-        $this->user = $user;
+        $this->email = $email;
         $this->otp = $otp;
 
     }
@@ -33,7 +33,7 @@ class VerificationMail extends Mailable
     {
         return new Envelope(
             subject: 'Visaro Verification Mail',
-            to: $this->user['email'],
+            to: $this->email,
             from: new Address('info@visaro.com', 'Visaro')
         );
     }

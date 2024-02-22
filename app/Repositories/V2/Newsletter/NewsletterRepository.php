@@ -11,7 +11,7 @@ class NewsletterRepository implements NewsletterRepositoryInterface
     public function subscribe(array $data)
     {
         $newsletter = new Newsletter();
-        $newsletter->email = $data['email'];
+        $newsletter->email = $data['email'] ?? null;
         $newsletter->save();
 
         Mail::send(new NewsletterMail($data['email']));

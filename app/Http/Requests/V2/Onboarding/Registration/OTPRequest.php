@@ -4,7 +4,7 @@ namespace App\Http\Requests\V2\Onboarding\Registration;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class RegistrationRequest extends FormRequest
+class OTPRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,13 +22,8 @@ class RegistrationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "firstname" => ['string', 'max:20'],
-            'middlename' => ['string', 'max:20'],
-            'lastname' => ['string', 'max:20'],
-            'phone_code' => ['nullable', 'string', 'regex:/^\+[0-9]+$/', 'max:4'],
-            'phone' => ['nullable', 'regex:/[0-9]{10}$/', 'unique:users'],
-            'photo' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
-            'password' => ['string'],
+            //
+            'email' => ['required', 'email']
         ];
     }
 }

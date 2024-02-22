@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\V2\Onboarding\Registration;
+namespace App\Http\Requests\V2\Onboarding\Verification;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class RegistrationRequest extends FormRequest
+class PhoneVerifcationRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,13 +22,9 @@ class RegistrationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "firstname" => ['string', 'max:20'],
-            'middlename' => ['string', 'max:20'],
-            'lastname' => ['string', 'max:20'],
+            //
             'phone_code' => ['nullable', 'string', 'regex:/^\+[0-9]+$/', 'max:4'],
-            'phone' => ['nullable', 'regex:/[0-9]{10}$/', 'unique:users'],
-            'photo' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
-            'password' => ['string'],
+            'phone' => ['nullable', 'regex:/[0-9]{11}$/', 'unique:users'],
         ];
     }
 }

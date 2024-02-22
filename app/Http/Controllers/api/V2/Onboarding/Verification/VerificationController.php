@@ -32,4 +32,6 @@ class VerificationController extends Controller
         $verify = $this->verificationRepository->verifyEmail($validated_data);
         return $verify;
     }
+
+    // public function getPhoneOtp()
 }

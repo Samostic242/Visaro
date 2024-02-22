@@ -159,7 +159,7 @@ line-height: 30px; margin: 0;padding: 0;-webkit-text-size-adjust: 100%;backgroun
 
 {{-- <h3> {{$title}}</h3> --}}
   <div style="line-height: 140%; text-align: justify; word-wrap: break-word;">
-    <p style="font-size: 12px; line-height: 140%; margin-bottom:10px"><strong> Hi Sam</strong>,</p>
+    <p style="font-size: 12px; line-height: 140%; margin-bottom:10px"><strong> Hello</strong>,</p>
 {{-- <p style="font-size: 14px; line-height: 140%;">{{$email_content}}</p> --}}
 <h3>{{$otp}}</h3>
 <p style="font-size: 14px; line-height: 140%;">
