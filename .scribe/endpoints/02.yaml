@@ -1,16 +1,16 @@
-name: Merchant
+name: Authentication
 description: ''
 endpoints:
   -
     httpMethods:
       - POST
-    uri: api/v1/bnpl/merchants
+    uri: api/v2/auth/user/login
     metadata:
-      groupName: Merchant
+      groupName: Authentication
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Register Merchant.'
+      title: 'Logs the user in'
       description: ''
       authenticated: false
       custom: []
@@ -22,902 +22,40 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      business_name:
-        name: business_name
-        description: ''
-        required: true
-        example: molestias
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      business_type:
-        name: business_type
-        description: ''
-        required: true
-        example: sole_proprietorship
-        type: string
-        enumValues:
-          - corporation
-          - sole_proprietorship
-          - partnership
-        exampleWasSpecified: false
-        custom: []
-      business_email:
-        name: business_email
-        description: 'Must be a valid email address.'
-        required: true
-        example: royce18@example.com
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      business_phone_code:
-        name: business_phone_code
-        description: ''
-        required: true
-        example: non
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      business_phone:
-        name: business_phone
-        description: ''
-        required: true
-        example: eos
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      business_registration_number:
-        name: business_registration_number
-        description: ''
-        required: true
-        example: et
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      acronym:
-        name: acronym
-        description: ''
-        required: false
-        example: enim
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      official_name:
-        name: official_name
-        description: ''
-        required: true
-        example: nisi
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      website:
-        name: website
-        description: 'Must be a valid URL.'
-        required: true
-        example: 'http://zboncak.net/'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      presence:
-        name: presence
-        description: ''
-        required: false
-        example: virtual
-        type: string
-        enumValues:
-          - physical
-          - virtual
-          - hybrid
-        exampleWasSpecified: false
-        custom: []
-      logo:
-        name: logo
-        description: ''
-        required: false
-        example: ut
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      country_id:
-        name: country_id
-        description: ''
-        required: true
-        example: 13
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      customization:
-        name: customization
-        description: ''
-        required: false
-        example: null
-        type: object
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      meta:
-        name: meta
-        description: ''
-        required: false
-        example: null
-        type: object
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-    cleanBodyParameters:
-      business_name: molestias
-      business_type: sole_proprietorship
-      business_email: royce18@example.com
-      business_phone_code: non
-      business_phone: eos
-      business_registration_number: et
-      acronym: enim
-      official_name: nisi
-      website: 'http://zboncak.net/'
-      presence: virtual
-      logo: ut
-      country_id: 13
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: api/v1/bnpl/merchants
-    metadata:
-      groupName: Merchant
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Fetch all Merchants.'
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 401
-        content: '{"api_status":"401","message":"Unauthorized"}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: 'api/v1/bnpl/merchants/{merchant_id}'
-    metadata:
-      groupName: Merchant
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Get a merchant.'
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      merchant_id:
-        name: merchant_id
-        description: 'The ID of the merchant.'
-        required: true
-        example: sint
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-    cleanUrlParameters:
-      merchant_id: sint
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 401
-        content: '{"api_status":"401","message":"Unauthorized"}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - PATCH
-    uri: 'api/v1/bnpl/merchants/{merchant_id}/update'
-    metadata:
-      groupName: Merchant
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Update merchant record.'
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      merchant_id:
-        name: merchant_id
-        description: 'The ID of the merchant.'
-        required: true
-        example: dolorem
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-    cleanUrlParameters:
-      merchant_id: dolorem
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      business_name:
-        name: business_name
-        description: ''
-        required: true
-        example: quo
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      business_type:
-        name: business_type
-        description: ''
-        required: true
-        example: sole_proprietorship
-        type: string
-        enumValues:
-          - corporation
-          - sole_proprietorship
-          - partnership
-        exampleWasSpecified: false
-        custom: []
-      business_email:
-        name: business_email
-        description: 'Must be a valid email address.'
-        required: true
-        example: vbatz@example.com
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      business_phone_code:
-        name: business_phone_code
-        description: ''
-        required: true
-        example: adipisci
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      business_phone:
-        name: business_phone
-        description: ''
-        required: true
-        example: enim
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      business_registration_number:
-        name: business_registration_number
-        description: ''
-        required: true
-        example: nihil
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      acronym:
-        name: acronym
-        description: ''
-        required: false
-        example: aut
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      official_name:
-        name: official_name
-        description: ''
-        required: true
-        example: rem
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      website:
-        name: website
-        description: 'Must be a valid URL.'
-        required: true
-        example: 'https://bosco.com/repudiandae-dolores-rerum-aut-rerum.html'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      presence:
-        name: presence
-        description: ''
-        required: false
-        example: hybrid
-        type: string
-        enumValues:
-          - physical
-          - virtual
-          - hybrid
-        exampleWasSpecified: false
-        custom: []
-      logo:
-        name: logo
-        description: ''
-        required: false
-        example: libero
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      country_id:
-        name: country_id
-        description: ''
-        required: true
-        example: 3
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      customization:
-        name: customization
-        description: ''
-        required: false
-        example: null
-        type: object
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      meta:
-        name: meta
-        description: ''
-        required: false
-        example: null
-        type: object
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      category:
-        name: category
-        description: ''
-        required: false
-        example: dolorem
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-    cleanBodyParameters:
-      business_name: quo
-      business_type: sole_proprietorship
-      business_email: vbatz@example.com
-      business_phone_code: adipisci
-      business_phone: enim
-      business_registration_number: nihil
-      acronym: aut
-      official_name: rem
-      website: 'https://bosco.com/repudiandae-dolores-rerum-aut-rerum.html'
-      presence: hybrid
-      logo: libero
-      country_id: 3
-      category: dolorem
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - DELETE
-    uri: 'api/v1/bnpl/merchants/{merchant_id}/delete'
-    metadata:
-      groupName: Merchant
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Delete merchant record.'
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      merchant_id:
-        name: merchant_id
-        description: 'The ID of the merchant.'
-        required: true
-        example: sint
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-    cleanUrlParameters:
-      merchant_id: sint
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: 'api/v1/bnpl/merchants/{merchant_id}/compliance'
-    metadata:
-      groupName: Merchant
-      groupDescription: ''
-      subgroup: Compliance
-      subgroupDescription: ''
-      title: 'Fetch Merchant Compliance'
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      merchant_id:
-        name: merchant_id
-        description: 'The ID of the merchant.'
-        required: true
-        example: nulla
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-    cleanUrlParameters:
-      merchant_id: nulla
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 401
-        content: '{"api_status":"401","message":"Unauthorized"}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: 'api/v1/bnpl/merchants/{merchant_id}/settings'
-    metadata:
-      groupName: Merchant
-      groupDescription: ''
-      subgroup: Settings
-      subgroupDescription: ''
-      title: 'fetch Merchant Settings'
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      merchant_id:
-        name: merchant_id
-        description: 'The ID of the merchant.'
-        required: true
-        example: totam
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-    cleanUrlParameters:
-      merchant_id: totam
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 401
-        content: '{"api_status":"401","message":"Unauthorized"}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - PATCH
-    uri: 'api/v1/bnpl/merchants/{merchant_id}/compliance/update'
-    metadata:
-      groupName: Merchant
-      groupDescription: ''
-      subgroup: Compliance
-      subgroupDescription: ''
-      title: 'Update Merchant Compliance'
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: multipart/form-data
-      Accept: application/json
-    urlParameters:
-      merchant_id:
-        name: merchant_id
-        description: 'The ID of the merchant.'
-        required: true
-        example: deleniti
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-    cleanUrlParameters:
-      merchant_id: deleniti
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      business_name:
-        name: business_name
-        description: ''
-        required: true
-        example: non
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      business_registration_number:
-        name: business_registration_number
-        description: ''
-        required: false
-        example: labore
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      business_registration_document:
-        name: business_registration_document
-        description: 'Must be a file.'
-        required: false
-        example: null
-        type: file
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      business_license_document:
-        name: business_license_document
-        description: 'Must be a file.'
-        required: false
-        example: null
-        type: file
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      business_tax_document:
-        name: business_tax_document
-        description: 'Must be a file.'
-        required: false
-        example: null
-        type: file
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      business_certificate_of_incorporation_document:
-        name: business_certificate_of_incorporation_document
-        description: 'Must be a file.'
-        required: false
-        example: null
-        type: file
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      business_proof_of_address_document:
-        name: business_proof_of_address_document
-        description: 'Must be a file.'
-        required: false
-        example: null
-        type: file
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      identity_number_of_director:
-        name: identity_number_of_director
-        description: ''
-        required: false
-        example: quibusdam
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      identity_document_of_director:
-        name: identity_document_of_director
-        description: 'Must be a file.'
-        required: true
-        example: null
-        type: file
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      bvn:
-        name: bvn
-        description: ''
-        required: false
-        example: neque
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      account_name:
-        name: account_name
-        description: ''
-        required: false
-        example: provident
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      account_number:
-        name: account_number
-        description: ''
-        required: false
-        example: quia
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      bank_name:
-        name: bank_name
-        description: ''
-        required: false
-        example: ad
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      bank_code:
-        name: bank_code
-        description: ''
-        required: false
-        example: doloremque
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      website:
-        name: website
-        description: ''
-        required: false
-        example: sint
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      logo:
-        name: logo
-        description: 'Must be a file.'
-        required: false
-        example: null
-        type: file
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      country_id:
-        name: country_id
-        description: ''
-        required: true
-        example: 18
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      state:
-        name: state
-        description: ''
-        required: false
-        example: et
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      lga:
-        name: lga
-        description: ''
-        required: false
-        example: maiores
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      address1:
-        name: address1
-        description: ''
-        required: false
-        example: consequatur
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      address2:
-        name: address2
-        description: ''
-        required: false
-        example: ut
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      description:
-        name: description
-        description: ''
-        required: false
-        example: 'Quis harum numquam nemo ratione impedit asperiores.'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
       email:
         name: email
         description: 'Must be a valid email address.'
-        required: false
-        example: ymcglynn@example.com
+        required: true
+        example: vzieme@example.net
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
-      phone_code:
-        name: phone_code
+      password:
+        name: password
         description: ''
         required: true
-        example: facilis
+        example: 'kjigmc!i"B3-t<+'
         type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      phone:
-        name: phone
-        description: ''
-        required: true
-        example: rerum
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      conflict_resolution_email:
-        name: conflict_resolution_email
-        description: 'Must be a valid email address.'
-        required: false
-        example: herman.van@example.org
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      conflict_resolution_phone_code:
-        name: conflict_resolution_phone_code
-        description: ''
-        required: false
-        example: consequatur
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      conflict_resolution_phone:
-        name: conflict_resolution_phone
-        description: ''
-        required: false
-        example: quae
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      meta:
-        name: meta
-        description: ''
-        required: false
-        example: null
-        type: object
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      business_name: non
-      business_registration_number: labore
-      identity_number_of_director: quibusdam
-      bvn: neque
-      account_name: provident
-      account_number: quia
-      bank_name: ad
-      bank_code: doloremque
-      website: sint
-      country_id: 18
-      state: et
-      lga: maiores
-      address1: consequatur
-      address2: ut
-      description: 'Quis harum numquam nemo ratione impedit asperiores.'
-      email: ymcglynn@example.com
-      phone_code: facilis
-      phone: rerum
-      conflict_resolution_email: herman.van@example.org
-      conflict_resolution_phone_code: consequatur
-      conflict_resolution_phone: quae
-    fileParameters:
-      business_registration_document: null
-      business_license_document: null
-      business_tax_document: null
-      business_certificate_of_incorporation_document: null
-      business_proof_of_address_document: null
-      identity_document_of_director: null
-      logo: null
-    responses: []
+      email: vzieme@example.net
+      password: 'kjigmc!i"B3-t<+'
+    fileParameters: []
+    responses:
+      -
+        status: 400
+        content: '{"code":"01","success":false,"message":"Incorrect username or password","data":null}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '51'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
     responseFields: []
     auth: []
     controller: null
@@ -926,70 +64,159 @@ endpoints:
     custom: []
   -
     httpMethods:
-      - PATCH
-    uri: 'api/v1/bnpl/merchants/{merchant_id}/settings/update'
+      - POST
+    uri: api/v2/auth/user/forgot-password
     metadata:
-      groupName: Merchant
+      groupName: Authentication
       groupDescription: ''
-      subgroup: Settings
+      subgroup: ''
       subgroupDescription: ''
-      title: 'Update Merchant Settings'
+      title: 'Request for password reset OTP'
       description: ''
       authenticated: false
       custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
-    urlParameters:
-      merchant_id:
-        name: merchant_id
-        description: 'The ID of the merchant.'
-        required: true
-        example: sint
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-    cleanUrlParameters:
-      merchant_id: sint
+    urlParameters: []
+    cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      payout_interval:
-        name: payout_interval
-        description: ''
+      email:
+        name: email
+        description: 'Must be a valid email address.'
         required: true
-        example: monthly
+        example: tyra10@example.com
         type: string
-        enumValues:
-          - daily
-          - weekly
-          - monthly
-        exampleWasSpecified: false
-        custom: []
-      payout_frequency:
-        name: payout_frequency
-        description: ''
-        required: true
-        example: 8
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-      meta:
-        name: meta
-        description: ''
-        required: false
-        example: null
-        type: object
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      payout_interval: monthly
-      payout_frequency: 8
+      email: tyra10@example.com
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 422
+        content: '{"message":"The selected email is invalid.","errors":{"email":["The selected email is invalid."]}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '50'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v2/auth/user/reset-password
+    metadata:
+      groupName: Authentication
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Verifies the OTP and Update the user new password'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'Must be a valid email address.'
+        required: true
+        example: rosie91@example.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      code:
+        name: code
+        description: 'Must match the regex /[0-9]{4}/.'
+        required: true
+        example: '9588'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      password:
+        name: password
+        description: ''
+        required: true
+        example: XuajMQ5a;-nPG$L;h
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      email: rosie91@example.com
+      code: '9588'
+      password: XuajMQ5a;-nPG$L;h
+    fileParameters: []
+    responses:
+      -
+        status: 422
+        content: '{"message":"The selected email is invalid.","errors":{"email":["The selected email is invalid."]}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '49'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/v2/auth/user
+    metadata:
+      groupName: Authentication
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Fecthes the Authenticated User'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"api_status":"401","message":"Unauthorized"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
     responseFields: []
     auth: []
     controller: null

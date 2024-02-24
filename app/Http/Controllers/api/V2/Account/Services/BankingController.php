@@ -8,6 +8,10 @@ use App\Http\Resources\V2\Account\Services\Banking\BeneficiaryResource;
 use App\Interfaces\Repositories\V2\Account\Services\BankingRepositoryInterface;
 use Illuminate\Http\Request;
 
+/**
+ * @group Banking
+ * @description APIs for Banking Related Functions
+ */
 class BankingController extends Controller
 {
     function __construct(
@@ -17,6 +21,9 @@ class BankingController extends Controller
 
     }
 
+    /**
+     * Add a Beneficiary to a user Profile
+     */
     public function addBeneficiary(BeneficiaryRequest $request)
     {
         $validated_data = $request->validated();
@@ -27,6 +34,9 @@ class BankingController extends Controller
 
     }
 
+    /**
+     * Get all beneficiary associated with a user
+     */
     public function allBeneficiaries()
     {
         $beneficiaries = $this->bankingRepository->getBeneficiaries();
