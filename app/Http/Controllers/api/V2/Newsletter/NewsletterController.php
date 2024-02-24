@@ -7,6 +7,10 @@ use App\Http\Requests\V2\Newsletter\NewsletterRequest;
 use App\Interfaces\Repositories\V2\Newsletter\NewsletterRepositoryInterface;
 use Illuminate\Http\Request;
 
+/**
+ * @group Newsletter
+ * @description APIs for managing Newsletter
+ */
 class NewsletterController extends Controller
 {
     function __construct(
@@ -16,6 +20,9 @@ class NewsletterController extends Controller
 
     }
 
+    /**
+     * Saves a User Details for Newsletter subscription
+     */
     public function subscribe(NewsletterRequest $request)
     {
         $validated_data = $request->validated();

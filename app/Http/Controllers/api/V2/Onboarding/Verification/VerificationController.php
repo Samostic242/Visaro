@@ -7,6 +7,10 @@ use App\Http\Requests\V2\Onboarding\Verification\VerificationRequest;
 use App\Interfaces\Repositories\V2\Onboarding\VerificationRepositoryInterface;
 use Illuminate\Http\Request;
 
+/**
+ * @group Verifying Users
+ * @description APIs for managing User Verification
+ */
 class VerificationController extends Controller
 {
     //
@@ -17,6 +21,9 @@ class VerificationController extends Controller
 
     }
 
+    /**
+     * Resends One time password to the user
+     */
     public function resendtOtp(Request $request)
     {
         if(!$resend = $this->verificationRepository->getOtp($request->toArray()))
@@ -26,6 +33,9 @@ class VerificationController extends Controller
         return respondSuccess('An otp has been sent to you, kindly check your mail');
     }
 
+    /**
+     * Verifies the user One time password
+     */
     public function verifyOtp(VerificationRequest $request)
     {
         $validated_data = $request->validated();
@@ -33,5 +43,4 @@ class VerificationController extends Controller
         return $verify;
     }
 
-    // public function getPhoneOtp()
 }

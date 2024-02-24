@@ -12,6 +12,10 @@ use App\Interfaces\Repositories\V2\Onboarding\VerificationRepositoryInterface;
 use App\Repositories\V2\Onboarding\Registration\RegistrationRepository;
 use Illuminate\Http\Request;
 
+/**
+ * @group Onboarding
+ * @description APIs for Onboarding User
+ */
 class RegistrationController extends Controller
 {
 
@@ -26,7 +30,6 @@ class RegistrationController extends Controller
     /**
      * Send One Time Password Email to the User
      */
-
      public function getOTP(OTPRequest $request){
         $validated = $request->validated();
         return $this->registrationRepository->getCode($validated);
