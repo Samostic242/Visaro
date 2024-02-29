@@ -182,6 +182,10 @@ return [
         App\Providers\CustomProviders\V2\AuthenticationProvider::class,
         App\Providers\CustomProviders\V2\NewsletterProvider::class,
         App\Providers\CustomProviders\V2\BankingServiceProvider::class,
+        App\Providers\CustomProviders\V2\WalletServiceProvider::class,
+        App\Providers\CustomProviders\V2\CardServiceProvider::class,
+
+
 
 
 

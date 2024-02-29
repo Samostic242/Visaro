@@ -14,10 +14,14 @@ class CreateBanksTable extends Migration
     public function up()
     {
         Schema::create('banks', function (Blueprint $table) {
-            $table->integer('id')->primary();
-            $table->string('bank_code', 200);
-            $table->string('bank_name')->nullable();
-            $table->string('display_img', 200)->nullable();
+            $table->string('public_id')->index();
+            $table->id();
+            $table->string('name')->nullable();
+            $table->string('code')->nullable();
+            $table->string('acronym')->nullable();
+            $table->string('logo')->nullable();
+            $table->softdeletes();
+            $table->timestamps();
         });
     }
 
