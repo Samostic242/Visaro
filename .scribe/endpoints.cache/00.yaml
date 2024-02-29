@@ -185,7 +185,7 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: frami.melyna@example.org
+        example: jlittle@example.com
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -194,14 +194,14 @@ endpoints:
         name: password
         description: ''
         required: true
-        example: mollitia
+        example: similique
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      email: frami.melyna@example.org
-      password: mollitia
+      email: jlittle@example.com
+      password: similique
     fileParameters: []
     responses:
       -
@@ -246,7 +246,7 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: theodore.tillman@example.net
+        example: ftromp@example.net
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -255,14 +255,14 @@ endpoints:
         name: password
         description: ''
         required: true
-        example: dolorem
+        example: eveniet
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      email: theodore.tillman@example.net
-      password: dolorem
+      email: ftromp@example.net
+      password: eveniet
     fileParameters: []
     responses:
       -
@@ -344,13 +344,13 @@ endpoints:
         name: country_key
         description: ''
         required: true
-        example: temporibus
+        example: ut
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      country_key: temporibus
+      country_key: ut
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -596,13 +596,13 @@ endpoints:
         name: otp_type
         description: ''
         required: true
-        example: occaecati
+        example: numquam
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      otp_type: occaecati
+      otp_type: numquam
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -723,13 +723,13 @@ endpoints:
         name: ref
         description: ''
         required: true
-        example: et
+        example: earum
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      ref: et
+      ref: earum
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -776,13 +776,13 @@ endpoints:
         name: old_password
         description: ''
         required: true
-        example: reprehenderit
+        example: facilis
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      old_password: reprehenderit
+      old_password: facilis
     fileParameters: []
     responses:
       -
@@ -1059,7 +1059,7 @@ endpoints:
         name: phone_code
         description: ''
         required: true
-        example: veritatis
+        example: et
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1068,14 +1068,14 @@ endpoints:
         name: phone_number
         description: ''
         required: true
-        example: adipisci
+        example: voluptatem
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      phone_code: veritatis
-      phone_number: adipisci
+      phone_code: et
+      phone_number: voluptatem
     fileParameters: []
     responses:
       -
@@ -1118,7 +1118,7 @@ endpoints:
         name: code_id
         description: ''
         required: true
-        example: cupiditate
+        example: at
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1127,14 +1127,14 @@ endpoints:
         name: code
         description: 'Must be 4 digits.'
         required: true
-        example: '2071'
+        example: '5016'
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      code_id: cupiditate
-      code: '2071'
+      code_id: at
+      code: '5016'
     fileParameters: []
     responses:
       -
@@ -1177,13 +1177,13 @@ endpoints:
         name: old_pin
         description: 'Must be 4 digits.'
         required: true
-        example: '5195'
+        example: '4414'
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      old_pin: '5195'
+      old_pin: '4414'
     fileParameters: []
     responses:
       -
@@ -1222,13 +1222,13 @@ endpoints:
         name: email
         description: ''
         required: true
-        example: zboncak.marlon@example.org
+        example: mafalda09@example.org
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      email: zboncak.marlon@example.org
+      email: mafalda09@example.org
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -1275,7 +1275,7 @@ endpoints:
         name: pin
         description: 'Must be 4 digits.'
         required: true
-        example: '7311'
+        example: '0549'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1284,14 +1284,14 @@ endpoints:
         name: pin_confirmation
         description: 'Must be 4 digits.'
         required: true
-        example: '4894'
+        example: '8053'
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      pin: '7311'
-      pin_confirmation: '4894'
+      pin: '0549'
+      pin_confirmation: '8053'
     fileParameters: []
     responses:
       -
@@ -1334,7 +1334,7 @@ endpoints:
         name: account_no
         description: ''
         required: true
-        example: 258.6
+        example: 2574.549
         type: number
         enumValues: []
         exampleWasSpecified: false
@@ -1343,14 +1343,14 @@ endpoints:
         name: bank_code
         description: ''
         required: true
-        example: autem
+        example: eos
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      account_no: 258.6
-      bank_code: autem
+      account_no: 2574.549
+      bank_code: eos
     fileParameters: []
     responses:
       -
@@ -1393,7 +1393,7 @@ endpoints:
         name: to_bank_code
         description: ''
         required: true
-        example: vitae
+        example: totam
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1402,7 +1402,7 @@ endpoints:
         name: to_account_no
         description: ''
         required: true
-        example: voluptates
+        example: iure
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1411,7 +1411,7 @@ endpoints:
         name: amount
         description: 'Must match the regex /^\d+(\.\d{1,2})?$/.'
         required: true
-        example: '4779.13'
+        example: '181040'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1420,7 +1420,7 @@ endpoints:
         name: transaction_pin
         description: ''
         required: true
-        example: repellat
+        example: quia
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1429,17 +1429,17 @@ endpoints:
         name: naration
         description: ''
         required: true
-        example: quo
+        example: mollitia
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      to_bank_code: vitae
-      to_account_no: voluptates
-      amount: '4779.13'
-      transaction_pin: repellat
-      naration: quo
+      to_bank_code: totam
+      to_account_no: iure
+      amount: '181040'
+      transaction_pin: quia
+      naration: mollitia
     fileParameters: []
     responses:
       -
@@ -1482,7 +1482,7 @@ endpoints:
         name: username
         description: ''
         required: true
-        example: maxime
+        example: qui
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1491,7 +1491,7 @@ endpoints:
         name: amount
         description: 'Must match the regex /^\d+(\.\d{1,2})?$/.'
         required: true
-        example: '71666'
+        example: '2.0'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1500,7 +1500,7 @@ endpoints:
         name: transaction_pin
         description: ''
         required: true
-        example: vero
+        example: maxime
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1509,16 +1509,16 @@ endpoints:
         name: naration
         description: ''
         required: true
-        example: aut
+        example: beatae
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      username: maxime
-      amount: '71666'
-      transaction_pin: vero
-      naration: aut
+      username: qui
+      amount: '2.0'
+      transaction_pin: maxime
+      naration: beatae
     fileParameters: []
     responses:
       -
@@ -1561,7 +1561,7 @@ endpoints:
         name: certificate_of_incoporation
         description: 'Must not be greater than 2048 characters.'
         required: false
-        example: xijrlqlvyclvmpocdjcn
+        example: yqcxlu
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1570,7 +1570,7 @@ endpoints:
         name: memart
         description: 'Must not be greater than 2048 characters.'
         required: false
-        example: cshthrwybt
+        example: kjqvjdl
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1579,7 +1579,7 @@ endpoints:
         name: acfta_certificate
         description: 'Must not be greater than 2048 characters.'
         required: false
-        example: nldm
+        example: eiufncpie
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1588,7 +1588,7 @@ endpoints:
         name: business_name
         description: ''
         required: true
-        example: soluta
+        example: quia
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1597,7 +1597,7 @@ endpoints:
         name: business_address
         description: ''
         required: true
-        example: et
+        example: aperiam
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1606,7 +1606,7 @@ endpoints:
         name: business_email
         description: ''
         required: true
-        example: aliquam
+        example: omnis
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1615,7 +1615,7 @@ endpoints:
         name: country_of_origin
         description: ''
         required: true
-        example: enim
+        example: atque
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1624,20 +1624,20 @@ endpoints:
         name: port_of_origin
         description: ''
         required: true
-        example: et
+        example: vel
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      certificate_of_incoporation: xijrlqlvyclvmpocdjcn
-      memart: cshthrwybt
-      acfta_certificate: nldm
-      business_name: soluta
-      business_address: et
-      business_email: aliquam
-      country_of_origin: enim
-      port_of_origin: et
+      certificate_of_incoporation: yqcxlu
+      memart: kjqvjdl
+      acfta_certificate: eiufncpie
+      business_name: quia
+      business_address: aperiam
+      business_email: omnis
+      country_of_origin: atque
+      port_of_origin: vel
     fileParameters: []
     responses:
       -
@@ -1698,7 +1698,7 @@ endpoints:
         name: account_type
         description: ''
         required: false
-        example: 18
+        example: 12
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -1713,7 +1713,7 @@ endpoints:
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      account_type: 18
+      account_type: 12
     fileParameters:
       profile_pics: null
     responses:
@@ -1831,13 +1831,13 @@ endpoints:
         name: id
         description: 'The ID of the article.'
         required: true
-        example: hic
+        example: harum
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: hic
+      id: harum
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -1881,13 +1881,13 @@ endpoints:
         name: id
         description: 'The ID of the article.'
         required: true
-        example: praesentium
+        example: nihil
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: praesentium
+      id: nihil
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -1930,13 +1930,13 @@ endpoints:
         name: id
         description: 'The ID of the article.'
         required: true
-        example: est
+        example: voluptates
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: est
+      id: voluptates
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -1979,13 +1979,13 @@ endpoints:
         name: id
         description: 'The ID of the article.'
         required: true
-        example: quos
+        example: veritatis
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: quos
+      id: veritatis
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -2028,13 +2028,13 @@ endpoints:
         name: id
         description: 'The ID of the article.'
         required: true
-        example: atque
+        example: qui
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: atque
+      id: qui
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -2077,13 +2077,13 @@ endpoints:
         name: id
         description: 'The ID of the article.'
         required: true
-        example: temporibus
+        example: numquam
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: temporibus
+      id: numquam
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -2126,13 +2126,13 @@ endpoints:
         name: id
         description: 'The ID of the article.'
         required: true
-        example: eos
+        example: quod
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: eos
+      id: quod
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -2175,13 +2175,13 @@ endpoints:
         name: id
         description: 'The ID of the article.'
         required: true
-        example: voluptas
+        example: rerum
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: voluptas
+      id: rerum
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -2224,13 +2224,13 @@ endpoints:
         name: id
         description: 'The ID of the article.'
         required: true
-        example: deserunt
+        example: veniam
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: deserunt
+      id: veniam
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
