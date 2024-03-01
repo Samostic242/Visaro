@@ -88,11 +88,32 @@
                     <a href="#banking">Banking</a>
                 </li>
                                     <ul id="tocify-subheader-banking" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="banking-POSTapi-v2-account-banking-beneficiary">
+                                                    <li class="tocify-item level-2" data-unique="banking-GETapi-v2-account-banking-banks">
+                                <a href="#banking-GETapi-v2-account-banking-banks">Get all Banks</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="banking-POSTapi-v2-account-banking-beneficiary">
                                 <a href="#banking-POSTapi-v2-account-banking-beneficiary">Add a Beneficiary to a user Profile</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="banking-GETapi-v2-account-banking-beneficiary">
                                 <a href="#banking-GETapi-v2-account-banking-beneficiary">Get all beneficiary associated with a user</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="banking-POSTapi-v2-account-banking-bank-account">
+                                <a href="#banking-POSTapi-v2-account-banking-bank-account">Craate  a New Bank Account for the current user</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="banking-GETapi-v2-account-banking-bank-account">
+                                <a href="#banking-GETapi-v2-account-banking-bank-account">Fetches a bank account</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="banking-POSTapi-v2-account-banking-card">
+                                <a href="#banking-POSTapi-v2-account-banking-card">Add a New Card</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="banking-GETapi-v2-account-banking-card">
+                                <a href="#banking-GETapi-v2-account-banking-card">Fecth User Card</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="banking-DELETEapi-v2-account-banking-card--card_id-">
+                                <a href="#banking-DELETEapi-v2-account-banking-card--card_id-">Delete a card</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="banking-POSTapi-v2-admin-banking-create">
+                                <a href="#banking-POSTapi-v2-admin-banking-create">Create a bank</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -283,7 +304,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: February 24, 2024</li>
+        <li>Last updated: February 29, 2024</li>
     </ul>
 </div>
 
@@ -324,8 +345,8 @@ const headers = {
 };
 
 let body = {
-    "email": "vzieme@example.net",
-    "password": "kjigmc!i\"B3-t&lt;+"
+    "email": "laura37@example.net",
+    "password": "_$cIMHOu(&amp;\\"
 };
 
 fetch(url, {
@@ -435,10 +456,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v2-auth-user-login"
-               value="vzieme@example.net"
+               value="laura37@example.net"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>vzieme@example.net</code></p>
+<p>Must be a valid email address. Example: <code>laura37@example.net</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -446,10 +467,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-v2-auth-user-login"
-               value="kjigmc!i"B3-t<+"
+               value="_$cIMHOu(&\"
                data-component="body">
     <br>
-<p>Example: <code>kjigmc!i"B3-t&lt;+</code></p>
+<p>Example: <code>_$cIMHOu(&amp;\</code></p>
         </div>
         </form>
 
@@ -475,7 +496,7 @@ const headers = {
 };
 
 let body = {
-    "email": "tyra10@example.com"
+    "email": "gkerluke@example.org"
 };
 
 fetch(url, {
@@ -587,10 +608,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v2-auth-user-forgot-password"
-               value="tyra10@example.com"
+               value="gkerluke@example.org"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>tyra10@example.com</code></p>
+<p>Must be a valid email address. Example: <code>gkerluke@example.org</code></p>
         </div>
         </form>
 
@@ -616,9 +637,9 @@ const headers = {
 };
 
 let body = {
-    "email": "rosie91@example.com",
-    "code": "9588",
-    "password": "XuajMQ5a;-nPG$L;h"
+    "email": "halvorson.orlando@example.net",
+    "code": "3441",
+    "password": "IeM&gt;@%Ze8"
 };
 
 fetch(url, {
@@ -730,10 +751,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v2-auth-user-reset-password"
-               value="rosie91@example.com"
+               value="halvorson.orlando@example.net"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>rosie91@example.com</code></p>
+<p>Must be a valid email address. Example: <code>halvorson.orlando@example.net</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>code</code></b>&nbsp;&nbsp;
@@ -741,10 +762,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="code"                data-endpoint="POSTapi-v2-auth-user-reset-password"
-               value="9588"
+               value="3441"
                data-component="body">
     <br>
-<p>Must match the regex /[0-9]{4}/. Example: <code>9588</code></p>
+<p>Must match the regex /[0-9]{4}/. Example: <code>3441</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -752,10 +773,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-v2-auth-user-reset-password"
-               value="XuajMQ5a;-nPG$L;h"
+               value="IeM>@%Ze8"
                data-component="body">
     <br>
-<p>Example: <code>XuajMQ5a;-nPG$L;h</code></p>
+<p>Example: <code>IeM&gt;@%Ze8</code></p>
         </div>
         </form>
 
@@ -881,7 +902,141 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
     
 
-                                <h2 id="banking-POSTapi-v2-account-banking-beneficiary">Add a Beneficiary to a user Profile</h2>
+                                <h2 id="banking-GETapi-v2-account-banking-banks">Get all Banks</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-v2-account-banking-banks">
+<blockquote>Example request:</blockquote>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/v2/account/banking/banks"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v2-account-banking-banks">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 43
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;code&quot;: &quot;00&quot;,
+    &quot;status&quot;: true,
+    &quot;message&quot;: &quot;Banks Returned Successfully&quot;,
+    &quot;data&quot;: [
+        {
+            &quot;public_id&quot;: &quot;18f366a7-a0d6-4002-9b80-b2804781a576&quot;,
+            &quot;id&quot;: 1,
+            &quot;name&quot;: &quot;Guaranty Trust Bank Plc&quot;,
+            &quot;code&quot;: &quot;012&quot;,
+            &quot;acronym&quot;: &quot;GTB&quot;,
+            &quot;logo&quot;: &quot;https://res.cloudinary.com/dhiyau0is/image/upload/v1709204279/Banks/b46eeaa5-27b2-42bf-98d4-2d981ea88f28.png&quot;,
+            &quot;deleted_at&quot;: null,
+            &quot;created_at&quot;: &quot;2024-02-29T10:58:00.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-02-29T10:58:00.000000Z&quot;
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v2-account-banking-banks" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v2-account-banking-banks"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v2-account-banking-banks"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v2-account-banking-banks" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v2-account-banking-banks">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v2-account-banking-banks" data-method="GET"
+      data-path="api/v2/account/banking/banks"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v2-account-banking-banks', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v2-account-banking-banks"
+                    onclick="tryItOut('GETapi-v2-account-banking-banks');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v2-account-banking-banks"
+                    onclick="cancelTryOut('GETapi-v2-account-banking-banks');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v2-account-banking-banks"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v2/account/banking/banks</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v2-account-banking-banks"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v2-account-banking-banks"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="banking-POSTapi-v2-account-banking-beneficiary">Add a Beneficiary to a user Profile</h2>
 
 <p>
 </p>
@@ -903,9 +1058,9 @@ const headers = {
 };
 
 let body = {
-    "account_name": "doloremque",
-    "account_number": "aut",
-    "bank_name": "suscipit"
+    "account_name": "earum",
+    "account_number": "sint",
+    "bank_name": "vel"
 };
 
 fetch(url, {
@@ -1011,10 +1166,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="account_name"                data-endpoint="POSTapi-v2-account-banking-beneficiary"
-               value="doloremque"
+               value="earum"
                data-component="body">
     <br>
-<p>Example: <code>doloremque</code></p>
+<p>Example: <code>earum</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>account_number</code></b>&nbsp;&nbsp;
@@ -1022,10 +1177,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="account_number"                data-endpoint="POSTapi-v2-account-banking-beneficiary"
-               value="aut"
+               value="sint"
                data-component="body">
     <br>
-<p>Example: <code>aut</code></p>
+<p>Example: <code>sint</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>bank_name</code></b>&nbsp;&nbsp;
@@ -1033,10 +1188,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="bank_name"                data-endpoint="POSTapi-v2-account-banking-beneficiary"
-               value="suscipit"
+               value="vel"
                data-component="body">
     <br>
-<p>Example: <code>suscipit</code></p>
+<p>Example: <code>vel</code></p>
         </div>
         </form>
 
@@ -1157,6 +1312,1025 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>Example: <code>application/json</code></p>
             </div>
                         </form>
+
+                    <h2 id="banking-POSTapi-v2-account-banking-bank-account">Craate  a New Bank Account for the current user</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-v2-account-banking-bank-account">
+<blockquote>Example request:</blockquote>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/v2/account/banking/bank-account"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "account_name": "ducimus",
+    "account_number": "totam",
+    "bank_name": "cupiditate",
+    "bank_code": "veritatis"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v2-account-banking-bank-account">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;api_status&quot;: &quot;401&quot;,
+    &quot;message&quot;: &quot;Unauthorized&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-v2-account-banking-bank-account" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v2-account-banking-bank-account"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v2-account-banking-bank-account"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v2-account-banking-bank-account" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v2-account-banking-bank-account">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-v2-account-banking-bank-account" data-method="POST"
+      data-path="api/v2/account/banking/bank-account"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v2-account-banking-bank-account', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v2-account-banking-bank-account"
+                    onclick="tryItOut('POSTapi-v2-account-banking-bank-account');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v2-account-banking-bank-account"
+                    onclick="cancelTryOut('POSTapi-v2-account-banking-bank-account');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v2-account-banking-bank-account"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v2/account/banking/bank-account</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-v2-account-banking-bank-account"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-v2-account-banking-bank-account"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>account_name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="account_name"                data-endpoint="POSTapi-v2-account-banking-bank-account"
+               value="ducimus"
+               data-component="body">
+    <br>
+<p>Example: <code>ducimus</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>account_number</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="account_number"                data-endpoint="POSTapi-v2-account-banking-bank-account"
+               value="totam"
+               data-component="body">
+    <br>
+<p>Example: <code>totam</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>bank_name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="bank_name"                data-endpoint="POSTapi-v2-account-banking-bank-account"
+               value="cupiditate"
+               data-component="body">
+    <br>
+<p>Example: <code>cupiditate</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>bank_code</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="bank_code"                data-endpoint="POSTapi-v2-account-banking-bank-account"
+               value="veritatis"
+               data-component="body">
+    <br>
+<p>Example: <code>veritatis</code></p>
+        </div>
+        </form>
+
+                    <h2 id="banking-GETapi-v2-account-banking-bank-account">Fetches a bank account</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-v2-account-banking-bank-account">
+<blockquote>Example request:</blockquote>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/v2/account/banking/bank-account"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v2-account-banking-bank-account">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;api_status&quot;: &quot;401&quot;,
+    &quot;message&quot;: &quot;Unauthorized&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v2-account-banking-bank-account" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v2-account-banking-bank-account"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v2-account-banking-bank-account"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v2-account-banking-bank-account" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v2-account-banking-bank-account">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v2-account-banking-bank-account" data-method="GET"
+      data-path="api/v2/account/banking/bank-account"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v2-account-banking-bank-account', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v2-account-banking-bank-account"
+                    onclick="tryItOut('GETapi-v2-account-banking-bank-account');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v2-account-banking-bank-account"
+                    onclick="cancelTryOut('GETapi-v2-account-banking-bank-account');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v2-account-banking-bank-account"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v2/account/banking/bank-account</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v2-account-banking-bank-account"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v2-account-banking-bank-account"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="banking-POSTapi-v2-account-banking-card">Add a New Card</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-v2-account-banking-card">
+<blockquote>Example request:</blockquote>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/v2/account/banking/card"
+);
+
+const headers = {
+    "Content-Type": "multipart/form-data",
+    "Accept": "application/json",
+};
+
+const body = new FormData();
+body.append('type', 'ducimus');
+body.append('number', 'ratione');
+body.append('expiration_month', 'qui');
+body.append('expiration_year', 'iure');
+body.append('cvv', 'exercitationem');
+body.append('last_four_digit', 'delectus');
+body.append('country', 'quos');
+body.append('state', 'voluptatem');
+body.append('postal_code', 'expedita');
+body.append('city', 'dolorum');
+body.append('street_address', 'aut');
+body.append('lga', 'similique');
+body.append('provider', 'dolores');
+body.append('allow_charge', '1');
+body.append('provider_logo', document.querySelector('input[name="provider_logo"]').files[0]);
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v2-account-banking-card">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;api_status&quot;: &quot;401&quot;,
+    &quot;message&quot;: &quot;Unauthorized&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-v2-account-banking-card" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v2-account-banking-card"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v2-account-banking-card"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v2-account-banking-card" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v2-account-banking-card">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-v2-account-banking-card" data-method="POST"
+      data-path="api/v2/account/banking/card"
+      data-authed="0"
+      data-hasfiles="1"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v2-account-banking-card', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v2-account-banking-card"
+                    onclick="tryItOut('POSTapi-v2-account-banking-card');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v2-account-banking-card"
+                    onclick="cancelTryOut('POSTapi-v2-account-banking-card');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v2-account-banking-card"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v2/account/banking/card</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-v2-account-banking-card"
+               value="multipart/form-data"
+               data-component="header">
+    <br>
+<p>Example: <code>multipart/form-data</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-v2-account-banking-card"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>type</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="type"                data-endpoint="POSTapi-v2-account-banking-card"
+               value="ducimus"
+               data-component="body">
+    <br>
+<p>Example: <code>ducimus</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>number</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="number"                data-endpoint="POSTapi-v2-account-banking-card"
+               value="ratione"
+               data-component="body">
+    <br>
+<p>Example: <code>ratione</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>expiration_month</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="expiration_month"                data-endpoint="POSTapi-v2-account-banking-card"
+               value="qui"
+               data-component="body">
+    <br>
+<p>Example: <code>qui</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>expiration_year</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="expiration_year"                data-endpoint="POSTapi-v2-account-banking-card"
+               value="iure"
+               data-component="body">
+    <br>
+<p>Example: <code>iure</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>cvv</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="cvv"                data-endpoint="POSTapi-v2-account-banking-card"
+               value="exercitationem"
+               data-component="body">
+    <br>
+<p>Example: <code>exercitationem</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>last_four_digit</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="last_four_digit"                data-endpoint="POSTapi-v2-account-banking-card"
+               value="delectus"
+               data-component="body">
+    <br>
+<p>Example: <code>delectus</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>country</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="country"                data-endpoint="POSTapi-v2-account-banking-card"
+               value="quos"
+               data-component="body">
+    <br>
+<p>Example: <code>quos</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>state</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="state"                data-endpoint="POSTapi-v2-account-banking-card"
+               value="voluptatem"
+               data-component="body">
+    <br>
+<p>Example: <code>voluptatem</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>postal_code</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="postal_code"                data-endpoint="POSTapi-v2-account-banking-card"
+               value="expedita"
+               data-component="body">
+    <br>
+<p>Example: <code>expedita</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>city</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="city"                data-endpoint="POSTapi-v2-account-banking-card"
+               value="dolorum"
+               data-component="body">
+    <br>
+<p>Example: <code>dolorum</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>street_address</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="street_address"                data-endpoint="POSTapi-v2-account-banking-card"
+               value="aut"
+               data-component="body">
+    <br>
+<p>Example: <code>aut</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>lga</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="lga"                data-endpoint="POSTapi-v2-account-banking-card"
+               value="similique"
+               data-component="body">
+    <br>
+<p>Example: <code>similique</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>provider</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="provider"                data-endpoint="POSTapi-v2-account-banking-card"
+               value="dolores"
+               data-component="body">
+    <br>
+<p>Example: <code>dolores</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>provider_logo</code></b>&nbsp;&nbsp;
+<small>file</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="file" style="display: none"
+                              name="provider_logo"                data-endpoint="POSTapi-v2-account-banking-card"
+               value=""
+               data-component="body">
+    <br>
+<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>C:\Users\Ayobami\AppData\Local\Temp\php5E8B.tmp</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>allow_charge</code></b>&nbsp;&nbsp;
+<small>boolean</small>&nbsp;
+<i>optional</i> &nbsp;
+                <label data-endpoint="POSTapi-v2-account-banking-card" style="display: none">
+            <input type="radio" name="allow_charge"
+                   value="true"
+                   data-endpoint="POSTapi-v2-account-banking-card"
+                   data-component="body"             >
+            <code>true</code>
+        </label>
+        <label data-endpoint="POSTapi-v2-account-banking-card" style="display: none">
+            <input type="radio" name="allow_charge"
+                   value="false"
+                   data-endpoint="POSTapi-v2-account-banking-card"
+                   data-component="body"             >
+            <code>false</code>
+        </label>
+    <br>
+<p>Example: <code>true</code></p>
+        </div>
+        </form>
+
+                    <h2 id="banking-GETapi-v2-account-banking-card">Fecth User Card</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-v2-account-banking-card">
+<blockquote>Example request:</blockquote>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/v2/account/banking/card"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v2-account-banking-card">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;api_status&quot;: &quot;401&quot;,
+    &quot;message&quot;: &quot;Unauthorized&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v2-account-banking-card" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v2-account-banking-card"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v2-account-banking-card"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v2-account-banking-card" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v2-account-banking-card">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v2-account-banking-card" data-method="GET"
+      data-path="api/v2/account/banking/card"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v2-account-banking-card', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v2-account-banking-card"
+                    onclick="tryItOut('GETapi-v2-account-banking-card');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v2-account-banking-card"
+                    onclick="cancelTryOut('GETapi-v2-account-banking-card');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v2-account-banking-card"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v2/account/banking/card</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v2-account-banking-card"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v2-account-banking-card"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="banking-DELETEapi-v2-account-banking-card--card_id-">Delete a card</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-v2-account-banking-card--card_id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/v2/account/banking/card/vel"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-v2-account-banking-card--card_id-">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;api_status&quot;: &quot;401&quot;,
+    &quot;message&quot;: &quot;Unauthorized&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-DELETEapi-v2-account-banking-card--card_id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-v2-account-banking-card--card_id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-v2-account-banking-card--card_id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-v2-account-banking-card--card_id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-v2-account-banking-card--card_id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-DELETEapi-v2-account-banking-card--card_id-" data-method="DELETE"
+      data-path="api/v2/account/banking/card/{card_id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-v2-account-banking-card--card_id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-v2-account-banking-card--card_id-"
+                    onclick="tryItOut('DELETEapi-v2-account-banking-card--card_id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-v2-account-banking-card--card_id-"
+                    onclick="cancelTryOut('DELETEapi-v2-account-banking-card--card_id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-v2-account-banking-card--card_id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/v2/account/banking/card/{card_id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="DELETEapi-v2-account-banking-card--card_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="DELETEapi-v2-account-banking-card--card_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>card_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="card_id"                data-endpoint="DELETEapi-v2-account-banking-card--card_id-"
+               value="vel"
+               data-component="url">
+    <br>
+<p>The ID of the card. Example: <code>vel</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="banking-POSTapi-v2-admin-banking-create">Create a bank</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-v2-admin-banking-create">
+<blockquote>Example request:</blockquote>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://127.0.0.1:8000/api/v2/admin/banking/create"
+);
+
+const headers = {
+    "Content-Type": "multipart/form-data",
+    "Accept": "application/json",
+};
+
+const body = new FormData();
+body.append('name', 'est');
+body.append('code', 'natus');
+body.append('acronym', 'explicabo');
+body.append('logo', document.querySelector('input[name="logo"]').files[0]);
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v2-admin-banking-create">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;api_status&quot;: &quot;401&quot;,
+    &quot;message&quot;: &quot;Unauthorized&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-v2-admin-banking-create" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v2-admin-banking-create"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v2-admin-banking-create"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v2-admin-banking-create" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v2-admin-banking-create">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-v2-admin-banking-create" data-method="POST"
+      data-path="api/v2/admin/banking/create"
+      data-authed="0"
+      data-hasfiles="1"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v2-admin-banking-create', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v2-admin-banking-create"
+                    onclick="tryItOut('POSTapi-v2-admin-banking-create');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v2-admin-banking-create"
+                    onclick="cancelTryOut('POSTapi-v2-admin-banking-create');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v2-admin-banking-create"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v2/admin/banking/create</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-v2-admin-banking-create"
+               value="multipart/form-data"
+               data-component="header">
+    <br>
+<p>Example: <code>multipart/form-data</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-v2-admin-banking-create"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="name"                data-endpoint="POSTapi-v2-admin-banking-create"
+               value="est"
+               data-component="body">
+    <br>
+<p>Example: <code>est</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>code</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="code"                data-endpoint="POSTapi-v2-admin-banking-create"
+               value="natus"
+               data-component="body">
+    <br>
+<p>Example: <code>natus</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>acronym</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="acronym"                data-endpoint="POSTapi-v2-admin-banking-create"
+               value="explicabo"
+               data-component="body">
+    <br>
+<p>Example: <code>explicabo</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>logo</code></b>&nbsp;&nbsp;
+<small>file</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="file" style="display: none"
+                              name="logo"                data-endpoint="POSTapi-v2-admin-banking-create"
+               value=""
+               data-component="body">
+    <br>
+<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>C:\Users\Ayobami\AppData\Local\Temp\php5EAB.tmp</code></p>
+        </div>
+        </form>
 
                 <h1 id="endpoints">Endpoints</h1>
 
@@ -1566,8 +2740,8 @@ const headers = {
 };
 
 let body = {
-    "email": "frami.melyna@example.org",
-    "password": "mollitia"
+    "email": "jlittle@example.com",
+    "password": "similique"
 };
 
 fetch(url, {
@@ -1680,10 +2854,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v1-register"
-               value="frami.melyna@example.org"
+               value="jlittle@example.com"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>frami.melyna@example.org</code></p>
+<p>Must be a valid email address. Example: <code>jlittle@example.com</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -1691,10 +2865,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-v1-register"
-               value="mollitia"
+               value="similique"
                data-component="body">
     <br>
-<p>Example: <code>mollitia</code></p>
+<p>Example: <code>similique</code></p>
         </div>
         </form>
 
@@ -1720,8 +2894,8 @@ const headers = {
 };
 
 let body = {
-    "email": "theodore.tillman@example.net",
-    "password": "dolorem"
+    "email": "ftromp@example.net",
+    "password": "eveniet"
 };
 
 fetch(url, {
@@ -1829,10 +3003,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v1-login"
-               value="theodore.tillman@example.net"
+               value="ftromp@example.net"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>theodore.tillman@example.net</code></p>
+<p>Must be a valid email address. Example: <code>ftromp@example.net</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -1840,10 +3014,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-v1-login"
-               value="dolorem"
+               value="eveniet"
                data-component="body">
     <br>
-<p>Example: <code>dolorem</code></p>
+<p>Example: <code>eveniet</code></p>
         </div>
         </form>
 
@@ -1977,7 +3151,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/v1/region_list/temporibus"
+    "http://127.0.0.1:8000/api/v1/region_list/ut"
 );
 
 const headers = {
@@ -2089,10 +3263,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="country_key"                data-endpoint="GETapi-v1-region_list--country_key-"
-               value="temporibus"
+               value="ut"
                data-component="url">
     <br>
-<p>Example: <code>temporibus</code></p>
+<p>Example: <code>ut</code></p>
             </div>
                     </form>
 
@@ -2707,7 +3881,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/v1/resend_otp/occaecati"
+    "http://127.0.0.1:8000/api/v1/resend_otp/numquam"
 );
 
 const headers = {
@@ -2817,10 +3991,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="otp_type"                data-endpoint="GETapi-v1-resend_otp--otp_type-"
-               value="occaecati"
+               value="numquam"
                data-component="url">
     <br>
-<p>Example: <code>occaecati</code></p>
+<p>Example: <code>numquam</code></p>
             </div>
                     </form>
 
@@ -3073,7 +4247,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/v1/verify_transaction/et"
+    "http://127.0.0.1:8000/api/v1/verify_transaction/earum"
 );
 
 const headers = {
@@ -3183,10 +4357,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="ref"                data-endpoint="GETapi-v1-verify_transaction--ref-"
-               value="et"
+               value="earum"
                data-component="url">
     <br>
-<p>Example: <code>et</code></p>
+<p>Example: <code>earum</code></p>
             </div>
                     </form>
 
@@ -3212,7 +4386,7 @@ const headers = {
 };
 
 let body = {
-    "old_password": "reprehenderit"
+    "old_password": "facilis"
 };
 
 fetch(url, {
@@ -3318,10 +4492,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="old_password"                data-endpoint="POSTapi-v1-initialize_change_password"
-               value="reprehenderit"
+               value="facilis"
                data-component="body">
     <br>
-<p>Example: <code>reprehenderit</code></p>
+<p>Example: <code>facilis</code></p>
         </div>
         </form>
 
@@ -4055,8 +5229,8 @@ const headers = {
 };
 
 let body = {
-    "phone_code": "veritatis",
-    "phone_number": "adipisci"
+    "phone_code": "et",
+    "phone_number": "voluptatem"
 };
 
 fetch(url, {
@@ -4162,10 +5336,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="phone_code"                data-endpoint="POSTapi-v1-profile-phone-verification-initiate"
-               value="veritatis"
+               value="et"
                data-component="body">
     <br>
-<p>Example: <code>veritatis</code></p>
+<p>Example: <code>et</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>phone_number</code></b>&nbsp;&nbsp;
@@ -4173,10 +5347,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="phone_number"                data-endpoint="POSTapi-v1-profile-phone-verification-initiate"
-               value="adipisci"
+               value="voluptatem"
                data-component="body">
     <br>
-<p>Example: <code>adipisci</code></p>
+<p>Example: <code>voluptatem</code></p>
         </div>
         </form>
 
@@ -4202,8 +5376,8 @@ const headers = {
 };
 
 let body = {
-    "code_id": "cupiditate",
-    "code": "2071"
+    "code_id": "at",
+    "code": "5016"
 };
 
 fetch(url, {
@@ -4309,10 +5483,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="code_id"                data-endpoint="POSTapi-v1-profile-phone-verification-complete"
-               value="cupiditate"
+               value="at"
                data-component="body">
     <br>
-<p>Example: <code>cupiditate</code></p>
+<p>Example: <code>at</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>code</code></b>&nbsp;&nbsp;
@@ -4320,10 +5494,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="code"                data-endpoint="POSTapi-v1-profile-phone-verification-complete"
-               value="2071"
+               value="5016"
                data-component="body">
     <br>
-<p>Must be 4 digits. Example: <code>2071</code></p>
+<p>Must be 4 digits. Example: <code>5016</code></p>
         </div>
         </form>
 
@@ -4349,7 +5523,7 @@ const headers = {
 };
 
 let body = {
-    "old_pin": "5195"
+    "old_pin": "4414"
 };
 
 fetch(url, {
@@ -4455,10 +5629,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="old_pin"                data-endpoint="POSTapi-v1-initialize_change_transaction_pin"
-               value="5195"
+               value="4414"
                data-component="body">
     <br>
-<p>Must be 4 digits. Example: <code>5195</code></p>
+<p>Must be 4 digits. Example: <code>4414</code></p>
         </div>
         </form>
 
@@ -4475,7 +5649,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/v1/username_check/zboncak.marlon@example.org"
+    "http://127.0.0.1:8000/api/v1/username_check/mafalda09@example.org"
 );
 
 const headers = {
@@ -4585,10 +5759,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="GETapi-v1-username_check--email-"
-               value="zboncak.marlon@example.org"
+               value="mafalda09@example.org"
                data-component="url">
     <br>
-<p>Example: <code>zboncak.marlon@example.org</code></p>
+<p>Example: <code>mafalda09@example.org</code></p>
             </div>
                     </form>
 
@@ -4614,8 +5788,8 @@ const headers = {
 };
 
 let body = {
-    "pin": "7311",
-    "pin_confirmation": "4894"
+    "pin": "0549",
+    "pin_confirmation": "8053"
 };
 
 fetch(url, {
@@ -4721,10 +5895,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="pin"                data-endpoint="POSTapi-v1-create_transaction_pin"
-               value="7311"
+               value="0549"
                data-component="body">
     <br>
-<p>Must be 4 digits. Example: <code>7311</code></p>
+<p>Must be 4 digits. Example: <code>0549</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>pin_confirmation</code></b>&nbsp;&nbsp;
@@ -4732,10 +5906,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="pin_confirmation"                data-endpoint="POSTapi-v1-create_transaction_pin"
-               value="4894"
+               value="8053"
                data-component="body">
     <br>
-<p>Must be 4 digits. Example: <code>4894</code></p>
+<p>Must be 4 digits. Example: <code>8053</code></p>
         </div>
         </form>
 
@@ -4761,8 +5935,8 @@ const headers = {
 };
 
 let body = {
-    "account_no": 258.6,
-    "bank_code": "autem"
+    "account_no": 2574.549,
+    "bank_code": "eos"
 };
 
 fetch(url, {
@@ -4868,10 +6042,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="account_no"                data-endpoint="GETapi-v1-beneficial_enquiry"
-               value="258.6"
+               value="2574.549"
                data-component="body">
     <br>
-<p>Example: <code>258.6</code></p>
+<p>Example: <code>2574.549</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>bank_code</code></b>&nbsp;&nbsp;
@@ -4879,10 +6053,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="bank_code"                data-endpoint="GETapi-v1-beneficial_enquiry"
-               value="autem"
+               value="eos"
                data-component="body">
     <br>
-<p>Example: <code>autem</code></p>
+<p>Example: <code>eos</code></p>
         </div>
         </form>
 
@@ -4908,11 +6082,11 @@ const headers = {
 };
 
 let body = {
-    "to_bank_code": "vitae",
-    "to_account_no": "voluptates",
-    "amount": "4779.13",
-    "transaction_pin": "repellat",
-    "naration": "quo"
+    "to_bank_code": "totam",
+    "to_account_no": "iure",
+    "amount": "181040",
+    "transaction_pin": "quia",
+    "naration": "mollitia"
 };
 
 fetch(url, {
@@ -5018,10 +6192,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="to_bank_code"                data-endpoint="POSTapi-v1-transfer"
-               value="vitae"
+               value="totam"
                data-component="body">
     <br>
-<p>Example: <code>vitae</code></p>
+<p>Example: <code>totam</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>to_account_no</code></b>&nbsp;&nbsp;
@@ -5029,10 +6203,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="to_account_no"                data-endpoint="POSTapi-v1-transfer"
-               value="voluptates"
+               value="iure"
                data-component="body">
     <br>
-<p>Example: <code>voluptates</code></p>
+<p>Example: <code>iure</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>amount</code></b>&nbsp;&nbsp;
@@ -5040,10 +6214,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="amount"                data-endpoint="POSTapi-v1-transfer"
-               value="4779.13"
+               value="181040"
                data-component="body">
     <br>
-<p>Must match the regex /^\d+(.\d{1,2})?$/. Example: <code>4779.13</code></p>
+<p>Must match the regex /^\d+(.\d{1,2})?$/. Example: <code>181040</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>transaction_pin</code></b>&nbsp;&nbsp;
@@ -5051,10 +6225,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="transaction_pin"                data-endpoint="POSTapi-v1-transfer"
-               value="repellat"
+               value="quia"
                data-component="body">
     <br>
-<p>Example: <code>repellat</code></p>
+<p>Example: <code>quia</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>naration</code></b>&nbsp;&nbsp;
@@ -5062,10 +6236,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="naration"                data-endpoint="POSTapi-v1-transfer"
-               value="quo"
+               value="mollitia"
                data-component="body">
     <br>
-<p>Example: <code>quo</code></p>
+<p>Example: <code>mollitia</code></p>
         </div>
         </form>
 
@@ -5091,10 +6265,10 @@ const headers = {
 };
 
 let body = {
-    "username": "maxime",
-    "amount": "71666",
-    "transaction_pin": "vero",
-    "naration": "aut"
+    "username": "qui",
+    "amount": "2.0",
+    "transaction_pin": "maxime",
+    "naration": "beatae"
 };
 
 fetch(url, {
@@ -5200,10 +6374,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="username"                data-endpoint="POSTapi-v1-transfer_to_visaro"
-               value="maxime"
+               value="qui"
                data-component="body">
     <br>
-<p>Example: <code>maxime</code></p>
+<p>Example: <code>qui</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>amount</code></b>&nbsp;&nbsp;
@@ -5211,10 +6385,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="amount"                data-endpoint="POSTapi-v1-transfer_to_visaro"
-               value="71666"
+               value="2.0"
                data-component="body">
     <br>
-<p>Must match the regex /^\d+(.\d{1,2})?$/. Example: <code>71666</code></p>
+<p>Must match the regex /^\d+(.\d{1,2})?$/. Example: <code>2.0</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>transaction_pin</code></b>&nbsp;&nbsp;
@@ -5222,10 +6396,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="transaction_pin"                data-endpoint="POSTapi-v1-transfer_to_visaro"
-               value="vero"
+               value="maxime"
                data-component="body">
     <br>
-<p>Example: <code>vero</code></p>
+<p>Example: <code>maxime</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>naration</code></b>&nbsp;&nbsp;
@@ -5233,10 +6407,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="naration"                data-endpoint="POSTapi-v1-transfer_to_visaro"
-               value="aut"
+               value="beatae"
                data-component="body">
     <br>
-<p>Example: <code>aut</code></p>
+<p>Example: <code>beatae</code></p>
         </div>
         </form>
 
@@ -5262,14 +6436,14 @@ const headers = {
 };
 
 let body = {
-    "certificate_of_incoporation": "xijrlqlvyclvmpocdjcn",
-    "memart": "cshthrwybt",
-    "acfta_certificate": "nldm",
-    "business_name": "soluta",
-    "business_address": "et",
-    "business_email": "aliquam",
-    "country_of_origin": "enim",
-    "port_of_origin": "et"
+    "certificate_of_incoporation": "yqcxlu",
+    "memart": "kjqvjdl",
+    "acfta_certificate": "eiufncpie",
+    "business_name": "quia",
+    "business_address": "aperiam",
+    "business_email": "omnis",
+    "country_of_origin": "atque",
+    "port_of_origin": "vel"
 };
 
 fetch(url, {
@@ -5375,10 +6549,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="certificate_of_incoporation"                data-endpoint="POSTapi-v1-company_profile_update"
-               value="xijrlqlvyclvmpocdjcn"
+               value="yqcxlu"
                data-component="body">
     <br>
-<p>Must not be greater than 2048 characters. Example: <code>xijrlqlvyclvmpocdjcn</code></p>
+<p>Must not be greater than 2048 characters. Example: <code>yqcxlu</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>memart</code></b>&nbsp;&nbsp;
@@ -5386,10 +6560,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="memart"                data-endpoint="POSTapi-v1-company_profile_update"
-               value="cshthrwybt"
+               value="kjqvjdl"
                data-component="body">
     <br>
-<p>Must not be greater than 2048 characters. Example: <code>cshthrwybt</code></p>
+<p>Must not be greater than 2048 characters. Example: <code>kjqvjdl</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>acfta_certificate</code></b>&nbsp;&nbsp;
@@ -5397,10 +6571,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="acfta_certificate"                data-endpoint="POSTapi-v1-company_profile_update"
-               value="nldm"
+               value="eiufncpie"
                data-component="body">
     <br>
-<p>Must not be greater than 2048 characters. Example: <code>nldm</code></p>
+<p>Must not be greater than 2048 characters. Example: <code>eiufncpie</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>business_name</code></b>&nbsp;&nbsp;
@@ -5408,10 +6582,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="business_name"                data-endpoint="POSTapi-v1-company_profile_update"
-               value="soluta"
+               value="quia"
                data-component="body">
     <br>
-<p>Example: <code>soluta</code></p>
+<p>Example: <code>quia</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>business_address</code></b>&nbsp;&nbsp;
@@ -5419,10 +6593,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="business_address"                data-endpoint="POSTapi-v1-company_profile_update"
-               value="et"
+               value="aperiam"
                data-component="body">
     <br>
-<p>Example: <code>et</code></p>
+<p>Example: <code>aperiam</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>business_email</code></b>&nbsp;&nbsp;
@@ -5430,10 +6604,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="business_email"                data-endpoint="POSTapi-v1-company_profile_update"
-               value="aliquam"
+               value="omnis"
                data-component="body">
     <br>
-<p>Example: <code>aliquam</code></p>
+<p>Example: <code>omnis</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>country_of_origin</code></b>&nbsp;&nbsp;
@@ -5441,10 +6615,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="country_of_origin"                data-endpoint="POSTapi-v1-company_profile_update"
-               value="enim"
+               value="atque"
                data-component="body">
     <br>
-<p>Example: <code>enim</code></p>
+<p>Example: <code>atque</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>port_of_origin</code></b>&nbsp;&nbsp;
@@ -5452,10 +6626,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="port_of_origin"                data-endpoint="POSTapi-v1-company_profile_update"
-               value="et"
+               value="vel"
                data-component="body">
     <br>
-<p>Example: <code>et</code></p>
+<p>Example: <code>vel</code></p>
         </div>
         </form>
 
@@ -5481,7 +6655,7 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('account_type', '18');
+body.append('account_type', '12');
 body.append('profile_pics', document.querySelector('input[name="profile_pics"]').files[0]);
 
 fetch(url, {
@@ -5609,10 +6783,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="account_type"                data-endpoint="POSTapi-v1-profile_update"
-               value="18"
+               value="12"
                data-component="body">
     <br>
-<p>Example: <code>18</code></p>
+<p>Example: <code>12</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>profile_pics</code></b>&nbsp;&nbsp;
@@ -5623,7 +6797,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>C:\Users\Ayobami\AppData\Local\Temp\phpAD3D.tmp</code></p>
+<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>C:\Users\Ayobami\AppData\Local\Temp\php1E33.tmp</code></p>
         </div>
         </form>
 
@@ -5876,7 +7050,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/v1/articles/hic"
+    "http://127.0.0.1:8000/api/v1/articles/harum"
 );
 
 const headers = {
@@ -5986,10 +7160,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="GETapi-v1-articles--id-"
-               value="hic"
+               value="harum"
                data-component="url">
     <br>
-<p>The ID of the article. Example: <code>hic</code></p>
+<p>The ID of the article. Example: <code>harum</code></p>
             </div>
                     </form>
 
@@ -6006,7 +7180,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/v1/articles/praesentium"
+    "http://127.0.0.1:8000/api/v1/articles/nihil"
 );
 
 const headers = {
@@ -6120,10 +7294,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="PUTapi-v1-articles--id-"
-               value="praesentium"
+               value="nihil"
                data-component="url">
     <br>
-<p>The ID of the article. Example: <code>praesentium</code></p>
+<p>The ID of the article. Example: <code>nihil</code></p>
             </div>
                     </form>
 
@@ -6140,7 +7314,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/v1/articles/est"
+    "http://127.0.0.1:8000/api/v1/articles/voluptates"
 );
 
 const headers = {
@@ -6250,10 +7424,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="DELETEapi-v1-articles--id-"
-               value="est"
+               value="voluptates"
                data-component="url">
     <br>
-<p>The ID of the article. Example: <code>est</code></p>
+<p>The ID of the article. Example: <code>voluptates</code></p>
             </div>
                     </form>
 
@@ -6270,7 +7444,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/v1/articles/quos/comments"
+    "http://127.0.0.1:8000/api/v1/articles/veritatis/comments"
 );
 
 const headers = {
@@ -6380,10 +7554,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="GETapi-v1-articles--id--comments"
-               value="quos"
+               value="veritatis"
                data-component="url">
     <br>
-<p>The ID of the article. Example: <code>quos</code></p>
+<p>The ID of the article. Example: <code>veritatis</code></p>
             </div>
                     </form>
 
@@ -6400,7 +7574,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/v1/articles/atque/comments"
+    "http://127.0.0.1:8000/api/v1/articles/qui/comments"
 );
 
 const headers = {
@@ -6510,10 +7684,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="POSTapi-v1-articles--id--comments"
-               value="atque"
+               value="qui"
                data-component="url">
     <br>
-<p>The ID of the article. Example: <code>atque</code></p>
+<p>The ID of the article. Example: <code>qui</code></p>
             </div>
                     </form>
 
@@ -6530,7 +7704,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/v1/articles/temporibus/likes"
+    "http://127.0.0.1:8000/api/v1/articles/numquam/likes"
 );
 
 const headers = {
@@ -6640,10 +7814,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="GETapi-v1-articles--id--likes"
-               value="temporibus"
+               value="numquam"
                data-component="url">
     <br>
-<p>The ID of the article. Example: <code>temporibus</code></p>
+<p>The ID of the article. Example: <code>numquam</code></p>
             </div>
                     </form>
 
@@ -6660,7 +7834,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/v1/articles/eos/views"
+    "http://127.0.0.1:8000/api/v1/articles/quod/views"
 );
 
 const headers = {
@@ -6770,10 +7944,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="GETapi-v1-articles--id--views"
-               value="eos"
+               value="quod"
                data-component="url">
     <br>
-<p>The ID of the article. Example: <code>eos</code></p>
+<p>The ID of the article. Example: <code>quod</code></p>
             </div>
                     </form>
 
@@ -6790,7 +7964,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/v1/articles/voluptas/likes"
+    "http://127.0.0.1:8000/api/v1/articles/rerum/likes"
 );
 
 const headers = {
@@ -6900,10 +8074,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="PUTapi-v1-articles--id--likes"
-               value="voluptas"
+               value="rerum"
                data-component="url">
     <br>
-<p>The ID of the article. Example: <code>voluptas</code></p>
+<p>The ID of the article. Example: <code>rerum</code></p>
             </div>
                     </form>
 
@@ -6920,7 +8094,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://127.0.0.1:8000/api/v1/articles/deserunt/views"
+    "http://127.0.0.1:8000/api/v1/articles/veniam/views"
 );
 
 const headers = {
@@ -7030,10 +8204,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="PUTapi-v1-articles--id--views"
-               value="deserunt"
+               value="veniam"
                data-component="url">
     <br>
-<p>The ID of the article. Example: <code>deserunt</code></p>
+<p>The ID of the article. Example: <code>veniam</code></p>
             </div>
                     </form>
 
@@ -7063,7 +8237,7 @@ const headers = {
 };
 
 let body = {
-    "email": "yaufderhar@example.org"
+    "email": "durgan.anais@example.com"
 };
 
 fetch(url, {
@@ -7094,10 +8268,10 @@ access-control-allow-origin: *
     &quot;status&quot;: true,
     &quot;message&quot;: &quot;You have successfully subscribed to our newsletter&quot;,
     &quot;data&quot;: {
-        &quot;email&quot;: &quot;yaufderhar@example.org&quot;,
-        &quot;updated_at&quot;: &quot;2024-02-24T12:58:44.000000Z&quot;,
-        &quot;created_at&quot;: &quot;2024-02-24T12:58:44.000000Z&quot;,
-        &quot;id&quot;: 1
+        &quot;email&quot;: &quot;durgan.anais@example.com&quot;,
+        &quot;updated_at&quot;: &quot;2024-02-29T12:02:43.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2024-02-29T12:02:43.000000Z&quot;,
+        &quot;id&quot;: 2
     }
 }</code>
  </pre>
@@ -7178,10 +8352,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v2-newsletter-subscribe"
-               value="yaufderhar@example.org"
+               value="durgan.anais@example.com"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>yaufderhar@example.org</code></p>
+<p>Must be a valid email address. Example: <code>durgan.anais@example.com</code></p>
         </div>
         </form>
 
@@ -7211,12 +8385,12 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('firstname', 'jelzfnxvvgraik');
-body.append('middlename', 'ogirghtzs');
-body.append('lastname', 'chnqtbfwjjiwhfgkw');
-body.append('phone_code', 'zdh');
-body.append('phone', '4204119362');
-body.append('password', 'f[auk?B6uQT/YN;UP');
+body.append('firstname', 'c');
+body.append('middlename', 'bxncsapbijo');
+body.append('lastname', 'oxpq');
+body.append('phone_code', 'jfu');
+body.append('phone', '1992765940');
+body.append('password', '3D4:vg~}f');
 body.append('photo', document.querySelector('input[name="photo"]').files[0]);
 
 fetch(url, {
@@ -7328,10 +8502,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="firstname"                data-endpoint="POSTapi-v1-signin"
-               value="jelzfnxvvgraik"
+               value="c"
                data-component="body">
     <br>
-<p>Must not be greater than 20 characters. Example: <code>jelzfnxvvgraik</code></p>
+<p>Must not be greater than 20 characters. Example: <code>c</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>middlename</code></b>&nbsp;&nbsp;
@@ -7339,10 +8513,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="middlename"                data-endpoint="POSTapi-v1-signin"
-               value="ogirghtzs"
+               value="bxncsapbijo"
                data-component="body">
     <br>
-<p>Must not be greater than 20 characters. Example: <code>ogirghtzs</code></p>
+<p>Must not be greater than 20 characters. Example: <code>bxncsapbijo</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>lastname</code></b>&nbsp;&nbsp;
@@ -7350,10 +8524,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="lastname"                data-endpoint="POSTapi-v1-signin"
-               value="chnqtbfwjjiwhfgkw"
+               value="oxpq"
                data-component="body">
     <br>
-<p>Must not be greater than 20 characters. Example: <code>chnqtbfwjjiwhfgkw</code></p>
+<p>Must not be greater than 20 characters. Example: <code>oxpq</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>phone_code</code></b>&nbsp;&nbsp;
@@ -7361,10 +8535,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="phone_code"                data-endpoint="POSTapi-v1-signin"
-               value="zdh"
+               value="jfu"
                data-component="body">
     <br>
-<p>Must match the regex /^+[0-9]+$/. Must not be greater than 4 characters. Example: <code>zdh</code></p>
+<p>Must match the regex /^+[0-9]+$/. Must not be greater than 4 characters. Example: <code>jfu</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>phone</code></b>&nbsp;&nbsp;
@@ -7372,10 +8546,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="phone"                data-endpoint="POSTapi-v1-signin"
-               value="4204119362"
+               value="1992765940"
                data-component="body">
     <br>
-<p>Must match the regex /[0-9]{10}$/. Example: <code>4204119362</code></p>
+<p>Must match the regex /[0-9]{10}$/. Example: <code>1992765940</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>photo</code></b>&nbsp;&nbsp;
@@ -7386,7 +8560,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>C:\Users\Ayobami\AppData\Local\Temp\php9E77.tmp</code></p>
+<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>C:\Users\Ayobami\AppData\Local\Temp\php1A79.tmp</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -7394,10 +8568,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-v1-signin"
-               value="f[auk?B6uQT/YN;UP"
+               value="3D4:vg~}f"
                data-component="body">
     <br>
-<p>Example: <code>f[auk?B6uQT/YN;UP</code></p>
+<p>Example: <code>3D4:vg~}f</code></p>
         </div>
         </form>
 
@@ -7423,12 +8597,12 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('firstname', 'c');
-body.append('middlename', 'kammmircdxwkwv');
-body.append('lastname', 'hjruksdc');
-body.append('phone_code', 'e');
-body.append('phone', '0377315956');
-body.append('password', '-b7=YO#[CxG\&amp;D&lt;');
+body.append('firstname', 'ibcmbnhqaqxpnyt');
+body.append('middlename', 'amrsl');
+body.append('lastname', 'uqjgmixpremlqdu');
+body.append('phone_code', 'knv');
+body.append('phone', '4247320793');
+body.append('password', '.e5]J*zy{&gt;r@a6;');
 body.append('photo', document.querySelector('input[name="photo"]').files[0]);
 
 fetch(url, {
@@ -7540,10 +8714,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="firstname"                data-endpoint="POSTapi-v2-onboarding-users-register"
-               value="c"
+               value="ibcmbnhqaqxpnyt"
                data-component="body">
     <br>
-<p>Must not be greater than 20 characters. Example: <code>c</code></p>
+<p>Must not be greater than 20 characters. Example: <code>ibcmbnhqaqxpnyt</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>middlename</code></b>&nbsp;&nbsp;
@@ -7551,10 +8725,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="middlename"                data-endpoint="POSTapi-v2-onboarding-users-register"
-               value="kammmircdxwkwv"
+               value="amrsl"
                data-component="body">
     <br>
-<p>Must not be greater than 20 characters. Example: <code>kammmircdxwkwv</code></p>
+<p>Must not be greater than 20 characters. Example: <code>amrsl</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>lastname</code></b>&nbsp;&nbsp;
@@ -7562,10 +8736,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="lastname"                data-endpoint="POSTapi-v2-onboarding-users-register"
-               value="hjruksdc"
+               value="uqjgmixpremlqdu"
                data-component="body">
     <br>
-<p>Must not be greater than 20 characters. Example: <code>hjruksdc</code></p>
+<p>Must not be greater than 20 characters. Example: <code>uqjgmixpremlqdu</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>phone_code</code></b>&nbsp;&nbsp;
@@ -7573,10 +8747,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="phone_code"                data-endpoint="POSTapi-v2-onboarding-users-register"
-               value="e"
+               value="knv"
                data-component="body">
     <br>
-<p>Must match the regex /^+[0-9]+$/. Must not be greater than 4 characters. Example: <code>e</code></p>
+<p>Must match the regex /^+[0-9]+$/. Must not be greater than 4 characters. Example: <code>knv</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>phone</code></b>&nbsp;&nbsp;
@@ -7584,10 +8758,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="phone"                data-endpoint="POSTapi-v2-onboarding-users-register"
-               value="0377315956"
+               value="4247320793"
                data-component="body">
     <br>
-<p>Must match the regex /[0-9]{10}$/. Example: <code>0377315956</code></p>
+<p>Must match the regex /[0-9]{10}$/. Example: <code>4247320793</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>photo</code></b>&nbsp;&nbsp;
@@ -7598,7 +8772,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>C:\Users\Ayobami\AppData\Local\Temp\phpB126.tmp</code></p>
+<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>C:\Users\Ayobami\AppData\Local\Temp\php2122.tmp</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -7606,10 +8780,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-v2-onboarding-users-register"
-               value="-b7=YO#[CxG\&D<"
+               value=".e5]J*zy{>r@a6;"
                data-component="body">
     <br>
-<p>Example: <code>-b7=YO#[CxG\&amp;D&lt;</code></p>
+<p>Example: <code>.e5]J*zy{&gt;r@a6;</code></p>
         </div>
         </form>
 
@@ -7635,7 +8809,7 @@ const headers = {
 };
 
 let body = {
-    "email": "gerda.barrows@example.com"
+    "email": "qhegmann@example.org"
 };
 
 fetch(url, {
@@ -7745,10 +8919,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v2-onboarding-users-email"
-               value="gerda.barrows@example.com"
+               value="qhegmann@example.org"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>gerda.barrows@example.com</code></p>
+<p>Must be a valid email address. Example: <code>qhegmann@example.org</code></p>
         </div>
         </form>
 
@@ -7774,12 +8948,12 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('firstname', 's');
-body.append('middlename', 'fcptywbaidb');
-body.append('lastname', 'paijvnivz');
-body.append('phone_code', 'l');
-body.append('phone', '9890704995');
-body.append('password', 'XgUKzWf|;pI/tMEC{6&lt;:');
+body.append('firstname', 'nttbefcjhotyw');
+body.append('middlename', 'uxmtireasvnvmcarno');
+body.append('lastname', 'cksbkhgcuucitnfcu');
+body.append('phone_code', 'rp');
+body.append('phone', '7519075947');
+body.append('password', 'I,M\%}\N"');
 body.append('photo', document.querySelector('input[name="photo"]').files[0]);
 
 fetch(url, {
@@ -7885,10 +9059,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="firstname"                data-endpoint="POSTapi-v2-onboarding-users-update"
-               value="s"
+               value="nttbefcjhotyw"
                data-component="body">
     <br>
-<p>Must not be greater than 20 characters. Example: <code>s</code></p>
+<p>Must not be greater than 20 characters. Example: <code>nttbefcjhotyw</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>middlename</code></b>&nbsp;&nbsp;
@@ -7896,10 +9070,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="middlename"                data-endpoint="POSTapi-v2-onboarding-users-update"
-               value="fcptywbaidb"
+               value="uxmtireasvnvmcarno"
                data-component="body">
     <br>
-<p>Must not be greater than 20 characters. Example: <code>fcptywbaidb</code></p>
+<p>Must not be greater than 20 characters. Example: <code>uxmtireasvnvmcarno</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>lastname</code></b>&nbsp;&nbsp;
@@ -7907,10 +9081,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="lastname"                data-endpoint="POSTapi-v2-onboarding-users-update"
-               value="paijvnivz"
+               value="cksbkhgcuucitnfcu"
                data-component="body">
     <br>
-<p>Must not be greater than 20 characters. Example: <code>paijvnivz</code></p>
+<p>Must not be greater than 20 characters. Example: <code>cksbkhgcuucitnfcu</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>phone_code</code></b>&nbsp;&nbsp;
@@ -7918,10 +9092,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="phone_code"                data-endpoint="POSTapi-v2-onboarding-users-update"
-               value="l"
+               value="rp"
                data-component="body">
     <br>
-<p>Must match the regex /^+[0-9]+$/. Must not be greater than 4 characters. Example: <code>l</code></p>
+<p>Must match the regex /^+[0-9]+$/. Must not be greater than 4 characters. Example: <code>rp</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>phone</code></b>&nbsp;&nbsp;
@@ -7929,10 +9103,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="phone"                data-endpoint="POSTapi-v2-onboarding-users-update"
-               value="9890704995"
+               value="7519075947"
                data-component="body">
     <br>
-<p>Must match the regex /[0-9]{10}$/. Example: <code>9890704995</code></p>
+<p>Must match the regex /[0-9]{10}$/. Example: <code>7519075947</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>photo</code></b>&nbsp;&nbsp;
@@ -7943,7 +9117,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>C:\Users\Ayobami\AppData\Local\Temp\php24B2.tmp</code></p>
+<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>C:\Users\Ayobami\AppData\Local\Temp\php56AB.tmp</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -7951,10 +9125,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-v2-onboarding-users-update"
-               value="XgUKzWf|;pI/tMEC{6<:"
+               value="I,M\%}\N""
                data-component="body">
     <br>
-<p>Example: <code>XgUKzWf|;pI/tMEC{6&lt;:</code></p>
+<p>Example: <code>I,M\%}\N"</code></p>
         </div>
         </form>
 
@@ -8009,7 +9183,7 @@ access-control-allow-origin: *
     &quot;message&quot;: &quot;Undefined array key \&quot;email\&quot;&quot;,
     &quot;exception&quot;: &quot;ErrorException&quot;,
     &quot;file&quot;: &quot;C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\app\\Repositories\\V2\\Onboarding\\Verification\\VerificationRepository.php&quot;,
-    &quot;line&quot;: 17,
+    &quot;line&quot;: 18,
     &quot;trace&quot;: [
         {
             &quot;file&quot;: &quot;C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php&quot;,
@@ -8020,7 +9194,7 @@ access-control-allow-origin: *
         },
         {
             &quot;file&quot;: &quot;C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\app\\Repositories\\V2\\Onboarding\\Verification\\VerificationRepository.php&quot;,
-            &quot;line&quot;: 17,
+            &quot;line&quot;: 18,
             &quot;function&quot;: &quot;Illuminate\\Foundation\\Bootstrap\\{closure}&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Bootstrap\\HandleExceptions&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
@@ -8556,8 +9730,8 @@ const headers = {
 };
 
 let body = {
-    "email": "gabriel68@example.net",
-    "code": "0113"
+    "email": "abagail.walsh@example.net",
+    "code": "1179"
 };
 
 fetch(url, {
@@ -8669,10 +9843,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v2-onboarding-users-verify-email-otp"
-               value="gabriel68@example.net"
+               value="abagail.walsh@example.net"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>gabriel68@example.net</code></p>
+<p>Must be a valid email address. Example: <code>abagail.walsh@example.net</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>code</code></b>&nbsp;&nbsp;
@@ -8680,10 +9854,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="code"                data-endpoint="POSTapi-v2-onboarding-users-verify-email-otp"
-               value="0113"
+               value="1179"
                data-component="body">
     <br>
-<p>Must match the regex /[0-9]{4}/. Example: <code>0113</code></p>
+<p>Must match the regex /[0-9]{4}/. Example: <code>1179</code></p>
         </div>
         </form>
 

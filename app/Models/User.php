@@ -7,6 +7,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 //use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
@@ -63,5 +64,19 @@ class User extends Authenticatable implements MustVerifyEmail
     public function beneficiaries(): HasMany
     {
         return $this->hasMany(Beneficiary::class);
+    }
+
+    public function wallet(): HasOne
+    {
+        return $this->hasOne(Wallet::class, 'owner_id', 'id')->where('owner', 'user');
+    }
+    public function Card(): HasMany
+    {
+        return $this->hasMany(Card::class, 'owner_id', 'id');
+    }
+
+    public function BankAccount(): HasOne
+    {
+        return $this->hasOne(BankAccount::class);
     }
 }

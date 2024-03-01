@@ -34,7 +34,7 @@ endpoints:
               "message": "Undefined array key \"email\"",
               "exception": "ErrorException",
               "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\app\\Repositories\\V2\\Onboarding\\Verification\\VerificationRepository.php",
-              "line": 17,
+              "line": 18,
               "trace": [
                   {
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php",
@@ -45,7 +45,7 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\app\\Repositories\\V2\\Onboarding\\Verification\\VerificationRepository.php",
-                      "line": 17,
+                      "line": 18,
                       "function": "Illuminate\\Foundation\\Bootstrap\\{closure}",
                       "class": "Illuminate\\Foundation\\Bootstrap\\HandleExceptions",
                       "type": "->"
@@ -525,7 +525,7 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: gabriel68@example.net
+        example: abagail.walsh@example.net
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -534,14 +534,14 @@ endpoints:
         name: code
         description: 'Must match the regex /[0-9]{4}/.'
         required: true
-        example: '0113'
+        example: '1179'
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      email: gabriel68@example.net
-      code: '0113'
+      email: abagail.walsh@example.net
+      code: '1179'
     fileParameters: []
     responses:
       -

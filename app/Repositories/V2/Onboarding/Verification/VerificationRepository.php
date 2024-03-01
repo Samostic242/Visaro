@@ -4,6 +4,7 @@ namespace App\Repositories\V2\Onboarding\Verification;
 
 
 use App\Interfaces\Repositories\V2\Onboarding\VerificationRepositoryInterface;
+use App\Jobs\V2\Wallet\CreateWalletJob;
 use App\Mail\V2\Verification\VerificationMail;
 use App\Models\User;
 use Carbon\Carbon;
@@ -32,6 +33,7 @@ class VerificationRepository implements VerificationRepositoryInterface
         $user->email_verified_at = Carbon::now();
         $user->save();
         $token = $user->createToken('token')->accessToken;
+        dispatch(new CreateWalletJob($user));
         $userdata = ['token' => $token];
         return \respondSuccess('You have successfully verified your email address', $userdata);
     }
