@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\V2\Account\Services\Banking\BankAccountRequest;
 use App\Http\Requests\V2\Account\Services\Banking\BankRequest;
 use App\Http\Requests\V2\Account\Services\Banking\BeneficiaryRequest;
+use App\Http\Requests\V2\Account\Services\Banking\V2VAccountDetailsRequest;
 use App\Http\Resources\V2\Account\Services\Banking\BeneficiaryResource;
 use App\Interfaces\Repositories\V2\Account\Services\BankingRepositoryInterface;
 use Illuminate\Http\Request;
@@ -104,6 +105,18 @@ class BankingController extends Controller
         return respondSuccess('Bank account deleted successfully');
 
      }
+
+     /**
+      * Fecth Visaro User Account Details by Code
+      */
+      public function fecthAccountDetails(V2VAccountDetailsRequest $request)
+      {
+        $validated_data = $request->validated();
+        if(!$details = $this->bankingRepository->fecthAccountDetails($validated_data)){
+            return \respondError(404, 'Account Details Not Found');
+        }
+        return respondSuccess('User Account Details Fecthed Successfully', $details);
+      }
 
 
 }

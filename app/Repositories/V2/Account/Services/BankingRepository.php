@@ -6,6 +6,7 @@ use App\Interfaces\Repositories\V2\Account\Services\BankingRepositoryInterface;
 use App\Models\Bank;
 use App\Models\BankAccount;
 use App\Models\Beneficiary;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -14,6 +15,11 @@ class BankingRepository implements BankingRepositoryInterface
     public function findBankAccountById(string $id)
     {
         return BankAccount::find($id);
+    }
+
+    public function findBankAccountDetailsByCode(string $code)
+    {
+        return User::where('code', $code)->select('firstname', 'lastname')->first();
     }
 
     public function createBeneficiary(array $data)
@@ -90,5 +96,15 @@ class BankingRepository implements BankingRepositoryInterface
     public function deleteBankAccount(string $id)
     {
         return BankAccount::destroy($id);
+    }
+
+    public function fecthAccountDetails(array $data)
+    {
+        $AccountDetails = $this->findBankAccountDetailsByCode($data['code']);
+        if(!$AccountDetails)
+        {
+            return false;
+        }
+        return $AccountDetails;
     }
 }
