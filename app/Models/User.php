@@ -2,15 +2,17 @@
 
 namespace App\Models;
 
+use App\Permissions\HasPermissionsTrait;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+//use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-//use Laravel\Sanctum\HasApiTokens;
-use App\Permissions\HasPermissionsTrait;
 use Laravel\Passport\HasApiTokens;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -23,8 +25,18 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'firstname',
+        'lastname',
+        'middlename',
+        'phone_code',
+        'phone',
+        'photo',
+        'hint_question',
+        'hint_answer',
+        'code',
+        'qrcode',
         'email',
-        'password',
+        // 'password',
     ];
 
     /**
@@ -44,5 +56,27 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'phone_verified_at' => 'datetime',
+        'meta' => 'array',
+
     ];
+
+    public function beneficiaries(): HasMany
+    {
+        return $this->hasMany(Beneficiary::class);
+    }
+
+    public function wallet(): HasOne
+    {
+        return $this->hasOne(Wallet::class, 'owner_id', 'id')->where('owner', 'user');
+    }
+    public function Card(): HasMany
+    {
+        return $this->hasMany(Card::class, 'owner_id', 'id');
+    }
+
+    public function BankAccount(): HasOne
+    {
+        return $this->hasOne(BankAccount::class);
+    }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Loans\Transactions;
+namespace App\Models\Transactions;
 
 use App\Models\Loans\Merchants\Merchant;
 use App\Models\User;

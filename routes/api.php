@@ -3,11 +3,15 @@
 
 use App\Http\Controllers\api\PassportController;
 use App\Http\Controllers\api\v1\Users\Profile\Phone\PhoneNumberController;
+use App\Http\Controllers\api\V2\Onboarding\Registration\RegistrationController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
 
 Route::prefix('v1')->group(function () {
     Route::post('register', [PassportController::class, 'register']);
     Route::post('login', [PassportController::class, 'login']);
+    Route::post('signin', [RegistrationController::class, 'register']);
 
     // Refresh Token Route
     Route::post('/refresh-token', [PassportController::class, 'refreshToken'])->name('refresh-token');
@@ -73,8 +77,6 @@ Route::prefix('v1')->group(function () {
 
         Route::put('/articles/{id}/likes', [App\Http\Controllers\api\v1\ArticleController::class, 'like_article'])->name('like_article');
         Route::put('/articles/{id}/views', [App\Http\Controllers\api\v1\ArticleController::class, 'view_article'])->name('view_a_article');
-
-
     });
 });
 

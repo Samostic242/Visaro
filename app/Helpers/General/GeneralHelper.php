@@ -4,12 +4,14 @@ use App\Models\BookedFlight;
 use App\Models\Country;
 use App\Models\Flight;
 use App\Models\User;
+use App\Models\Wallet;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Okolaa\TermiiPHP\Termii;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
+
 
 if (!function_exists('uuid')) {
     function uuid(): string
@@ -381,3 +383,43 @@ if (!function_exists('generateQrCode')) {
     }
 }
 
+if(!function_exists('upload_to_cloudinary'))
+{
+    function upload_to_cloudinary(string $folder, $fil): ?string
+    {
+        $upload = cloudinary()->upload($fil, [
+            'folder' => $folder,
+            'public_id' => Str::uuid()->toString(),
+        ])->getSecurePath();
+        return $upload;
+    }
+}
+
+if(!function_exists('debitWallet'))
+{
+    function debitWallet(string $wallet_id, int $amount): ?string
+    {
+        $wallet = Wallet::where('id', $wallet_id)
+        ->where('owner_id', auth()->id())
+        ->decrement('balance', $amount);
+        if(!$wallet){
+            return false;
+        }
+        return true;
+    }
+
+}
+
+if(!function_exists('creditWallet'))
+{
+    function creditWallet(string $wallet_id, int $amount): ?string
+    {
+        $wallet = Wallet::where('id', $wallet_id)
+        ->where('owner_id', auth()->id())
+        ->increment('balance', $amount);
+        if(!$wallet){
+            return false;
+        }
+        return true;
+    }
+}
