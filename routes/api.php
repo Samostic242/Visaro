@@ -1,10 +1,9 @@
 <?php
 
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\PassportController;
 use App\Http\Controllers\api\v1\Users\Profile\Phone\PhoneNumberController;
+use Illuminate\Support\Facades\Route;
 
 Route::prefix('v1')->group(function () {
     Route::post('register', [PassportController::class, 'register']);
@@ -18,7 +17,6 @@ Route::prefix('v1')->group(function () {
 
     Route::post('/forgotpassword', [App\Http\Controllers\api\v1\MessageController::class, 'forgotpassword'])->name('forgotpassword');
     Route::get('/list_otp_types', [App\Http\Controllers\api\v1\MessageController::class, 'list_otp_types'])->name('list_otp_types');
-
 
 
     Route::middleware('auth:api')->group(function () {
@@ -79,3 +77,5 @@ Route::prefix('v1')->group(function () {
 
     });
 });
+
+Route::get('testing', [PassportController::class, 'testHttp']);
