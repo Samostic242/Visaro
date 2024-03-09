@@ -112,7 +112,8 @@ class BankingController extends Controller
       public function fecthAccountDetails(V2VAccountDetailsRequest $request)
       {
         $validated_data = $request->validated();
-        if(!$details = $this->bankingRepository->fecthAccountDetails($validated_data)){
+        $details = $this->bankingRepository->fecthAccountDetails($validated_data)
+        if(!$details){
             return \respondError(404, 'Account Details Not Found');
         }
         return respondSuccess('User Account Details Fecthed Successfully', $details);
