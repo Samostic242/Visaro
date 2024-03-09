@@ -7,6 +7,7 @@ use App\Models\Bank;
 use App\Models\BankAccount;
 use App\Models\Beneficiary;
 use App\Models\User;
+use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -19,7 +20,18 @@ class BankingRepository implements BankingRepositoryInterface
 
     public function findBankAccountDetailsByCode(string $code)
     {
-        return User::where('code', $code)->select('firstname', 'lastname')->first();
+        try{
+        $recipient_details = User::where('code', $code)->select('firstname', 'lastname')->first();
+        if(!$recipient_details)
+        {
+            return ['status'=>404, "message"=> "Data not Found", 'data'=> null];
+        }
+        return ['status'=>200, "message"=> "Data Fetched Successfuly", 'data'=> $recipient_details];
+        }
+        catch(QueryException $e)
+        {
+        return ['status'=>400, "message"=> "Operation failed to complete", 'data'=> null];
+        }
     }
 
     public function createBeneficiary(array $data)
@@ -100,11 +112,14 @@ class BankingRepository implements BankingRepositoryInterface
 
     public function fecthAccountDetails(array $data)
     {
-        $AccountDetails = $this->findBankAccountDetailsByCode($data['code']);
-        if(!$AccountDetails)
+        $accountDetails = $this->findBankAccountDetailsByCode($data['code']);
+        if($accountDetails['status'] == 400)
         {
-            return false;
+            return respondError(400, $accountDetails['message']);
+        }elseif($accountDetails['status'] == 404){
+            return respondError(404, $accountDetails['message']);
+        }else{
+            return respondSuccess($accountDetails['message'], $accountDetails['data']);
         }
-        return $AccountDetails;
-    }
+ }
 }
