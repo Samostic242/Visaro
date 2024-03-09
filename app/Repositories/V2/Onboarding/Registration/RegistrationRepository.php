@@ -15,6 +15,7 @@ class RegistrationRepository implements RegistrationRepositoryInterface
     {
         return User::find($id);
     }
+
     public function create(array $data): User
     {
         $user = new User();
@@ -35,26 +36,24 @@ class RegistrationRepository implements RegistrationRepositoryInterface
     {
         $email_exists = User::whereEmail($data['email'])->first();
         $otp = Otp::digits(4)->expiry(5)->generate($data['email']);
-        if($email_exists)
-        {
-            if($email_exists->email_verified_at == null)
-            {
+        if ($email_exists) {
+            if ($email_exists->email_verified_at == null) {
                 Mail::send(new VerificationMail($data['email'], $otp));
-                return \respondSuccess('Complete the process now, An email containing your OTP has been sent to your email address againi');
+                return respondSuccess('Complete the process now, An email containing your OTP has been sent to your email address againi');
             }
-            return \respondError(400, 'This email has already been taken');
+            return respondError(400, '01', 'This email has already been taken');
         }
-        $user =  new User();
+        $user = new User();
         $user->email = $data['email'] ?? null;
         $user->save();
         Mail::send(new VerificationMail($data['email'], $otp));
-        return \respondSuccess('An email containing your OTP has been sent to your email address');
+        return respondSuccess('An email containing your OTP has been sent to your email address');
     }
 
     public function updateUser(string $id, array $data)
     {
         $user = $this->findbyId($id);
-        if(!$user){
+        if (!$user) {
             return false;
         }
 

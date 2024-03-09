@@ -6,17 +6,21 @@ use App\Permissions\HasPermissionsTrait;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-//use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class User extends Authenticatable implements MustVerifyEmail
+//use Laravel\Sanctum\HasApiTokens;
+
+class User extends Authenticatable implements MustVerifyEmail, JWTSubject
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    use HasPermissionsTrait; //Import The Trait
+    use HasPermissionsTrait;
+
+    //Import The Trait
 
     /**
      * The attributes that are mass assignable.
@@ -61,6 +65,17 @@ class User extends Authenticatable implements MustVerifyEmail
 
     ];
 
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+
+    public function getJWTCustomClaims(): array
+    {
+        return [];
+    }
+
     public function beneficiaries(): HasMany
     {
         return $this->hasMany(Beneficiary::class);
@@ -70,6 +85,7 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasOne(Wallet::class, 'owner_id', 'id')->where('owner', 'user');
     }
+
     public function Card(): HasMany
     {
         return $this->hasMany(Card::class, 'owner_id', 'id');

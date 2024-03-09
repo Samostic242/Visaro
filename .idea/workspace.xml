@@ -5,13 +5,88 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cefb265d-69cd-44c7-ba9c-3ac2144fb18f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Integrations/Polaris/PolarisFinanceAuthConnection.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Integrations/Polaris/PolarisFinanceConnection.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Integrations/Polaris/Requests/Auth/AuthorizationTokenRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Integrations/Polaris/Requests/Eligibility/CompleteEligibilityStatusRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Integrations/Polaris/Requests/Eligibility/InitiateEligibilityStatusRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Integrations/Polaris/Requests/Eligibility/ResendEligibilityStatusTokenRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Integrations/Polaris/Requests/Loan/CheckLoanRequestStatusRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/JwtApiMiddleware.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Resources/V2/User/Account/UserAccountResource.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Interfaces/Services/CreditorServiceInterfaces/CoreCreditorServiceInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Interfaces/Services/V2/Auth/UserAuthServiceInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/CreditorServices/CoreCreditorService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/V2/Auth/UserAuthService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/jwt.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/fc02a742-79c6-4870-875d-27b35475a735.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/fc02a742-79c6-4870-875d-27b35475a735.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/fc02a742-79c6-4870-875d-27b35475a735/storage_v2/_src_/schema/api_gateway.H60knA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/fc02a742-79c6-4870-875d-27b35475a735/storage_v2/_src_/schema/api_gateway.H60knA.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/phpspec.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/phpspec.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/visaronigeria.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/visaronigeria.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/PassportController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/PassportController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Helpers/Response/ResponseHelper.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/Response/ResponseHelper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/V2/Account/Services/BankingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/V2/Account/Services/BankingController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/V2/Account/Services/CardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/V2/Account/Services/CardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/V2/Auth/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/V2/Auth/AuthController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/V2/Newsletter/NewsletterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/V2/Newsletter/NewsletterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/V2/Onboarding/Registration/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/V2/Onboarding/Registration/RegistrationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/V2/Onboarding/Verification/VerificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/V2/Onboarding/Verification/VerificationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/v1/Loans/Creditor/CreditorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/v1/Loans/Creditor/CreditorController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/v1/Loans/Credits/CreditController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/v1/Loans/Credits/CreditController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/v1/Loans/Invoice/InvoiceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/v1/Loans/Invoice/InvoiceController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/v1/Loans/Merchants/MerchantController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/v1/Loans/Merchants/MerchantController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/V1/Services/Aviation/ConfirmBookingPaymentRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/V1/Services/Aviation/ConfirmBookingPaymentRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Transaction.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Transaction.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/V2/Auth/AuthenticationRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/V2/Auth/AuthenticationRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/V2/Onboarding/Registration/RegistrationRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/V2/Onboarding/Registration/RegistrationRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/V2/Onboarding/Verification/VerificationRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/V2/Onboarding/Verification/VerificationRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_11_05_172728_create_lga_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_11_05_172728_create_lga_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_11_05_17272_create_banks_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_11_05_17272_create_banks_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_11_05_172747_create_transactions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_11_05_172747_create_transactions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_11_05_172748_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_11_05_172748_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_11_05_201007_create_currencies_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_11_05_201007_create_currencies_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_11_05_211143_create_states_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_11_05_211143_create_states_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_11_05_221514_create_tokens_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_11_05_221514_create_tokens_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_11_06_063640_create_flight_bookings_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_11_06_063640_create_flight_bookings_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_11_06_065357_create_selected_flights_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_11_06_065357_create_selected_flights_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_11_06_065416_create_flight_billing_addresses_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_11_06_065416_create_flight_billing_addresses_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_11_06_065518_create_air_travellers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_11_06_065518_create_air_travellers_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_11_06_065539_create_air_traveller_addresses_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_11_06_065539_create_air_traveller_addresses_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_11_06_065551_create_air_traveller_documents_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_11_06_065551_create_air_traveller_documents_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_11_06_065703_create_flight_payment_texts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_11_06_065703_create_flight_payment_texts_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_11_06_065728_create_flight_ticket_details_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_11_06_065728_create_flight_ticket_details_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_11_12_223653_create_flight_booking_payments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_11_12_223653_create_flight_booking_payments_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_11_12_230907_create_payment_options_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_11_12_230907_create_payment_options_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_11_13_022716_create_payment_installments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_11_13_022716_create_payment_installments_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_11_13_182320_create_booked_flights_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_11_13_182320_create_booked_flights_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_11_13_202305_create_flights_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_11_13_202305_create_flights_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_12_09_223701_create_creditors_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_12_09_223701_create_creditors_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_12_18_211241_create_creditor_conditions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_12_18_211241_create_creditor_conditions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_12_20_132931_create_merchants_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_12_20_132931_create_merchants_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_12_20_132949_create_merchant_compliances_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_12_20_132949_create_merchant_compliances_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_12_20_133021_create_merchant_settings_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_12_20_133021_create_merchant_settings_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_12_20_133123_create_settlement_transactions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_12_20_133123_create_settlement_transactions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_12_20_133227_create_payout_transactions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_12_20_133227_create_payout_transactions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_12_21_004936_create_credits_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_12_21_004936_create_credits_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_12_21_024323_create_credit_installments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_12_21_024323_create_credit_installments_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_12_21_150615_create_credit_requests_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_12_21_150615_create_credit_requests_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2023_12_21_151806_create_invoices_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_12_21_151806_create_invoices_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2024_02_19_121156_create_newsletters_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2024_02_19_121156_create_newsletters_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2024_02_19_153129_create_beneficiaries_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2024_02_19_153129_create_beneficiaries_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2024_02_26_222229_create_wallets_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2024_02_26_222229_create_wallets_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2024_02_26_223415_create_ledgers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2024_02_26_223415_create_ledgers_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2024_02_26_230730_create_bank_accounts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2024_02_26_230730_create_bank_accounts_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2024_02_26_230831_create_cards_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2024_02_26_230831_create_cards_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api/v2/onboarding/registration.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api/v2/onboarding/registration.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api/v2/onboarding/verification.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api/v2/onboarding/verification.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,10 +103,38 @@
     <option name="myRunOnSave" value="true" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="5" />
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="core-creditor-actions" />
+                    <option name="lastUsedInstant" value="1709912288" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1709912287" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -181,13 +284,11 @@
       <path value="$PROJECT_DIR$/vendor/filp/whoops" />
       <path value="$PROJECT_DIR$/vendor/bacon/bacon-qr-code" />
       <path value="$PROJECT_DIR$/vendor/spatie/backtrace" />
-      <path value="$PROJECT_DIR$/vendor/teapot/status-code" />
       <path value="$PROJECT_DIR$/vendor/spatie/ignition" />
       <path value="$PROJECT_DIR$/vendor/spatie/flare-client-php" />
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-ignition" />
       <path value="$PROJECT_DIR$/vendor/darkaonline/l5-swagger" />
       <path value="$PROJECT_DIR$/vendor/laravel/telescope" />
-      <path value="$PROJECT_DIR$/vendor/stella-maris/clock" />
       <path value="$PROJECT_DIR$/vendor/spatie/data-transfer-object" />
       <path value="$PROJECT_DIR$/vendor/knuckleswtf/scribe" />
       <path value="$PROJECT_DIR$/vendor/symfony/var-exporter" />
@@ -198,6 +299,9 @@
       <path value="$PROJECT_DIR$/vendor/_laravel_idea" />
       <path value="$PROJECT_DIR$/vendor/opcodesio/mail-parser" />
       <path value="$PROJECT_DIR$/vendor/opcodesio/log-viewer" />
+      <path value="$PROJECT_DIR$/vendor/carbonphp/carbon-doctrine-types" />
+      <path value="$PROJECT_DIR$/vendor/tzsk/otp" />
+      <path value="$PROJECT_DIR$/vendor/tymon/jwt-auth" />
     </include_path>
   </component>
   <component name="ProjectColorInfo">{
@@ -219,14 +323,14 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.laravel-idea.update-module-directories&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;core-creditor-actions&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/maxwellagu/Herd/visaronigeria/routes/api/v1/loan&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
     &quot;typescript.add.unambiguous.imports.on.the.fly&quot;: &quot;true&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
@@ -289,6 +393,18 @@
       <workItem from="1703861410145" duration="9942000" />
       <workItem from="1708196690550" duration="2210000" />
       <workItem from="1708205259423" duration="1170000" />
+      <workItem from="1709909994068" duration="3108000" />
+      <workItem from="1709913270949" duration="3865000" />
+      <workItem from="1709919966003" duration="161000" />
+      <workItem from="1709920133450" duration="20687000" />
+      <workItem from="1709952041702" duration="42000" />
+      <workItem from="1709952770663" duration="9000" />
+      <workItem from="1709956332488" duration="3879000" />
+      <workItem from="1709960812478" duration="16000" />
+      <workItem from="1709960981659" duration="3786000" />
+      <workItem from="1709964976885" duration="1321000" />
+      <workItem from="1709966360303" duration="482000" />
+      <workItem from="1709966870534" duration="47000" />
     </task>
     <servers />
   </component>

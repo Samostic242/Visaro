@@ -39,7 +39,7 @@ class CreditorController extends Controller
     public function fetchCreditor(int $creditor_id)
     {
         if (!$creditor = $this->creditorRepository->findById($creditor_id)) {
-            return respondError(404, 'Creditor does not exist');
+            return respondError(404, '01', 'Creditor does not exist');
         }
         return respondSuccess("Creditor fetched successfully", $creditor);
     }
@@ -51,7 +51,7 @@ class CreditorController extends Controller
     {
         $validated_data = $request->validated();
         if (!$created = $this->creditorRepository->create($validated_data)) {
-            return respondError(400, 'Error encountered adding new creditor');
+            return respondError(400, '01', 'Error encountered adding new creditor');
         }
         # Create default condition
         $data = [
@@ -68,10 +68,10 @@ class CreditorController extends Controller
     {
         $validated_data = $request->validated();
         if (!$creditor = $this->creditorRepository->findById($creditor_id)) {
-            return respondError(404, 'Creditor does not exist');
+            return respondError(404, '01', 'Creditor does not exist');
         }
         if (!$updated = $this->creditorRepository->update($creditor->id, $validated_data)) {
-            return respondError(400, 'Error encountered updating creditor');
+            return respondError(400, '01', 'Error encountered updating creditor');
         }
         return respondSuccess("Creditor updated successfully", $updated);
     }
@@ -82,10 +82,10 @@ class CreditorController extends Controller
     public function deleteCreditor(int $creditor_id)
     {
         if (!$creditor = $this->creditorRepository->findById($creditor_id)) {
-            return respondError(404, 'Creditor does not exist');
+            return respondError(404, '01', 'Creditor does not exist');
         }
         if (!$deleted = $this->creditorRepository->destroyById($creditor_id)) {
-            return respondError(400, 'Error deleting creditor record');
+            return respondError(400, '01', 'Error deleting creditor record');
         }
         return respondSuccess("Creditor deleted successfully");
     }
@@ -98,7 +98,7 @@ class CreditorController extends Controller
     {
 
         if (!$creditor = $this->creditorRepository->findById($creditor_id)) {
-            return respondError(404, 'Creditor does not exist');
+            return respondError(404, '01', 'Creditor does not exist');
         }
         if (!$condition = $this->creditorConditionsRepository->findByCreditorId($creditor_id)) {
             $data = [
@@ -117,7 +117,7 @@ class CreditorController extends Controller
     {
         $validated_data = $request->validated();
         if (!$creditor = $this->creditorRepository->findById($creditor_id)) {
-            return respondError(404, 'Creditor does not exist');
+            return respondError(404, '01', 'Creditor does not exist');
         }
         if (!$condition = $this->creditorConditionsRepository->findByCreditorId($creditor_id)) {
             $data = [
@@ -126,7 +126,7 @@ class CreditorController extends Controller
             $condition = $this->creditorConditionsRepository->create($data);
         }
         if (!$updated = $this->creditorConditionsRepository->update($condition->id, $validated_data)) {
-            return respondError(400, 'Error encountered updating creditor');
+            return respondError(400, '01', 'Error encountered updating creditor');
         }
         return respondSuccess("Condition updated successfully", $updated);
     }

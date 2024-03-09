@@ -11,9 +11,9 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('merchant_compliances', function (Blueprint $table) {
-            $table->id();
-            $table->uuid('public_id')->nullable();
-            $table->foreignId('merchant_id');
+            $table->uuid('id')->primary();
+            $table->string('public_id')->index();
+            $table->foreignUuid('merchant_id');
             $table->string('business_name')->nullable();
             $table->string('business_registration_number')->nullable();
             $table->string('business_registration_document')->nullable();
@@ -32,7 +32,7 @@ return new class extends Migration {
             $table->string('website')->nullable();
             $table->string('logo')->nullable();
             $table->string('code')->nullable();
-            $table->foreignId('country_id');
+            $table->foreignUuid('country_id');
             $table->string('state')->nullable();
             $table->string('lga')->nullable();
             $table->string('address1')->nullable();

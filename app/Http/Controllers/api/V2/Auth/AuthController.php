@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\api\v2\auth;
+namespace App\Http\Controllers\api\V2\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V2\Auth\AuthenticationRequest;
 use App\Http\Requests\V2\Auth\ForgotPasswordRequest;
 use App\Http\Requests\V2\Auth\ResetPasswordRequest;
-use App\Interfaces\Repositories\V2\Auth\AuthenticationRepositoryInterface;
+use App\Http\Resources\V2\User\Account\UserAccountResource;
+use App\Services\V2\Auth\UserAuthService;
 use Illuminate\Http\Request;
 
 /**
@@ -15,10 +16,9 @@ use Illuminate\Http\Request;
  */
 class AuthController extends Controller
 {
-    //
 
     function __construct(
-        protected AuthenticationRepositoryInterface $authRepository
+        protected UserAuthService $userAuthService
     )
     {
 
@@ -30,8 +30,11 @@ class AuthController extends Controller
     public function login(AuthenticationRequest $request)
     {
         $validated_data = $request->validated();
-        $login = $this->authRepository->login($validated_data);
-        return $login;
+        $logged_in = $this->userAuthService->login($validated_data['email'], $validated_data['password']);
+        if (!$logged_in['status']) {
+            return respondError($logged_in['code'], $logged_in['message']);
+        }
+        return respondSuccess($logged_in['message'], $logged_in['data']);
     }
 
     /**
@@ -39,8 +42,11 @@ class AuthController extends Controller
      */
     public function fetchUser(Request $request)
     {
-        $data = $this->authRepository->getUser();
-        return \respondSuccess('User Fecthed successfully', $data);
+        $user = $this->userAuthService->getUser();
+        if (!$user) {
+            respondError(404, '01', "User not found");
+        }
+        return respondSuccess('User fetched successfully', new UserAccountResource($user));
     }
 
     /**
@@ -49,7 +55,11 @@ class AuthController extends Controller
     public function forgotPassword(ForgotPasswordRequest $request)
     {
         $validated_data = $request->validated();
-        return $this->authRepository->forgotPassword($validated_data);
+        $initiated = $this->userAuthService->forgotPassword($validated_data);
+        if (!$initiated['status']) {
+            return respondError($initiated['code'], $initiated['message']);
+        }
+        return respondSuccess($initiated['message'], $initiated['data']);
     }
 
     /**
@@ -58,11 +68,10 @@ class AuthController extends Controller
     public function resetPassword(ResetPasswordRequest $request)
     {
         $validated_data = $request->validated();
-        if(!$this->authRepository->resetPassword($validated_data))
-        {
-            return \respondError(400, 'Incorrect/expired OTP, kindly request for another one');
+        $updated = $this->userAuthService->resetPassword($validated_data['code'], $validated_data['email'], $validated_data['password']);
+        if (!$updated['status']) {
+            return respondError($updated['code'], $updated['message']);
         }
-
-        return \respondSuccess('Your password has been reset successfully, Kindly proceed to login');
+        return respondSuccess($updated['message'], $updated['data']);
     }
 }
