@@ -33,7 +33,7 @@ services:
       - .:/var/www
       - /var/www/vendor/
     ports:
-      - 8080:8000
+      - 8181:8000
     networks:
       - api-gateway-net
 
