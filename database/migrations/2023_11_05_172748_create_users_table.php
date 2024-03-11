@@ -30,6 +30,11 @@ class CreateUsersTable extends Migration
             $table->string('hint_answer')->nullable();
             $table->string('code')->nullable()->index();
             $table->string('qrcode')->nullable();
+            $table->integer('otp_login_verif')->nullable();
+            $table->integer('otp_phone_verif')->nullable();
+            $table->integer('otp_type')->nullable();
+            
+            
             $table->string('status')->default('active');
             $table->boolean('active')->default(true);
             $table->json('meta')->nullable();

@@ -1,38 +1,40 @@
 version: '3.8'
 
+
 networks:
-  app-tier:
+  api-gateway-net:
     driver: bridge
-    name: app-tier
+    name: api-gateway-net
 
 services:
-  visaro_api_gateway:
-    container_name: visaro_api_gateway
+
+  # Web Server for User Service
+  nginx:
+    image: nginx:alpine
+    container_name: api-gateway-nginx
+    ports:
+      - "9090:80"
+    volumes:
+      - .:/var/www
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
+    depends_on:
+      - api_gateway
+    networks:
+      - api-gateway-net
+
+  # API Service
+  api_gateway:
+    container_name: api_gateway
     build:
       context: .
       dockerfile: Dockerfile
     command: 'php artisan serve --host=0.0.0.0'
     volumes:
-      - ../efs/apps/visaro_api_gateway:/visaronigeria
+      - .:/var/www
+      - /var/www/vendor/
     ports:
-      - 8181:8000
-    depends_on:
-      - visaro_api_gateway_db
+      - 8080:8000
     networks:
-      - app-tier
+      - api-gateway-net
 
-
-  visaro_api_gateway_db:
-    image: mysql:5.7.22
-    container_name: visaro_api_gateway_db
-    environment:
-      MYSQL_DATABASE: visaro_api_gateway
-      MYSQL_USER: root
-      MYSQL_PASSWORD: root
-      MYSQL_ROOT_PASSWORD: root
-    volumes:
-      - ../efs/databases/visaro_db:/var/lib/mysql
-    ports:
-      - 33061:3306
-    networks:
-      - app-tier
+ 
