@@ -43,7 +43,7 @@ class BankingController extends Controller
     public function allBeneficiaries()
     {
         $beneficiaries = $this->bankingRepository->getBeneficiaries();
-        return \respondSuccess('Beneficiary fecthed Successfully', BeneficiaryResource::collection($beneficiaries));
+        return \respondSuccess('Beneficiary fetched Successfully', BeneficiaryResource::collection($beneficiaries));
     }
 
     /**
