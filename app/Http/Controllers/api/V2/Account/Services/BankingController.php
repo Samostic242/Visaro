@@ -10,7 +10,7 @@ use App\Http\Resources\V2\Account\Services\Banking\BeneficiaryResource;
 use App\Interfaces\Repositories\V2\Account\Services\BankingRepositoryInterface;
 
 /**
- * @group Banking
+ * @group Banks
  * @description APIs for Banking Related Functions
  */
 class BankingController extends Controller
@@ -23,7 +23,7 @@ class BankingController extends Controller
     }
 
     /**
-     * Add a Beneficiary to a user Profile
+     * Add new Beneficiary
      */
     public function addBeneficiary(BeneficiaryRequest $request)
     {
@@ -36,7 +36,7 @@ class BankingController extends Controller
     }
 
     /**
-     * Get all beneficiary associated with a user
+     * Get all beneficiaries
      */
     public function allBeneficiaries()
     {
@@ -45,7 +45,7 @@ class BankingController extends Controller
     }
 
     /**
-     * Create a bank
+     * Add new Bank
      */
     public function createBank(BankRequest $request)
     {
@@ -57,7 +57,7 @@ class BankingController extends Controller
     }
 
     /**
-     * Get all Banks
+     * Get all bank accounts
      */
 
     public function getBanks()
@@ -67,7 +67,7 @@ class BankingController extends Controller
     }
 
     /**
-     * Craate  a New Bank Account for the current user
+     * Add new Bank Account for user
      */
     public function createBankAccount(BankAccountRequest $request)
     {
@@ -82,7 +82,7 @@ class BankingController extends Controller
      * Fetches a bank account
      */
 
-    public function fecthBankAccount()
+    public function fetchBankAccount()
     {
         if (!$bankAccount = $this->bankingRepository->getBanks()) {
             return respondError(400, '01', 'You have not added a bank account yet');

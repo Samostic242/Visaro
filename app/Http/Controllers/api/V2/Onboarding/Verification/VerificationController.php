@@ -8,12 +8,12 @@ use App\Interfaces\Repositories\V2\Onboarding\VerificationRepositoryInterface;
 use Illuminate\Http\Request;
 
 /**
- * @group Verifying Users
+ * @group User Onboarding
+ * @subgroup Verification
  * @description APIs for managing User Verification
  */
 class VerificationController extends Controller
 {
-    //
 
     function __construct(
         protected VerificationRepositoryInterface $verificationRepository)
@@ -33,7 +33,7 @@ class VerificationController extends Controller
     }
 
     /**
-     * Verifies the user One time password
+     * Verify onboarding email OTP
      */
     public function verifyOtp(VerificationRequest $request)
     {

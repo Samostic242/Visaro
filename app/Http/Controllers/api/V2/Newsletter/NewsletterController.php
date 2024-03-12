@@ -20,7 +20,7 @@ class NewsletterController extends Controller
     }
 
     /**
-     * Saves a User Details for Newsletter subscription
+     * Subscribe to newsletter
      */
     public function subscribe(NewsletterRequest $request)
     {

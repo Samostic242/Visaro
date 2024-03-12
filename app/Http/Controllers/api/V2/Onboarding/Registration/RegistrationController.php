@@ -9,8 +9,9 @@ use App\Interfaces\Repositories\V2\Onboarding\RegistrationRepositoryInterface;
 use App\Interfaces\Repositories\V2\Onboarding\VerificationRepositoryInterface;
 
 /**
- * @group Onboarding
- * @description APIs for Onboarding User
+ * @group User Onboarding
+ * @subgroup Registration
+ * @description APIs for Onboarding
  */
 class RegistrationController extends Controller
 {
@@ -24,7 +25,7 @@ class RegistrationController extends Controller
     }
 
     /**
-     * Send One Time Password Email to the User
+     * Verify email address
      */
     public function getOTP(OTPRequest $request)
     {
@@ -33,7 +34,7 @@ class RegistrationController extends Controller
     }
 
     /**
-     * Onboard new user
+     * Register
      */
     public function register(RegistrationRequest $request)
     {
@@ -42,19 +43,19 @@ class RegistrationController extends Controller
             return respondError(400, '01', 'The registration is not successful');
         }
         $this->verificationRepository->getOtp($created->toArray());
-        return respondSuccess('Registration is succesfull, Kindly check your mail for your One Time Password', $created);
+        return respondSuccess('Registration is successful, Kindly check your mail for your One Time Password', $created);
     }
 
 
     /**
-     * Completes the user registration process and update the user details
+     * Complete user registration process
      */
     public function updateUser(RegistrationRequest $request)
     {
         $validated_data = $request->validated();
         $id = auth()->user()->id;
         if (!$update = $this->registrationRepository->updateUser($id, $validated_data)) {
-            return respondError(400, '01', 'An error occured');
+            return respondError(400, '01', 'An error occurred');
         }
         return respondSuccess('Updated Successfully', $update);
     }

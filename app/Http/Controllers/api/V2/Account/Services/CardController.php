@@ -7,7 +7,8 @@ use App\Http\Requests\V2\Account\Services\Card\CardRequest;
 use App\Interfaces\Repositories\V2\Account\Services\CardRepositoryInterface;
 
 /**
- * @group Banking
+ * @group Banks
+ * @subgroup Cards
  * @description APIs for Card  Related Functions
  */
 class CardController extends Controller

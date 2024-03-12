@@ -25,7 +25,7 @@ class AuthController extends Controller
     }
 
     /**
-     * Logs the user in
+     * Login
      */
     public function login(AuthenticationRequest $request)
     {
@@ -38,7 +38,7 @@ class AuthController extends Controller
     }
 
     /**
-     * Fecthes the Authenticated User
+     * Fetch User profile
      */
     public function fetchUser(Request $request)
     {
@@ -50,7 +50,7 @@ class AuthController extends Controller
     }
 
     /**
-     * Request for password reset OTP
+     * Initiate password reset
      */
     public function forgotPassword(ForgotPasswordRequest $request)
     {
@@ -63,7 +63,7 @@ class AuthController extends Controller
     }
 
     /**
-     * Verifies the OTP and Update the user new password
+     * Complete password reset
      */
     public function resetPassword(ResetPasswordRequest $request)
     {
