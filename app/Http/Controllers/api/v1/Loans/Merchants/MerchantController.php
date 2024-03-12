@@ -43,7 +43,7 @@ class MerchantController extends Controller
     public function fetchMerchant(int $merchant_id)
     {
         if (!$merchant = $this->merchantRepository->findById($merchant_id)) {
-            return respondError(404, 'Merchant does not exist');
+            return respondError(404, '01', 'Merchant does not exist');
         }
         return respondSuccess("Merchant fetched successfully", $merchant);
     }
@@ -55,7 +55,7 @@ class MerchantController extends Controller
     {
         $validated_data = $request->validated();
         if (!$created = $this->merchantRepository->create($validated_data)) {
-            return respondError(400, 'Error creating merchant account');
+            return respondError(400, '01', 'Error creating merchant account');
         }
         $this->createDefaultSupportRecords($created);
         return respondSuccess("Merchant added successfully, kindly update compliance and settings", $created);
@@ -68,10 +68,10 @@ class MerchantController extends Controller
     {
         $validated_data = $request->validated();
         if (!$merchant = $this->merchantRepository->findById($merchant_id)) {
-            return respondError(404, 'Merchant does not exist');
+            return respondError(404, '01', 'Merchant does not exist');
         }
         if (!$updated = $this->merchantRepository->update($merchant->id, $validated_data)) {
-            return respondError(400, 'Error encountered updating merchant');
+            return respondError(400, '01', 'Error encountered updating merchant');
         }
         return respondSuccess("Merchant updated successfully", $updated);
     }
@@ -82,10 +82,10 @@ class MerchantController extends Controller
     public function deleteMerchant(int $merchant_id)
     {
         if (!$merchant = $this->merchantRepository->findById($merchant_id)) {
-            return respondError(404, 'Merchant does not exist');
+            return respondError(404, '01', 'Merchant does not exist');
         }
         if (!$deleted = $this->merchantRepository->destroyById($merchant_id)) {
-            return respondError(400, 'Error deleting merchant record');
+            return respondError(400, '01', 'Error deleting merchant record');
         }
         return respondSuccess("Merchant deleted successfully");
     }
@@ -99,7 +99,7 @@ class MerchantController extends Controller
     {
 
         if (!$merchant = $this->merchantRepository->findById($merchant_id)) {
-            return respondError(404, 'Merchant does not exist');
+            return respondError(404, '01', 'Merchant does not exist');
         }
         if (!$compliance = $this->merchantComplianceRepository->findByMerchantId($merchant_id)) {
             $data = [
@@ -119,7 +119,7 @@ class MerchantController extends Controller
     {
 
         if (!$merchant = $this->merchantRepository->findById($merchant_id)) {
-            return respondError(404, 'Merchant does not exist');
+            return respondError(404, '01', 'Merchant does not exist');
         }
         if (!$setting = $this->merchantSettingsRepository->findByMerchantId($merchant_id)) {
             $data = [
@@ -139,7 +139,7 @@ class MerchantController extends Controller
     {
         $validated_data = $request->validated();
         if (!$merchant = $this->merchantRepository->findById($merchant_id)) {
-            return respondError(404, 'Merchant does not exist');
+            return respondError(404, '01', 'Merchant does not exist');
         }
         if (!$compliance = $this->merchantComplianceRepository->findByMerchantId($merchant_id)) {
             $data = [
@@ -148,7 +148,7 @@ class MerchantController extends Controller
             $compliance = $this->merchantComplianceRepository->create($data);
         }
         if (!$updated = $this->merchantComplianceRepository->update($compliance->id, $validated_data)) {
-            return respondError(400, 'Error encountered updating merchant compliance');
+            return respondError(400, '01', 'Error encountered updating merchant compliance');
         }
         return respondSuccess("Compliance updated successfully", $updated);
     }
@@ -162,7 +162,7 @@ class MerchantController extends Controller
     {
         $validated_data = $request->validated();
         if (!$merchant = $this->merchantRepository->findById($merchant_id)) {
-            return respondError(404, 'Merchant does not exist');
+            return respondError(404, '01', 'Merchant does not exist');
         }
         if (!$setting = $this->merchantSettingsRepository->findByMerchantId($merchant_id)) {
             $data = [
@@ -171,7 +171,7 @@ class MerchantController extends Controller
             $setting = $this->merchantSettingsRepository->create($data);
         }
         if (!$updated = $this->merchantComplianceRepository->update($setting->id, $validated_data)) {
-            return respondError(400, 'Error encountered updating merchant settings');
+            return respondError(400, '01', 'Error encountered updating merchant settings');
         }
         return respondSuccess("Settings updated successfully", $updated);
     }

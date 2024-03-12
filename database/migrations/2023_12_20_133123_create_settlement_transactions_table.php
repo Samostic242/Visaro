@@ -11,10 +11,10 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('settlement_transactions', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->string('public_id')->index();
-            $table->foreignId('merchant_id')->nullable()->index();
-            $table->foreignId('transaction_id')->nullable()->index();
+            $table->foreignUuid('merchant_id')->nullable()->index();
+            $table->foreignUuid('transaction_id')->nullable()->index();
             $table->string('session')->nullable()->index();
             $table->string('reference')->nullable()->index();
             $table->string('account_number')->nullable();

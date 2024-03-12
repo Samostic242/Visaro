@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Models\Transactions;
+namespace App\Models;
 
 use App\Models\Loans\Merchants\Merchant;
-use App\Models\User;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -13,6 +13,7 @@ class Transaction extends Model
 {
     use HasFactory;
     use SoftDeletes;
+    use HasUuids;
 
     protected $fillable = [
         'owner_id',

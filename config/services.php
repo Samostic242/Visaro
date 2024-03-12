@@ -61,18 +61,20 @@ return [
         ],
         'health' => []
     ],
-    'loan' => [
-        'charge' => env('BNPL_LOAN_CHARGE'),
+    'facility' => [
+        'primary_charge' => env('FACILITY_CHARGE'),
         'creditors' => [
             'polaris' => [
-                'base_url' => env('TRIPS_BASE_URL'),
-                'authorization_type' => env('TRIPS_AUTHORIZATION_TOKEN'),
-                'public_key' => env('TRIPS_MERCHANT_CODE'),
-                'private_key' => env('TRIPS_MERCHANT_ID'),
-                'token' => env('TRIPS_MERCHANT_NAME'),
+                'base_url' => env('CREDITOR_POLARIS_FINANCE_BASE_URL'),
+                'auth_base_url' => env('CREDITOR_POLARIS_FINANCE_AUTH_BASE_URL'),
+                'authorization_type' => env('CREDITOR_POLARIS_FINANCE_AUTH_TYPE'),
+                'public_key' => env('CREDITOR_POLARIS_FINANCE_PUBLIC_KEY'),
+                'secret_key' => env('CREDITOR_POLARIS_FINANCE_PRIVATE_KEY'),
+                'grant_type' => env('CREDITOR_POLARIS_FINANCE_GRANT_TYPE'),
+                'token' => env('CREDITOR_POLARIS_FINANCE_TOKEN'),
             ],
         ],
-        'payment' => [
+        'charges' => [
             'fee' => env('AVIATION_BOOKING_CHARGE', 100000),
 
         ],

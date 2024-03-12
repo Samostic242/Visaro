@@ -52,7 +52,7 @@ class InvoiceController extends Controller
     public function fetchInvoice(int $invoice_id)
     {
         if (!$invoice = $this->invoiceRepository->findById($invoice_id)) {
-            return respondError(404, 'Invoice does not exist');
+            return respondError(404, '01', 'Invoice does not exist');
         }
         return respondSuccess("Invoice fetched successfully", $invoice);
     }
@@ -63,7 +63,7 @@ class InvoiceController extends Controller
     public function fetchInvoiceByCode(string $code)
     {
         if (!$invoice = $this->invoiceRepository->findByCode($code)) {
-            return respondError(404, 'Invoice does not exist');
+            return respondError(404, '01', 'Invoice does not exist');
         }
         return respondSuccess("Invoice fetched successfully", $invoice);
     }
@@ -74,7 +74,7 @@ class InvoiceController extends Controller
     public function fetchInvoiceByNumber(string $number)
     {
         if (!$invoice = $this->invoiceRepository->findByNumber($number)) {
-            return respondError(404, 'Invoice does not exist');
+            return respondError(404, '01', 'Invoice does not exist');
         }
         return respondSuccess("Invoice fetched successfully", $invoice);
     }
@@ -86,19 +86,19 @@ class InvoiceController extends Controller
     {
         $validated_data = $request->validated();
         if (!$merchant = $this->merchantRepository->findById($validated_data['merchant_id'])) {
-            return respondError(404, 'Merchant does not exist');
+            return respondError(404, '01', 'Merchant does not exist');
         }
         $validated_data['merchant_id'] = $merchant->id;
         if (isset($validated_data['code'])) {
             if (!$owner = User::where('code', $validated_data['code'])->first()) {
-                return respondError(400, 'User code is invalid');
+                return respondError(400, '01', 'User code is invalid');
             }
             $validated_data['user_id'] = $owner->id;
         }
 
 
         if (!$created = $this->invoiceRepository->create($validated_data)) {
-            return respondError(400, 'Error creating invoice');
+            return respondError(400, '01', 'Error creating invoice');
         }
         return respondSuccess("Invoice created successfully, kindly share code or link to customer", $created);
     }
@@ -110,13 +110,13 @@ class InvoiceController extends Controller
     {
         $validated_data = $request->validated();
         if (!$merchant = $this->merchantRepository->findById($validated_data['merchant_id'])) {
-            return respondError(404, 'Merchant does not exist');
+            return respondError(404, '01', 'Merchant does not exist');
         }
         if (!$invoice = $this->invoiceRepository->findById($invoice_id)) {
-            return respondError(404, 'Invoice does not exist');
+            return respondError(404, '01', 'Invoice does not exist');
         }
         if (!$updated = $this->merchantRepository->update($invoice->id, $validated_data)) {
-            return respondError(400, 'Error updating Invoice');
+            return respondError(400, '01', 'Error updating Invoice');
         }
         return respondSuccess("Invoice updated successfully", $updated);
     }
@@ -127,10 +127,10 @@ class InvoiceController extends Controller
     public function deleteInvoice(int $invoice_id)
     {
         if (!$invoice = $this->invoiceRepository->findById($invoice_id)) {
-            return respondError(404, 'Invoice does not exist');
+            return respondError(404, '01', 'Invoice does not exist');
         }
         if (!$deleted = $this->invoiceRepository->destroyById($invoice_id)) {
-            return respondError(400, 'Error deleting invoice record');
+            return respondError(400, '01', 'Error deleting invoice record');
         }
         return respondSuccess("Invoice deleted successfully");
     }

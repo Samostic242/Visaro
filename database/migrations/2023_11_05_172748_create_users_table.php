@@ -14,8 +14,8 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->increments('id');
-            $table->uuid('public_id')->nullable();
+            $table->uuid('id')->primary();
+            $table->string('public_id')->index();
             $table->string('firstname')->default('');
             $table->string('middlename')->default('');
             $table->string('lastname')->default('');
@@ -30,6 +30,11 @@ class CreateUsersTable extends Migration
             $table->string('hint_answer')->nullable();
             $table->string('code')->nullable()->index();
             $table->string('qrcode')->nullable();
+            $table->integer('otp_login_verif')->nullable();
+            $table->integer('otp_phone_verif')->nullable();
+            $table->integer('otp_type')->nullable();
+            
+            
             $table->string('status')->default('active');
             $table->boolean('active')->default(true);
             $table->json('meta')->nullable();

@@ -14,7 +14,7 @@ class CreateTransactionsTable extends Migration
     public function up()
     {
         Schema::create('transactions', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->string('public_id')->index();
             $table->bigInteger('amount')->default(0);
             $table->bigInteger('balance')->default(0);

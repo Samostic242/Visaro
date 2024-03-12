@@ -22,19 +22,19 @@ class ConfirmBookingPaymentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "booking_id" => ['required', 'integer','exists:flight_bookings,id'],
-            "payment_option_id" => ['required', 'int','exists:payment_options,id'],
+            "booking_id" => ['required', 'integer', 'exists:flight_bookings,id'],
+            "payment_option_id" => ['required', 'int', 'exists:payment_options,id'],
             "amount" => ['required', 'int'],
-            "payment_installment_id" => ['required', 'int','exists:payment_installments,id']
+            "payment_installment_id" => ['required', 'int', 'exists:payment_installments,id']
 
         ];
     }
 }
 //$table->id();
 //$table->uuid('public_id')->nullable();
-//$table->foreignId('user_id');
-//$table->foreignId('flight_booking_id');
-//$table->foreignId('instalment_id');
+//$table->foreignUuid('user_id');
+//$table->foreignUuid('flight_booking_id');
+//$table->foreignUuid('instalment_id');
 //$table->bigInteger('amount')->default(0);
 //$table->bigInteger('amount_payable')->default(0);
 //$table->bigInteger('balance')->default(0);

@@ -11,9 +11,9 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('merchant_settings', function (Blueprint $table) {
-            $table->id();
-            $table->uuid('public_id')->nullable();
-            $table->foreignId('merchant_id');
+            $table->uuid('id')->primary();
+            $table->string('public_id')->index();
+            $table->foreignUuid('merchant_id');
             $table->string('payout_interval')->default('daily');
             $table->integer('payout_frequency')->default(1);
             $table->json('meta')->nullable();
