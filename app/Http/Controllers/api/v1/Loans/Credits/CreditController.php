@@ -54,7 +54,7 @@ class CreditController extends Controller
     public function fetchCredit(int $credit_id)
     {
         if (!$credit = $this->creditRepository->findById($credit_id)) {
-            return respondError(404, 'Credit does not exist');
+            return respondError(404, '01', 'Credit does not exist');
         }
         return respondSuccess("Credit fetched successfully", $credit);
     }
@@ -67,14 +67,14 @@ class CreditController extends Controller
         $validated_data = $request->validated();
 
         if (!$invoice = $this->invoiceRepository->findById($validated_data['invoice_id'])) {
-            return respondError(404, 'Invoice does not exist');
+            return respondError(404, '01', 'Invoice does not exist');
         }
         if (!$creditor = $this->creditorRepository->findById($validated_data['creditor_id'])) {
-            return respondError(404, 'Creditor does not exist');
+            return respondError(404, '01', 'Creditor does not exist');
         }
 
         if ($validated_data['number_of_installments'] > $creditor->conditions->maximum_credit_installments) {
-            return respondError(400, "Sorry, number of installment must not be greater than {$creditor->conditions->maximum_credit_installments}");
+            return respondError(400, '01', "Sorry, number of installment must not be greater than {$creditor->conditions->maximum_credit_installments}");
         }
         $total = $invoice->amount + config('services.loan.charge');
         $data = [
@@ -92,7 +92,7 @@ class CreditController extends Controller
             "terms_and_condition" => $creditor->conditions->terms_and_conditions,
         ];
         if (!$created = $this->creditRequestRepository->create($data)) {
-            return respondError(400, 'Error initiating credit request');
+            return respondError(400, '01', 'Error initiating credit request');
         }
 
 
@@ -126,12 +126,12 @@ class CreditController extends Controller
         $validated_data = $request->validated();
 
         if (!$credit_request = $this->creditRequestRepository->findById($validated_data['credit_request_id'])) {
-            return respondError(404, 'Credit request does not exist');
+            return respondError(404, '01', 'Credit request does not exist');
         }
         if (!$updated_credit_request = $this->creditRequestRepository->update(
             $credit_request->id, ['status' => 'processing'])
         ) {
-            return respondError(400, 'Error confirming credit request, please try again');
+            return respondError(400, '01', 'Error confirming credit request, please try again');
         }
         return respondSuccess("Request is processing, you should get a feedback shortly ");
     }
@@ -143,7 +143,7 @@ class CreditController extends Controller
     public function getCreditRequestStatus(Request $request, int $credit_request_id)
     {
         if (!$credit_request = $this->creditRequestRepository->findById($credit_request_id)) {
-            return respondError(404, 'Credit request does not exist');
+            return respondError(404, '01', 'Credit request does not exist');
         }
 
         return respondSuccess("Credit request status fetched successfully", [

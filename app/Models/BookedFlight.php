@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -10,6 +11,8 @@ class BookedFlight extends Model
 {
     use HasFactory;
     use SoftDeletes;
+    use HasUuids;
+
     protected $fillable = [
         'user_id',
         'flight_booking_id',
@@ -41,6 +44,7 @@ class BookedFlight extends Model
         'copy' => 'array',
         'meta' => 'array',
     ];
+
     public function booking(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(FlightBooking::class);

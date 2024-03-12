@@ -11,8 +11,8 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('creditors', function (Blueprint $table) {
-            $table->id();
-            $table->uuid('public_id')->nullable();
+            $table->uuid('id')->primary();
+            $table->string('public_id')->index();
             $table->string('name')->nullable();
             $table->string('slug')->nullable();
             $table->string('acronym')->nullable();
@@ -20,7 +20,7 @@ return new class extends Migration {
             $table->string('website')->nullable();
             $table->string('logo')->nullable();
             $table->string('code')->nullable();
-            $table->foreignId('country_id');
+            $table->foreignUuid('country_id');
             $table->string('category')->nullable();
             $table->string('email')->nullable();
             $table->string('phone_code')->nullable();
@@ -33,6 +33,7 @@ return new class extends Migration {
             $table->json('customization')->nullable();
             $table->json('meta')->nullable();
             $table->boolean('active')->default(true);
+            $table->boolean('primary_creditor')->default(false);
             $table->timestamps();
             $table->softdeletes();
         });

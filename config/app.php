@@ -53,8 +53,8 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://visaronigeria.test'),
-    // 'url' => env('APP_URL', 'http://localhost'),
+//    'url' => env('APP_URL', 'http://visaronigeria.test'),
+    'url' => env('APP_URL', 'http://localhost'),
 
     'asset_url' => env('ASSET_URL', null),
 
@@ -186,14 +186,12 @@ return [
         App\Providers\CustomProviders\V2\CardServiceProvider::class,
 
 
-
-
-
-
         App\Providers\EventServiceProvider::class,
 
         App\Providers\RouteServiceProvider::class,
         // App\Providers\TelescopeServiceProvider::class,
+        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
+
 
     ],
 

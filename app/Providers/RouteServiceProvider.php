@@ -78,41 +78,35 @@ class RouteServiceProvider extends ServiceProvider
             //     ->group(base_path('routes/api/v1/auth/auth.php'));
 
 
-
             Route::prefix('api/v2/auth')
-            ->middleware(['api'])
-            ->namespace($this->namespace)
-            ->group(base_path('routes/api/v2/auth/auth.php'));
+                ->middleware(['api'])
+                ->namespace($this->namespace)
+                ->group(base_path('routes/api/v2/auth/auth.php'));
 
             Route::prefix('api/v2/onboarding')
-            ->middleware(['api'])
-            ->namespace($this->namespace)
-            ->group(base_path('routes/api/v2/onboarding/registration.php'));
-
-            Route::prefix('api/v2/onboarding')
-            ->middleware(['api'])
-            ->namespace($this->namespace)
-            ->group(base_path('routes/api/v2/onboarding/verification.php'));
+                ->middleware(['api'])
+                ->namespace($this->namespace)
+                ->group(base_path('routes/api/v2/onboarding/registration.php'));
 
             Route::prefix('api/v2/newsletter')
-            ->middleware(['api'])
-            ->namespace($this->namespace)
-            ->group(base_path('routes/api/v2/newsletter/public.php'));
+                ->middleware(['api'])
+                ->namespace($this->namespace)
+                ->group(base_path('routes/api/v2/newsletter/public.php'));
 
             Route::prefix('api/v2/account')
-            ->middleware(['api'])
-            ->namespace($this->namespace)
-            ->group(base_path('routes/api/v2/account/services.php'));
+                ->middleware(['api'])
+                ->namespace($this->namespace)
+                ->group(base_path('routes/api/v2/account/services.php'));
 
             Route::prefix('api/v2/account')
-            ->middleware(['api'])
-            ->namespace($this->namespace)
-            ->group(base_path('routes/api/v2/account/account.php'));
+                ->middleware(['api'])
+                ->namespace($this->namespace)
+                ->group(base_path('routes/api/v2/account/account.php'));
 
             Route::prefix('api/v2/admin')
-            ->middleware(['api'])
-            ->namespace($this->namespace)
-            ->group(base_path('routes/api/v2/admin/banks.php'));
+                ->middleware(['api'])
+                ->namespace($this->namespace)
+                ->group(base_path('routes/api/v2/admin/banks.php'));
 
             Route::middleware('web')
                 ->namespace($this->namespace)
@@ -125,7 +119,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function configureRateLimiting()
+    protected function configureRateLimiting(): void
     {
         RateLimiter::for('api', function (Request $request) {
             return Limit::perMinute(60)->by(optional($request->user())->id ?: $request->ip());

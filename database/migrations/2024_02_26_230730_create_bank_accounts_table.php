@@ -4,17 +4,16 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
     public function up(): void
     {
         Schema::create('bank_accounts', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->string('public_id')->index();
-            $table->foreignId('owner_id');
+            $table->foreignUuid('owner_id');
             $table->string('owner')->nullable();
             $table->string('account_name')->nullable();
             $table->string('account_number')->nullable();

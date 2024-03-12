@@ -12,10 +12,10 @@ return new class extends Migration {
     {
 
         Schema::create('credits', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->string('public_id')->index();
-            $table->foreignId('user_id')->nullable()->index();
-            $table->foreignId('creditor_id')->nullable()->index();
+            $table->foreignUuid('user_id')->nullable()->index();
+            $table->foreignUuid('creditor_id')->nullable()->index();
             $table->string('session')->nullable()->index();
             $table->string('reference')->nullable()->index();
             $table->string('currency')->default('NGN');
