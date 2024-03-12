@@ -12,7 +12,6 @@ return new class extends Migration {
     {
         Schema::create('currencies', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('public_id')->index();
             $table->foreignUuid('country_id');
             $table->uuid('public_id')->nullable();
             $table->string('country_code')->nullable();

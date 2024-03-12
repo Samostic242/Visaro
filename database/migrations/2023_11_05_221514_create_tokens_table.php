@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('tokens', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('public_id')->index();
+            $table->string('public_id')->nullable();
             $table->foreignUuid('user_id')->nullable()->index();
             $table->string('token')->nullable();
             $table->string('purpose')->nullable();
@@ -22,8 +22,6 @@ return new class extends Migration {
             $table->timestampTz('verified_at')->nullable();
             $table->boolean('valid')->default(true);
             $table->json('meta')->nullable();
-            $table->uuid('public_id')->index();
-
             $table->timestamps();
             $table->softdeletes();
         });
