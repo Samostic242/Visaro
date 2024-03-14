@@ -41,6 +41,9 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 WORKDIR /var/www
 COPY . .
 
+# Set the environment variable for Composer timeout
+ENV COMPOSER_PROCESS_TIMEOUT=600
+
 # Install dependencies and update the lock file
 RUN composer install 
 
@@ -52,6 +55,8 @@ RUN php artisan config:cache \
     && php artisan route:clear \
     && php artisan cache:clear \
     && php artisan config:cache \
-    && composer require cloudinary-labs/cloudinary-laravel
+    && composer require cloudinary-labs/cloudinary-laravel\
+    && composer require tymon/jwt-auth
+
 
 CMD ["php-fpm"]
