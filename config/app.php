@@ -184,7 +184,11 @@ return [
         App\Providers\CustomProviders\V2\BankingServiceProvider::class,
         App\Providers\CustomProviders\V2\WalletServiceProvider::class,
         App\Providers\CustomProviders\V2\CardServiceProvider::class,
-
+        App\Providers\CustomProviders\V2\Merchant\AuthenticationProvider::class,
+        App\Providers\CustomProviders\V2\Merchant\RegistrationProvider::class,
+        App\Providers\CustomProviders\V2\Merchant\VerificationProvider::class,
+        App\Providers\CustomProviders\V2\Merchant\ComplianceProvider::class,
+        App\Providers\CustomProviders\V2\Merchant\SettingsProvider::class,
 
         App\Providers\EventServiceProvider::class,
 

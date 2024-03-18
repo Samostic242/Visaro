@@ -23,7 +23,7 @@ Route::prefix('banking')->group(function () {
     });
 
     Route::prefix('banks')->middleware('auth:api')->group(function (){
-        Route::post('enquiry', [BankingController::class,'fecthAccountDetails']);
+        Route::post('enquiry', [BankingController::class,'fetchAccountDetails']);
         // Route::post('V2B')
     });
 

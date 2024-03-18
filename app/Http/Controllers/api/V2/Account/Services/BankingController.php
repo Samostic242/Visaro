@@ -109,7 +109,7 @@ class BankingController extends Controller
      /**
       * Fecth Visaro User Account Details by Code
       */
-      public function fecthAccountDetails(AccountDetailsRequest $request)
+      public function fetchAccountDetails(AccountDetailsRequest $request)
       {
         $validated_data = $request->validated();
         return $this->bankingRepository->fecthAccountDetails($validated_data);

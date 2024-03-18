@@ -27,7 +27,7 @@ class VerificationRepository implements VerificationRepositoryInterface
         if (!$check = otp::digits(4)->expiry(5)->check($data['code'], $data['email'])) {
             return respondError(400, '01', 'Incorrect/expired OTP, kindly request for another one');
         } elseif ($user->email_verified_at != NULL) {
-            return respondError(400, '01', 'The email has been verfied already');
+            return respondError(400, '01', 'The email has been verified already');
         }
         $user->email_verified_at = Carbon::now();
         $user->save();
@@ -54,7 +54,7 @@ class VerificationRepository implements VerificationRepositoryInterface
         if (!$check = otp::digits(4)->expiry(5)->check($data['code'], $data['phone'])) {
             return respondError(400, '01', 'Incorrect/expired OTP, kindly request for another one');
         } elseif ($user->phone_verified_at != NULL) {
-            return respondError(400, '01', 'The phone number has been verfied already');
+            return respondError(400, '01', 'The phone number has been verified already');
         }
         $user->phone_verified_at = Carbon::now();
         $user->save();
