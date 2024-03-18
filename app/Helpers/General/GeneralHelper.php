@@ -423,3 +423,23 @@ if(!function_exists('creditWallet'))
         return true;
     }
 }
+if(!function_exists('getFileType'))
+{
+    function getFileType(string $data): ?string
+    {
+        $file = $data;
+        $mimeType = $file->getClientMimeType();
+        if ($mimeType === 'application/pdf') {
+            $fileType = 'PDF';
+        } elseif (in_array($mimeType, ['image/jpeg', 'image/jpg'])) {
+            $fileType = 'JPG';
+        } elseif ($mimeType === 'video/mp4') {
+            $fileType = 'MP4';
+        } elseif ($mimeType === 'image/png') {
+            $fileType = 'PNG';
+        } else {
+            $fileType = 'Unknown';
+        }
+        return $fileType;
+    }
+}

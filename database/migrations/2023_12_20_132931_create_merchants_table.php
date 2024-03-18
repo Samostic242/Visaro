@@ -10,7 +10,7 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('merchants', function (Blueprint $table) {
+        Schema::create('merchantsa', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('public_id')->index();
             $table->string('slug')->nullable();

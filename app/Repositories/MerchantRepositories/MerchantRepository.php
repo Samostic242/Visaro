@@ -13,7 +13,8 @@ class MerchantRepository implements CreditorRepositoryInterface
         return Merchant::all();
     }
 
-    public function findById(string $id): ?Merchant
+   
+public function findById(string $id): ?Merchant
     {
         return Merchant::find($id);
     }

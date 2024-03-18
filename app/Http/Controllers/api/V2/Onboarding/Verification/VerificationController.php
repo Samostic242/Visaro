@@ -27,7 +27,7 @@ class VerificationController extends Controller
     public function resendOtp(Request $request)
     {
         if (!$resend = $this->verificationRepository->getOtp($request->toArray())) {
-            return respondError(400, '01', 'An error occured');
+            return respondError(400, '01', 'An error occurred');
         }
         return respondSuccess('An otp has been sent to you, kindly check your mail');
     }

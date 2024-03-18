@@ -14,7 +14,20 @@ return new class extends Migration {
             $table->uuid('id')->primary();
             $table->string('public_id')->index();
             $table->foreignUuid('merchant_id');
-            $table->string('business_name')->nullable();
+            $table->string('cac_number')->nullable();
+            $table->string('cac_document')->nullable();
+            $table->string('proof_of_address')->nullable();
+            $table->foreignUuid('country_id')->nullable();
+            $table->string('local_government')->nullable();
+            $table->string('state')->nullable();
+            $table->string('city')->nullable();
+            $table->string('street_address')->nullable();
+            $table->string('land_mark')->nullable();
+            $table->json('meta')->nullable();
+            $table->boolean('active')->default(true);
+            $table->timestamps();
+            $table->softDeletes();
+           /*  $table->string('business_name')->nullable();
             $table->string('business_registration_number')->nullable();
             $table->string('business_registration_document')->nullable();
 
@@ -43,11 +56,8 @@ return new class extends Migration {
             $table->string('phone')->nullable();
             $table->string('conflict_resolution_email')->nullable();
             $table->string('conflict_resolution_phone_code')->nullable();
-            $table->string('conflict_resolution_phone')->nullable();
-            $table->json('meta')->nullable();
-            $table->boolean('active')->default(true);
-            $table->timestamps();
-            $table->softdeletes();
+            $table->string('conflict_resolution_phone')->nullable(); */
+
         });
     }
 

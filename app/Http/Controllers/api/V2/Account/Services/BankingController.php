@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api\V2\Account\Services;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\V2\Account\Services\Banking\AccountDetailsRequest;
 use App\Http\Requests\V2\Account\Services\Banking\BankAccountRequest;
 use App\Http\Requests\V2\Account\Services\Banking\BankRequest;
 use App\Http\Requests\V2\Account\Services\Banking\BeneficiaryRequest;
@@ -41,7 +42,7 @@ class BankingController extends Controller
     public function allBeneficiaries()
     {
         $beneficiaries = $this->bankingRepository->getBeneficiaries();
-        return respondSuccess('Beneficiary fecthed Successfully', BeneficiaryResource::collection($beneficiaries));
+        return \respondSuccess('Beneficiary fetched Successfully', BeneficiaryResource::collection($beneficiaries));
     }
 
     /**
@@ -105,5 +106,12 @@ class BankingController extends Controller
 
     }
 
-
+     /**
+      * Fecth Visaro User Account Details by Code
+      */
+      public function fetchAccountDetails(AccountDetailsRequest $request)
+      {
+        $validated_data = $request->validated();
+        return $this->bankingRepository->fecthAccountDetails($validated_data);
+    }
 }
