@@ -189,6 +189,12 @@ return [
         App\Providers\CustomProviders\V2\Merchant\VerificationProvider::class,
         App\Providers\CustomProviders\V2\Merchant\ComplianceProvider::class,
         App\Providers\CustomProviders\V2\Merchant\SettingsProvider::class,
+        App\Providers\CustomProviders\V2\Commerce\ProductServiceProvider::class,
+        App\Providers\CustomProviders\V2\Commerce\AttributeServiceProvider::class,
+        App\Providers\CustomProviders\V2\Commerce\SkuServiceProvider::class,
+
+
+
 
         App\Providers\EventServiceProvider::class,
 
