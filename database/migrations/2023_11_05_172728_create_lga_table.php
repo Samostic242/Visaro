@@ -15,7 +15,7 @@ class CreateLgaTable extends Migration
     {
         Schema::create('lga', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('public_id')->index();
+            $table->string('public_id')->nullable();
             $table->foreignUuid('country_id');
             $table->foreignUuid('state_id')->nullable();
             $table->string('name')->nullable();

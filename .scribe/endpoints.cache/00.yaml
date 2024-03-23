@@ -28,7 +28,7 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: keenan.damore@example.net
+        example: cprosacco@example.com
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -37,14 +37,14 @@ endpoints:
         name: password
         description: ''
         required: true
-        example: '+/m]o&)X)XB#X.;u/'
+        example: 'Q;d4nu}*qV*B7d9W'
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      email: keenan.damore@example.net
-      password: '+/m]o&)X)XB#X.;u/'
+      email: cprosacco@example.com
+      password: 'Q;d4nu}*qV*B7d9W'
     fileParameters: []
     responses:
       -
@@ -92,7 +92,7 @@ endpoints:
                   },
                   {
                       "file": "/Users/maxwellagu/Herd/visaronigeria/app/Providers/RouteServiceProvider.php",
-                      "line": 125,
+                      "line": 143,
                       "function": "user",
                       "class": "Illuminate\\Http\\Request",
                       "type": "->"
@@ -500,13 +500,13 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: trudie.mccullough@example.com
+        example: anastasia05@example.com
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      email: trudie.mccullough@example.com
+      email: anastasia05@example.com
     fileParameters: []
     responses:
       -
@@ -554,7 +554,7 @@ endpoints:
                   },
                   {
                       "file": "/Users/maxwellagu/Herd/visaronigeria/app/Providers/RouteServiceProvider.php",
-                      "line": 125,
+                      "line": 143,
                       "function": "user",
                       "class": "Illuminate\\Http\\Request",
                       "type": "->"
@@ -962,7 +962,7 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: elmer.maggio@example.net
+        example: veda02@example.com
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -971,7 +971,7 @@ endpoints:
         name: code
         description: 'Must match the regex /[0-9]{4}/.'
         required: true
-        example: '6372'
+        example: '8683'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -980,15 +980,15 @@ endpoints:
         name: password
         description: ''
         required: true
-        example: '}/BG:"'
+        example: 'zs>Tp3%G:Uf'
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      email: elmer.maggio@example.net
-      code: '6372'
-      password: '}/BG:"'
+      email: veda02@example.com
+      code: '8683'
+      password: 'zs>Tp3%G:Uf'
     fileParameters: []
     responses:
       -
@@ -1036,7 +1036,7 @@ endpoints:
                   },
                   {
                       "file": "/Users/maxwellagu/Herd/visaronigeria/app/Providers/RouteServiceProvider.php",
-                      "line": 125,
+                      "line": 143,
                       "function": "user",
                       "class": "Illuminate\\Http\\Request",
                       "type": "->"

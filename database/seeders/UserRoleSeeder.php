@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Role;
+use App\Models\User;
 use App\Models\UserRole;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class UserRoleSeeder extends Seeder
 {
@@ -15,16 +16,22 @@ class UserRoleSeeder extends Seeder
      */
     public function run()
     {
+        $user_roles = [
+            [
+                'user_id' => User::where('email', 'maxwell@gmail.com')->first()->id,
+                'role_id' => Role::first()->id,
+                'description' => 'Admin User'
+            ],
+            [
+                'user_id' => User::where('email', 'esekelvin24@gmail.com')->first()->id,
+                'role_id' => Role::first()->id,
+                'description' => 'User'
+            ]
+        ];
+        foreach ($user_roles as $user_role) {
+            UserRole::create($user_role);
+        }
 
-        //Admin
-        DB::table('users_roles')->insert(
-            ['user_id' => 1, 'role_id' => 1, 'description' => 'Admin User'],
 
-        );
-
-        //User
-        DB::table('users_roles')->insert(
-            ['user_id' => 2, 'role_id' => 1, 'description' => 'User'],
-        );
     }
 }

@@ -7,11 +7,10 @@ use App\Http\Requests\V2\Merchant\Onboarding\Registration\GetOtpRequest;
 use App\Http\Requests\V2\Merchant\Onboarding\Registration\MerchantRegistrationRequest;
 use App\Http\Requests\V2\Merchant\Onboarding\Registration\RegistrationRequest;
 use App\Interfaces\Repositories\V2\Merchant\Onboarding\Registration\MerchantRegistrationInterface;
-use Illuminate\Http\Request;
 
 /**
- * @group Merchant Onboarding
- * @subgroup Registration
+ * @group Merchant
+ * @subgroup Onboarding
  * @description APIs for Onboarding Merchants
  */
 class MerchantRegistrationController extends Controller
@@ -22,6 +21,7 @@ class MerchantRegistrationController extends Controller
     {
 
     }
+
     /**
      * Sends an Otp to the merchant's Mail
      */
@@ -37,9 +37,8 @@ class MerchantRegistrationController extends Controller
     public function update(MerchantRegistrationRequest $request)
     {
         $validated_data = $request->validated();
-        if(!$updated = $this->merchantRegistrationRepository->update(auth()->id(), $validated_data))
-        {
-           return respondError(400, '01', 'An error occurred');
+        if (!$updated = $this->merchantRegistrationRepository->update(auth()->id(), $validated_data)) {
+            return respondError(400, '01', 'An error occurred');
         }
         return respondSuccess('Merchant details updated successfully');
     }

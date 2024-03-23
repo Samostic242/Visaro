@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use App\Models\Loans\Invoice\Invoice;
-// use App\Models\Loans\Merchants\Merchant;
 use App\Models\Merchant\Onboarding\Merchant;
 use App\Models\User;
 use App\Observers\InvoiceObserver;
@@ -12,6 +11,8 @@ use App\Observers\UserObserver;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+
+// use App\Models\Loans\Merchants\Merchant;
 
 class EventServiceProvider extends ServiceProvider
 {

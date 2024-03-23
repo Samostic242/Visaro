@@ -2,18 +2,24 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Role extends Model
 {
     use HasFactory;
+    use HasUuids;
+    use SoftDeletes;
 
-    public function permissions() {
-        return $this->belongsToMany(Permission::class,'roles_permissions');   
+    public function permissions()
+    {
+        return $this->belongsToMany(Permission::class, 'roles_permissions');
     }
-     
-     public function users() {
-        return $this->belongsToMany(User::class,'users_roles');    
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'users_roles');
     }
 }

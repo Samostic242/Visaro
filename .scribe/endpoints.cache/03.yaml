@@ -72,7 +72,7 @@ endpoints:
                   },
                   {
                       "file": "/Users/maxwellagu/Herd/visaronigeria/app/Providers/RouteServiceProvider.php",
-                      "line": 125,
+                      "line": 143,
                       "function": "user",
                       "class": "Illuminate\\Http\\Request",
                       "type": "->"
@@ -480,7 +480,7 @@ endpoints:
         name: account_name
         description: ''
         required: true
-        example: commodi
+        example: quam
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -489,7 +489,7 @@ endpoints:
         name: account_number
         description: ''
         required: true
-        example: soluta
+        example: delectus
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -498,15 +498,15 @@ endpoints:
         name: bank_name
         description: ''
         required: true
-        example: ex
+        example: autem
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      account_name: commodi
-      account_number: soluta
-      bank_name: ex
+      account_name: quam
+      account_number: delectus
+      bank_name: autem
     fileParameters: []
     responses:
       -
@@ -588,7 +588,7 @@ endpoints:
         name: account_name
         description: ''
         required: true
-        example: autem
+        example: tempora
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -597,7 +597,7 @@ endpoints:
         name: account_number
         description: ''
         required: true
-        example: nam
+        example: distinctio
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -606,7 +606,7 @@ endpoints:
         name: bank_name
         description: ''
         required: true
-        example: culpa
+        example: occaecati
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -615,16 +615,16 @@ endpoints:
         name: bank_code
         description: ''
         required: true
-        example: temporibus
+        example: velit
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      account_name: autem
-      account_number: nam
-      bank_name: culpa
-      bank_code: temporibus
+      account_name: tempora
+      account_number: distinctio
+      bank_name: occaecati
+      bank_code: velit
     fileParameters: []
     responses:
       -
@@ -706,7 +706,7 @@ endpoints:
         name: type
         description: ''
         required: true
-        example: et
+        example: necessitatibus
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -715,7 +715,7 @@ endpoints:
         name: number
         description: ''
         required: true
-        example: aut
+        example: quas
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -724,7 +724,7 @@ endpoints:
         name: expiration_month
         description: ''
         required: true
-        example: explicabo
+        example: aut
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -733,7 +733,7 @@ endpoints:
         name: expiration_year
         description: ''
         required: true
-        example: et
+        example: ut
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -742,7 +742,7 @@ endpoints:
         name: cvv
         description: ''
         required: true
-        example: reprehenderit
+        example: vitae
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -751,7 +751,7 @@ endpoints:
         name: last_four_digit
         description: ''
         required: true
-        example: eaque
+        example: earum
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -760,7 +760,7 @@ endpoints:
         name: country
         description: ''
         required: true
-        example: earum
+        example: amet
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -769,7 +769,7 @@ endpoints:
         name: state
         description: ''
         required: true
-        example: non
+        example: deserunt
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -778,7 +778,7 @@ endpoints:
         name: postal_code
         description: ''
         required: true
-        example: sit
+        example: quo
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -787,7 +787,7 @@ endpoints:
         name: city
         description: ''
         required: true
-        example: maxime
+        example: consequatur
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -796,7 +796,7 @@ endpoints:
         name: street_address
         description: ''
         required: true
-        example: rerum
+        example: aspernatur
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -805,7 +805,7 @@ endpoints:
         name: lga
         description: ''
         required: true
-        example: culpa
+        example: quam
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -814,7 +814,7 @@ endpoints:
         name: provider
         description: ''
         required: true
-        example: tenetur
+        example: et
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -832,26 +832,26 @@ endpoints:
         name: allow_charge
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      type: et
-      number: aut
-      expiration_month: explicabo
-      expiration_year: et
-      cvv: reprehenderit
-      last_four_digit: eaque
-      country: earum
-      state: non
-      postal_code: sit
-      city: maxime
-      street_address: rerum
-      lga: culpa
-      provider: tenetur
-      allow_charge: false
+      type: necessitatibus
+      number: quas
+      expiration_month: aut
+      expiration_year: ut
+      cvv: vitae
+      last_four_digit: earum
+      country: amet
+      state: deserunt
+      postal_code: quo
+      city: consequatur
+      street_address: aspernatur
+      lga: quam
+      provider: et
+      allow_charge: true
     fileParameters:
       provider_logo: null
     responses:
@@ -930,17 +930,66 @@ endpoints:
         name: card_id
         description: 'The ID of the card.'
         required: true
-        example: qui
+        example: iure
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      card_id: qui
+      card_id: iure
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
     cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"api_status":"401","message":"Unauthorized"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v2/account/banking/banks/enquiry
+    metadata:
+      groupName: Banks
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Fecth Visaro User Account Details by Code'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      code:
+        name: code
+        description: ''
+        required: true
+        example: nihil
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      code: nihil
     fileParameters: []
     responses:
       -
@@ -983,7 +1032,7 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: et
+        example: quia
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -992,7 +1041,7 @@ endpoints:
         name: code
         description: ''
         required: true
-        example: et
+        example: molestiae
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1001,7 +1050,7 @@ endpoints:
         name: acronym
         description: ''
         required: true
-        example: unde
+        example: asperiores
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1016,9 +1065,9 @@ endpoints:
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      name: et
-      code: et
-      acronym: unde
+      name: quia
+      code: molestiae
+      acronym: asperiores
     fileParameters:
       logo: null
     responses:

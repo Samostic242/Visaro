@@ -26,7 +26,7 @@ endpoints:
         name: firstname
         description: 'Must not be greater than 20 characters.'
         required: false
-        example: uunpyttvyvw
+        example: fcmzlbjssyzcnjfec
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -35,7 +35,7 @@ endpoints:
         name: middlename
         description: 'Must not be greater than 20 characters.'
         required: false
-        example: byrvjgpzlximo
+        example: aikasmfxphr
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -44,7 +44,7 @@ endpoints:
         name: lastname
         description: 'Must not be greater than 20 characters.'
         required: false
-        example: hci
+        example: wrxljc
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -53,7 +53,7 @@ endpoints:
         name: phone_code
         description: 'Must match the regex /^\+[0-9]+$/. Must not be greater than 4 characters.'
         required: false
-        example: a
+        example: zpw
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -62,7 +62,7 @@ endpoints:
         name: phone
         description: 'Must match the regex /[0-9]{10}$/.'
         required: false
-        example: '3023666429'
+        example: '4807425630'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -80,18 +80,18 @@ endpoints:
         name: password
         description: ''
         required: false
-        example: '"BOeWCeU'
+        example: 'z9ED[GjO'
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      firstname: uunpyttvyvw
-      middlename: byrvjgpzlximo
-      lastname: hci
-      phone_code: a
-      phone: '3023666429'
-      password: '"BOeWCeU'
+      firstname: fcmzlbjssyzcnjfec
+      middlename: aikasmfxphr
+      lastname: wrxljc
+      phone_code: zpw
+      phone: '4807425630'
+      password: 'z9ED[GjO'
     fileParameters:
       photo: null
     responses:
@@ -140,7 +140,7 @@ endpoints:
                   },
                   {
                       "file": "/Users/maxwellagu/Herd/visaronigeria/app/Providers/RouteServiceProvider.php",
-                      "line": 125,
+                      "line": 143,
                       "function": "user",
                       "class": "Illuminate\\Http\\Request",
                       "type": "->"
@@ -548,13 +548,13 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: wendy52@example.com
+        example: dickinson.corine@example.net
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      email: wendy52@example.com
+      email: dickinson.corine@example.net
     fileParameters: []
     responses:
       -
@@ -602,7 +602,7 @@ endpoints:
                   },
                   {
                       "file": "/Users/maxwellagu/Herd/visaronigeria/app/Providers/RouteServiceProvider.php",
-                      "line": 125,
+                      "line": 143,
                       "function": "user",
                       "class": "Illuminate\\Http\\Request",
                       "type": "->"
@@ -1054,7 +1054,7 @@ endpoints:
                   },
                   {
                       "file": "/Users/maxwellagu/Herd/visaronigeria/app/Providers/RouteServiceProvider.php",
-                      "line": 125,
+                      "line": 143,
                       "function": "user",
                       "class": "Illuminate\\Http\\Request",
                       "type": "->"
@@ -1462,7 +1462,7 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: mrolfson@example.net
+        example: zking@example.net
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1471,14 +1471,14 @@ endpoints:
         name: code
         description: 'Must match the regex /[0-9]{4}/.'
         required: true
-        example: '8012'
+        example: '6344'
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      email: mrolfson@example.net
-      code: '8012'
+      email: zking@example.net
+      code: '6344'
     fileParameters: []
     responses:
       -
@@ -1526,7 +1526,7 @@ endpoints:
                   },
                   {
                       "file": "/Users/maxwellagu/Herd/visaronigeria/app/Providers/RouteServiceProvider.php",
-                      "line": 125,
+                      "line": 143,
                       "function": "user",
                       "class": "Illuminate\\Http\\Request",
                       "type": "->"
@@ -1934,7 +1934,7 @@ endpoints:
         name: firstname
         description: 'Must not be greater than 20 characters.'
         required: false
-        example: sfuyedpgfqckgoacq
+        example: gfayu
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1943,7 +1943,7 @@ endpoints:
         name: middlename
         description: 'Must not be greater than 20 characters.'
         required: false
-        example: zgniurwbxpchv
+        example: ivizw
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1952,7 +1952,7 @@ endpoints:
         name: lastname
         description: 'Must not be greater than 20 characters.'
         required: false
-        example: v
+        example: yfj
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1961,7 +1961,7 @@ endpoints:
         name: phone_code
         description: 'Must match the regex /^\+[0-9]+$/. Must not be greater than 4 characters.'
         required: false
-        example: ps
+        example: kk
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1970,7 +1970,7 @@ endpoints:
         name: phone
         description: 'Must match the regex /[0-9]{10}$/.'
         required: false
-        example: '8496190611'
+        example: '3435443340'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1988,18 +1988,18 @@ endpoints:
         name: password
         description: ''
         required: false
-        example: 'uk{A}^?N,![r'
+        example: 'eq`.[3CzsNU<'
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      firstname: sfuyedpgfqckgoacq
-      middlename: zgniurwbxpchv
-      lastname: v
-      phone_code: ps
-      phone: '8496190611'
-      password: 'uk{A}^?N,![r'
+      firstname: gfayu
+      middlename: ivizw
+      lastname: yfj
+      phone_code: kk
+      phone: '3435443340'
+      password: 'eq`.[3CzsNU<'
     fileParameters:
       photo: null
     responses:

@@ -28,13 +28,13 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: tabitha68@example.com
+        example: lang.margaret@example.net
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      email: tabitha68@example.com
+      email: lang.margaret@example.net
     fileParameters: []
     responses:
       -
@@ -82,7 +82,7 @@ endpoints:
                   },
                   {
                       "file": "/Users/maxwellagu/Herd/visaronigeria/app/Providers/RouteServiceProvider.php",
-                      "line": 125,
+                      "line": 143,
                       "function": "user",
                       "class": "Illuminate\\Http\\Request",
                       "type": "->"
