@@ -8,15 +8,15 @@ use App\Interfaces\Repositories\V2\Onboarding\VerificationRepositoryInterface;
 use Illuminate\Http\Request;
 
 /**
- * @group Verifying Users
+ * @group User Onboarding
+ * @subgroup Verification
  * @description APIs for managing User Verification
  */
 class VerificationController extends Controller
 {
-    //
 
     function __construct(
-    protected VerificationRepositoryInterface $verificationRepository)
+        protected VerificationRepositoryInterface $verificationRepository)
     {
 
     }
@@ -24,17 +24,16 @@ class VerificationController extends Controller
     /**
      * Resends One time password to the user
      */
-    public function resendtOtp(Request $request)
+    public function resendOtp(Request $request)
     {
-        if(!$resend = $this->verificationRepository->getOtp($request->toArray()))
-        {
-            return respondError(400, 'An error occured');
+        if (!$resend = $this->verificationRepository->getOtp($request->toArray())) {
+            return respondError(400, '01', 'An error occurred');
         }
         return respondSuccess('An otp has been sent to you, kindly check your mail');
     }
 
     /**
-     * Verifies the user One time password
+     * Verify onboarding email OTP
      */
     public function verifyOtp(VerificationRequest $request)
     {

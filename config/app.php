@@ -53,8 +53,8 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://visaronigeria.test'),
-    // 'url' => env('APP_URL', 'http://localhost'),
+//    'url' => env('APP_URL', 'http://visaronigeria.test'),
+    'url' => env('APP_URL', 'http://localhost'),
 
     'asset_url' => env('ASSET_URL', null),
 
@@ -184,8 +184,14 @@ return [
         App\Providers\CustomProviders\V2\BankingServiceProvider::class,
         App\Providers\CustomProviders\V2\WalletServiceProvider::class,
         App\Providers\CustomProviders\V2\CardServiceProvider::class,
-
-
+        App\Providers\CustomProviders\V2\Merchant\AuthenticationProvider::class,
+        App\Providers\CustomProviders\V2\Merchant\RegistrationProvider::class,
+        App\Providers\CustomProviders\V2\Merchant\VerificationProvider::class,
+        App\Providers\CustomProviders\V2\Merchant\ComplianceProvider::class,
+        App\Providers\CustomProviders\V2\Merchant\SettingsProvider::class,
+        App\Providers\CustomProviders\V2\Commerce\ProductServiceProvider::class,
+        App\Providers\CustomProviders\V2\Commerce\AttributeServiceProvider::class,
+        App\Providers\CustomProviders\V2\Commerce\SkuServiceProvider::class,
 
 
 
@@ -194,6 +200,8 @@ return [
 
         App\Providers\RouteServiceProvider::class,
         // App\Providers\TelescopeServiceProvider::class,
+        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
+
 
     ],
 

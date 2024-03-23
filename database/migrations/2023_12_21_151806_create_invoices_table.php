@@ -11,10 +11,10 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('invoices', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->string('public_id')->index();
-            $table->foreignId('user_id')->nullable()->index();
-            $table->foreignId('merchant_id')->nullable()->index();
+            $table->foreignUuid('user_id')->nullable()->index();
+            $table->foreignUuid('merchant_id')->nullable()->index();
             $table->string('slug')->nullable();
             $table->string('code')->nullable()->index();
             $table->string('title')->nullable()->index();

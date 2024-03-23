@@ -10,9 +10,9 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('merchants', function (Blueprint $table) {
-            $table->id();
-            $table->uuid('public_id')->nullable();
+        Schema::create('merchantsa', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->string('public_id')->index();
             $table->string('slug')->nullable();
             $table->string('business_name')->nullable();
             $table->string('business_type')->nullable(); // corporation, sole_proprietorship, partnership
@@ -25,7 +25,7 @@ return new class extends Migration {
             $table->string('website')->nullable();
             $table->string('presence')->nullable(); // physical, virtual, hybrid
             $table->string('logo')->nullable();
-            $table->foreignId('country_id');
+            $table->foreignUuid('country_id');
             $table->string('category')->nullable();
             $table->json('meta')->nullable();
             $table->json('customization')->nullable();

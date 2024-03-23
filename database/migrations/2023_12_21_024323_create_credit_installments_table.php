@@ -12,10 +12,10 @@ return new class extends Migration {
     {
 
         Schema::create('credit_installments', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->string('public_id')->index();
-            $table->foreignId('user_id')->nullable()->index();
-            $table->foreignId('credit_id')->nullable()->index();
+            $table->foreignUuid('user_id')->nullable()->index();
+            $table->foreignUuid('credit_id')->nullable()->index();
             $table->bigInteger('amount')->default(0);
             $table->integer('installment_number')->default(1);
             $table->timestamp('payable_at')->nullable();

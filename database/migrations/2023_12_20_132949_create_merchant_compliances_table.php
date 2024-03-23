@@ -11,10 +11,23 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('merchant_compliances', function (Blueprint $table) {
-            $table->id();
-            $table->uuid('public_id')->nullable();
-            $table->foreignId('merchant_id');
-            $table->string('business_name')->nullable();
+            $table->uuid('id')->primary();
+            $table->string('public_id')->index();
+            $table->foreignUuid('merchant_id');
+            $table->string('cac_number')->nullable();
+            $table->string('cac_document')->nullable();
+            $table->string('proof_of_address')->nullable();
+            $table->foreignUuid('country_id')->nullable();
+            $table->string('local_government')->nullable();
+            $table->string('state')->nullable();
+            $table->string('city')->nullable();
+            $table->string('street_address')->nullable();
+            $table->string('land_mark')->nullable();
+            $table->json('meta')->nullable();
+            $table->boolean('active')->default(true);
+            $table->timestamps();
+            $table->softDeletes();
+           /*  $table->string('business_name')->nullable();
             $table->string('business_registration_number')->nullable();
             $table->string('business_registration_document')->nullable();
 
@@ -32,7 +45,7 @@ return new class extends Migration {
             $table->string('website')->nullable();
             $table->string('logo')->nullable();
             $table->string('code')->nullable();
-            $table->foreignId('country_id');
+            $table->foreignUuid('country_id');
             $table->string('state')->nullable();
             $table->string('lga')->nullable();
             $table->string('address1')->nullable();
@@ -43,11 +56,8 @@ return new class extends Migration {
             $table->string('phone')->nullable();
             $table->string('conflict_resolution_email')->nullable();
             $table->string('conflict_resolution_phone_code')->nullable();
-            $table->string('conflict_resolution_phone')->nullable();
-            $table->json('meta')->nullable();
-            $table->boolean('active')->default(true);
-            $table->timestamps();
-            $table->softdeletes();
+            $table->string('conflict_resolution_phone')->nullable(); */
+
         });
     }
 

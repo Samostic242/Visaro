@@ -11,9 +11,9 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('creditor_conditions', function (Blueprint $table) {
-            $table->id();
-            $table->uuid('public_id')->nullable();
-            $table->foreignId('creditor_id');
+            $table->uuid('id')->primary();
+            $table->string('public_id')->index();
+            $table->foreignUuid('creditor_id');
             $table->integer('tier')->default(3);
             $table->string('base_url')->nullable();
             $table->string('callback_url')->nullable();

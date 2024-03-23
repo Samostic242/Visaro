@@ -1,4 +1,5 @@
 <?php
+use App\Models\Merchant\Onboarding\Merchant;
 
 return [
 
@@ -14,7 +15,8 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
+//        'guard' => 'web',
+        'api' => 'web',
         'passwords' => 'users',
     ],
 
@@ -41,11 +43,17 @@ return [
             'provider' => 'users',
         ],
         'api' => [
-            'driver' => 'passport',
+//            'driver' => 'passport',
+            'driver' => 'jwt',
             'provider' => 'users',
-            'expire_in' => 15, // Set the access token lifetime in minutes (15 minutes)
-            'refresh_in' => 10080, // Set the refresh token lifetime in minutes (7 days)
+//            'expire_in' => 15, // Set the access token lifetime in minutes (15 minutes)
+//            'refresh_in' => 10080, // Set the refresh token lifetime in minutes (7 days)
         ],
+
+        'merchant' => [
+                        'driver' => 'jwt',
+                        'provider' => 'merchants',
+                    ],
     ],
 
     /*
@@ -69,6 +77,10 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+        'merchants' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Merchant\Onboarding\Merchant::class,
         ],
 
         // 'users' => [

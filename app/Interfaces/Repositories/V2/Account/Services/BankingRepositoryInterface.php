@@ -18,4 +18,6 @@ interface BankingRepositoryInterface
     public function deleteBankAccount(string $id);
 
     public function findBankAccountById(string $id);
+
+    public function fecthAccountDetails(array $data);
 }

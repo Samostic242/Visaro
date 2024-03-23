@@ -2,22 +2,30 @@
 
 namespace App\Observers;
 
-use App\Models\Loans\Merchants\Merchant;
+use App\Interfaces\Repositories\V2\Merchant\Account\MerchantSettingsInterface;
+use App\Models\Merchant\Onboarding\Merchant;
+
 
 
 class MerchantObserver
 {
+    function __construct(
+    protected MerchantSettingsInterface $merchantSettingsRepository
+    )
+    {
+
+    }
+
     /**
      * Handle the Merchant "created" event.
      */
     public function created(Merchant $merchant): void
     {
-        if ($merchant->name) {
-            $merchant->code = generateCode($merchant->name);
-            $merchant->qrcode = generateQrCode($merchant->code);
-        }
-        $merchant->public_id = $invoice->public_id ?? uuid();
+        $merchant->code = generateCode($merchant->business_email);
+        // $merchant->qrcode = generateQrCode($merchant->code);
         $merchant->save();
+        $this->merchantSettingsRepository->create($merchant->toArray());
+        $this->merchantSettingsRepository->createPreference($merchant->toArray());
     }
 
     /**

@@ -2,14 +2,16 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class FlightBooking extends Model
 {
     use HasFactory;
     use SoftDeletes;
+    use HasUuids;
 
     protected $fillable = [
         'user_id',
@@ -35,14 +37,17 @@ class FlightBooking extends Model
         'copy' => 'array',
         'meta' => 'array',
     ];
+
     public function billingAddress(): \Illuminate\Database\Eloquent\Relations\HasOne
     {
         return $this->hasOne(FlightBillingAddress::class);
     }
+
     public function booked(): \Illuminate\Database\Eloquent\Relations\HasOne
     {
         return $this->hasOne(BookedFlight::class);
     }
+
     public function travellers(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(AirTraveller::class);
