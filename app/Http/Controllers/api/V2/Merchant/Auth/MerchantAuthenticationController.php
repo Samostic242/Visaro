@@ -9,9 +9,13 @@ use App\Http\Resources\V2\Merchant\Account\MerchantAccountResource;
 use App\Interfaces\Repositories\V2\Merchant\Auth\MerchantAuthenticationInterface;
 use Illuminate\Http\Request;
 
+/**
+ * @group Merchant
+ * @subgroup Account
+ * @description APIs for merchant account
+ */
 class MerchantAuthenticationController extends Controller
 {
-    //
 
     function __construct(
         protected MerchantAuthenticationInterface $merchantAuthenticationRepository
@@ -20,7 +24,7 @@ class MerchantAuthenticationController extends Controller
 
     }
 
-     /**
+    /**
      * Fetch Merchant profile
      */
     public function fetchMerchant(Request $request)
@@ -32,7 +36,7 @@ class MerchantAuthenticationController extends Controller
         return respondSuccess('Merchant fetched successfully', new MerchantAccountResource($merchant));
     }
 
-     /**
+    /**
      * Initiate merchant password reset
      */
     public function forgotPassword(MerchantForgotPasswordRequest $request)
@@ -45,7 +49,7 @@ class MerchantAuthenticationController extends Controller
         return respondSuccess($initiated['message'], $initiated['data']);
     }
 
-     /**
+    /**
      * Complete merchant password reset
      */
     public function resetPassword(MerchantResetPasswordRequest $request)

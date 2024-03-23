@@ -358,33 +358,37 @@ if (!function_exists('generateKey')) {
     }
 }
 if (!function_exists('generateQrCode')) {
-    function generateQrCode(string $key, string $format = 'svg'): ?string
+    function generateQrCode(string $key, string $format = 'svg'): string|false
     {
-        $path = '../storage/app/qrcode';
-        if (!File::exists($path)) {
-            File::makeDirectory($path, 0777, true);
+        try {
+            $path = '../storage/app/qrcode';
+            if (!File::exists($path)) {
+                File::makeDirectory($path, 0777, true);
+            }
+            $file = "{$path}/{$key}.{$format}";
+            QrCode::format($format)
+                ->size(512)
+                ->style('round')
+                ->backgroundColor(255, 255, 255, 0)
+                ->color(0, 0, 0, 90)
+                ->margin(2)
+                ->generate($key, $file);
+            if (File::exists($file)) {
+                Log::info('QrCode created, uploading to cloud');
+                return cloudinary()->upload($file, [
+                    'folder' => 'qrcodes',
+                    'public_id' => Str::uuid()->toString(),
+                ])->getSecurePath();
+            }
+            return $key;
+        } catch (Throwable $exception) {
+            return false;
         }
-        $file = "{$path}/{$key}.{$format}";
-        QrCode::format($format)
-            ->size(512)
-            ->style('round')
-            ->backgroundColor(255, 255, 255, 0)
-            ->color(0, 0, 0, 90)
-            ->margin(2)
-            ->generate($key, $file);
-        if (File::exists($file)) {
-            Log::info('QrCode created, uploading to cloud');
-            return cloudinary()->upload($file, [
-                'folder' => 'qrcodes',
-                'public_id' => Str::uuid()->toString(),
-            ])->getSecurePath();
-        }
-        return $key;
+
     }
 }
 
-if(!function_exists('upload_to_cloudinary'))
-{
+if (!function_exists('upload_to_cloudinary')) {
     function upload_to_cloudinary(string $folder, $fil): ?string
     {
         $upload = cloudinary()->upload($fil, [
@@ -395,14 +399,13 @@ if(!function_exists('upload_to_cloudinary'))
     }
 }
 
-if(!function_exists('debitWallet'))
-{
+if (!function_exists('debitWallet')) {
     function debitWallet(string $wallet_id, int $amount): ?string
     {
         $wallet = Wallet::where('id', $wallet_id)
-        ->where('owner_id', auth()->id())
-        ->decrement('balance', $amount);
-        if(!$wallet){
+            ->where('owner_id', auth()->id())
+            ->decrement('balance', $amount);
+        if (!$wallet) {
             return false;
         }
         return true;
@@ -410,21 +413,19 @@ if(!function_exists('debitWallet'))
 
 }
 
-if(!function_exists('creditWallet'))
-{
+if (!function_exists('creditWallet')) {
     function creditWallet(string $wallet_id, int $amount): ?string
     {
         $wallet = Wallet::where('id', $wallet_id)
-        ->where('owner_id', auth()->id())
-        ->increment('balance', $amount);
-        if(!$wallet){
+            ->where('owner_id', auth()->id())
+            ->increment('balance', $amount);
+        if (!$wallet) {
             return false;
         }
         return true;
     }
 }
-if(!function_exists('getFileType'))
-{
+if (!function_exists('getFileType')) {
     function getFileType(string $data): ?string
     {
         $file = $data;

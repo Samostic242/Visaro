@@ -15,7 +15,6 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^10.0",
         "laravel/passport": "^11.0",
-        "laravel/sanctum": "^3.2",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^4.2",
         "okolaa/termiiphp": "^1.0",

@@ -14,7 +14,8 @@ class CreateGenderTable extends Migration
     public function up()
     {
         Schema::create('gender', function (Blueprint $table) {
-            $table->integer('gender_id')->primary();
+            $table->uuid('id')->primary();
+            $table->string('code')->nullable();
             $table->string('description')->nullable();
         });
     }

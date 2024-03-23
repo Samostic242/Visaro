@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\api\v1\Loans\Creditor\CreditorController;
+use App\Http\Controllers\api\V1\Loans\Creditor\CreditorController;
 use Illuminate\Support\Facades\Route;
 
 Route::post('/', [CreditorController::class, 'createCreditorRecord']);

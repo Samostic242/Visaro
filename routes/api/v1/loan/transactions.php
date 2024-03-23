@@ -1,11 +1,9 @@
 <?php
 
-use App\Http\Controllers\api\v1\Services\Aviation\FlightPaymentController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\api\V1\Services\Aviation\BookNewFlightController;
+use App\Http\Controllers\api\V1\Services\Aviation\FlightPaymentController;
+use App\Http\Controllers\api\V1\Services\Aviation\TripsAuthorizationController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\api\v1\Services\Aviation\BookNewFlightController;
-use App\Http\Controllers\api\v1\Users\Profile\Phone\PhoneNumberController;
-use App\Http\Controllers\api\v1\Services\Aviation\TripsAuthorizationController;
 
 Route::get('/widget/initialize', [TripsAuthorizationController::class, 'getWidgetAuthorizationToken'])->name('aviation.authorize');
 Route::prefix('/flights')->group(function () {
