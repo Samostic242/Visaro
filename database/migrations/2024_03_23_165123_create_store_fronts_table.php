@@ -11,18 +11,21 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('store_fronts', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('public_id')->nullable();
+            $table->foreignUuid('merchant_id')->constrained();
             $table->string('name')->nullable();
-            $table->string('merchant_code')->nullable();
-            $table->string('code')->nullable();
             $table->string('slug')->nullable();
-            $table->string('link')->nullable();
-            $table->string('cover_image')->nullable();
             $table->string('qrcode')->nullable();
-            $table->softDeletes();
+            $table->string('link')->nullable();
+            $table->string('code')->nullable();
+            $table->string('logo')->nullable();
+            $table->string('cover_image')->nullable();
+            $table->string('status')->default('active');
+            $table->boolean('active')->default(true);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -31,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('store_fronts');
     }
 };
