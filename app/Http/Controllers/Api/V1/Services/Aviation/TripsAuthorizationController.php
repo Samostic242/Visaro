@@ -52,6 +52,6 @@ class TripsAuthorizationController extends Controller
             // "token" => $response->Token,
             "url" => "https://tripswebwidget.staging.vggdev.com/?MerchantCode={$response->MerchantCode}&MerchantHash={$response->Token}&CustomerName={$response->ExtraData['CustomerName']}&CustomerId={$response->ExtraData['CustomerIdentifier']}",
         ];
-        return respondSuccess("Authorization initalized successfully", $data);
+        return respondSuccess("Authorization initialized successfully", $data);
     }
 }
