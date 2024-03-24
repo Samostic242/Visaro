@@ -26,7 +26,7 @@ endpoints:
         name: name
         description: ''
         required: false
-        example: ut
+        example: totam
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -35,7 +35,7 @@ endpoints:
         name: slug
         description: ''
         required: false
-        example: doloremque
+        example: enim
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -44,20 +44,20 @@ endpoints:
         name: link
         description: ''
         required: false
-        example: sit
+        example: dolor
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      name: ut
-      slug: doloremque
-      link: sit
+      name: totam
+      slug: enim
+      link: dolor
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"code":"00","status":true,"message":"Product Created Successfully","data":{"public_id":"1e483286-4ddc-4a3c-8b92-c277d9a225bc","name":"ut","slug":"doloremque","link":"sit","id":"9ba21b0f-31a3-41a3-b46d-f4d2c388e8be","updated_at":"2024-03-23T14:50:09.000000Z","created_at":"2024-03-23T14:50:09.000000Z"}}'
+        content: '{"code":"00","status":true,"message":"Product Created Successfully","data":{"public_id":"119048a3-4a34-436c-a3e2-2a719c6aa935","name":"totam","slug":"enim","link":"dolor","id":"9ba4438c-8ff1-4451-8392-e56227a1a0b9","updated_at":"2024-03-24T16:35:02.000000Z","created_at":"2024-03-24T16:35:02.000000Z"}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -91,13 +91,13 @@ endpoints:
         name: product_id
         description: 'The ID of the product.'
         required: true
-        example: ab
+        example: voluptatem
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      product_id: ab
+      product_id: voluptatem
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -105,7 +105,7 @@ endpoints:
         name: name
         description: ''
         required: false
-        example: debitis
+        example: officia
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -114,7 +114,7 @@ endpoints:
         name: slug
         description: ''
         required: false
-        example: voluptatum
+        example: expedita
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -123,15 +123,15 @@ endpoints:
         name: link
         description: ''
         required: false
-        example: voluptatem
+        example: ab
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      name: debitis
-      slug: voluptatum
-      link: voluptatem
+      name: officia
+      slug: expedita
+      link: ab
     fileParameters: []
     responses:
       -
@@ -174,18 +174,18 @@ endpoints:
         name: name
         description: ''
         required: false
-        example: provident
+        example: ut
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      name: provident
+      name: ut
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"code":"00","status":true,"message":"Attribute created Successfully","data":{"public_id":"9b007039-ddb7-423c-86f5-f3615d7dd96f","name":"provident","id":"9ba21b0f-3777-481e-afe9-2445874374bf","updated_at":"2024-03-23T14:50:09.000000Z","created_at":"2024-03-23T14:50:09.000000Z"}}'
+        content: '{"code":"00","status":true,"message":"Attribute created Successfully","data":{"public_id":"6e018e13-7823-4d3b-8fa4-e964985b348d","name":"ut","id":"9ba4438c-9a52-4a72-945e-a155d19ec849","updated_at":"2024-03-24T16:35:02.000000Z","created_at":"2024-03-24T16:35:02.000000Z"}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -219,13 +219,13 @@ endpoints:
         name: attribute_id
         description: 'The ID of the attribute.'
         required: true
-        example: sint
+        example: qui
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      attribute_id: sint
+      attribute_id: qui
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -233,13 +233,13 @@ endpoints:
         name: name
         description: ''
         required: false
-        example: magnam
+        example: qui
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      name: magnam
+      name: qui
     fileParameters: []
     responses:
       -
@@ -252,7 +252,7 @@ endpoints:
               "line": 30,
               "trace": [
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/app/Http/Controllers/api/V2/Commerce/AttributeController.php",
+                      "file": "/Users/maxwellagu/Herd/visaronigeria/app/Http/Controllers/Api/V2/Commerce/AttributeController.php",
                       "line": 43,
                       "function": "update",
                       "class": "App\\Repositories\\V2\\Commerce\\AttributeRepository",
@@ -262,7 +262,7 @@ endpoints:
                       "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Controller.php",
                       "line": 54,
                       "function": "update",
-                      "class": "App\\Http\\Controllers\\api\\V2\\Commerce\\AttributeController",
+                      "class": "App\\Http\\Controllers\\Api\\V2\\Commerce\\AttributeController",
                       "type": "->"
                   },
                   {
@@ -682,7 +682,7 @@ endpoints:
         name: product_id
         description: ''
         required: false
-        example: alias
+        example: reprehenderit
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -691,7 +691,7 @@ endpoints:
         name: code
         description: ''
         required: false
-        example: nemo
+        example: voluptatem
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -700,15 +700,15 @@ endpoints:
         name: price
         description: ''
         required: false
-        example: 6
+        example: 19
         type: integer
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      product_id: alias
-      code: nemo
-      price: 6
+      product_id: reprehenderit
+      code: voluptatem
+      price: 19
     fileParameters: []
     responses:
       -
@@ -721,7 +721,7 @@ endpoints:
               "line": 112,
               "trace": [
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/app/Http/Controllers/api/V2/Commerce/SkuController.php",
+                      "file": "/Users/maxwellagu/Herd/visaronigeria/app/Http/Controllers/Api/V2/Commerce/SkuController.php",
                       "line": 29,
                       "function": "__call",
                       "class": "Illuminate\\Http\\Request",
@@ -731,7 +731,7 @@ endpoints:
                       "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Controller.php",
                       "line": 54,
                       "function": "create",
-                      "class": "App\\Http\\Controllers\\api\\V2\\Commerce\\SkuController",
+                      "class": "App\\Http\\Controllers\\Api\\V2\\Commerce\\SkuController",
                       "type": "->"
                   },
                   {
@@ -1147,13 +1147,13 @@ endpoints:
         name: sku_id
         description: 'The ID of the sku.'
         required: true
-        example: dolorem
+        example: voluptatum
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      sku_id: dolorem
+      sku_id: voluptatum
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -1161,7 +1161,7 @@ endpoints:
         name: product_id
         description: ''
         required: false
-        example: repellendus
+        example: est
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1170,7 +1170,7 @@ endpoints:
         name: code
         description: ''
         required: false
-        example: sunt
+        example: et
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1179,15 +1179,15 @@ endpoints:
         name: price
         description: ''
         required: false
-        example: 10
+        example: 2
         type: integer
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      product_id: repellendus
-      code: sunt
-      price: 10
+      product_id: est
+      code: et
+      price: 2
     fileParameters: []
     responses:
       -
@@ -1200,7 +1200,7 @@ endpoints:
               "line": 29,
               "trace": [
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/app/Http/Controllers/api/V2/Commerce/SkuController.php",
+                      "file": "/Users/maxwellagu/Herd/visaronigeria/app/Http/Controllers/Api/V2/Commerce/SkuController.php",
                       "line": 42,
                       "function": "update",
                       "class": "App\\Repositories\\V2\\Commerce\\SkusRepository",
@@ -1210,7 +1210,7 @@ endpoints:
                       "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Controller.php",
                       "line": 54,
                       "function": "update",
-                      "class": "App\\Http\\Controllers\\api\\V2\\Commerce\\SkuController",
+                      "class": "App\\Http\\Controllers\\Api\\V2\\Commerce\\SkuController",
                       "type": "->"
                   },
                   {

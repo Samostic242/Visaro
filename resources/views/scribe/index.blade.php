@@ -181,9 +181,14 @@
                                             <a href="#merchant-POSTapi-v2-merchant-merchant-account-update">Update the merchant data</a>
                                         </li>
                                                                     </ul>
-                                                                                <li class="tocify-item level-2" data-unique="merchant-POSTapi-v2-merchant-onboarding-verifications-verify-email-otp">
-                                <a href="#merchant-POSTapi-v2-merchant-onboarding-verifications-verify-email-otp">Verifies Merchant Otp</a>
+                                                                                <li class="tocify-item level-2" data-unique="merchant-verification">
+                                <a href="#merchant-verification">Verification</a>
                             </li>
+                                                            <ul id="tocify-subheader-merchant-verification" class="tocify-subheader">
+                                                                            <li class="tocify-item level-3" data-unique="merchant-POSTapi-v2-merchant-onboarding-verifications-verify-email-otp">
+                                            <a href="#merchant-POSTapi-v2-merchant-onboarding-verifications-verify-email-otp">Verifies Merchant Otp</a>
+                                        </li>
+                                                                    </ul>
                                                                                 <li class="tocify-item level-2" data-unique="merchant-compliance">
                                 <a href="#merchant-compliance">Compliance</a>
                             </li>
@@ -285,7 +290,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: March 23, 2024</li>
+        <li>Last updated: March 24, 2024</li>
     </ul>
 </div>
 
@@ -326,8 +331,8 @@ const headers = {
 };
 
 let body = {
-    "email": "cprosacco@example.com",
-    "password": "Q;d4nu}*qV*B7d9W"
+    "email": "claudie95@example.com",
+    "password": "{opA&lt;=KTq86d"
 };
 
 fetch(url, {
@@ -842,10 +847,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v2-auth-user-login"
-               value="cprosacco@example.com"
+               value="claudie95@example.com"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>cprosacco@example.com</code></p>
+<p>Must be a valid email address. Example: <code>claudie95@example.com</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -853,10 +858,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-v2-auth-user-login"
-               value="Q;d4nu}*qV*B7d9W"
+               value="{opA<=KTq86d"
                data-component="body">
     <br>
-<p>Example: <code>Q;d4nu}*qV*B7d9W</code></p>
+<p>Example: <code>{opA&lt;=KTq86d</code></p>
         </div>
         </form>
 
@@ -882,7 +887,7 @@ const headers = {
 };
 
 let body = {
-    "email": "anastasia05@example.com"
+    "email": "feest.corrine@example.org"
 };
 
 fetch(url, {
@@ -1397,10 +1402,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v2-auth-user-forgot-password"
-               value="anastasia05@example.com"
+               value="feest.corrine@example.org"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>anastasia05@example.com</code></p>
+<p>Must be a valid email address. Example: <code>feest.corrine@example.org</code></p>
         </div>
         </form>
 
@@ -1426,9 +1431,9 @@ const headers = {
 };
 
 let body = {
-    "email": "veda02@example.com",
-    "code": "8683",
-    "password": "zs&gt;Tp3%G:Uf"
+    "email": "kuhlman.antone@example.net",
+    "code": "9066",
+    "password": "=iH~l~F^S"
 };
 
 fetch(url, {
@@ -1943,10 +1948,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v2-auth-user-reset-password"
-               value="veda02@example.com"
+               value="kuhlman.antone@example.net"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>veda02@example.com</code></p>
+<p>Must be a valid email address. Example: <code>kuhlman.antone@example.net</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>code</code></b>&nbsp;&nbsp;
@@ -1954,10 +1959,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="code"                data-endpoint="POSTapi-v2-auth-user-reset-password"
-               value="8683"
+               value="9066"
                data-component="body">
     <br>
-<p>Must match the regex /[0-9]{4}/. Example: <code>8683</code></p>
+<p>Must match the regex /[0-9]{4}/. Example: <code>9066</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -1965,10 +1970,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-v2-auth-user-reset-password"
-               value="zs>Tp3%G:Uf"
+               value="=iH~l~F^S"
                data-component="body">
     <br>
-<p>Example: <code>zs&gt;Tp3%G:Uf</code></p>
+<p>Example: <code>=iH~l~F^S</code></p>
         </div>
         </form>
 
@@ -2643,9 +2648,9 @@ const headers = {
 };
 
 let body = {
-    "account_name": "quam",
-    "account_number": "delectus",
-    "bank_name": "autem"
+    "account_name": "nihil",
+    "account_number": "beatae",
+    "bank_name": "repellat"
 };
 
 fetch(url, {
@@ -2751,10 +2756,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="account_name"                data-endpoint="POSTapi-v2-account-banking-beneficiary"
-               value="quam"
+               value="nihil"
                data-component="body">
     <br>
-<p>Example: <code>quam</code></p>
+<p>Example: <code>nihil</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>account_number</code></b>&nbsp;&nbsp;
@@ -2762,10 +2767,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="account_number"                data-endpoint="POSTapi-v2-account-banking-beneficiary"
-               value="delectus"
+               value="beatae"
                data-component="body">
     <br>
-<p>Example: <code>delectus</code></p>
+<p>Example: <code>beatae</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>bank_name</code></b>&nbsp;&nbsp;
@@ -2773,10 +2778,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="bank_name"                data-endpoint="POSTapi-v2-account-banking-beneficiary"
-               value="autem"
+               value="repellat"
                data-component="body">
     <br>
-<p>Example: <code>autem</code></p>
+<p>Example: <code>repellat</code></p>
         </div>
         </form>
 
@@ -2920,10 +2925,10 @@ const headers = {
 };
 
 let body = {
-    "account_name": "tempora",
-    "account_number": "distinctio",
-    "bank_name": "occaecati",
-    "bank_code": "velit"
+    "account_name": "cumque",
+    "account_number": "et",
+    "bank_name": "laborum",
+    "bank_code": "in"
 };
 
 fetch(url, {
@@ -3029,10 +3034,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="account_name"                data-endpoint="POSTapi-v2-account-banking-bank-account"
-               value="tempora"
+               value="cumque"
                data-component="body">
     <br>
-<p>Example: <code>tempora</code></p>
+<p>Example: <code>cumque</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>account_number</code></b>&nbsp;&nbsp;
@@ -3040,10 +3045,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="account_number"                data-endpoint="POSTapi-v2-account-banking-bank-account"
-               value="distinctio"
+               value="et"
                data-component="body">
     <br>
-<p>Example: <code>distinctio</code></p>
+<p>Example: <code>et</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>bank_name</code></b>&nbsp;&nbsp;
@@ -3051,10 +3056,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="bank_name"                data-endpoint="POSTapi-v2-account-banking-bank-account"
-               value="occaecati"
+               value="laborum"
                data-component="body">
     <br>
-<p>Example: <code>occaecati</code></p>
+<p>Example: <code>laborum</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>bank_code</code></b>&nbsp;&nbsp;
@@ -3062,10 +3067,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="bank_code"                data-endpoint="POSTapi-v2-account-banking-bank-account"
-               value="velit"
+               value="in"
                data-component="body">
     <br>
-<p>Example: <code>velit</code></p>
+<p>Example: <code>in</code></p>
         </div>
         </form>
 
@@ -3209,7 +3214,7 @@ const headers = {
 };
 
 let body = {
-    "code": "nihil"
+    "code": "eligendi"
 };
 
 fetch(url, {
@@ -3315,10 +3320,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="code"                data-endpoint="POSTapi-v2-account-banking-banks-enquiry"
-               value="nihil"
+               value="eligendi"
                data-component="body">
     <br>
-<p>Example: <code>nihil</code></p>
+<p>Example: <code>eligendi</code></p>
         </div>
         </form>
 
@@ -3344,9 +3349,9 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('name', 'quia');
-body.append('code', 'molestiae');
-body.append('acronym', 'asperiores');
+body.append('name', 'sed');
+body.append('code', 'est');
+body.append('acronym', 'molestiae');
 body.append('logo', document.querySelector('input[name="logo"]').files[0]);
 
 fetch(url, {
@@ -3452,10 +3457,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="POSTapi-v2-admin-banking-create"
-               value="quia"
+               value="sed"
                data-component="body">
     <br>
-<p>Example: <code>quia</code></p>
+<p>Example: <code>sed</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>code</code></b>&nbsp;&nbsp;
@@ -3463,10 +3468,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="code"                data-endpoint="POSTapi-v2-admin-banking-create"
-               value="molestiae"
+               value="est"
                data-component="body">
     <br>
-<p>Example: <code>molestiae</code></p>
+<p>Example: <code>est</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>acronym</code></b>&nbsp;&nbsp;
@@ -3474,10 +3479,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="acronym"                data-endpoint="POSTapi-v2-admin-banking-create"
-               value="asperiores"
+               value="molestiae"
                data-component="body">
     <br>
-<p>Example: <code>asperiores</code></p>
+<p>Example: <code>molestiae</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>logo</code></b>&nbsp;&nbsp;
@@ -3488,7 +3493,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/private/var/folders/b_/pg__x_0s2m9dd414vd7df8x40000gn/T/phpfm7Z9L</code></p>
+<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/private/var/folders/b_/pg__x_0s2m9dd414vd7df8x40000gn/T/phpOSN0WI</code></p>
         </div>
         </form>
 
@@ -3515,19 +3520,19 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('type', 'necessitatibus');
-body.append('number', 'quas');
-body.append('expiration_month', 'aut');
-body.append('expiration_year', 'ut');
-body.append('cvv', 'vitae');
-body.append('last_four_digit', 'earum');
-body.append('country', 'amet');
-body.append('state', 'deserunt');
-body.append('postal_code', 'quo');
-body.append('city', 'consequatur');
-body.append('street_address', 'aspernatur');
-body.append('lga', 'quam');
-body.append('provider', 'et');
+body.append('type', 'optio');
+body.append('number', 'in');
+body.append('expiration_month', 'eligendi');
+body.append('expiration_year', 'temporibus');
+body.append('cvv', 'quos');
+body.append('last_four_digit', 'est');
+body.append('country', 'ipsa');
+body.append('state', 'facilis');
+body.append('postal_code', 'modi');
+body.append('city', 'facere');
+body.append('street_address', 'id');
+body.append('lga', 'facilis');
+body.append('provider', 'id');
 body.append('allow_charge', '1');
 body.append('provider_logo', document.querySelector('input[name="provider_logo"]').files[0]);
 
@@ -3634,10 +3639,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="POSTapi-v2-account-banking-card"
-               value="necessitatibus"
+               value="optio"
                data-component="body">
     <br>
-<p>Example: <code>necessitatibus</code></p>
+<p>Example: <code>optio</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>number</code></b>&nbsp;&nbsp;
@@ -3645,10 +3650,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="number"                data-endpoint="POSTapi-v2-account-banking-card"
-               value="quas"
+               value="in"
                data-component="body">
     <br>
-<p>Example: <code>quas</code></p>
+<p>Example: <code>in</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>expiration_month</code></b>&nbsp;&nbsp;
@@ -3656,10 +3661,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="expiration_month"                data-endpoint="POSTapi-v2-account-banking-card"
-               value="aut"
+               value="eligendi"
                data-component="body">
     <br>
-<p>Example: <code>aut</code></p>
+<p>Example: <code>eligendi</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>expiration_year</code></b>&nbsp;&nbsp;
@@ -3667,10 +3672,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="expiration_year"                data-endpoint="POSTapi-v2-account-banking-card"
-               value="ut"
+               value="temporibus"
                data-component="body">
     <br>
-<p>Example: <code>ut</code></p>
+<p>Example: <code>temporibus</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>cvv</code></b>&nbsp;&nbsp;
@@ -3678,10 +3683,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="cvv"                data-endpoint="POSTapi-v2-account-banking-card"
-               value="vitae"
+               value="quos"
                data-component="body">
     <br>
-<p>Example: <code>vitae</code></p>
+<p>Example: <code>quos</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>last_four_digit</code></b>&nbsp;&nbsp;
@@ -3689,10 +3694,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="last_four_digit"                data-endpoint="POSTapi-v2-account-banking-card"
-               value="earum"
+               value="est"
                data-component="body">
     <br>
-<p>Example: <code>earum</code></p>
+<p>Example: <code>est</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>country</code></b>&nbsp;&nbsp;
@@ -3700,10 +3705,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="country"                data-endpoint="POSTapi-v2-account-banking-card"
-               value="amet"
+               value="ipsa"
                data-component="body">
     <br>
-<p>Example: <code>amet</code></p>
+<p>Example: <code>ipsa</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>state</code></b>&nbsp;&nbsp;
@@ -3711,10 +3716,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="state"                data-endpoint="POSTapi-v2-account-banking-card"
-               value="deserunt"
+               value="facilis"
                data-component="body">
     <br>
-<p>Example: <code>deserunt</code></p>
+<p>Example: <code>facilis</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>postal_code</code></b>&nbsp;&nbsp;
@@ -3722,10 +3727,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="postal_code"                data-endpoint="POSTapi-v2-account-banking-card"
-               value="quo"
+               value="modi"
                data-component="body">
     <br>
-<p>Example: <code>quo</code></p>
+<p>Example: <code>modi</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>city</code></b>&nbsp;&nbsp;
@@ -3733,10 +3738,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="city"                data-endpoint="POSTapi-v2-account-banking-card"
-               value="consequatur"
+               value="facere"
                data-component="body">
     <br>
-<p>Example: <code>consequatur</code></p>
+<p>Example: <code>facere</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>street_address</code></b>&nbsp;&nbsp;
@@ -3744,10 +3749,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="street_address"                data-endpoint="POSTapi-v2-account-banking-card"
-               value="aspernatur"
+               value="id"
                data-component="body">
     <br>
-<p>Example: <code>aspernatur</code></p>
+<p>Example: <code>id</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>lga</code></b>&nbsp;&nbsp;
@@ -3755,10 +3760,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="lga"                data-endpoint="POSTapi-v2-account-banking-card"
-               value="quam"
+               value="facilis"
                data-component="body">
     <br>
-<p>Example: <code>quam</code></p>
+<p>Example: <code>facilis</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>provider</code></b>&nbsp;&nbsp;
@@ -3766,10 +3771,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="provider"                data-endpoint="POSTapi-v2-account-banking-card"
-               value="et"
+               value="id"
                data-component="body">
     <br>
-<p>Example: <code>et</code></p>
+<p>Example: <code>id</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>provider_logo</code></b>&nbsp;&nbsp;
@@ -3780,7 +3785,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/private/var/folders/b_/pg__x_0s2m9dd414vd7df8x40000gn/T/phpTvSwis</code></p>
+<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/private/var/folders/b_/pg__x_0s2m9dd414vd7df8x40000gn/T/phph9gOkw</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>allow_charge</code></b>&nbsp;&nbsp;
@@ -3936,7 +3941,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://visaronigeria.test/api/v2/account/banking/card/iure"
+    "http://visaronigeria.test/api/v2/account/banking/card/et"
 );
 
 const headers = {
@@ -4046,10 +4051,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="card_id"                data-endpoint="DELETEapi-v2-account-banking-card--card_id-"
-               value="iure"
+               value="et"
                data-component="url">
     <br>
-<p>The ID of the card. Example: <code>iure</code></p>
+<p>The ID of the card. Example: <code>et</code></p>
             </div>
                     </form>
 
@@ -4080,9 +4085,9 @@ const headers = {
 };
 
 let body = {
-    "name": "ut",
-    "slug": "doloremque",
-    "link": "sit"
+    "name": "totam",
+    "slug": "enim",
+    "link": "dolor"
 };
 
 fetch(url, {
@@ -4111,13 +4116,13 @@ access-control-allow-origin: *
     &quot;status&quot;: true,
     &quot;message&quot;: &quot;Product Created Successfully&quot;,
     &quot;data&quot;: {
-        &quot;public_id&quot;: &quot;1e483286-4ddc-4a3c-8b92-c277d9a225bc&quot;,
-        &quot;name&quot;: &quot;ut&quot;,
-        &quot;slug&quot;: &quot;doloremque&quot;,
-        &quot;link&quot;: &quot;sit&quot;,
-        &quot;id&quot;: &quot;9ba21b0f-31a3-41a3-b46d-f4d2c388e8be&quot;,
-        &quot;updated_at&quot;: &quot;2024-03-23T14:50:09.000000Z&quot;,
-        &quot;created_at&quot;: &quot;2024-03-23T14:50:09.000000Z&quot;
+        &quot;public_id&quot;: &quot;119048a3-4a34-436c-a3e2-2a719c6aa935&quot;,
+        &quot;name&quot;: &quot;totam&quot;,
+        &quot;slug&quot;: &quot;enim&quot;,
+        &quot;link&quot;: &quot;dolor&quot;,
+        &quot;id&quot;: &quot;9ba4438c-8ff1-4451-8392-e56227a1a0b9&quot;,
+        &quot;updated_at&quot;: &quot;2024-03-24T16:35:02.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2024-03-24T16:35:02.000000Z&quot;
     }
 }</code>
  </pre>
@@ -4198,10 +4203,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="POSTapi-v2-commerce-product-create"
-               value="ut"
+               value="totam"
                data-component="body">
     <br>
-<p>Example: <code>ut</code></p>
+<p>Example: <code>totam</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>slug</code></b>&nbsp;&nbsp;
@@ -4209,10 +4214,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="slug"                data-endpoint="POSTapi-v2-commerce-product-create"
-               value="doloremque"
+               value="enim"
                data-component="body">
     <br>
-<p>Example: <code>doloremque</code></p>
+<p>Example: <code>enim</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>link</code></b>&nbsp;&nbsp;
@@ -4220,10 +4225,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="link"                data-endpoint="POSTapi-v2-commerce-product-create"
-               value="sit"
+               value="dolor"
                data-component="body">
     <br>
-<p>Example: <code>sit</code></p>
+<p>Example: <code>dolor</code></p>
         </div>
         </form>
 
@@ -4240,7 +4245,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://visaronigeria.test/api/v2/commerce/product/update/ab"
+    "http://visaronigeria.test/api/v2/commerce/product/update/voluptatem"
 );
 
 const headers = {
@@ -4249,9 +4254,9 @@ const headers = {
 };
 
 let body = {
-    "name": "debitis",
-    "slug": "voluptatum",
-    "link": "voluptatem"
+    "name": "officia",
+    "slug": "expedita",
+    "link": "ab"
 };
 
 fetch(url, {
@@ -4359,10 +4364,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="product_id"                data-endpoint="POSTapi-v2-commerce-product-update--product_id-"
-               value="ab"
+               value="voluptatem"
                data-component="url">
     <br>
-<p>The ID of the product. Example: <code>ab</code></p>
+<p>The ID of the product. Example: <code>voluptatem</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -4371,10 +4376,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="POSTapi-v2-commerce-product-update--product_id-"
-               value="debitis"
+               value="officia"
                data-component="body">
     <br>
-<p>Example: <code>debitis</code></p>
+<p>Example: <code>officia</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>slug</code></b>&nbsp;&nbsp;
@@ -4382,10 +4387,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="slug"                data-endpoint="POSTapi-v2-commerce-product-update--product_id-"
-               value="voluptatum"
+               value="expedita"
                data-component="body">
     <br>
-<p>Example: <code>voluptatum</code></p>
+<p>Example: <code>expedita</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>link</code></b>&nbsp;&nbsp;
@@ -4393,10 +4398,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="link"                data-endpoint="POSTapi-v2-commerce-product-update--product_id-"
-               value="voluptatem"
+               value="ab"
                data-component="body">
     <br>
-<p>Example: <code>voluptatem</code></p>
+<p>Example: <code>ab</code></p>
         </div>
         </form>
 
@@ -4423,7 +4428,7 @@ const headers = {
 };
 
 let body = {
-    "name": "provident"
+    "name": "ut"
 };
 
 fetch(url, {
@@ -4452,11 +4457,11 @@ access-control-allow-origin: *
     &quot;status&quot;: true,
     &quot;message&quot;: &quot;Attribute created Successfully&quot;,
     &quot;data&quot;: {
-        &quot;public_id&quot;: &quot;9b007039-ddb7-423c-86f5-f3615d7dd96f&quot;,
-        &quot;name&quot;: &quot;provident&quot;,
-        &quot;id&quot;: &quot;9ba21b0f-3777-481e-afe9-2445874374bf&quot;,
-        &quot;updated_at&quot;: &quot;2024-03-23T14:50:09.000000Z&quot;,
-        &quot;created_at&quot;: &quot;2024-03-23T14:50:09.000000Z&quot;
+        &quot;public_id&quot;: &quot;6e018e13-7823-4d3b-8fa4-e964985b348d&quot;,
+        &quot;name&quot;: &quot;ut&quot;,
+        &quot;id&quot;: &quot;9ba4438c-9a52-4a72-945e-a155d19ec849&quot;,
+        &quot;updated_at&quot;: &quot;2024-03-24T16:35:02.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2024-03-24T16:35:02.000000Z&quot;
     }
 }</code>
  </pre>
@@ -4537,10 +4542,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="POSTapi-v2-commerce-attribute-create"
-               value="provident"
+               value="ut"
                data-component="body">
     <br>
-<p>Example: <code>provident</code></p>
+<p>Example: <code>ut</code></p>
         </div>
         </form>
 
@@ -4557,7 +4562,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://visaronigeria.test/api/v2/commerce/attribute/update/sint"
+    "http://visaronigeria.test/api/v2/commerce/attribute/update/qui"
 );
 
 const headers = {
@@ -4566,7 +4571,7 @@ const headers = {
 };
 
 let body = {
-    "name": "magnam"
+    "name": "qui"
 };
 
 fetch(url, {
@@ -4597,7 +4602,7 @@ access-control-allow-origin: *
     &quot;line&quot;: 30,
     &quot;trace&quot;: [
         {
-            &quot;file&quot;: &quot;/Users/maxwellagu/Herd/visaronigeria/app/Http/Controllers/api/V2/Commerce/AttributeController.php&quot;,
+            &quot;file&quot;: &quot;/Users/maxwellagu/Herd/visaronigeria/app/Http/Controllers/Api/V2/Commerce/AttributeController.php&quot;,
             &quot;line&quot;: 43,
             &quot;function&quot;: &quot;update&quot;,
             &quot;class&quot;: &quot;App\\Repositories\\V2\\Commerce\\AttributeRepository&quot;,
@@ -4607,7 +4612,7 @@ access-control-allow-origin: *
             &quot;file&quot;: &quot;/Users/maxwellagu/Herd/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Controller.php&quot;,
             &quot;line&quot;: 54,
             &quot;function&quot;: &quot;update&quot;,
-            &quot;class&quot;: &quot;App\\Http\\Controllers\\api\\V2\\Commerce\\AttributeController&quot;,
+            &quot;class&quot;: &quot;App\\Http\\Controllers\\Api\\V2\\Commerce\\AttributeController&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
@@ -5068,10 +5073,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="attribute_id"                data-endpoint="POSTapi-v2-commerce-attribute-update--attribute_id-"
-               value="sint"
+               value="qui"
                data-component="url">
     <br>
-<p>The ID of the attribute. Example: <code>sint</code></p>
+<p>The ID of the attribute. Example: <code>qui</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -5080,10 +5085,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="POSTapi-v2-commerce-attribute-update--attribute_id-"
-               value="magnam"
+               value="qui"
                data-component="body">
     <br>
-<p>Example: <code>magnam</code></p>
+<p>Example: <code>qui</code></p>
         </div>
         </form>
 
@@ -5110,9 +5115,9 @@ const headers = {
 };
 
 let body = {
-    "product_id": "alias",
-    "code": "nemo",
-    "price": 6
+    "product_id": "reprehenderit",
+    "code": "voluptatem",
+    "price": 19
 };
 
 fetch(url, {
@@ -5143,7 +5148,7 @@ access-control-allow-origin: *
     &quot;line&quot;: 112,
     &quot;trace&quot;: [
         {
-            &quot;file&quot;: &quot;/Users/maxwellagu/Herd/visaronigeria/app/Http/Controllers/api/V2/Commerce/SkuController.php&quot;,
+            &quot;file&quot;: &quot;/Users/maxwellagu/Herd/visaronigeria/app/Http/Controllers/Api/V2/Commerce/SkuController.php&quot;,
             &quot;line&quot;: 29,
             &quot;function&quot;: &quot;__call&quot;,
             &quot;class&quot;: &quot;Illuminate\\Http\\Request&quot;,
@@ -5153,7 +5158,7 @@ access-control-allow-origin: *
             &quot;file&quot;: &quot;/Users/maxwellagu/Herd/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Controller.php&quot;,
             &quot;line&quot;: 54,
             &quot;function&quot;: &quot;create&quot;,
-            &quot;class&quot;: &quot;App\\Http\\Controllers\\api\\V2\\Commerce\\SkuController&quot;,
+            &quot;class&quot;: &quot;App\\Http\\Controllers\\Api\\V2\\Commerce\\SkuController&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
@@ -5614,10 +5619,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="product_id"                data-endpoint="POSTapi-v2-commerce-sku-create"
-               value="alias"
+               value="reprehenderit"
                data-component="body">
     <br>
-<p>Example: <code>alias</code></p>
+<p>Example: <code>reprehenderit</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>code</code></b>&nbsp;&nbsp;
@@ -5625,10 +5630,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="code"                data-endpoint="POSTapi-v2-commerce-sku-create"
-               value="nemo"
+               value="voluptatem"
                data-component="body">
     <br>
-<p>Example: <code>nemo</code></p>
+<p>Example: <code>voluptatem</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>price</code></b>&nbsp;&nbsp;
@@ -5636,10 +5641,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="price"                data-endpoint="POSTapi-v2-commerce-sku-create"
-               value="6"
+               value="19"
                data-component="body">
     <br>
-<p>Example: <code>6</code></p>
+<p>Example: <code>19</code></p>
         </div>
         </form>
 
@@ -5656,7 +5661,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://visaronigeria.test/api/v2/commerce/sku/update/dolorem"
+    "http://visaronigeria.test/api/v2/commerce/sku/update/voluptatum"
 );
 
 const headers = {
@@ -5665,9 +5670,9 @@ const headers = {
 };
 
 let body = {
-    "product_id": "repellendus",
-    "code": "sunt",
-    "price": 10
+    "product_id": "est",
+    "code": "et",
+    "price": 2
 };
 
 fetch(url, {
@@ -5698,7 +5703,7 @@ access-control-allow-origin: *
     &quot;line&quot;: 29,
     &quot;trace&quot;: [
         {
-            &quot;file&quot;: &quot;/Users/maxwellagu/Herd/visaronigeria/app/Http/Controllers/api/V2/Commerce/SkuController.php&quot;,
+            &quot;file&quot;: &quot;/Users/maxwellagu/Herd/visaronigeria/app/Http/Controllers/Api/V2/Commerce/SkuController.php&quot;,
             &quot;line&quot;: 42,
             &quot;function&quot;: &quot;update&quot;,
             &quot;class&quot;: &quot;App\\Repositories\\V2\\Commerce\\SkusRepository&quot;,
@@ -5708,7 +5713,7 @@ access-control-allow-origin: *
             &quot;file&quot;: &quot;/Users/maxwellagu/Herd/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Controller.php&quot;,
             &quot;line&quot;: 54,
             &quot;function&quot;: &quot;update&quot;,
-            &quot;class&quot;: &quot;App\\Http\\Controllers\\api\\V2\\Commerce\\SkuController&quot;,
+            &quot;class&quot;: &quot;App\\Http\\Controllers\\Api\\V2\\Commerce\\SkuController&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
@@ -6169,10 +6174,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="sku_id"                data-endpoint="POSTapi-v2-commerce-sku-update--sku_id-"
-               value="dolorem"
+               value="voluptatum"
                data-component="url">
     <br>
-<p>The ID of the sku. Example: <code>dolorem</code></p>
+<p>The ID of the sku. Example: <code>voluptatum</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -6181,10 +6186,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="product_id"                data-endpoint="POSTapi-v2-commerce-sku-update--sku_id-"
-               value="repellendus"
+               value="est"
                data-component="body">
     <br>
-<p>Example: <code>repellendus</code></p>
+<p>Example: <code>est</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>code</code></b>&nbsp;&nbsp;
@@ -6192,10 +6197,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="code"                data-endpoint="POSTapi-v2-commerce-sku-update--sku_id-"
-               value="sunt"
+               value="et"
                data-component="body">
     <br>
-<p>Example: <code>sunt</code></p>
+<p>Example: <code>et</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>price</code></b>&nbsp;&nbsp;
@@ -6203,18 +6208,16 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="price"                data-endpoint="POSTapi-v2-commerce-sku-update--sku_id-"
-               value="10"
+               value="2"
                data-component="body">
     <br>
-<p>Example: <code>10</code></p>
+<p>Example: <code>2</code></p>
         </div>
         </form>
 
                 <h1 id="merchant">Merchant</h1>
 
-    <ul>
-<li>@subgroup Verification</li>
-</ul>
+    
 
                         <h2 id="merchant-onboarding">Onboarding</h2>
                                                     <h2 id="merchant-POSTapi-v2-merchant-onboarding-email">Sends an Otp to the merchant&#039;s Mail</h2>
@@ -6239,9 +6242,9 @@ const headers = {
 };
 
 let body = {
-    "business_email": "obeier@example.net",
-    "business_phone_code": "hr",
-    "business_phone": "9439101339"
+    "business_email": "collin.hoppe@example.net",
+    "business_phone_code": "wn",
+    "business_phone": "8364008648"
 };
 
 fetch(url, {
@@ -6351,10 +6354,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="business_email"                data-endpoint="POSTapi-v2-merchant-onboarding-email"
-               value="obeier@example.net"
+               value="collin.hoppe@example.net"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>obeier@example.net</code></p>
+<p>Must be a valid email address. Example: <code>collin.hoppe@example.net</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>business_phone_code</code></b>&nbsp;&nbsp;
@@ -6362,10 +6365,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="business_phone_code"                data-endpoint="POSTapi-v2-merchant-onboarding-email"
-               value="hr"
+               value="wn"
                data-component="body">
     <br>
-<p>Must match the regex /^+[0-9]+$/. Must not be greater than 4 characters. Example: <code>hr</code></p>
+<p>Must match the regex /^+[0-9]+$/. Must not be greater than 4 characters. Example: <code>wn</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>business_phone</code></b>&nbsp;&nbsp;
@@ -6373,10 +6376,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="business_phone"                data-endpoint="POSTapi-v2-merchant-onboarding-email"
-               value="9439101339"
+               value="8364008648"
                data-component="body">
     <br>
-<p>Must match the regex /[0-9]{10}$/. Example: <code>9439101339</code></p>
+<p>Must match the regex /[0-9]{10}$/. Example: <code>8364008648</code></p>
         </div>
         </form>
 
@@ -6402,17 +6405,17 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('business_name', 'optio');
-body.append('business_type', 'partnership');
-body.append('business_email', 'deborah67@example.org');
-body.append('business_phone_code', 'iusto');
-body.append('business_phone', 'quasi');
-body.append('business_registration_number', 'cupiditate');
-body.append('acronym', 'voluptas');
-body.append('official_name', 'aut');
-body.append('website', 'http://www.oconner.org/aliquam-ea-dolorum-rerum-aperiam-pariatur-dolorem-ut');
+body.append('business_name', 'omnis');
+body.append('business_type', 'corporation');
+body.append('business_email', 'ottilie.gibson@example.net');
+body.append('business_phone_code', 'sit');
+body.append('business_phone', 'sequi');
+body.append('business_registration_number', 'tempora');
+body.append('acronym', 'vitae');
+body.append('official_name', 'aliquam');
+body.append('website', 'http://skiles.net/');
 body.append('presence', 'virtual');
-body.append('country_id', '9');
+body.append('country_id', '7');
 body.append('logo', document.querySelector('input[name="logo"]').files[0]);
 
 fetch(url, {
@@ -6518,10 +6521,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="business_name"                data-endpoint="POSTapi-v2-merchant-merchant-account-update"
-               value="optio"
+               value="omnis"
                data-component="body">
     <br>
-<p>Example: <code>optio</code></p>
+<p>Example: <code>omnis</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>business_type</code></b>&nbsp;&nbsp;
@@ -6529,10 +6532,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="business_type"                data-endpoint="POSTapi-v2-merchant-merchant-account-update"
-               value="partnership"
+               value="corporation"
                data-component="body">
     <br>
-<p>Example: <code>partnership</code></p>
+<p>Example: <code>corporation</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>corporation</code></li> <li><code>sole_proprietorship</code></li> <li><code>partnership</code></li></ul>
         </div>
@@ -6542,10 +6545,10 @@ Must be one of:
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="business_email"                data-endpoint="POSTapi-v2-merchant-merchant-account-update"
-               value="deborah67@example.org"
+               value="ottilie.gibson@example.net"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>deborah67@example.org</code></p>
+<p>Must be a valid email address. Example: <code>ottilie.gibson@example.net</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>business_phone_code</code></b>&nbsp;&nbsp;
@@ -6553,10 +6556,10 @@ Must be one of:
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="business_phone_code"                data-endpoint="POSTapi-v2-merchant-merchant-account-update"
-               value="iusto"
+               value="sit"
                data-component="body">
     <br>
-<p>Example: <code>iusto</code></p>
+<p>Example: <code>sit</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>business_phone</code></b>&nbsp;&nbsp;
@@ -6564,10 +6567,10 @@ Must be one of:
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="business_phone"                data-endpoint="POSTapi-v2-merchant-merchant-account-update"
-               value="quasi"
+               value="sequi"
                data-component="body">
     <br>
-<p>Example: <code>quasi</code></p>
+<p>Example: <code>sequi</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>business_registration_number</code></b>&nbsp;&nbsp;
@@ -6575,10 +6578,10 @@ Must be one of:
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="business_registration_number"                data-endpoint="POSTapi-v2-merchant-merchant-account-update"
-               value="cupiditate"
+               value="tempora"
                data-component="body">
     <br>
-<p>Example: <code>cupiditate</code></p>
+<p>Example: <code>tempora</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>acronym</code></b>&nbsp;&nbsp;
@@ -6586,10 +6589,10 @@ Must be one of:
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="acronym"                data-endpoint="POSTapi-v2-merchant-merchant-account-update"
-               value="voluptas"
+               value="vitae"
                data-component="body">
     <br>
-<p>Example: <code>voluptas</code></p>
+<p>Example: <code>vitae</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>official_name</code></b>&nbsp;&nbsp;
@@ -6597,10 +6600,10 @@ Must be one of:
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="official_name"                data-endpoint="POSTapi-v2-merchant-merchant-account-update"
-               value="aut"
+               value="aliquam"
                data-component="body">
     <br>
-<p>Example: <code>aut</code></p>
+<p>Example: <code>aliquam</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>website</code></b>&nbsp;&nbsp;
@@ -6608,10 +6611,10 @@ Must be one of:
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="website"                data-endpoint="POSTapi-v2-merchant-merchant-account-update"
-               value="http://www.oconner.org/aliquam-ea-dolorum-rerum-aperiam-pariatur-dolorem-ut"
+               value="http://skiles.net/"
                data-component="body">
     <br>
-<p>Must be a valid URL. Example: <code>http://www.oconner.org/aliquam-ea-dolorum-rerum-aperiam-pariatur-dolorem-ut</code></p>
+<p>Must be a valid URL. Example: <code>http://skiles.net/</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>presence</code></b>&nbsp;&nbsp;
@@ -6635,7 +6638,7 @@ Must be one of:
                value=""
                data-component="body">
     <br>
-<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/private/var/folders/b_/pg__x_0s2m9dd414vd7df8x40000gn/T/phpr91Ka8</code></p>
+<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/private/var/folders/b_/pg__x_0s2m9dd414vd7df8x40000gn/T/php3Ftwng</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>country_id</code></b>&nbsp;&nbsp;
@@ -6643,10 +6646,10 @@ Must be one of:
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="country_id"                data-endpoint="POSTapi-v2-merchant-merchant-account-update"
-               value="9"
+               value="7"
                data-component="body">
     <br>
-<p>Example: <code>9</code></p>
+<p>Example: <code>7</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>customization</code></b>&nbsp;&nbsp;
@@ -6672,7 +6675,8 @@ Must be one of:
         </div>
         </form>
 
-                                        <h2 id="merchant-POSTapi-v2-merchant-onboarding-verifications-verify-email-otp">Verifies Merchant Otp</h2>
+                                <h2 id="merchant-verification">Verification</h2>
+                                                    <h2 id="merchant-POSTapi-v2-merchant-onboarding-verifications-verify-email-otp">Verifies Merchant Otp</h2>
 
 <p>
 </p>
@@ -6694,8 +6698,8 @@ const headers = {
 };
 
 let body = {
-    "code": "aspernatur",
-    "business_email": "officia"
+    "code": "suscipit",
+    "business_email": "nostrum"
 };
 
 fetch(url, {
@@ -6805,10 +6809,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="code"                data-endpoint="POSTapi-v2-merchant-onboarding-verifications-verify-email-otp"
-               value="aspernatur"
+               value="suscipit"
                data-component="body">
     <br>
-<p>Example: <code>aspernatur</code></p>
+<p>Example: <code>suscipit</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>business_email</code></b>&nbsp;&nbsp;
@@ -6816,10 +6820,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="business_email"                data-endpoint="POSTapi-v2-merchant-onboarding-verifications-verify-email-otp"
-               value="officia"
+               value="nostrum"
                data-component="body">
     <br>
-<p>Example: <code>officia</code></p>
+<p>Example: <code>nostrum</code></p>
         </div>
         </form>
 
@@ -6846,14 +6850,14 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('cac_number', 'maiores');
-body.append('country_id', '14');
-body.append('state', 'ut');
-body.append('local_government', 'ea');
-body.append('city', 'architecto');
-body.append('street_address', 'facere');
-body.append('land_mark', 'est');
-body.append('meta', 'non');
+body.append('cac_number', 'inventore');
+body.append('country_id', '9');
+body.append('state', 'dolores');
+body.append('local_government', 'aliquam');
+body.append('city', 'vero');
+body.append('street_address', 'assumenda');
+body.append('land_mark', 'voluptatibus');
+body.append('meta', 'facilis');
 body.append('cac_document', document.querySelector('input[name="cac_document"]').files[0]);
 body.append('proof_of_address', document.querySelector('input[name="proof_of_address"]').files[0]);
 
@@ -6960,10 +6964,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="cac_number"                data-endpoint="POSTapi-v2-merchant-compliance-create"
-               value="maiores"
+               value="inventore"
                data-component="body">
     <br>
-<p>Example: <code>maiores</code></p>
+<p>Example: <code>inventore</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>cac_document</code></b>&nbsp;&nbsp;
@@ -6974,7 +6978,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Must be a file. Example: <code>/private/var/folders/b_/pg__x_0s2m9dd414vd7df8x40000gn/T/phpy5F5wD</code></p>
+<p>Must be a file. Example: <code>/private/var/folders/b_/pg__x_0s2m9dd414vd7df8x40000gn/T/phpyyTNXt</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>proof_of_address</code></b>&nbsp;&nbsp;
@@ -6985,7 +6989,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Must be a file. Example: <code>/private/var/folders/b_/pg__x_0s2m9dd414vd7df8x40000gn/T/phpc7jjv9</code></p>
+<p>Must be a file. Example: <code>/private/var/folders/b_/pg__x_0s2m9dd414vd7df8x40000gn/T/phpiryln6</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>country_id</code></b>&nbsp;&nbsp;
@@ -6993,10 +6997,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="country_id"                data-endpoint="POSTapi-v2-merchant-compliance-create"
-               value="14"
+               value="9"
                data-component="body">
     <br>
-<p>Example: <code>14</code></p>
+<p>Example: <code>9</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>state</code></b>&nbsp;&nbsp;
@@ -7004,10 +7008,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="state"                data-endpoint="POSTapi-v2-merchant-compliance-create"
-               value="ut"
+               value="dolores"
                data-component="body">
     <br>
-<p>Example: <code>ut</code></p>
+<p>Example: <code>dolores</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>local_government</code></b>&nbsp;&nbsp;
@@ -7015,10 +7019,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="local_government"                data-endpoint="POSTapi-v2-merchant-compliance-create"
-               value="ea"
+               value="aliquam"
                data-component="body">
     <br>
-<p>Example: <code>ea</code></p>
+<p>Example: <code>aliquam</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>city</code></b>&nbsp;&nbsp;
@@ -7026,10 +7030,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="city"                data-endpoint="POSTapi-v2-merchant-compliance-create"
-               value="architecto"
+               value="vero"
                data-component="body">
     <br>
-<p>Example: <code>architecto</code></p>
+<p>Example: <code>vero</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>street_address</code></b>&nbsp;&nbsp;
@@ -7037,10 +7041,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="street_address"                data-endpoint="POSTapi-v2-merchant-compliance-create"
-               value="facere"
+               value="assumenda"
                data-component="body">
     <br>
-<p>Example: <code>facere</code></p>
+<p>Example: <code>assumenda</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>land_mark</code></b>&nbsp;&nbsp;
@@ -7048,10 +7052,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="land_mark"                data-endpoint="POSTapi-v2-merchant-compliance-create"
-               value="est"
+               value="voluptatibus"
                data-component="body">
     <br>
-<p>Example: <code>est</code></p>
+<p>Example: <code>voluptatibus</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>meta</code></b>&nbsp;&nbsp;
@@ -7059,10 +7063,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="meta"                data-endpoint="POSTapi-v2-merchant-compliance-create"
-               value="non"
+               value="facilis"
                data-component="body">
     <br>
-<p>Example: <code>non</code></p>
+<p>Example: <code>facilis</code></p>
         </div>
         </form>
 
@@ -7088,7 +7092,7 @@ const headers = {
 };
 
 let body = {
-    "payout_interval": "daily",
+    "payout_interval": "weekly",
     "payout_frequency": 13
 };
 
@@ -7195,10 +7199,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="payout_interval"                data-endpoint="PUTapi-v2-merchant-compliance-update"
-               value="daily"
+               value="weekly"
                data-component="body">
     <br>
-<p>Example: <code>daily</code></p>
+<p>Example: <code>weekly</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>daily</code></li> <li><code>weekly</code></li> <li><code>monthly</code></li></ul>
         </div>
@@ -7249,10 +7253,10 @@ const headers = {
 };
 
 let body = {
-    "dispute_email": "quentin.ryan@example.net",
-    "support_email": "annie.brown@example.org",
-    "general_mail": "repudiandae",
-    "meta": "earum"
+    "dispute_email": "vsatterfield@example.org",
+    "support_email": "ozella.hickle@example.net",
+    "general_mail": "voluptas",
+    "meta": "accusantium"
 };
 
 fetch(url, {
@@ -7358,10 +7362,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="dispute_email"                data-endpoint="POSTapi-v2-merchant-settings-create"
-               value="quentin.ryan@example.net"
+               value="vsatterfield@example.org"
                data-component="body">
     <br>
-<p>Example: <code>quentin.ryan@example.net</code></p>
+<p>Example: <code>vsatterfield@example.org</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>support_email</code></b>&nbsp;&nbsp;
@@ -7369,10 +7373,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="support_email"                data-endpoint="POSTapi-v2-merchant-settings-create"
-               value="annie.brown@example.org"
+               value="ozella.hickle@example.net"
                data-component="body">
     <br>
-<p>Example: <code>annie.brown@example.org</code></p>
+<p>Example: <code>ozella.hickle@example.net</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>general_mail</code></b>&nbsp;&nbsp;
@@ -7380,10 +7384,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="general_mail"                data-endpoint="POSTapi-v2-merchant-settings-create"
-               value="repudiandae"
+               value="voluptas"
                data-component="body">
     <br>
-<p>Example: <code>repudiandae</code></p>
+<p>Example: <code>voluptas</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>meta</code></b>&nbsp;&nbsp;
@@ -7391,10 +7395,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="meta"                data-endpoint="POSTapi-v2-merchant-settings-create"
-               value="earum"
+               value="accusantium"
                data-component="body">
     <br>
-<p>Example: <code>earum</code></p>
+<p>Example: <code>accusantium</code></p>
         </div>
         </form>
 
@@ -7420,12 +7424,12 @@ const headers = {
 };
 
 let body = {
-    "dispute_email": "lazaro58@example.com",
-    "support_email": "napoleon41@example.org",
-    "general_email": "else00@example.net",
-    "meta": "harum",
-    "active": true,
-    "status": "recusandae"
+    "dispute_email": "ibins@example.com",
+    "support_email": "mcassin@example.net",
+    "general_email": "orn.vern@example.org",
+    "meta": "delectus",
+    "active": false,
+    "status": "officia"
 };
 
 fetch(url, {
@@ -7531,10 +7535,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="dispute_email"                data-endpoint="POSTapi-v2-merchant-settings-update"
-               value="lazaro58@example.com"
+               value="ibins@example.com"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>lazaro58@example.com</code></p>
+<p>Must be a valid email address. Example: <code>ibins@example.com</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>support_email</code></b>&nbsp;&nbsp;
@@ -7542,10 +7546,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="support_email"                data-endpoint="POSTapi-v2-merchant-settings-update"
-               value="napoleon41@example.org"
+               value="mcassin@example.net"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>napoleon41@example.org</code></p>
+<p>Must be a valid email address. Example: <code>mcassin@example.net</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>general_email</code></b>&nbsp;&nbsp;
@@ -7553,10 +7557,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="general_email"                data-endpoint="POSTapi-v2-merchant-settings-update"
-               value="else00@example.net"
+               value="orn.vern@example.org"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>else00@example.net</code></p>
+<p>Must be a valid email address. Example: <code>orn.vern@example.org</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>meta</code></b>&nbsp;&nbsp;
@@ -7564,10 +7568,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="meta"                data-endpoint="POSTapi-v2-merchant-settings-update"
-               value="harum"
+               value="delectus"
                data-component="body">
     <br>
-<p>Example: <code>harum</code></p>
+<p>Example: <code>delectus</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>active</code></b>&nbsp;&nbsp;
@@ -7588,7 +7592,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>status</code></b>&nbsp;&nbsp;
@@ -7596,10 +7600,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="status"                data-endpoint="POSTapi-v2-merchant-settings-update"
-               value="recusandae"
+               value="officia"
                data-component="body">
     <br>
-<p>Example: <code>recusandae</code></p>
+<p>Example: <code>officia</code></p>
         </div>
         </form>
 
@@ -7625,9 +7629,9 @@ const headers = {
 };
 
 let body = {
-    "default_currency": "necessitatibus",
+    "default_currency": "et",
     "bank": false,
-    "card": true,
+    "card": false,
     "qr": false,
     "transfer": true,
     "installment": false
@@ -7736,10 +7740,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="default_currency"                data-endpoint="POSTapi-v2-merchant-preference-create"
-               value="necessitatibus"
+               value="et"
                data-component="body">
     <br>
-<p>Example: <code>necessitatibus</code></p>
+<p>Example: <code>et</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>bank</code></b>&nbsp;&nbsp;
@@ -7781,7 +7785,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>qr</code></b>&nbsp;&nbsp;
@@ -7870,12 +7874,12 @@ const headers = {
 };
 
 let body = {
-    "default_currency": "nostrum",
-    "bank": false,
+    "default_currency": "exercitationem",
+    "bank": true,
     "card": true,
     "qr": true,
-    "transfer": false,
-    "installment": false
+    "transfer": true,
+    "installment": true
 };
 
 fetch(url, {
@@ -7981,10 +7985,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="default_currency"                data-endpoint="POSTapi-v2-merchant-preference-update"
-               value="nostrum"
+               value="exercitationem"
                data-component="body">
     <br>
-<p>Example: <code>nostrum</code></p>
+<p>Example: <code>exercitationem</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>bank</code></b>&nbsp;&nbsp;
@@ -8005,7 +8009,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>card</code></b>&nbsp;&nbsp;
@@ -8068,7 +8072,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>installment</code></b>&nbsp;&nbsp;
@@ -8089,7 +8093,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
         </form>
 
@@ -8115,11 +8119,11 @@ const headers = {
 };
 
 let body = {
-    "bank_name": "omnis",
-    "bank_code": "rerum",
-    "account_name": "officia",
-    "account_number": "modi",
-    "currency": "et"
+    "bank_name": "pariatur",
+    "bank_code": "aliquam",
+    "account_name": "minima",
+    "account_number": "velit",
+    "currency": "in"
 };
 
 fetch(url, {
@@ -8225,10 +8229,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="bank_name"                data-endpoint="POSTapi-v2-merchant-bank-create"
-               value="omnis"
+               value="pariatur"
                data-component="body">
     <br>
-<p>Example: <code>omnis</code></p>
+<p>Example: <code>pariatur</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>bank_code</code></b>&nbsp;&nbsp;
@@ -8236,10 +8240,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="bank_code"                data-endpoint="POSTapi-v2-merchant-bank-create"
-               value="rerum"
+               value="aliquam"
                data-component="body">
     <br>
-<p>Example: <code>rerum</code></p>
+<p>Example: <code>aliquam</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>account_name</code></b>&nbsp;&nbsp;
@@ -8247,10 +8251,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="account_name"                data-endpoint="POSTapi-v2-merchant-bank-create"
-               value="officia"
+               value="minima"
                data-component="body">
     <br>
-<p>Example: <code>officia</code></p>
+<p>Example: <code>minima</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>account_number</code></b>&nbsp;&nbsp;
@@ -8258,10 +8262,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="account_number"                data-endpoint="POSTapi-v2-merchant-bank-create"
-               value="modi"
+               value="velit"
                data-component="body">
     <br>
-<p>Example: <code>modi</code></p>
+<p>Example: <code>velit</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>currency</code></b>&nbsp;&nbsp;
@@ -8269,10 +8273,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="currency"                data-endpoint="POSTapi-v2-merchant-bank-create"
-               value="et"
+               value="in"
                data-component="body">
     <br>
-<p>Example: <code>et</code></p>
+<p>Example: <code>in</code></p>
         </div>
         </form>
 
@@ -8298,13 +8302,13 @@ const headers = {
 };
 
 let body = {
-    "bank_name": "omnis",
-    "bank_code": "ut",
-    "account_name": "animi",
-    "account_number": "ab",
-    "currency": "quas",
+    "bank_name": "dolor",
+    "bank_code": "odit",
+    "account_name": "est",
+    "account_number": "ut",
+    "currency": "nobis",
     "active": true,
-    "status": "iure"
+    "status": "ad"
 };
 
 fetch(url, {
@@ -8410,10 +8414,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="bank_name"                data-endpoint="POSTapi-v2-merchant-bank-update"
-               value="omnis"
+               value="dolor"
                data-component="body">
     <br>
-<p>Example: <code>omnis</code></p>
+<p>Example: <code>dolor</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>bank_code</code></b>&nbsp;&nbsp;
@@ -8421,10 +8425,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="bank_code"                data-endpoint="POSTapi-v2-merchant-bank-update"
-               value="ut"
+               value="odit"
                data-component="body">
     <br>
-<p>Example: <code>ut</code></p>
+<p>Example: <code>odit</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>account_name</code></b>&nbsp;&nbsp;
@@ -8432,10 +8436,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="account_name"                data-endpoint="POSTapi-v2-merchant-bank-update"
-               value="animi"
+               value="est"
                data-component="body">
     <br>
-<p>Example: <code>animi</code></p>
+<p>Example: <code>est</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>account_number</code></b>&nbsp;&nbsp;
@@ -8443,10 +8447,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="account_number"                data-endpoint="POSTapi-v2-merchant-bank-update"
-               value="ab"
+               value="ut"
                data-component="body">
     <br>
-<p>Example: <code>ab</code></p>
+<p>Example: <code>ut</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>currency</code></b>&nbsp;&nbsp;
@@ -8454,10 +8458,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="currency"                data-endpoint="POSTapi-v2-merchant-bank-update"
-               value="quas"
+               value="nobis"
                data-component="body">
     <br>
-<p>Example: <code>quas</code></p>
+<p>Example: <code>nobis</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>active</code></b>&nbsp;&nbsp;
@@ -8486,10 +8490,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="status"                data-endpoint="POSTapi-v2-merchant-bank-update"
-               value="iure"
+               value="ad"
                data-component="body">
     <br>
-<p>Example: <code>iure</code></p>
+<p>Example: <code>ad</code></p>
         </div>
         </form>
 
@@ -8634,7 +8638,7 @@ const headers = {
 };
 
 let body = {
-    "business_email": "luciano.kautzer@example.org"
+    "business_email": "ritchie.kirsten@example.com"
 };
 
 fetch(url, {
@@ -8744,10 +8748,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="business_email"                data-endpoint="POSTapi-v2-merchant-auth-forgot-password"
-               value="luciano.kautzer@example.org"
+               value="ritchie.kirsten@example.com"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>luciano.kautzer@example.org</code></p>
+<p>Must be a valid email address. Example: <code>ritchie.kirsten@example.com</code></p>
         </div>
         </form>
 
@@ -8773,9 +8777,9 @@ const headers = {
 };
 
 let body = {
-    "business_email": "fay.damian@example.com",
-    "code": "7711",
-    "password": "X,1'1o52|g8"
+    "business_email": "karson.hartmann@example.net",
+    "code": "4355",
+    "password": "TNd)k\"g&amp;u"
 };
 
 fetch(url, {
@@ -8885,10 +8889,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="business_email"                data-endpoint="POSTapi-v2-merchant-auth-reset-password"
-               value="fay.damian@example.com"
+               value="karson.hartmann@example.net"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>fay.damian@example.com</code></p>
+<p>Must be a valid email address. Example: <code>karson.hartmann@example.net</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>code</code></b>&nbsp;&nbsp;
@@ -8896,10 +8900,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="code"                data-endpoint="POSTapi-v2-merchant-auth-reset-password"
-               value="7711"
+               value="4355"
                data-component="body">
     <br>
-<p>Must match the regex /[0-9]{4}/. Example: <code>7711</code></p>
+<p>Must match the regex /[0-9]{4}/. Example: <code>4355</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -8907,10 +8911,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-v2-merchant-auth-reset-password"
-               value="X,1'1o52|g8"
+               value="TNd)k"g&u"
                data-component="body">
     <br>
-<p>Example: <code>X,1'1o52|g8</code></p>
+<p>Example: <code>TNd)k"g&amp;u</code></p>
         </div>
         </form>
 
@@ -8940,7 +8944,7 @@ const headers = {
 };
 
 let body = {
-    "email": "lang.margaret@example.net"
+    "email": "oshanahan@example.org"
 };
 
 fetch(url, {
@@ -9455,10 +9459,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v2-newsletter-subscribe"
-               value="lang.margaret@example.net"
+               value="oshanahan@example.org"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>lang.margaret@example.net</code></p>
+<p>Must be a valid email address. Example: <code>oshanahan@example.org</code></p>
         </div>
         </form>
 
@@ -9489,12 +9493,12 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('firstname', 'fcmzlbjssyzcnjfec');
-body.append('middlename', 'aikasmfxphr');
-body.append('lastname', 'wrxljc');
-body.append('phone_code', 'zpw');
-body.append('phone', '4807425630');
-body.append('password', 'z9ED[GjO');
+body.append('firstname', 'kxtghororvcojgxoi');
+body.append('middlename', 'ghfuhwitflnaybhmv');
+body.append('lastname', 'hil');
+body.append('phone_code', 'mfu');
+body.append('phone', '7785949205');
+body.append('password', 'R"UquDO+nI6LRb'');
 body.append('photo', document.querySelector('input[name="photo"]').files[0]);
 
 fetch(url, {
@@ -10009,10 +10013,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="firstname"                data-endpoint="POSTapi-v2-onboarding-users-onboarding-register"
-               value="fcmzlbjssyzcnjfec"
+               value="kxtghororvcojgxoi"
                data-component="body">
     <br>
-<p>Must not be greater than 20 characters. Example: <code>fcmzlbjssyzcnjfec</code></p>
+<p>Must not be greater than 20 characters. Example: <code>kxtghororvcojgxoi</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>middlename</code></b>&nbsp;&nbsp;
@@ -10020,10 +10024,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="middlename"                data-endpoint="POSTapi-v2-onboarding-users-onboarding-register"
-               value="aikasmfxphr"
+               value="ghfuhwitflnaybhmv"
                data-component="body">
     <br>
-<p>Must not be greater than 20 characters. Example: <code>aikasmfxphr</code></p>
+<p>Must not be greater than 20 characters. Example: <code>ghfuhwitflnaybhmv</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>lastname</code></b>&nbsp;&nbsp;
@@ -10031,10 +10035,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="lastname"                data-endpoint="POSTapi-v2-onboarding-users-onboarding-register"
-               value="wrxljc"
+               value="hil"
                data-component="body">
     <br>
-<p>Must not be greater than 20 characters. Example: <code>wrxljc</code></p>
+<p>Must not be greater than 20 characters. Example: <code>hil</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>phone_code</code></b>&nbsp;&nbsp;
@@ -10042,10 +10046,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="phone_code"                data-endpoint="POSTapi-v2-onboarding-users-onboarding-register"
-               value="zpw"
+               value="mfu"
                data-component="body">
     <br>
-<p>Must match the regex /^+[0-9]+$/. Must not be greater than 4 characters. Example: <code>zpw</code></p>
+<p>Must match the regex /^+[0-9]+$/. Must not be greater than 4 characters. Example: <code>mfu</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>phone</code></b>&nbsp;&nbsp;
@@ -10053,10 +10057,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="phone"                data-endpoint="POSTapi-v2-onboarding-users-onboarding-register"
-               value="4807425630"
+               value="7785949205"
                data-component="body">
     <br>
-<p>Must match the regex /[0-9]{10}$/. Example: <code>4807425630</code></p>
+<p>Must match the regex /[0-9]{10}$/. Example: <code>7785949205</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>photo</code></b>&nbsp;&nbsp;
@@ -10067,7 +10071,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/private/var/folders/b_/pg__x_0s2m9dd414vd7df8x40000gn/T/phpkPYTen</code></p>
+<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/private/var/folders/b_/pg__x_0s2m9dd414vd7df8x40000gn/T/phpwGzaBG</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -10075,10 +10079,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-v2-onboarding-users-onboarding-register"
-               value="z9ED[GjO"
+               value="R"UquDO+nI6LRb'"
                data-component="body">
     <br>
-<p>Example: <code>z9ED[GjO</code></p>
+<p>Example: <code>R"UquDO+nI6LRb'</code></p>
         </div>
         </form>
 
@@ -10104,7 +10108,7 @@ const headers = {
 };
 
 let body = {
-    "email": "dickinson.corine@example.net"
+    "email": "legros.scottie@example.com"
 };
 
 fetch(url, {
@@ -10619,10 +10623,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v2-onboarding-users-onboarding-email"
-               value="dickinson.corine@example.net"
+               value="legros.scottie@example.com"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>dickinson.corine@example.net</code></p>
+<p>Must be a valid email address. Example: <code>legros.scottie@example.com</code></p>
         </div>
         </form>
 
@@ -10648,12 +10652,12 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('firstname', 'gfayu');
-body.append('middlename', 'ivizw');
-body.append('lastname', 'yfj');
-body.append('phone_code', 'kk');
-body.append('phone', '3435443340');
-body.append('password', 'eq`.[3CzsNU&lt;');
+body.append('firstname', 'atvqve');
+body.append('middlename', 'ezmg');
+body.append('lastname', 'cir');
+body.append('phone_code', 'f');
+body.append('phone', '5666150269');
+body.append('password', '46/l3=zUN.=');
 body.append('photo', document.querySelector('input[name="photo"]').files[0]);
 
 fetch(url, {
@@ -10759,10 +10763,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="firstname"                data-endpoint="POSTapi-v2-account-user-account-update"
-               value="gfayu"
+               value="atvqve"
                data-component="body">
     <br>
-<p>Must not be greater than 20 characters. Example: <code>gfayu</code></p>
+<p>Must not be greater than 20 characters. Example: <code>atvqve</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>middlename</code></b>&nbsp;&nbsp;
@@ -10770,10 +10774,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="middlename"                data-endpoint="POSTapi-v2-account-user-account-update"
-               value="ivizw"
+               value="ezmg"
                data-component="body">
     <br>
-<p>Must not be greater than 20 characters. Example: <code>ivizw</code></p>
+<p>Must not be greater than 20 characters. Example: <code>ezmg</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>lastname</code></b>&nbsp;&nbsp;
@@ -10781,10 +10785,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="lastname"                data-endpoint="POSTapi-v2-account-user-account-update"
-               value="yfj"
+               value="cir"
                data-component="body">
     <br>
-<p>Must not be greater than 20 characters. Example: <code>yfj</code></p>
+<p>Must not be greater than 20 characters. Example: <code>cir</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>phone_code</code></b>&nbsp;&nbsp;
@@ -10792,10 +10796,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="phone_code"                data-endpoint="POSTapi-v2-account-user-account-update"
-               value="kk"
+               value="f"
                data-component="body">
     <br>
-<p>Must match the regex /^+[0-9]+$/. Must not be greater than 4 characters. Example: <code>kk</code></p>
+<p>Must match the regex /^+[0-9]+$/. Must not be greater than 4 characters. Example: <code>f</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>phone</code></b>&nbsp;&nbsp;
@@ -10803,10 +10807,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="phone"                data-endpoint="POSTapi-v2-account-user-account-update"
-               value="3435443340"
+               value="5666150269"
                data-component="body">
     <br>
-<p>Must match the regex /[0-9]{10}$/. Example: <code>3435443340</code></p>
+<p>Must match the regex /[0-9]{10}$/. Example: <code>5666150269</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>photo</code></b>&nbsp;&nbsp;
@@ -10817,7 +10821,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/private/var/folders/b_/pg__x_0s2m9dd414vd7df8x40000gn/T/php2WbIJG</code></p>
+<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/private/var/folders/b_/pg__x_0s2m9dd414vd7df8x40000gn/T/phpH6HSV6</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -10825,10 +10829,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-v2-account-user-account-update"
-               value="eq`.[3CzsNU<"
+               value="46/l3=zUN.="
                data-component="body">
     <br>
-<p>Example: <code>eq</code>.[3CzsNU&lt;`</p>
+<p>Example: <code>46/l3=zUN.=</code></p>
         </div>
         </form>
 
@@ -11382,8 +11386,8 @@ const headers = {
 };
 
 let body = {
-    "email": "zking@example.net",
-    "code": "6344"
+    "email": "arnoldo.beatty@example.com",
+    "code": "9936"
 };
 
 fetch(url, {
@@ -11898,10 +11902,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v2-onboarding-users-onboarding-verifications-verify-email-otp"
-               value="zking@example.net"
+               value="arnoldo.beatty@example.com"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>zking@example.net</code></p>
+<p>Must be a valid email address. Example: <code>arnoldo.beatty@example.com</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>code</code></b>&nbsp;&nbsp;
@@ -11909,10 +11913,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="code"                data-endpoint="POSTapi-v2-onboarding-users-onboarding-verifications-verify-email-otp"
-               value="6344"
+               value="9936"
                data-component="body">
     <br>
-<p>Must match the regex /[0-9]{4}/. Example: <code>6344</code></p>
+<p>Must match the regex /[0-9]{4}/. Example: <code>9936</code></p>
         </div>
         </form>
 
