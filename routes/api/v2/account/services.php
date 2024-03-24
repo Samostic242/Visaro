@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\api\V2\Account\Services\BankingController;
-use App\Http\Controllers\api\V2\Account\Services\CardController;
+use App\Http\Controllers\Api\V2\Account\Services\BankingController;
+use App\Http\Controllers\Api\V2\Account\Services\CardController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -22,8 +22,8 @@ Route::prefix('banking')->group(function () {
         Route::delete('/{card_id}', [CardController::class, 'deleteCard']);
     });
 
-    Route::prefix('banks')->middleware('auth:api')->group(function (){
-        Route::post('enquiry', [BankingController::class,'fetchAccountDetails']);
+    Route::prefix('banks')->middleware('auth:api')->group(function () {
+        Route::post('enquiry', [BankingController::class, 'fetchAccountDetails']);
         // Route::post('V2B')
     });
 

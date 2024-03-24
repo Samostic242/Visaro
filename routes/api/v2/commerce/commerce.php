@@ -1,11 +1,9 @@
 <?php
 
-use App\Http\Controllers\api\V2\Commerce\AttributeController;
-use App\Http\Controllers\api\V2\Commerce\ProductController;
-use App\Http\Controllers\api\V2\Commerce\SkuController;
+use App\Http\Controllers\Api\V2\Commerce\AttributeController;
+use App\Http\Controllers\Api\V2\Commerce\ProductController;
+use App\Http\Controllers\Api\V2\Commerce\SkuController;
 use Illuminate\Support\Facades\Route;
-
-
 
 
 Route::prefix('product')->group(function () {

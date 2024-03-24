@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\api\V2\Merchant\Auth\MerchantAuthenticationController;
+use App\Http\Controllers\Api\V2\Merchant\Auth\MerchantAuthenticationController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('auth')->group(function () {

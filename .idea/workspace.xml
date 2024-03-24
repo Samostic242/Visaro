@@ -5,82 +5,53 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cefb265d-69cd-44c7-ba9c-3ac2144fb18f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.scribe/endpoints.cache/06.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.scribe/endpoints/06.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/scribe/js/theme-default-4.34.0.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/scribe/js/tryitout-4.34.0.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/fc02a742-79c6-4870-875d-27b35475a735.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/fc02a742-79c6-4870-875d-27b35475a735.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/phpspec.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/phpspec.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/visaronigeria.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/visaronigeria.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.scribe/endpoints.cache/00.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.scribe/endpoints.cache/00.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.scribe/endpoints.cache/01.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.scribe/endpoints.cache/01.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.scribe/endpoints.cache/02.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.scribe/endpoints.cache/02.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.scribe/endpoints.cache/03.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.scribe/endpoints.cache/03.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.scribe/endpoints/00.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.scribe/endpoints/00.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.scribe/endpoints/01.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.scribe/endpoints/01.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.scribe/endpoints/02.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.scribe/endpoints/02.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.scribe/endpoints/03.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.scribe/endpoints/03.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Helpers/General/GeneralHelper.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/General/GeneralHelper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/V2/Commerce/AttributeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/V2/Commerce/AttributeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/V2/Commerce/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/V2/Commerce/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/V2/Commerce/SkuController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/V2/Commerce/SkuController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/V2/Merchant/Account/Compliance/ComplianceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/V2/Merchant/Account/Compliance/ComplianceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/V2/Merchant/Account/Settings/SettingsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/V2/Merchant/Account/Settings/SettingsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/V2/Merchant/Auth/MerchantAuthenticationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/V2/Merchant/Auth/MerchantAuthenticationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/V2/Merchant/Onboarding/Registration/MerchantRegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/V2/Merchant/Onboarding/Registration/MerchantRegistrationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/V2/Merchant/Onboarding/Verification/MerchantVerificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/V2/Merchant/Onboarding/Verification/MerchantVerificationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/v1/ArticleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/V1/ArticleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/v1/Loans/Creditor/CreditorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/V1/Loans/Creditor/CreditorController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/v1/Loans/Credits/CreditController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/V1/Loans/Credits/CreditController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/v1/Loans/Invoice/InvoiceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/V1/Loans/Invoice/InvoiceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/v1/Loans/Merchants/MerchantController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/V1/Loans/Merchants/MerchantController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/v1/MessageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/V1/MessageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/v1/Services/Aviation/BookNewFlightController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/V1/Services/Aviation/BookNewFlightController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/v1/Services/Aviation/FlightPaymentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/V1/Services/Aviation/FlightPaymentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/v1/Services/Aviation/SwapFlightController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/V1/Services/Aviation/SwapFlightController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/v1/Services/Aviation/TripsAuthorizationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/V1/Services/Aviation/TripsAuthorizationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/v1/Services/Health/AddInsurranceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/V1/Services/Health/AddInsurranceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/v1/TransactionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/V1/TransactionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/v1/Users/Profile/Phone/PhoneNumberController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/V1/Users/Profile/Phone/PhoneNumberController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Permission.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Permission.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Role.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Role.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2023_11_05_172724_create_country_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_11_05_172724_create_country_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2023_11_05_172726_create_gender_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_11_05_172726_create_gender_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2023_11_05_172728_create_lga_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_11_05_172728_create_lga_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2023_11_05_172738_create_permissions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_11_05_172738_create_permissions_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2023_11_05_172742_create_roles_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_11_05_172742_create_roles_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2023_11_05_172743_create_roles_permissions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_11_05_172743_create_roles_permissions_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2023_11_05_172748_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_11_04_142020_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2023_11_05_172749_create_users_permissions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_11_05_172749_create_users_permissions_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2023_11_05_172750_create_users_roles_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2023_11_05_172750_create_users_roles_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/old-migration/2014_10_12_000000_create_users_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/old-migration/2014_10_12_100000_create_password_resets_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/old-migration/2019_08_19_000000_create_failed_jobs_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/old-migration/2019_12_14_000001_create_personal_access_tokens_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/old-migration/2023_01_21_121530_create_permissions_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/old-migration/2023_01_21_121834_create_roles_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/old-migration/2023_01_21_122212_create_users_permissions_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/old-migration/2023_01_21_122348_create_users_roles_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/old-migration/2023_01_21_122650_create_roles_permissions_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/PermissionSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/PermissionSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/RoleSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/RoleSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/UserRoleSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/UserRoleSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/UserSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/UserSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendor/scribe/js/theme-default-4.33.0.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/vendor/scribe/js/tryitout-4.33.0.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/scribe/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/scribe/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/PassportController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/PassportController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/V1/ArticleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ArticleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/V1/Loans/Creditor/CreditorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/Loans/Creditor/CreditorController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/V1/Loans/Credits/CreditController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/Loans/Credits/CreditController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/V1/Loans/Invoice/InvoiceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/Loans/Invoice/InvoiceController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/V1/Loans/Merchants/MerchantController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/Loans/Merchants/MerchantController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/V1/MessageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/MessageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/V1/Services/Aviation/BookNewFlightController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/Services/Aviation/BookNewFlightController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/V1/Services/Aviation/FlightPaymentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/Services/Aviation/FlightPaymentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/V1/Services/Aviation/SwapFlightController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/Services/Aviation/SwapFlightController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/V1/Services/Aviation/TripsAuthorizationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/Services/Aviation/TripsAuthorizationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/V1/Services/Health/AddInsurranceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/Services/Health/AddInsurranceController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/V1/TransactionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/TransactionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/V1/Users/Profile/Phone/PhoneNumberController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/Users/Profile/Phone/PhoneNumberController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/V2/Account/Profile/Wallet/WalletController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V2/Account/Profile/Wallet/WalletController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/V2/Account/Services/BankingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V2/Account/Services/BankingController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/V2/Account/Services/CardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V2/Account/Services/CardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/V2/Auth/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V2/Auth/AuthController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/V2/Commerce/AttributeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V2/Commerce/AttributeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/V2/Commerce/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V2/Commerce/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/V2/Commerce/SkuController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V2/Commerce/SkuController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/V2/Merchant/Account/Compliance/ComplianceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V2/Merchant/Account/Compliance/ComplianceController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/V2/Merchant/Account/Settings/SettingsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V2/Merchant/Account/Settings/SettingsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/V2/Merchant/Auth/MerchantAuthenticationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V2/Merchant/Auth/MerchantAuthenticationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/V2/Merchant/Onboarding/Registration/MerchantRegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V2/Merchant/Onboarding/Registration/MerchantRegistrationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/V2/Merchant/Onboarding/Verification/MerchantVerificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V2/Merchant/Onboarding/Verification/MerchantVerificationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/V2/Newsletter/NewsletterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V2/Newsletter/NewsletterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/V2/Onboarding/Registration/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V2/Onboarding/Registration/RegistrationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/V2/Onboarding/Verification/VerificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V2/Onboarding/Verification/VerificationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/VbaasController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/VbaasController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api/v1/loan/credit.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api/v1/loan/credit.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api/v1/loan/creditors.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api/v1/loan/creditors.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api/v1/loan/merchants.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api/v1/loan/merchants.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api/v1/loan/transactions.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api/v1/loan/transactions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api/v2/account/account.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api/v2/account/account.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api/v2/account/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api/v2/account/services.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api/v2/admin/banks.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api/v2/admin/banks.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api/v2/auth/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api/v2/auth/auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api/v2/commerce/commerce.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api/v2/commerce/commerce.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api/v2/merchant/account.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api/v2/merchant/account.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api/v2/merchant/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api/v2/merchant/auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api/v2/merchant/merchant.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api/v2/merchant/merchant.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api/v2/newsletter/public.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api/v2/newsletter/public.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api/v2/onboarding/registration.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api/v2/onboarding/registration.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/services/aviation.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/services/aviation.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -100,7 +71,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="development" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -115,12 +86,16 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
-                    <option name="branchName" value="core-creditor-actions" />
-                    <option name="lastUsedInstant" value="1709912288" />
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1711225921" />
                   </RecentBranch>
                   <RecentBranch>
-                    <option name="branchName" value="main" />
-                    <option name="lastUsedInstant" value="1709912287" />
+                    <option name="branchName" value="development" />
+                    <option name="lastUsedInstant" value="1711205537" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="core-creditor-actions" />
+                    <option name="lastUsedInstant" value="1709912288" />
                   </RecentBranch>
                 </list>
               </option>
@@ -407,7 +382,10 @@
       <workItem from="1710259700565" duration="237000" />
       <workItem from="1711194729946" duration="586000" />
       <workItem from="1711195386388" duration="5484000" />
-      <workItem from="1711203902499" duration="1501000" />
+      <workItem from="1711203902499" duration="2181000" />
+      <workItem from="1711225909999" duration="69000" />
+      <workItem from="1711225991507" duration="667000" />
+      <workItem from="1711297616408" duration="148000" />
     </task>
     <servers />
   </component>

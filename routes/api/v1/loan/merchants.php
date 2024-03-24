@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\api\V1\Loans\Invoice\InvoiceController;
-use App\Http\Controllers\api\V1\Loans\Merchants\MerchantController;
+use App\Http\Controllers\Api\V1\Loans\Invoice\InvoiceController;
+use App\Http\Controllers\Api\V1\Loans\Merchants\MerchantController;
 use Illuminate\Support\Facades\Route;
 
 Route::post('/', [MerchantController::class, 'createMerchantRecord']);
