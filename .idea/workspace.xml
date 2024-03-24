@@ -6,21 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cefb265d-69cd-44c7-ba9c-3ac2144fb18f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.scribe/endpoints.cache/00.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.scribe/endpoints.cache/00.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.scribe/endpoints.cache/01.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.scribe/endpoints.cache/01.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.scribe/endpoints.cache/02.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.scribe/endpoints.cache/02.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.scribe/endpoints.cache/03.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.scribe/endpoints.cache/03.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.scribe/endpoints.cache/04.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.scribe/endpoints.cache/04.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.scribe/endpoints.cache/05.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.scribe/endpoints.cache/05.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.scribe/endpoints/00.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.scribe/endpoints/00.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.scribe/endpoints/01.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.scribe/endpoints/01.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.scribe/endpoints/02.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.scribe/endpoints/02.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.scribe/endpoints/03.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.scribe/endpoints/03.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.scribe/endpoints/04.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.scribe/endpoints/04.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.scribe/endpoints/05.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/.scribe/endpoints/05.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/scribe/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/scribe/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api/v2/account/account.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api/v2/account/account.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api/v2/auth/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api/v2/auth/auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -354,7 +340,8 @@
       <workItem from="1711225909999" duration="69000" />
       <workItem from="1711225991507" duration="667000" />
       <workItem from="1711297616408" duration="206000" />
-      <workItem from="1711297973349" duration="106000" />
+      <workItem from="1711297973349" duration="194000" />
+      <workItem from="1711298486680" duration="282000" />
     </task>
     <servers />
   </component>
