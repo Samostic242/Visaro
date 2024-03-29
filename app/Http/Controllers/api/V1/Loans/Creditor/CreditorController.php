@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\api\V1\Loans\Creditor;
+namespace App\Http\Controllers\Api\V1\Loans\Creditor;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V1\Loans\Creditor\CreateNewCreditorRequest;

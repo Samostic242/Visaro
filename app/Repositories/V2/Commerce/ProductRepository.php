@@ -11,16 +11,20 @@ class ProductRepository implements ProductRepositoryInterface
 
     public function findProductById(string $id)
     {
-        return Product::find($id);
+        return Product::with('skus')->find($id);
+    }
+
+    public function getProductsByMerchantId($merchantId)
+    {
+        return Product::where('merchant_id', $merchantId)->with('skus')->get();
     }
 
     public function create(array $data)
     {
         $product = new Product();
         $product->public_id = uuid();
+        $product->merchant_id = auth()->id();
         $product->name = $data['name'] ?? null;
-        $product->slug = $data['slug'] ?? null;
-        $product->link = $data['link'] ?? null;
         $product->save();
         return $product;
     }
@@ -33,9 +37,30 @@ class ProductRepository implements ProductRepositoryInterface
             return false;
         }
         $product->name = $data['name'] ?? $product->name;
-        $product->slug = $data['slug'] ?? $product->slug;
-        $product->link = $data['link'] ?? $product->link;
         $product->save();
         return $product;
+    }
+
+    public function getProducts(string $id)
+    {
+        $products = $this->getProductsByMerchantId($id);
+        return $products;
+    }
+
+    public function getProductById(string $id)
+    {
+        $product = $this->findProductById($id);
+        return $product;
+    }
+
+    public function getStoreFrontByProductId(string $id)
+    {
+        $products = $this->findProductById($id);
+        if(!$products)
+        {
+            return false;
+        }
+        $storefronts = $products->storefronts()->get();
+        return $storefronts;
     }
 }

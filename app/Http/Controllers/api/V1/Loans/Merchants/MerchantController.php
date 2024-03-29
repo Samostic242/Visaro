@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\api\V1\Loans\Merchants;
+namespace App\Http\Controllers\Api\V1\Loans\Merchants;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V1\Loans\Merchant\CreateNewMerchantRequest;

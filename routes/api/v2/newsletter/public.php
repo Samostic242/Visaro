@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\api\V2\Newsletter\NewsletterController;
+use App\Http\Controllers\Api\V2\Newsletter\NewsletterController;
 use Illuminate\Support\Facades\Route;
 
 

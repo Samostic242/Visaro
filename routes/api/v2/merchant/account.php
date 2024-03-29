@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\api\V2\Merchant\Auth\MerchantAuthenticationController;
-use App\Http\Controllers\api\V2\Merchant\Onboarding\Registration\MerchantRegistrationController;
+use App\Http\Controllers\Api\V2\Merchant\Auth\MerchantAuthenticationController;
+use App\Http\Controllers\Api\V2\Merchant\Onboarding\Registration\MerchantRegistrationController;
 use Illuminate\Support\Facades\Route;
 
 

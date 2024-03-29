@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\api\V2\Auth;
+namespace App\Http\Controllers\Api\V2\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V2\Auth\AuthenticationRequest;

@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\api\V2\Account\Services\BankingController;
+use App\Http\Controllers\Api\V2\Account\Services\BankingController;
 use Illuminate\Support\Facades\Route;
 
 

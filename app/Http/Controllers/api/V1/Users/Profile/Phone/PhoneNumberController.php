@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\api\V1\Users\Profile\Phone;
+namespace App\Http\Controllers\Api\V1\Users\Profile\Phone;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Utilities;

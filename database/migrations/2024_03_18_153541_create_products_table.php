@@ -15,6 +15,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('public_id')->nullable();
             $table->string('name')->nullable();
+            $table->foreignUuid('merchant_id')->nullable();
             $table->string('merchant_code')->nullable();
             $table->string('code')->nullable();
             $table->string('slug')->nullable();

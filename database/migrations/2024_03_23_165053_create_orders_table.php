@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignUuid('transaction_id')->nullable();
             $table->foreignUuid('merchant_id')->nullable();
             $table->foreignUuid('user_id')->nullable();
+            $table->foreignUuid('store_front_id')->nullable();
             $table->timestamp('satisfied_at')->nullable();
             $table->string('qrcode')->nullable();
             $table->integer('number')->nullable();

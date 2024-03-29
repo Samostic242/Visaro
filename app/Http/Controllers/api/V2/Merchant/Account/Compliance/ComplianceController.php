@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\api\V2\Merchant\Account\Compliance;
+namespace App\Http\Controllers\Api\V2\Merchant\Account\Compliance;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V1\Loans\Merchant\UpdateMerchantSettingsRequest;

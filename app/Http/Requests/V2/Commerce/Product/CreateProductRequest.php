@@ -24,8 +24,8 @@ class CreateProductRequest extends FormRequest
     {
         return [
             'name' => ['nullable', 'string'],
-            'slug' => ['nullable', 'string'],
-            'link' => ['nullable', 'string'],
+            /* 'slug' => ['nullable', 'string'],
+            'link' => ['nullable', 'string'], */
         ];
     }
 }

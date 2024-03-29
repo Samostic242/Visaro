@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\api\V2\Commerce;
+namespace App\Http\Controllers\Api\V2\Commerce;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V2\Commerce\Sku\CreateSkuRequest;
@@ -26,7 +26,7 @@ class SkuController extends Controller
      */
     public function create(CreateSkuRequest $request)
     {
-        $validated_data = $request->validated_data();
+        $validated_data = $request->validated();
         if (!$created = $this->skuRepository->create($validated_data)) {
             return respondError(400, '01', 'An error occurred');
         }

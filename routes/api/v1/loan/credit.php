@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\api\V1\Loans\Credits\CreditController;
+use App\Http\Controllers\Api\V1\Loans\Credits\CreditController;
 use Illuminate\Support\Facades\Route;
 
 

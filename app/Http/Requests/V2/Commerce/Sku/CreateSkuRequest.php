@@ -22,7 +22,7 @@ class CreateSkuRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'product_id' => ['nullable', 'string'],
+            'product_id' => ['nullable', 'string', 'exists:products,id'],
             'code' => ['nullable', 'string'],
             'price' => ['nullable', 'integer'],
         ];

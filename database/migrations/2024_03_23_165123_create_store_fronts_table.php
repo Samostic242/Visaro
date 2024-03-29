@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('store_fronts', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('public_id')->nullable();
-            $table->foreignUuid('merchant_id')->constrained();
+            $table->foreignUuid('merchant_id')->nullable();
             $table->string('name')->nullable();
             $table->string('slug')->nullable();
             $table->string('qrcode')->nullable();

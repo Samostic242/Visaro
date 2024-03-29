@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\api\V2\Commerce;
+namespace App\Http\Controllers\Api\V2\Commerce;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V2\Commerce\Attribute\CreateAttributeOptionRequest;

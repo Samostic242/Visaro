@@ -192,6 +192,8 @@ return [
         App\Providers\CustomProviders\V2\Commerce\ProductServiceProvider::class,
         App\Providers\CustomProviders\V2\Commerce\AttributeServiceProvider::class,
         App\Providers\CustomProviders\V2\Commerce\SkuServiceProvider::class,
+        App\Providers\CustomProviders\V2\Commerce\OrderServiceProvider::class,
+        App\Providers\CustomProviders\V2\Commerce\StoreFrontServiceProvider::class,
 
 
 

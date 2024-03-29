@@ -14,7 +14,7 @@ class SkusRepository implements SkusRepositoryInterface
     }
     public function create(array $data)
     {
-        $skus = Sku();
+        $skus = new Sku();
         $skus->public_id = uuid();
         $skus->product_id = $data['product_id'] ?? null;
         $skus->code = $data['code'] ?? null;

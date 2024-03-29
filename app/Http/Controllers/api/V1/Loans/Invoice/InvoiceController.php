@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\api\V1\Loans\Invoice;
+namespace App\Http\Controllers\Api\V1\Loans\Invoice;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V1\Loans\Invoice\CreateNewInvoiceRequest;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\api\V2\Merchant\Onboarding\Verification;
+namespace App\Http\Controllers\Api\V2\Merchant\Onboarding\Verification;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V2\Merchant\Onboarding\Verification\VerificationRequest;

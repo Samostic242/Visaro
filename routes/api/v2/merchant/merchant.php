@@ -1,10 +1,10 @@
 <?php
 
 
-use App\Http\Controllers\api\V2\Merchant\Account\Compliance\ComplianceController;
-use App\Http\Controllers\api\V2\Merchant\Account\Settings\SettingsController;
-use App\Http\Controllers\api\V2\Merchant\Onboarding\Registration\MerchantRegistrationController;
-use App\Http\Controllers\api\V2\Merchant\Onboarding\Verification\MerchantVerificationController;
+use App\Http\Controllers\Api\V2\Merchant\Account\Compliance\ComplianceController;
+use App\Http\Controllers\Api\V2\Merchant\Account\Settings\SettingsController;
+use App\Http\Controllers\Api\V2\Merchant\Onboarding\Registration\MerchantRegistrationController;
+use App\Http\Controllers\Api\V2\Merchant\Onboarding\Verification\MerchantVerificationController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -37,4 +37,4 @@ Route::prefix('preference')->middleware('auth:merchant')->group(function () {
 Route::prefix('bank')->middleware('auth:merchant')->group(function () {
     Route::post('create', [SettingsController::class, 'createBankAccount']);
     Route::post('update', [SettingsController::class, 'updateBankAccount']);
-});     
+});

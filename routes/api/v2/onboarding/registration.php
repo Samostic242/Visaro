@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\api\V2\Onboarding\Registration\RegistrationController;
-use App\Http\Controllers\api\V2\Onboarding\Verification\VerificationController;
+use App\Http\Controllers\Api\V2\Onboarding\Registration\RegistrationController;
+use App\Http\Controllers\Api\V2\Onboarding\Verification\VerificationController;
 use Illuminate\Support\Facades\Route;
 
 

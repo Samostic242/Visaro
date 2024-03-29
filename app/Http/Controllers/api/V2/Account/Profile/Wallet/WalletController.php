@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\api\V2\Account\Profile\Wallet;
+namespace App\Http\Controllers\Api\V2\Account\Profile\Wallet;
 
 use App\Http\Controllers\Controller;
 use App\Interfaces\Repositories\V2\Account\Profile\WalletRepositoryInterface;

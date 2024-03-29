@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\api\V2\Newsletter;
+namespace App\Http\Controllers\Api\V2\Newsletter;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V2\Newsletter\NewsletterRequest;
