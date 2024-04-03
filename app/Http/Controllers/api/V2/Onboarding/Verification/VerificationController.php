@@ -33,7 +33,7 @@ class VerificationController extends Controller
     }
 
     /**
-     * Verify onboarding email OTP
+     * Verify email OTP
      */
     public function verifyOtp(VerificationRequest $request)
     {

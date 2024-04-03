@@ -25,7 +25,7 @@ class RegistrationController extends Controller
     }
 
     /**
-     * Verify email address
+     * Get email OTP
      */
     public function getOTP(OTPRequest $request)
     {
