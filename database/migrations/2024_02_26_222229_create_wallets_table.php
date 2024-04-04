@@ -14,11 +14,11 @@ return new class extends Migration {
             $table->uuid('id')->primary();
             $table->string('public_id')->index();
             $table->foreignUuid('owner_id');
-            $table->string('owner');
-            $table->string('provider_id');
+            $table->string('owner')->nullable();
+            $table->string('provider_id')->nullable();
             $table->integer('balance')->default(0);
             $table->integer('ledger_balance')->default(0);
-            $table->foreignUuid('ledger_id');
+            $table->foreignUuid('ledger_id')->nullable();
             $table->boolean('active')->default(true);
             $table->string('status')->default('active');
             $table->softDeletes();
