@@ -63,13 +63,13 @@ endpoints:
         name: product_id
         description: 'The ID of the product.'
         required: true
-        example: eum
+        example: possimus
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      product_id: eum
+      product_id: possimus
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -116,13 +116,13 @@ endpoints:
         name: name
         description: ''
         required: false
-        example: dignissimos
+        example: molestias
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      name: dignissimos
+      name: molestias
     fileParameters: []
     responses:
       -
@@ -161,13 +161,13 @@ endpoints:
         name: product_id
         description: 'The ID of the product.'
         required: true
-        example: qui
+        example: sed
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      product_id: qui
+      product_id: sed
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -175,7 +175,7 @@ endpoints:
         name: name
         description: ''
         required: false
-        example: quia
+        example: non
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -184,14 +184,14 @@ endpoints:
         name: link
         description: ''
         required: false
-        example: est
+        example: excepturi
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      name: quia
-      link: est
+      name: non
+      link: excepturi
     fileParameters: []
     responses:
       -
@@ -234,7 +234,7 @@ endpoints:
         name: product_id
         description: ''
         required: false
-        example: eius
+        example: nobis
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -243,7 +243,7 @@ endpoints:
         name: code
         description: ''
         required: false
-        example: placeat
+        example: occaecati
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -252,15 +252,15 @@ endpoints:
         name: price
         description: ''
         required: false
-        example: 1
+        example: 12
         type: integer
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      product_id: eius
-      code: placeat
-      price: 1
+      product_id: nobis
+      code: occaecati
+      price: 12
     fileParameters: []
     responses:
       -
@@ -299,13 +299,13 @@ endpoints:
         name: product_id
         description: 'The ID of the product.'
         required: true
-        example: id
+        example: aut
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      product_id: id
+      product_id: aut
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
