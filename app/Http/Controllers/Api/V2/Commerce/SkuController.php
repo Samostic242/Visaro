@@ -26,7 +26,7 @@ class SkuController extends Controller
      */
     public function create(CreateSkuRequest $request)
     {
-        $validated_data = $request->validated_data();
+        $validated_data = $request->validated();
         if (!$created = $this->skuRepository->create($validated_data)) {
             return respondError(400, '01', 'An error occurred');
         }

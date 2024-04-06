@@ -76,5 +76,7 @@ class MerchantAuthenticationRepository implements MerchantAuthenticationInterfac
     {
         return auth()->user();
     }
+
+    // public function login()
 }
 

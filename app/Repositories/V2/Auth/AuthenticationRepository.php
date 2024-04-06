@@ -2,6 +2,7 @@
 
 namespace App\Repositories\V2\Auth;
 
+use App\Http\Resources\V2\User\Account\UserAccountResource;
 use App\Interfaces\Repositories\V2\Auth\AuthenticationRepositoryInterface;
 use App\Mail\V2\Auth\ForgotPasswordMail;
 use App\Models\User;
@@ -33,7 +34,7 @@ class AuthenticationRepository implements AuthenticationRepositoryInterface
 
     public function getUser()
     {
-        return auth()->user();
+        return new UserAccountResource(auth()->user());
     }
 
     public function forgotPassword(array $data)

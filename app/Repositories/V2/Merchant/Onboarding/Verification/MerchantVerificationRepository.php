@@ -1,8 +1,10 @@
 <?php
 namespace App\Repositories\V2\Merchant\Onboarding\Verification;
 use App\Interfaces\Repositories\V2\Merchant\Onboarding\Verification\MerchantVerificationInterface;
-use App\Models\Loans\Merchants\Merchant;
+use App\Models\Merchant\Onboarding\Merchant;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
+use Tymon\JWTAuth\Facades\JWTAuth;
 use Tzsk\Otp\Facades\Otp;
 
 
@@ -16,15 +18,9 @@ class MerchantVerificationRepository implements MerchantVerificationInterface
         } elseif ($merchant->email_verified_at != NULL) {
             return respondError(400, '01', 'The email has been verified already');
         }
-        auth()->shouldUse('merchant');
-        $token = auth()->attempt([
-            'business_email' => $merchant->business_email,
-            'password' => 12345
-        ]);
-        if(!$token)
-        {
-            return respondError(400, '01', 'Invalid credentials');
-        }
+        // auth()->shouldUse('merchant');
+        Auth::guard('merchant')->login($merchant);
+        $token = JWTAuth::setRequest(request())->fromUser($merchant);
         $merchant->email_verified_at = Carbon::now();
         $merchant->save();
         $merchantdata = ['token' => $token];

@@ -16,7 +16,7 @@ class UserAuthService implements UserAuthServiceInterface
     public function login(string $username, string $password): array
     {
         try {
-            if (!$token = auth()->attempt([$username, $password])) {
+            if (!$token = auth()->attempt(['email' => $username, 'password' => $password])) {
                 return [
                     'status' => false,
                     'message' => 'Incorrect username or password',
@@ -62,7 +62,7 @@ class UserAuthService implements UserAuthServiceInterface
         } catch (Exception $exception) {
             return [
                 'status' => false,
-                'message' => 'Login failed, system error',
+                'message' => $exception->getMessage(),
                 'code' => 400,
                 'data' => null
             ];
@@ -71,9 +71,10 @@ class UserAuthService implements UserAuthServiceInterface
 
     }
 
-    public function getUser(): User|null
+    public function getUser()
     {
-        return auth()->user();
+        $user = auth()->user();
+        return $user;
     }
 
     public function forgotPassword(string $email): array

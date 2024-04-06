@@ -29,7 +29,9 @@ class CardRepository implements CardRepositoryInterface
         $card->street_address = $data['street_address'] ?? null ;
         $card->lga = $data['lga'] ?? null ;
         $card->provider = $data['provider'] ?? null ;
-        $card->provider_logo = upload_to_cloudinary('ProviderLogo', $data['provider_logo']->getRealPath());
+        if(array_key_exists('ProviderLogo', $data)){
+        $card->provider_logo = upload_to_cloudinary('ProviderLogo', $data['provider_logo']->getRealPath()) ?? null;
+        }
         $card->allow_charge = $data['allow_charge'];
         $card->save();
 

@@ -31,18 +31,18 @@ endpoints:
           {
               "message": "Auth guard [] is not defined.",
               "exception": "InvalidArgumentException",
-              "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/laravel/framework/src/Illuminate/Auth/AuthManager.php",
+              "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\AuthManager.php",
               "line": 86,
               "trace": [
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/laravel/framework/src/Illuminate/Auth/AuthManager.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\AuthManager.php",
                       "line": 70,
                       "function": "resolve",
                       "class": "Illuminate\\Auth\\AuthManager",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/laravel/framework/src/Illuminate/Auth/AuthManager.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\AuthManager.php",
                       "line": 57,
                       "function": "guard",
                       "class": "Illuminate\\Auth\\AuthManager",
@@ -54,7 +54,7 @@ endpoints:
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/laravel/framework/src/Illuminate/Auth/AuthServiceProvider.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\AuthServiceProvider.php",
                       "line": 89,
                       "function": "call_user_func"
                   },
@@ -64,376 +64,376 @@ endpoints:
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/laravel/framework/src/Illuminate/Http/Request.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Request.php",
                       "line": 607,
                       "function": "call_user_func"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/app/Providers/RouteServiceProvider.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\app\\Providers\\RouteServiceProvider.php",
                       "line": 143,
                       "function": "user",
                       "class": "Illuminate\\Http\\Request",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php",
                       "line": 117,
                       "function": "App\\Providers\\{closure}",
                       "class": "App\\Providers\\RouteServiceProvider",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php",
                       "line": 87,
                       "function": "handleRequestUsingNamedLimiter",
                       "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
                       "line": 183,
                       "function": "handle",
                       "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
                       "line": 119,
                       "function": "Illuminate\\Pipeline\\{closure}",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
                       "line": 805,
                       "function": "then",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
                       "line": 784,
                       "function": "runRouteWithinStack",
                       "class": "Illuminate\\Routing\\Router",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
                       "line": 748,
                       "function": "runRoute",
                       "class": "Illuminate\\Routing\\Router",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
                       "line": 737,
                       "function": "dispatchToRoute",
                       "class": "Illuminate\\Routing\\Router",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
                       "line": 200,
                       "function": "dispatch",
                       "class": "Illuminate\\Routing\\Router",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
                       "line": 144,
                       "function": "Illuminate\\Foundation\\Http\\{closure}",
                       "class": "Illuminate\\Foundation\\Http\\Kernel",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
                       "line": 21,
                       "function": "Illuminate\\Pipeline\\{closure}",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php",
                       "line": 31,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
                       "line": 183,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
                       "line": 21,
                       "function": "Illuminate\\Pipeline\\{closure}",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php",
                       "line": 40,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
                       "line": 183,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Http\\Middleware\\TrimStrings",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php",
                       "line": 27,
                       "function": "Illuminate\\Pipeline\\{closure}",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
                       "line": 183,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php",
                       "line": 99,
                       "function": "Illuminate\\Pipeline\\{closure}",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
                       "line": 183,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php",
                       "line": 62,
                       "function": "Illuminate\\Pipeline\\{closure}",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
                       "line": 183,
                       "function": "handle",
                       "class": "Illuminate\\Http\\Middleware\\HandleCors",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php",
                       "line": 39,
                       "function": "Illuminate\\Pipeline\\{closure}",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
                       "line": 183,
                       "function": "handle",
                       "class": "Illuminate\\Http\\Middleware\\TrustProxies",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
                       "line": 119,
                       "function": "Illuminate\\Pipeline\\{closure}",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
                       "line": 175,
                       "function": "then",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
                       "line": 144,
                       "function": "sendRequestThroughRouter",
                       "class": "Illuminate\\Foundation\\Http\\Kernel",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
                       "line": 300,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Http\\Kernel",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
                       "line": 288,
                       "function": "callLaravelOrLumenRoute",
                       "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
                       "line": 91,
                       "function": "makeApiCall",
                       "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
                       "line": 44,
                       "function": "makeResponseCall",
                       "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
                       "line": 35,
                       "function": "makeResponseCallIfConditionsPass",
                       "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php",
                       "line": 236,
                       "function": "__invoke",
                       "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php",
                       "line": 163,
                       "function": "iterateThroughStrategies",
                       "class": "Knuckles\\Scribe\\Extracting\\Extractor",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php",
                       "line": 95,
                       "function": "fetchResponses",
                       "class": "Knuckles\\Scribe\\Extracting\\Extractor",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
                       "line": 125,
                       "function": "processRoute",
                       "class": "Knuckles\\Scribe\\Extracting\\Extractor",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
                       "line": 72,
                       "function": "extractEndpointsInfoFromLaravelApp",
                       "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
                       "line": 50,
                       "function": "extractEndpointsInfoAndWriteToDisk",
                       "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/knuckleswtf/scribe/src/Commands/GenerateDocumentation.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
                       "line": 53,
                       "function": "get",
                       "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
                       "line": 36,
                       "function": "handle",
                       "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/laravel/framework/src/Illuminate/Container/Util.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php",
                       "line": 41,
                       "function": "Illuminate\\Container\\{closure}",
                       "class": "Illuminate\\Container\\BoundMethod",
                       "type": "::"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
                       "line": 93,
                       "function": "unwrapIfClosure",
                       "class": "Illuminate\\Container\\Util",
                       "type": "::"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
                       "line": 35,
                       "function": "callBoundMethod",
                       "class": "Illuminate\\Container\\BoundMethod",
                       "type": "::"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/laravel/framework/src/Illuminate/Container/Container.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php",
                       "line": 662,
                       "function": "call",
                       "class": "Illuminate\\Container\\BoundMethod",
                       "type": "::"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/laravel/framework/src/Illuminate/Console/Command.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
                       "line": 211,
                       "function": "call",
                       "class": "Illuminate\\Container\\Container",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/symfony/console/Command/Command.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\symfony\\console\\Command\\Command.php",
                       "line": 326,
                       "function": "execute",
                       "class": "Illuminate\\Console\\Command",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/laravel/framework/src/Illuminate/Console/Command.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
                       "line": 180,
                       "function": "run",
                       "class": "Symfony\\Component\\Console\\Command\\Command",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/symfony/console/Application.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\symfony\\console\\Application.php",
                       "line": 1096,
                       "function": "run",
                       "class": "Illuminate\\Console\\Command",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/symfony/console/Application.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\symfony\\console\\Application.php",
                       "line": 324,
                       "function": "doRunCommand",
                       "class": "Symfony\\Component\\Console\\Application",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/symfony/console/Application.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\symfony\\console\\Application.php",
                       "line": 175,
                       "function": "doRun",
                       "class": "Symfony\\Component\\Console\\Application",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php",
                       "line": 201,
                       "function": "run",
                       "class": "Symfony\\Component\\Console\\Application",
                       "type": "->"
                   },
                   {
-                      "file": "/Users/maxwellagu/Herd/visaronigeria/artisan",
+                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\artisan",
                       "line": 35,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Console\\Kernel",
@@ -478,7 +478,7 @@ endpoints:
         name: account_name
         description: ''
         required: true
-        example: nihil
+        example: tempora
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -487,7 +487,7 @@ endpoints:
         name: account_number
         description: ''
         required: true
-        example: beatae
+        example: consequuntur
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -496,15 +496,15 @@ endpoints:
         name: bank_name
         description: ''
         required: true
-        example: repellat
+        example: incidunt
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      account_name: nihil
-      account_number: beatae
-      bank_name: repellat
+      account_name: tempora
+      account_number: consequuntur
+      bank_name: incidunt
     fileParameters: []
     responses:
       -
@@ -586,7 +586,7 @@ endpoints:
         name: account_name
         description: ''
         required: true
-        example: cumque
+        example: aut
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -595,7 +595,7 @@ endpoints:
         name: account_number
         description: ''
         required: true
-        example: et
+        example: enim
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -604,7 +604,7 @@ endpoints:
         name: bank_name
         description: ''
         required: true
-        example: laborum
+        example: laboriosam
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -613,16 +613,16 @@ endpoints:
         name: bank_code
         description: ''
         required: true
-        example: in
+        example: vero
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      account_name: cumque
-      account_number: et
-      bank_name: laborum
-      bank_code: in
+      account_name: aut
+      account_number: enim
+      bank_name: laboriosam
+      bank_code: vero
     fileParameters: []
     responses:
       -
@@ -704,7 +704,7 @@ endpoints:
         name: type
         description: ''
         required: true
-        example: optio
+        example: voluptatem
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -713,7 +713,7 @@ endpoints:
         name: number
         description: ''
         required: true
-        example: in
+        example: et
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -722,7 +722,7 @@ endpoints:
         name: expiration_month
         description: ''
         required: true
-        example: eligendi
+        example: laborum
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -731,7 +731,7 @@ endpoints:
         name: expiration_year
         description: ''
         required: true
-        example: temporibus
+        example: aut
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -740,7 +740,7 @@ endpoints:
         name: cvv
         description: ''
         required: true
-        example: quos
+        example: adipisci
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -749,7 +749,7 @@ endpoints:
         name: last_four_digit
         description: ''
         required: true
-        example: est
+        example: voluptatum
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -758,7 +758,7 @@ endpoints:
         name: country
         description: ''
         required: true
-        example: ipsa
+        example: molestiae
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -767,7 +767,7 @@ endpoints:
         name: state
         description: ''
         required: true
-        example: facilis
+        example: ad
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -776,7 +776,7 @@ endpoints:
         name: postal_code
         description: ''
         required: true
-        example: modi
+        example: quam
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -785,7 +785,7 @@ endpoints:
         name: city
         description: ''
         required: true
-        example: facere
+        example: facilis
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -794,7 +794,7 @@ endpoints:
         name: street_address
         description: ''
         required: true
-        example: id
+        example: consequuntur
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -803,7 +803,7 @@ endpoints:
         name: lga
         description: ''
         required: true
-        example: facilis
+        example: ut
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -812,7 +812,7 @@ endpoints:
         name: provider
         description: ''
         required: true
-        example: id
+        example: ex
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -836,19 +836,19 @@ endpoints:
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      type: optio
-      number: in
-      expiration_month: eligendi
-      expiration_year: temporibus
-      cvv: quos
-      last_four_digit: est
-      country: ipsa
-      state: facilis
-      postal_code: modi
-      city: facere
-      street_address: id
-      lga: facilis
-      provider: id
+      type: voluptatem
+      number: et
+      expiration_month: laborum
+      expiration_year: aut
+      cvv: adipisci
+      last_four_digit: voluptatum
+      country: molestiae
+      state: ad
+      postal_code: quam
+      city: facilis
+      street_address: consequuntur
+      lga: ut
+      provider: ex
       allow_charge: true
     fileParameters:
       provider_logo: null
@@ -928,13 +928,13 @@ endpoints:
         name: card_id
         description: 'The ID of the card.'
         required: true
-        example: et
+        example: rerum
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      card_id: et
+      card_id: rerum
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -981,13 +981,13 @@ endpoints:
         name: code
         description: ''
         required: true
-        example: eligendi
+        example: enim
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      code: eligendi
+      code: enim
     fileParameters: []
     responses:
       -
@@ -1030,7 +1030,7 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: sed
+        example: ipsam
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1039,7 +1039,7 @@ endpoints:
         name: code
         description: ''
         required: true
-        example: est
+        example: aliquam
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1048,7 +1048,7 @@ endpoints:
         name: acronym
         description: ''
         required: true
-        example: molestiae
+        example: dolor
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1063,9 +1063,9 @@ endpoints:
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      name: sed
-      code: est
-      acronym: molestiae
+      name: ipsam
+      code: aliquam
+      acronym: dolor
     fileParameters:
       logo: null
     responses:

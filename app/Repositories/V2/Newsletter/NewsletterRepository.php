@@ -11,6 +11,7 @@ class NewsletterRepository implements NewsletterRepositoryInterface
     public function subscribe(array $data)
     {
         $newsletter = new Newsletter();
+        $newsletter->public_id = uuid();
         $newsletter->email = $data['email'] ?? null;
         $newsletter->save();
 

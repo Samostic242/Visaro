@@ -62,7 +62,9 @@ class RegistrationRepository implements RegistrationRepositoryInterface
         $user->middlename = $data['middlename'] ?? $user->middlename;
         $user->phone = $data['phone'] ?? $user->phone;
         $user->phone_code = $data['phone_code'] ?? '+234';
+        if(array_key_exists('photo', $data)){
         $user->photo = upload_to_cloudinary('Profile Pictures', $data['photo']->getRealPath()) ?? $user->photo;
+        }
         $user->password = Hash::make($data['password']) ?? $user->password;
         $user->save();
         return $user;

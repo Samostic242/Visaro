@@ -65,7 +65,9 @@ class MerchantRegistrationRepository implements MerchantRegistrationInterface
         $merchant->country_id = $data['country_id'] ?? $merchant->country_id;
         $merchant->meta = $data['meta'] ?? $merchant->meta;
         $merchant->active = $data['active'] ?? $merchant->active;
+        if(array_key_exists('password', $data)){
         $merchant->password = Hash::make($data['password']) ?? $merchant->password;
+        }
         $merchant->save();
 
         return $merchant;
@@ -87,7 +89,6 @@ class MerchantRegistrationRepository implements MerchantRegistrationInterface
         $merchant->business_email = $data['business_email'] ?? null;
         $merchant->business_phone_code = $data['business_phone_code'] ?? '+234';
         $merchant->business_phone = $data['business_phone'] ?? null;
-        $merchant->password = Hash::make(12345);
         $merchant->save();
         Mail::send(new VerificationMail($data['business_email'], $otp));
         return respondSuccess('An email containing your OTP has been sent to your email address');

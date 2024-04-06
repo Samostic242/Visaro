@@ -15,6 +15,7 @@ return [
 
     'defaults' => [
 //        'guard' => 'web',
+        // 'api' => 'web',
         'guard' => 'api',
         'passwords' => 'users',
     ],
@@ -45,7 +46,6 @@ return [
             'driver' => 'jwt',
             'provider' => 'users',
         ],
-
         'merchant' => [
             'driver' => 'jwt',
             'provider' => 'merchants',

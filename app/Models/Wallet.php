@@ -31,7 +31,7 @@ class Wallet extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function ledger(): BelongTo
+    public function ledger(): BelongsTo
     {
         return $this->belongsTo(Ledger::class);
     }

@@ -17,8 +17,8 @@ class UserAccountResource extends JsonResource
         return [
             'id' => $this->id,
             'public_id' => $this->public_id,
-            'firstname' => $this->account_number,
-            'lastname' => $this->bank_name,
+            'firstname' => $this->firstname,
+            'lastname' => $this->lastname,
             'phone_number' => $this->phone_code . $this->phone,
             'email' => $this->email,
             'qrcode' => $this->qrcode,

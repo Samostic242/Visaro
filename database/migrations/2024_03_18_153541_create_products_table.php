@@ -13,10 +13,14 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('public_id')->index();
+            $table->string('public_id')->nullable();
             $table->string('name')->nullable();
+            $table->foreignUuid('merchant_id')->nullable();
+            $table->string('merchant_code')->nullable();
+            $table->string('code')->nullable();
             $table->string('slug')->nullable();
             $table->string('link')->nullable();
+            $table->string('cover_image')->nullable();
             $table->string('qrcode')->nullable();
             $table->softDeletes();
             $table->timestamps();
