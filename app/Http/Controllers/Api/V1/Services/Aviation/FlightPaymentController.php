@@ -29,7 +29,7 @@ class FlightPaymentController extends Controller
             ->where('id', $id)
             ->first();
         if (!$booking) {
-            return respondError('01', "Booking not found", status_code: 404);
+            return respondError(404, '01', "Booking not found");
         }
         try {
             $option = PaymentOption::where('id', $option_id)->first();
@@ -43,7 +43,7 @@ class FlightPaymentController extends Controller
             return respondSuccess('Option fetched successfully', $data);
         } catch (\Throwable $th) {
             Log::error("Error fetching Payment Option - {$th->getMessage()}");
-            return respondError('01', "Error fetching payment option - {$th->getMessage()}");
+            return respondError(400, '01', "Error fetching payment option - {$th->getMessage()}");
         }
     }
 
@@ -57,7 +57,7 @@ class FlightPaymentController extends Controller
                 ->where('id', $validated->booking_id)
                 ->first();
             if (!$booking) {
-                return respondError('01', "Booking not found", status_code: 404);
+                return respondError(404, '01', "Booking not found");
             }
             $instalment = PaymentInstallment::where('user_id', auth()->user()->id)
                 ->where('id', $validated->payment_installment_id)
@@ -65,19 +65,19 @@ class FlightPaymentController extends Controller
                 ->whereNot('status', 'completed')
                 ->first();
             if (!$instalment) {
-                return respondError('01', "Invalid installment entered", status_code: 404);
+                return respondError(404, '01', "Invalid installment entered");
             }
             if (!$update_installment = $this->confirmPaymentInstallment($instalment->id)) {
-                return respondError('01', "Installment failed to update", status_code: 400);
+                return respondError(404, '01', "Installment failed to update");
             }
             if (!$book_flight = bookFlightOnTrips($booking, auth()->user()->id)) {
-                return respondError('01', "Unable to confirm booking", status_code: 400);
+                return respondError(404, '01', "Unable to confirm booking");
             }
             $update_booking = $this->updateBookingToBooked($booking);
             return respondSuccess('Option fetched successfully', TicketResource::collection($book_flight->tickets));
         } catch (\Throwable $th) {
             Log::error("Error fetching Payment Option - {$th->getMessage()}");
-            return respondError('01', "Error fetching payment option - {$th->getMessage()}");
+            return respondError(404, '01', "Error fetching payment option - {$th->getMessage()}");
         }
     }
 

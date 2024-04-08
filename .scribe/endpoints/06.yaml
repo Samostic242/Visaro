@@ -61,13 +61,21 @@ endpoints:
         name: order_id
         description: 'The ID of the order.'
         required: true
+<<<<<<< HEAD
         example: dignissimos
+=======
+        example: dolorum
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
+<<<<<<< HEAD
       order_id: dignissimos
+=======
+      order_id: dolorum
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -114,7 +122,11 @@ endpoints:
         name: invoice_id
         description: ''
         required: false
+<<<<<<< HEAD
         example: ducimus
+=======
+        example: explicabo
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -123,7 +135,11 @@ endpoints:
         name: merchant_id
         description: ''
         required: false
+<<<<<<< HEAD
         example: voluptatem
+=======
+        example: aut
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -132,7 +148,11 @@ endpoints:
         name: transaction_id
         description: ''
         required: false
+<<<<<<< HEAD
         example: quis
+=======
+        example: veniam
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -141,7 +161,11 @@ endpoints:
         name: user_id
         description: ''
         required: false
+<<<<<<< HEAD
         example: est
+=======
+        example: dolorem
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -150,17 +174,29 @@ endpoints:
         name: store_front_id
         description: ''
         required: false
+<<<<<<< HEAD
         example: aperiam
+=======
+        example: et
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
+<<<<<<< HEAD
       invoice_id: ducimus
       merchant_id: voluptatem
       transaction_id: quis
       user_id: est
       store_front_id: aperiam
+=======
+      invoice_id: explicabo
+      merchant_id: aut
+      transaction_id: veniam
+      user_id: dolorem
+      store_front_id: et
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
     fileParameters: []
     responses:
       -
@@ -199,13 +235,21 @@ endpoints:
         name: order_id
         description: 'The ID of the order.'
         required: true
+<<<<<<< HEAD
         example: velit
+=======
+        example: dolor
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
+<<<<<<< HEAD
       order_id: velit
+=======
+      order_id: dolor
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -213,7 +257,11 @@ endpoints:
         name: status
         description: ''
         required: false
+<<<<<<< HEAD
         example: cancelled
+=======
+        example: processing
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues:
           - created
@@ -231,7 +279,11 @@ endpoints:
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
+<<<<<<< HEAD
       status: cancelled
+=======
+      status: processing
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
       active: true
     fileParameters: []
     responses:
@@ -310,13 +362,21 @@ endpoints:
         name: store_front_id
         description: 'The ID of the store front.'
         required: true
+<<<<<<< HEAD
         example: officia
+=======
+        example: accusantium
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
+<<<<<<< HEAD
       store_front_id: officia
+=======
+      store_front_id: accusantium
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -363,7 +423,11 @@ endpoints:
         name: merchant_id
         description: ''
         required: false
+<<<<<<< HEAD
         example: in
+=======
+        example: distinctio
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -372,7 +436,11 @@ endpoints:
         name: name
         description: ''
         required: false
+<<<<<<< HEAD
         example: necessitatibus
+=======
+        example: totam
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -396,8 +464,13 @@ endpoints:
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
+<<<<<<< HEAD
       merchant_id: in
       name: necessitatibus
+=======
+      merchant_id: distinctio
+      name: totam
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
     fileParameters:
       logo: null
       cover_image: null
@@ -438,13 +511,21 @@ endpoints:
         name: store_front_id
         description: 'The ID of the store front.'
         required: true
+<<<<<<< HEAD
         example: sunt
+=======
+        example: ipsa
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
+<<<<<<< HEAD
       store_front_id: sunt
+=======
+      store_front_id: ipsa
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -452,7 +533,11 @@ endpoints:
         name: merchant_id
         description: ''
         required: false
+<<<<<<< HEAD
         example: minima
+=======
+        example: quidem
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -461,7 +546,11 @@ endpoints:
         name: name
         description: ''
         required: false
+<<<<<<< HEAD
         example: delectus
+=======
+        example: nemo
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -488,7 +577,11 @@ endpoints:
         name: status
         description: ''
         required: false
+<<<<<<< HEAD
         example: qui
+=======
+        example: et
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -497,16 +590,27 @@ endpoints:
         name: active
         description: ''
         required: false
+<<<<<<< HEAD
         example: false
+=======
+        example: true
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
+<<<<<<< HEAD
       merchant_id: minima
       name: delectus
       status: qui
       active: false
+=======
+      merchant_id: quidem
+      name: nemo
+      status: et
+      active: true
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
     fileParameters:
       logo: null
       cover_image: null
@@ -547,13 +651,21 @@ endpoints:
         name: store_front_id
         description: 'The ID of the store front.'
         required: true
+<<<<<<< HEAD
         example: voluptatem
+=======
+        example: tenetur
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
+<<<<<<< HEAD
       store_front_id: voluptatem
+=======
+      store_front_id: tenetur
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -596,13 +708,21 @@ endpoints:
         name: store_front_id
         description: 'The ID of the store front.'
         required: true
+<<<<<<< HEAD
         example: amet
+=======
+        example: sed
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
+<<<<<<< HEAD
       store_front_id: amet
+=======
+      store_front_id: sed
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -610,13 +730,21 @@ endpoints:
         name: product_id
         description: ''
         required: false
+<<<<<<< HEAD
         example: iure
+=======
+        example: dolor
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
+<<<<<<< HEAD
       product_id: iure
+=======
+      product_id: dolor
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
     fileParameters: []
     responses:
       -
@@ -655,13 +783,21 @@ endpoints:
         name: store_front_id
         description: 'The ID of the store front.'
         required: true
+<<<<<<< HEAD
         example: deleniti
+=======
+        example: praesentium
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
+<<<<<<< HEAD
       store_front_id: deleniti
+=======
+      store_front_id: praesentium
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

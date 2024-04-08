@@ -28,12 +28,17 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
+<<<<<<< HEAD
         example: qluettgen@example.org
+=======
+        example: yvolkman@example.org
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
+<<<<<<< HEAD
       email: qluettgen@example.org
     fileParameters: []
     responses:
@@ -453,9 +458,19 @@ endpoints:
                   }
               ]
           }
+=======
+      email: yvolkman@example.org
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"code":"00","status":true,"message":"You have successfully subscribed to our newsletter","data":{"public_id":"93539303-c6a6-49d3-9e8d-5acd8cadcf78","email":"yvolkman@example.org","id":"9bbda89e-5d12-4405-b7bf-b327f2ca8a9a","updated_at":"2024-04-06T07:33:20.000000Z","created_at":"2024-04-06T07:33:20.000000Z"}}'
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '52'
           access-control-allow-origin: '*'
         description: null
         custom: []

@@ -8,12 +8,11 @@ use App\Interfaces\Repositories\V2\Merchant\Onboarding\Verification\MerchantVeri
 
 /**
  * @group Merchant
- * * @subgroup Verification
+ * @subgroup Verification
  * @description APIs for Onboarding
  */
 class MerchantVerificationController extends Controller
 {
-    //
     function __construct(
         protected MerchantVerificationInterface $merchantVerificationRepository
     )

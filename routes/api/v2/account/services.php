@@ -22,8 +22,8 @@ Route::prefix('banking')->group(function () {
         Route::delete('/{card_id}', [CardController::class, 'deleteCard']);
     });
 
-    Route::prefix('banks')->middleware('auth:api')->group(function (){
-        Route::post('enquiry', [BankingController::class,'fetchAccountDetails']);
+    Route::prefix('banks')->middleware('auth:api')->group(function () {
+        Route::post('enquiry', [BankingController::class, 'fetchAccountDetails']);
         // Route::post('V2B')
     });
 

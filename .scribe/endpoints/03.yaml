@@ -26,6 +26,7 @@ endpoints:
     fileParameters: []
     responses:
       -
+<<<<<<< HEAD
         status: 500
         content: |-
           {
@@ -441,9 +442,15 @@ endpoints:
                   }
               ]
           }
+=======
+        status: 200
+        content: '{"code":"00","status":true,"message":"Banks Returned Successfully","data":[]}'
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '51'
           access-control-allow-origin: '*'
         description: null
         custom: []
@@ -478,7 +485,11 @@ endpoints:
         name: account_name
         description: ''
         required: true
+<<<<<<< HEAD
         example: tempora
+=======
+        example: omnis
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -487,7 +498,11 @@ endpoints:
         name: account_number
         description: ''
         required: true
+<<<<<<< HEAD
         example: consequuntur
+=======
+        example: est
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -496,15 +511,25 @@ endpoints:
         name: bank_name
         description: ''
         required: true
+<<<<<<< HEAD
         example: incidunt
+=======
+        example: magni
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
+<<<<<<< HEAD
       account_name: tempora
       account_number: consequuntur
       bank_name: incidunt
+=======
+      account_name: omnis
+      account_number: est
+      bank_name: magni
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
     fileParameters: []
     responses:
       -
@@ -586,7 +611,11 @@ endpoints:
         name: account_name
         description: ''
         required: true
+<<<<<<< HEAD
         example: aut
+=======
+        example: molestias
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -595,7 +624,11 @@ endpoints:
         name: account_number
         description: ''
         required: true
+<<<<<<< HEAD
         example: enim
+=======
+        example: sunt
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -604,7 +637,11 @@ endpoints:
         name: bank_name
         description: ''
         required: true
+<<<<<<< HEAD
         example: laboriosam
+=======
+        example: quisquam
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -613,16 +650,27 @@ endpoints:
         name: bank_code
         description: ''
         required: true
+<<<<<<< HEAD
         example: vero
+=======
+        example: est
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
+<<<<<<< HEAD
       account_name: aut
       account_number: enim
       bank_name: laboriosam
       bank_code: vero
+=======
+      account_name: molestias
+      account_number: sunt
+      bank_name: quisquam
+      bank_code: est
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
     fileParameters: []
     responses:
       -
@@ -704,7 +752,11 @@ endpoints:
         name: type
         description: ''
         required: true
+<<<<<<< HEAD
         example: voluptatem
+=======
+        example: quia
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -713,7 +765,11 @@ endpoints:
         name: number
         description: ''
         required: true
+<<<<<<< HEAD
         example: et
+=======
+        example: ab
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -722,7 +778,11 @@ endpoints:
         name: expiration_month
         description: ''
         required: true
+<<<<<<< HEAD
         example: laborum
+=======
+        example: repellendus
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -731,7 +791,11 @@ endpoints:
         name: expiration_year
         description: ''
         required: true
+<<<<<<< HEAD
         example: aut
+=======
+        example: sed
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -740,7 +804,11 @@ endpoints:
         name: cvv
         description: ''
         required: true
+<<<<<<< HEAD
         example: adipisci
+=======
+        example: quia
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -749,7 +817,11 @@ endpoints:
         name: last_four_digit
         description: ''
         required: true
+<<<<<<< HEAD
         example: voluptatum
+=======
+        example: nam
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -758,7 +830,11 @@ endpoints:
         name: country
         description: ''
         required: true
+<<<<<<< HEAD
         example: molestiae
+=======
+        example: rerum
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -767,7 +843,11 @@ endpoints:
         name: state
         description: ''
         required: true
+<<<<<<< HEAD
         example: ad
+=======
+        example: inventore
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -776,7 +856,11 @@ endpoints:
         name: postal_code
         description: ''
         required: true
+<<<<<<< HEAD
         example: quam
+=======
+        example: harum
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -785,7 +869,11 @@ endpoints:
         name: city
         description: ''
         required: true
+<<<<<<< HEAD
         example: facilis
+=======
+        example: pariatur
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -794,7 +882,11 @@ endpoints:
         name: street_address
         description: ''
         required: true
+<<<<<<< HEAD
         example: consequuntur
+=======
+        example: ullam
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -803,7 +895,11 @@ endpoints:
         name: lga
         description: ''
         required: true
+<<<<<<< HEAD
         example: ut
+=======
+        example: nobis
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -812,7 +908,11 @@ endpoints:
         name: provider
         description: ''
         required: true
+<<<<<<< HEAD
         example: ex
+=======
+        example: cum
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -830,12 +930,13 @@ endpoints:
         name: allow_charge
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
+<<<<<<< HEAD
       type: voluptatem
       number: et
       expiration_month: laborum
@@ -850,6 +951,22 @@ endpoints:
       lga: ut
       provider: ex
       allow_charge: true
+=======
+      type: quia
+      number: ab
+      expiration_month: repellendus
+      expiration_year: sed
+      cvv: quia
+      last_four_digit: nam
+      country: rerum
+      state: inventore
+      postal_code: harum
+      city: pariatur
+      street_address: ullam
+      lga: nobis
+      provider: cum
+      allow_charge: false
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
     fileParameters:
       provider_logo: null
     responses:
@@ -928,13 +1045,21 @@ endpoints:
         name: card_id
         description: 'The ID of the card.'
         required: true
+<<<<<<< HEAD
         example: rerum
+=======
+        example: facilis
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
+<<<<<<< HEAD
       card_id: rerum
+=======
+      card_id: facilis
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -981,13 +1106,21 @@ endpoints:
         name: code
         description: ''
         required: true
+<<<<<<< HEAD
         example: enim
+=======
+        example: est
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
+<<<<<<< HEAD
       code: enim
+=======
+      code: est
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
     fileParameters: []
     responses:
       -
@@ -1030,7 +1163,11 @@ endpoints:
         name: name
         description: ''
         required: true
+<<<<<<< HEAD
         example: ipsam
+=======
+        example: omnis
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1039,7 +1176,11 @@ endpoints:
         name: code
         description: ''
         required: true
+<<<<<<< HEAD
         example: aliquam
+=======
+        example: occaecati
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1048,7 +1189,11 @@ endpoints:
         name: acronym
         description: ''
         required: true
+<<<<<<< HEAD
         example: dolor
+=======
+        example: et
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1063,9 +1208,15 @@ endpoints:
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
+<<<<<<< HEAD
       name: ipsam
       code: aliquam
       acronym: dolor
+=======
+      name: omnis
+      code: occaecati
+      acronym: et
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
     fileParameters:
       logo: null
     responses:

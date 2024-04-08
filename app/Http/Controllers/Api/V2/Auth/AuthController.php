@@ -32,7 +32,11 @@ class AuthController extends Controller
         $validated_data = $request->validated();
         $logged_in = $this->userAuthService->login($validated_data['email'], $validated_data['password']);
         if (!$logged_in['status']) {
+<<<<<<< HEAD:app/Http/Controllers/api/V2/Auth/AuthController.php
             return respondError(400, $logged_in['code'], $logged_in['message']);
+=======
+            return respondError($logged_in['code'], '01', $logged_in['message']);
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f:app/Http/Controllers/Api/V2/Auth/AuthController.php
         }
         return respondSuccess($logged_in['message'], $logged_in['data']);
     }
@@ -57,7 +61,11 @@ class AuthController extends Controller
         $validated_data = $request->validated();
         $initiated = $this->userAuthService->forgotPassword($validated_data['email']);
         if (!$initiated['status']) {
+<<<<<<< HEAD:app/Http/Controllers/api/V2/Auth/AuthController.php
             return respondError(400, $initiated['code'], $initiated['message']);
+=======
+            return respondError($initiated['code'], '01', $initiated['message']);
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f:app/Http/Controllers/Api/V2/Auth/AuthController.php
         }
         return respondSuccess($initiated['message'], $initiated['data']);
     }
@@ -70,7 +78,11 @@ class AuthController extends Controller
         $validated_data = $request->validated();
         $updated = $this->userAuthService->resetPassword($validated_data['code'], $validated_data['email'], $validated_data['password']);
         if (!$updated['status']) {
+<<<<<<< HEAD:app/Http/Controllers/api/V2/Auth/AuthController.php
             return respondError(400, $updated['code'], $updated['message']);
+=======
+            return respondError($updated['code'], '01', $updated['message']);
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f:app/Http/Controllers/Api/V2/Auth/AuthController.php
         }
         return respondSuccess($updated['message'], $updated['data']);
     }

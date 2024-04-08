@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class WalletController extends Controller
 {
     function __construct(
-    protected WalletRepositoryInterface $walletRepository
+        protected WalletRepositoryInterface $walletRepository
     )
     {
 

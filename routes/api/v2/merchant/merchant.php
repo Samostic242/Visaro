@@ -8,14 +8,10 @@ use App\Http\Controllers\Api\V2\Merchant\Onboarding\Verification\MerchantVerific
 use Illuminate\Support\Facades\Route;
 
 
-
-
-
-
 Route::prefix('onboarding')->group(function () {
     Route::post('email', [MerchantRegistrationController::class, 'getMerchantOtp']);
-        Route::prefix('verifications')->group(function () {
-            Route::post('verify-email-otp', [MerchantVerificationController::class, 'verifyMerchantOtp']);
+    Route::prefix('verifications')->group(function () {
+        Route::post('verify-email-otp', [MerchantVerificationController::class, 'verifyMerchantOtp']);
     });
 });
 

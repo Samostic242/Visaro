@@ -1,6 +1,7 @@
 <?php
 
-namespace App\Http\Controllers\api;
+namespace App\Http\Controllers\Api;
+
 use DB;
 use GuzzleHttp\Client;
 use App\Http\Controllers\Utilities;
@@ -16,11 +17,11 @@ class VbaasController
     public function __construct()
     {
         $settings = DB::table('tbl_settings')->get();
-        $this->vbaas_base_url = $settings->where('name','vbaas_base_url')->first()->value;
-        $this->vbaas_onboarding = $settings->where('name','vbaas_onboarding')->first()->value;
-        $this->vbaas_access_token = $settings->where('name','vbaas_access_token')->first()->value;
-        $this->vbaas_username = $settings->where('name','vbaas_username')->first()->value;
-        $this->vbaas_wallet_credentials = $settings->where('name','vbaas_wallet_credentials')->first()->value;
+        $this->vbaas_base_url = $settings->where('name', 'vbaas_base_url')->first()->value;
+        $this->vbaas_onboarding = $settings->where('name', 'vbaas_onboarding')->first()->value;
+        $this->vbaas_access_token = $settings->where('name', 'vbaas_access_token')->first()->value;
+        $this->vbaas_username = $settings->where('name', 'vbaas_username')->first()->value;
+        $this->vbaas_wallet_credentials = $settings->where('name', 'vbaas_wallet_credentials')->first()->value;
     }
 
     //Run this method first before calling any method
@@ -28,11 +29,11 @@ class VbaasController
     {
 
         $settings = DB::table('tbl_settings')->get();
-        $username = $settings->where('name','vbaas_username')->first()->value;
-        $wallet_name = $settings->where('name','vbass_wallet_name')->first()->value;
-        $short_name = $settings->where('name','vbass_short_name')->first()->value;
+        $username = $settings->where('name', 'vbaas_username')->first()->value;
+        $wallet_name = $settings->where('name', 'vbass_wallet_name')->first()->value;
+        $short_name = $settings->where('name', 'vbass_short_name')->first()->value;
 
-        $url = $this->vbaas_base_url."/wallet2/onboarding?wallet-credentials=" . urlencode($this->vbaas_wallet_credentials); // Replace with your actual POST URL
+        $url = $this->vbaas_base_url . "/wallet2/onboarding?wallet-credentials=" . urlencode($this->vbaas_wallet_credentials); // Replace with your actual POST URL
 
         $data = [
             "username" => $username,
@@ -43,7 +44,7 @@ class VbaasController
         ];
 
         $headers = [
-            'Authorization' => 'Bearer '. $this->vbaas_access_token,
+            'Authorization' => 'Bearer ' . $this->vbaas_access_token,
             'Content-Type' => 'application/json',
         ];
 
@@ -60,16 +61,14 @@ class VbaasController
 
         $arr = json_decode($responseBody, true);
 
-        if($arr['status'] == "00")
+        if ($arr['status'] == "00") {
+            DB::table('tbl_settings')->where('name', 'vbaas_onboarding')->update(['value' => 1]);
+            return 1;
+        } else if ($arr['status'] == "99") //Already Exist
         {
             DB::table('tbl_settings')->where('name', 'vbaas_onboarding')->update(['value' => 1]);
             return 1;
-        }else if($arr['status'] == "99") //Already Exist
-        {
-            DB::table('tbl_settings')->where('name', 'vbaas_onboarding')->update(['value' => 1]);
-            return 1;
-        }else
-        {
+        } else {
             return 0;
         }
     }
@@ -83,18 +82,17 @@ class VbaasController
         $arr_response = $vbaas->beneficial_enquiry($to_account, $to_bank);
 
 
-        if(!isset($arr_response->status))
-        {
+        if (!isset($arr_response->status)) {
 
-            if(isset($arr_response['status']) && $arr_response['status'] == "00") //successful account get
+            if (isset($arr_response['status']) && $arr_response['status'] == "00") //successful account get
             {
                 $from_acc = DB::table('vbaas_account_details')->first();
-                $wallet_name =  $settings->where('name','vbass_wallet_name')->first()->value;
+                $wallet_name = $settings->where('name', 'vbass_wallet_name')->first()->value;
 
                 $to_client_id = $arr_response['data']["clientId"];
                 $to_client = $arr_response['data']["name"];
-                $to_savings_id =  $arr_response['data']["account"]["id"];
-                $to_session =  $arr_response['data']["account"]["id"];
+                $to_savings_id = $arr_response['data']["account"]["id"];
+                $to_session = $arr_response['data']["account"]["id"];
                 $to_kyc = $arr_response['status'];
                 $to_bvn = $arr_response['data']["bvn"];
                 $to_account_no = $arr_response['data']["account"]["number"];
@@ -102,7 +100,7 @@ class VbaasController
 
                 $remark = $naration;
                 $transfer_type = $transfer_type;
-                $reference = $wallet_name."-".Utilities::generateUniqueTransactionId(14);
+                $reference = $wallet_name . "-" . Utilities::generateUniqueTransactionId(14);
 
                 $concatenatedString = $from_acc->account_no . $to_account_no;
                 $hashValue = hash('sha512', $concatenatedString);
@@ -115,10 +113,10 @@ class VbaasController
                     "fromSavingsId" => $from_acc->account_id,
                     "fromBvn" => "",
                     "toClientId" => $to_client_id,
-                    "toClient" =>  $to_client,
+                    "toClient" => $to_client,
                     "toSavingsId" => $to_savings_id,
                     "toSession" => $to_session,
-                    "toBvn" => $to_bvn !=""?$to_bvn:"",
+                    "toBvn" => $to_bvn != "" ? $to_bvn : "",
                     "toAccount" => $to_account_no,
                     "toBank" => $to_bank,
                     "signature" => $hashValue,
@@ -135,7 +133,7 @@ class VbaasController
                 $url = $baseURL . $endpoint . "?wallet-credentials=" . urlencode($this->vbaas_wallet_credentials);
 
                 $headers = [
-                    'Authorization' => 'Bearer '. $this->vbaas_access_token,
+                    'Authorization' => 'Bearer ' . $this->vbaas_access_token,
                     'Content-Type' => 'application/json',
                 ];
 
@@ -152,16 +150,14 @@ class VbaasController
                 $arr = json_decode($responseBody, true);
                 return $arr;
 
-            }else
-            {
+            } else {
                 return $arr_response;
             }
-        }else
-        {
+        } else {
 
             return response()->json([
-                'success'=> false,
-                'message'=> "Unable to determine beneficiary account no",
+                'success' => false,
+                'message' => "Unable to determine beneficiary account no",
             ], 406);
         }
     }
@@ -212,7 +208,7 @@ class VbaasController
         $baseURL = $this->vbaas_base_url;
         $endpoint = "/billspaymentstore/billercategory";
 
-        $url = $baseURL. $endpoint. "?wallet-credentials=" . urlencode($this->vbaas_wallet_credentials);
+        $url = $baseURL . $endpoint . "?wallet-credentials=" . urlencode($this->vbaas_wallet_credentials);
 
         $headers = [
             'Authorization' => 'Bearer ' . $this->vbaas_access_token,
@@ -228,31 +224,26 @@ class VbaasController
         $responseBody = $response->getBody();
         $arr = json_decode($responseBody);
 
-        if($arr->status == "00")
-        {
+        if ($arr->status == "00") {
             $insert = array();
 
-            foreach($arr->data as $biller )
-            {
-               $insert[] = [
-                  "category_name" => $biller->category,
-                  "category_code" => $biller->category,
-               ];
+            foreach ($arr->data as $biller) {
+                $insert[] = [
+                    "category_name" => $biller->category,
+                    "category_code" => $biller->category,
+                ];
             }
 
-            if (count($insert) > 0)
-            {
+            if (count($insert) > 0) {
                 DB::table('bill_payment_category')->delete();
                 DB::table('bill_payment_category')->insert($insert);
             }
 
             return 1;
-        }else
-        {
+        } else {
             return 0;
         }
     }
-
 
 
     public function beneficial_enquiry($accountNo, $bank_code, $transfer_type = "inter")
@@ -260,7 +251,7 @@ class VbaasController
         $baseURL = $this->vbaas_base_url;
         $endpoint = "/wallet2/transfer/recipient";
 
-        $url = $baseURL. $endpoint;
+        $url = $baseURL . $endpoint;
 
         $headers = [
             'Authorization' => 'Bearer ' . $this->vbaas_access_token,
@@ -277,28 +268,27 @@ class VbaasController
         $client = new Client();
 
 
-            $response = $client->request('GET', $url, [
-                'headers' => $headers,
-                'query' => $queryParams,
-                'http_errors' => false // Handle 404 error code
-            ]);
+        $response = $client->request('GET', $url, [
+            'headers' => $headers,
+            'query' => $queryParams,
+            'http_errors' => false // Handle 404 error code
+        ]);
 
 
+        $statusCode = $response->getStatusCode();
+        $responseBody = $response->getBody()->getContents();
 
-            $statusCode = $response->getStatusCode();
-            $responseBody = $response->getBody()->getContents();
+        /*
+        if ($statusCode == 404) {
+            return json_decode($responseBody);
+        } else if ($statusCode != 200) {
+            return json_decode($responseBody);
+        }
+        */
 
-            /*
-            if ($statusCode == 404) {
-                return json_decode($responseBody);
-            } else if ($statusCode != 200) {
-                return json_decode($responseBody);
-            }
-            */
+        $arr = json_decode($responseBody, true);
 
-            $arr = json_decode($responseBody, true);
-
-            return $arr;
+        return $arr;
 
     }
 
@@ -309,7 +299,7 @@ class VbaasController
         $baseURL = $this->vbaas_base_url;
         $endpoint = "/wallet2/account/enquiry";
 
-        $url = $baseURL. $endpoint. "?wallet-credentials=" . urlencode($this->vbaas_wallet_credentials);
+        $url = $baseURL . $endpoint . "?wallet-credentials=" . urlencode($this->vbaas_wallet_credentials);
 
         $headers = [
             'Authorization' => 'Bearer ' . $this->vbaas_access_token,
@@ -324,8 +314,7 @@ class VbaasController
         $responseBody = $response->getBody();
         $arr = json_decode($responseBody);
 
-        if($arr->status == "00")
-        {
+        if ($arr->status == "00") {
             $insert = array();
             $account_details = $arr->data;
 
@@ -338,15 +327,13 @@ class VbaasController
                 'saving_product_name' => $account_details->savingsProductName,
             ];
 
-            if(count($insert) > 0)
-            {
+            if (count($insert) > 0) {
                 DB::table('vbaas_account_details')->delete();
                 DB::table('vbaas_account_details')->insert($insert);
             }
 
             return 1;
-        }else
-        {
+        } else {
             return 0;
         }
     }
@@ -357,7 +344,7 @@ class VbaasController
         $baseURL = $this->vbaas_base_url;
         $endpoint = "/wallet2/bank";
 
-        $url = $baseURL. $endpoint. "?wallet-credentials=" . urlencode($this->vbaas_wallet_credentials);
+        $url = $baseURL . $endpoint . "?wallet-credentials=" . urlencode($this->vbaas_wallet_credentials);
 
         $headers = [
             'Authorization' => 'Bearer ' . $this->vbaas_access_token,
@@ -372,23 +359,21 @@ class VbaasController
         $responseBody = $response->getBody();
         $arr = json_decode($responseBody);
 
-        if($arr->status == "00")
-        {
+        if ($arr->status == "00") {
             $insert = array();
             $banks = $arr->data;
 
-            foreach($banks->bank as $bank) {
+            foreach ($banks->bank as $bank) {
                 $insert[] = [
                     "id" => $bank->id,
                     "bank_code" => $bank->code,
                     "bank_name" => $bank->name,
-                    "display_img" => $bank->logo !=""?$bank->code.".png":"no_logo.png"
+                    "display_img" => $bank->logo != "" ? $bank->code . ".png" : "no_logo.png"
                 ];
 
                 $base64Image = $bank->logo;
 
-                if ($base64Image != "")
-                {
+                if ($base64Image != "") {
                     // Extract image data and extension from base64 string
                     list(, $base64Data) = explode(';', $base64Image);
                     list(, $imageData) = explode(',', $base64Data);
@@ -411,15 +396,13 @@ class VbaasController
 
             }
 
-            if(count($insert) > 0)
-            {
+            if (count($insert) > 0) {
                 DB::table('banks')->delete();
                 DB::table('banks')->insert($insert);
             }
 
             return 1;
-        }else
-        {
+        } else {
             return 0;
         }
     }
@@ -429,33 +412,19 @@ class VbaasController
         $onbording = $this->Onboarding();
 
 
-        if($onbording == 1)
-        $insert_bank = $this->get_bank_list();
+        if ($onbording == 1)
+            $insert_bank = $this->get_bank_list();
         $insert_account_enq = $this->get_acct_enquiry();
         $insert_biller_cat = $this->get_biller_category();
 
 
-        if($insert_bank == 1 && $insert_account_enq == 1 && $insert_biller_cat ==1)
-        {
+        if ($insert_bank == 1 && $insert_account_enq == 1 && $insert_biller_cat == 1) {
             DB::table('tbl_settings')->where('name', 'visaro_vbaas_get_parameters')->update(['value' => 1]);
             return 1;
-        }else
-        {
+        } else {
             return 0;
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

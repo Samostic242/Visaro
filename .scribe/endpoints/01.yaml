@@ -26,7 +26,11 @@ endpoints:
         name: firstname
         description: 'Must not be greater than 20 characters.'
         required: false
+<<<<<<< HEAD
         example: zs
+=======
+        example: 'y'
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -35,7 +39,11 @@ endpoints:
         name: middlename
         description: 'Must not be greater than 20 characters.'
         required: false
+<<<<<<< HEAD
         example: hqauw
+=======
+        example: pbybgpnii
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -44,7 +52,11 @@ endpoints:
         name: lastname
         description: 'Must not be greater than 20 characters.'
         required: false
+<<<<<<< HEAD
         example: jubcmvnzmmfkssmsb
+=======
+        example: gfsghvtssi
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -53,7 +65,11 @@ endpoints:
         name: phone_code
         description: 'Must match the regex /^\+[0-9]+$/. Must not be greater than 4 characters.'
         required: false
+<<<<<<< HEAD
         example: q
+=======
+        example: tpdf
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -62,7 +78,11 @@ endpoints:
         name: phone
         description: 'Must match the regex /[0-9]{10}$/.'
         required: false
+<<<<<<< HEAD
         example: '2956086206'
+=======
+        example: '1476172962'
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -80,22 +100,36 @@ endpoints:
         name: password
         description: ''
         required: false
+<<<<<<< HEAD
         example: 'h5e%T{$JfI1j=CyX(H3^'
+=======
+        example: 'r72#DeOUX'
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
+<<<<<<< HEAD
       firstname: zs
       middlename: hqauw
       lastname: jubcmvnzmmfkssmsb
       phone_code: q
       phone: '2956086206'
       password: 'h5e%T{$JfI1j=CyX(H3^'
+=======
+      firstname: 'y'
+      middlename: pbybgpnii
+      lastname: gfsghvtssi
+      phone_code: tpdf
+      phone: '1476172962'
+      password: 'r72#DeOUX'
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
     fileParameters:
       photo: null
     responses:
       -
+<<<<<<< HEAD
         status: 500
         content: |-
           {
@@ -511,9 +545,15 @@ endpoints:
                   }
               ]
           }
+=======
+        status: 422
+        content: '{"message":"The phone code format is invalid.","errors":{"phone_code":["The phone code format is invalid."]}}'
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '56'
           access-control-allow-origin: '*'
         description: null
         custom: []
@@ -548,12 +588,17 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
+<<<<<<< HEAD
         example: sleuschke@example.net
+=======
+        example: hallie55@example.net
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
+<<<<<<< HEAD
       email: sleuschke@example.net
     fileParameters: []
     responses:
@@ -973,9 +1018,19 @@ endpoints:
                   }
               ]
           }
+=======
+      email: hallie55@example.net
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"code":"00","status":true,"message":"An email containing your OTP has been sent to your email address","data":null}'
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '55'
           access-control-allow-origin: '*'
         description: null
         custom: []
@@ -1013,6 +1068,7 @@ endpoints:
         status: 500
         content: |-
           {
+<<<<<<< HEAD
               "message": "Auth guard [] is not defined.",
               "exception": "InvalidArgumentException",
               "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\AuthManager.php",
@@ -1030,14 +1086,36 @@ endpoints:
                       "line": 57,
                       "function": "guard",
                       "class": "Illuminate\\Auth\\AuthManager",
+=======
+              "message": "Undefined array key \"email\"",
+              "exception": "ErrorException",
+              "file": "/var/www/app/Repositories/V2/Onboarding/Verification/VerificationRepository.php",
+              "line": 20,
+              "trace": [
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php",
+                      "line": 255,
+                      "function": "handleError",
+                      "class": "Illuminate\\Foundation\\Bootstrap\\HandleExceptions",
                       "type": "->"
                   },
                   {
-                      "function": "Illuminate\\Auth\\{closure}",
-                      "class": "Illuminate\\Auth\\AuthManager",
+                      "file": "/var/www/app/Repositories/V2/Onboarding/Verification/VerificationRepository.php",
+                      "line": 20,
+                      "function": "Illuminate\\Foundation\\Bootstrap\\{closure}",
+                      "class": "Illuminate\\Foundation\\Bootstrap\\HandleExceptions",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "type": "->"
                   },
                   {
+                      "file": "/var/www/app/Http/Controllers/Api/V2/Onboarding/Verification/VerificationController.php",
+                      "line": 29,
+                      "function": "getOtp",
+                      "class": "App\\Repositories\\V2\\Onboarding\\Verification\\VerificationRepository",
+                      "type": "->"
+                  },
+                  {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\AuthServiceProvider.php",
                       "line": 89,
                       "function": "call_user_func"
@@ -1068,356 +1146,629 @@ endpoints:
                   },
                   {
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php",
+=======
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Controller.php",
+                      "line": 54,
+                      "function": "resendOtp",
+                      "class": "App\\Http\\Controllers\\Api\\V2\\Onboarding\\Verification\\VerificationController",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php",
+                      "line": 43,
+                      "function": "callAction",
+                      "class": "Illuminate\\Routing\\Controller",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Route.php",
+                      "line": 259,
+                      "function": "dispatch",
+                      "class": "Illuminate\\Routing\\ControllerDispatcher",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Route.php",
+                      "line": 205,
+                      "function": "runController",
+                      "class": "Illuminate\\Routing\\Route",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
+                      "line": 806,
+                      "function": "run",
+                      "class": "Illuminate\\Routing\\Route",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 144,
+                      "function": "Illuminate\\Routing\\{closure}",
+                      "class": "Illuminate\\Routing\\Router",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php",
+                      "line": 50,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 183,
+                      "function": "handle",
+                      "class": "Illuminate\\Routing\\Middleware\\SubstituteBindings",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php",
+                      "line": 159,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php",
+                      "line": 125,
+                      "function": "handleRequest",
+                      "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 87,
                       "function": "handleRequestUsingNamedLimiter",
                       "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
                       "type": "->"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+=======
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 183,
                       "function": "handle",
                       "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
                       "type": "->"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+=======
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 119,
                       "function": "Illuminate\\Pipeline\\{closure}",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+=======
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 805,
                       "function": "then",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+=======
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 784,
                       "function": "runRouteWithinStack",
                       "class": "Illuminate\\Routing\\Router",
                       "type": "->"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+=======
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 748,
                       "function": "runRoute",
                       "class": "Illuminate\\Routing\\Router",
                       "type": "->"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+=======
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 737,
                       "function": "dispatchToRoute",
                       "class": "Illuminate\\Routing\\Router",
                       "type": "->"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+=======
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 200,
                       "function": "dispatch",
                       "class": "Illuminate\\Routing\\Router",
                       "type": "->"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+=======
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 144,
                       "function": "Illuminate\\Foundation\\Http\\{closure}",
                       "class": "Illuminate\\Foundation\\Http\\Kernel",
                       "type": "->"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
+=======
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 21,
                       "function": "Illuminate\\Pipeline\\{closure}",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php",
+=======
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 31,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
                       "type": "->"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+=======
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 183,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull",
                       "type": "->"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
+=======
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 21,
                       "function": "Illuminate\\Pipeline\\{closure}",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php",
+=======
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 40,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
                       "type": "->"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+=======
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 183,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Http\\Middleware\\TrimStrings",
                       "type": "->"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php",
+=======
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 27,
                       "function": "Illuminate\\Pipeline\\{closure}",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+=======
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 183,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
                       "type": "->"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php",
+=======
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 99,
                       "function": "Illuminate\\Pipeline\\{closure}",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+=======
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 183,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance",
                       "type": "->"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php",
+=======
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 62,
                       "function": "Illuminate\\Pipeline\\{closure}",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+=======
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 183,
                       "function": "handle",
                       "class": "Illuminate\\Http\\Middleware\\HandleCors",
                       "type": "->"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php",
+=======
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 39,
                       "function": "Illuminate\\Pipeline\\{closure}",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+=======
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 183,
                       "function": "handle",
                       "class": "Illuminate\\Http\\Middleware\\TrustProxies",
                       "type": "->"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+=======
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 119,
                       "function": "Illuminate\\Pipeline\\{closure}",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+=======
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 175,
                       "function": "then",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+=======
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 144,
                       "function": "sendRequestThroughRouter",
                       "class": "Illuminate\\Foundation\\Http\\Kernel",
                       "type": "->"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+=======
+                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 300,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Http\\Kernel",
                       "type": "->"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+=======
+                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 288,
                       "function": "callLaravelOrLumenRoute",
                       "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
                       "type": "->"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+=======
+                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 91,
                       "function": "makeApiCall",
                       "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
                       "type": "->"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+=======
+                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 44,
                       "function": "makeResponseCall",
                       "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
                       "type": "->"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
+=======
+                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 35,
                       "function": "makeResponseCallIfConditionsPass",
                       "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
                       "type": "->"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php",
+=======
+                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 236,
                       "function": "__invoke",
                       "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
                       "type": "->"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php",
+=======
+                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 163,
                       "function": "iterateThroughStrategies",
                       "class": "Knuckles\\Scribe\\Extracting\\Extractor",
                       "type": "->"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php",
+=======
+                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 95,
                       "function": "fetchResponses",
                       "class": "Knuckles\\Scribe\\Extracting\\Extractor",
                       "type": "->"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
+=======
+                      "file": "/var/www/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 125,
                       "function": "processRoute",
                       "class": "Knuckles\\Scribe\\Extracting\\Extractor",
                       "type": "->"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
+=======
+                      "file": "/var/www/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 72,
                       "function": "extractEndpointsInfoFromLaravelApp",
                       "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
                       "type": "->"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
+=======
+                      "file": "/var/www/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 50,
                       "function": "extractEndpointsInfoAndWriteToDisk",
                       "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
                       "type": "->"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
+=======
+                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Commands/GenerateDocumentation.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 53,
                       "function": "get",
                       "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
                       "type": "->"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+=======
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 36,
                       "function": "handle",
                       "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
                       "type": "->"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php",
+=======
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/Util.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 41,
                       "function": "Illuminate\\Container\\{closure}",
                       "class": "Illuminate\\Container\\BoundMethod",
                       "type": "::"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+=======
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 93,
                       "function": "unwrapIfClosure",
                       "class": "Illuminate\\Container\\Util",
                       "type": "::"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
+=======
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 35,
                       "function": "callBoundMethod",
                       "class": "Illuminate\\Container\\BoundMethod",
                       "type": "::"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php",
+=======
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 662,
                       "function": "call",
                       "class": "Illuminate\\Container\\BoundMethod",
                       "type": "::"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
+=======
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Console/Command.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 211,
                       "function": "call",
                       "class": "Illuminate\\Container\\Container",
                       "type": "->"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\symfony\\console\\Command\\Command.php",
+=======
+                      "file": "/var/www/vendor/symfony/console/Command/Command.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 326,
                       "function": "execute",
                       "class": "Illuminate\\Console\\Command",
                       "type": "->"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
+=======
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Console/Command.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 180,
                       "function": "run",
                       "class": "Symfony\\Component\\Console\\Command\\Command",
                       "type": "->"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\symfony\\console\\Application.php",
+=======
+                      "file": "/var/www/vendor/symfony/console/Application.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 1096,
                       "function": "run",
                       "class": "Illuminate\\Console\\Command",
                       "type": "->"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\symfony\\console\\Application.php",
+=======
+                      "file": "/var/www/vendor/symfony/console/Application.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 324,
                       "function": "doRunCommand",
                       "class": "Symfony\\Component\\Console\\Application",
                       "type": "->"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\symfony\\console\\Application.php",
+=======
+                      "file": "/var/www/vendor/symfony/console/Application.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 175,
                       "function": "doRun",
                       "class": "Symfony\\Component\\Console\\Application",
                       "type": "->"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php",
+=======
+                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 201,
                       "function": "run",
                       "class": "Symfony\\Component\\Console\\Application",
                       "type": "->"
                   },
                   {
+<<<<<<< HEAD
                       "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\artisan",
+=======
+                      "file": "/var/www/artisan",
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
                       "line": 35,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Console\\Kernel",
@@ -1428,6 +1779,8 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '54'
           access-control-allow-origin: '*'
         description: null
         custom: []
@@ -1462,7 +1815,11 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
+<<<<<<< HEAD
         example: kjast@example.org
+=======
+        example: rath.brady@example.net
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1471,12 +1828,17 @@ endpoints:
         name: code
         description: 'Must match the regex /[0-9]{4}/.'
         required: true
+<<<<<<< HEAD
         example: '3077'
+=======
+        example: '0085'
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
+<<<<<<< HEAD
       email: kjast@example.org
       code: '3077'
     fileParameters: []
@@ -1897,9 +2259,20 @@ endpoints:
                   }
               ]
           }
+=======
+      email: rath.brady@example.net
+      code: '0085'
+    fileParameters: []
+    responses:
+      -
+        status: 422
+        content: '{"message":"The selected email is invalid.","errors":{"email":["The selected email is invalid."]}}'
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '53'
           access-control-allow-origin: '*'
         description: null
         custom: []
@@ -1934,7 +2307,11 @@ endpoints:
         name: firstname
         description: 'Must not be greater than 20 characters.'
         required: false
+<<<<<<< HEAD
         example: lmg
+=======
+        example: whwtr
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1943,7 +2320,11 @@ endpoints:
         name: middlename
         description: 'Must not be greater than 20 characters.'
         required: false
+<<<<<<< HEAD
         example: cpd
+=======
+        example: uup
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1952,7 +2333,11 @@ endpoints:
         name: lastname
         description: 'Must not be greater than 20 characters.'
         required: false
+<<<<<<< HEAD
         example: gtisqnplhalshsu
+=======
+        example: qvqndlenlc
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1961,7 +2346,11 @@ endpoints:
         name: phone_code
         description: 'Must match the regex /^\+[0-9]+$/. Must not be greater than 4 characters.'
         required: false
+<<<<<<< HEAD
         example: l
+=======
+        example: vlxp
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1970,7 +2359,11 @@ endpoints:
         name: phone
         description: 'Must match the regex /[0-9]{10}$/.'
         required: false
+<<<<<<< HEAD
         example: '2287984549'
+=======
+        example: '1671648688'
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1988,18 +2381,31 @@ endpoints:
         name: password
         description: ''
         required: false
+<<<<<<< HEAD
         example: 'WEyW2z9?FHOO!(.*DA$+'
+=======
+        example: 'e(#>fcE+49"Q'
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
+<<<<<<< HEAD
       firstname: lmg
       middlename: cpd
       lastname: gtisqnplhalshsu
       phone_code: l
       phone: '2287984549'
       password: 'WEyW2z9?FHOO!(.*DA$+'
+=======
+      firstname: whwtr
+      middlename: uup
+      lastname: qvqndlenlc
+      phone_code: vlxp
+      phone: '1671648688'
+      password: 'e(#>fcE+49"Q'
+>>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
     fileParameters:
       photo: null
     responses:
