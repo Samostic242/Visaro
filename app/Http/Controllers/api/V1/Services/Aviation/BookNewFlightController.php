@@ -96,7 +96,7 @@ class BookNewFlightController extends Controller
                 "payment_options" => [
                     [
                         'id' => 1,
-                        'name' => 'Pay with Credit (Instalments)',
+                        'name' => 'Pay with Credit (Installments)',
                         'code' => '002',
                         'description' => 'Make payment for this booking in 3 installments',
                         'active' => true,

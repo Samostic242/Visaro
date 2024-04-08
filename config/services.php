@@ -80,9 +80,9 @@ return [
         ],
 
     ],
-    'cloudinary' => [
+    // 'cloudinary' => [
 
-    ]
+    // ]
 
 
 ];

@@ -32,7 +32,7 @@ class AuthController extends Controller
         $validated_data = $request->validated();
         $logged_in = $this->userAuthService->login($validated_data['email'], $validated_data['password']);
         if (!$logged_in['status']) {
-            return respondError($logged_in['code'], $logged_in['message']);
+            return respondError(400, $logged_in['code'], $logged_in['message']);
         }
         return respondSuccess($logged_in['message'], $logged_in['data']);
     }
@@ -55,9 +55,9 @@ class AuthController extends Controller
     public function forgotPassword(ForgotPasswordRequest $request)
     {
         $validated_data = $request->validated();
-        $initiated = $this->userAuthService->forgotPassword($validated_data);
+        $initiated = $this->userAuthService->forgotPassword($validated_data['email']);
         if (!$initiated['status']) {
-            return respondError($initiated['code'], $initiated['message']);
+            return respondError(400, $initiated['code'], $initiated['message']);
         }
         return respondSuccess($initiated['message'], $initiated['data']);
     }
@@ -70,7 +70,7 @@ class AuthController extends Controller
         $validated_data = $request->validated();
         $updated = $this->userAuthService->resetPassword($validated_data['code'], $validated_data['email'], $validated_data['password']);
         if (!$updated['status']) {
-            return respondError($updated['code'], $updated['message']);
+            return respondError(400, $updated['code'], $updated['message']);
         }
         return respondSuccess($updated['message'], $updated['data']);
     }

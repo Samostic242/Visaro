@@ -26,7 +26,7 @@ class NewsletterController extends Controller
     {
         $validated_data = $request->validated();
         if (!$created = $this->newsletterRepository->subscribe($validated_data)) {
-            return respondError('An error occured while subscribing');
+            return respondError(400, '01', 'An error occurred while subscribing');
         }
         return respondSuccess('You have successfully subscribed to our newsletter', $created);
     }
