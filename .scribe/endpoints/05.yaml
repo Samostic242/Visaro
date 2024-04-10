@@ -61,21 +61,13 @@ endpoints:
         name: product_id
         description: 'The ID of the product.'
         required: true
-<<<<<<< HEAD
-        example: eum
-=======
-        example: possimus
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: itaque
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-<<<<<<< HEAD
-      product_id: eum
-=======
-      product_id: possimus
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+      product_id: itaque
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -122,21 +114,13 @@ endpoints:
         name: name
         description: ''
         required: false
-<<<<<<< HEAD
-        example: dignissimos
-=======
-        example: molestias
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: non
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-<<<<<<< HEAD
-      name: dignissimos
-=======
-      name: molestias
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+      name: non
     fileParameters: []
     responses:
       -
@@ -175,21 +159,13 @@ endpoints:
         name: product_id
         description: 'The ID of the product.'
         required: true
-<<<<<<< HEAD
-        example: qui
-=======
-        example: sed
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: corrupti
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-<<<<<<< HEAD
-      product_id: qui
-=======
-      product_id: sed
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+      product_id: corrupti
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -197,11 +173,7 @@ endpoints:
         name: name
         description: ''
         required: false
-<<<<<<< HEAD
-        example: quia
-=======
-        example: non
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: accusantium
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -210,23 +182,14 @@ endpoints:
         name: link
         description: ''
         required: false
-<<<<<<< HEAD
-        example: est
-=======
-        example: excepturi
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: hic
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-<<<<<<< HEAD
-      name: quia
-      link: est
-=======
-      name: non
-      link: excepturi
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+      name: accusantium
+      link: hic
     fileParameters: []
     responses:
       -
@@ -269,11 +232,7 @@ endpoints:
         name: product_id
         description: ''
         required: false
-<<<<<<< HEAD
-        example: eius
-=======
-        example: nobis
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: dolores
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -282,11 +241,7 @@ endpoints:
         name: code
         description: ''
         required: false
-<<<<<<< HEAD
-        example: placeat
-=======
-        example: occaecati
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: aut
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -295,25 +250,15 @@ endpoints:
         name: price
         description: ''
         required: false
-<<<<<<< HEAD
-        example: 1
-=======
-        example: 12
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: 9
         type: integer
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-<<<<<<< HEAD
-      product_id: eius
-      code: placeat
-      price: 1
-=======
-      product_id: nobis
-      code: occaecati
-      price: 12
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+      product_id: dolores
+      code: aut
+      price: 9
     fileParameters: []
     responses:
       -
@@ -352,21 +297,13 @@ endpoints:
         name: product_id
         description: 'The ID of the product.'
         required: true
-<<<<<<< HEAD
-        example: id
-=======
-        example: aut
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: exercitationem
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-<<<<<<< HEAD
-      product_id: id
-=======
-      product_id: aut
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+      product_id: exercitationem
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

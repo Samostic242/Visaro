@@ -61,21 +61,13 @@ endpoints:
         name: order_id
         description: 'The ID of the order.'
         required: true
-<<<<<<< HEAD
-        example: dignissimos
-=======
-        example: dolorum
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: officiis
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-<<<<<<< HEAD
-      order_id: dignissimos
-=======
-      order_id: dolorum
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+      order_id: officiis
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -122,11 +114,7 @@ endpoints:
         name: invoice_id
         description: ''
         required: false
-<<<<<<< HEAD
-        example: ducimus
-=======
-        example: explicabo
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: eligendi
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -135,11 +123,7 @@ endpoints:
         name: merchant_id
         description: ''
         required: false
-<<<<<<< HEAD
-        example: voluptatem
-=======
-        example: aut
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: harum
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -148,11 +132,7 @@ endpoints:
         name: transaction_id
         description: ''
         required: false
-<<<<<<< HEAD
-        example: quis
-=======
-        example: veniam
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: nihil
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -161,11 +141,7 @@ endpoints:
         name: user_id
         description: ''
         required: false
-<<<<<<< HEAD
-        example: est
-=======
-        example: dolorem
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: voluptatibus
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -174,29 +150,17 @@ endpoints:
         name: store_front_id
         description: ''
         required: false
-<<<<<<< HEAD
-        example: aperiam
-=======
-        example: et
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: quasi
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-<<<<<<< HEAD
-      invoice_id: ducimus
-      merchant_id: voluptatem
-      transaction_id: quis
-      user_id: est
-      store_front_id: aperiam
-=======
-      invoice_id: explicabo
-      merchant_id: aut
-      transaction_id: veniam
-      user_id: dolorem
-      store_front_id: et
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+      invoice_id: eligendi
+      merchant_id: harum
+      transaction_id: nihil
+      user_id: voluptatibus
+      store_front_id: quasi
     fileParameters: []
     responses:
       -
@@ -235,21 +199,13 @@ endpoints:
         name: order_id
         description: 'The ID of the order.'
         required: true
-<<<<<<< HEAD
-        example: velit
-=======
-        example: dolor
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: hic
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-<<<<<<< HEAD
-      order_id: velit
-=======
-      order_id: dolor
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+      order_id: hic
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -257,11 +213,7 @@ endpoints:
         name: status
         description: ''
         required: false
-<<<<<<< HEAD
-        example: cancelled
-=======
-        example: processing
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: created
         type: string
         enumValues:
           - created
@@ -279,11 +231,7 @@ endpoints:
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-<<<<<<< HEAD
-      status: cancelled
-=======
-      status: processing
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+      status: created
       active: true
     fileParameters: []
     responses:
@@ -362,21 +310,13 @@ endpoints:
         name: store_front_id
         description: 'The ID of the store front.'
         required: true
-<<<<<<< HEAD
-        example: officia
-=======
-        example: accusantium
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: sed
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-<<<<<<< HEAD
-      store_front_id: officia
-=======
-      store_front_id: accusantium
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+      store_front_id: sed
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -423,11 +363,7 @@ endpoints:
         name: merchant_id
         description: ''
         required: false
-<<<<<<< HEAD
-        example: in
-=======
-        example: distinctio
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: quia
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -436,11 +372,7 @@ endpoints:
         name: name
         description: ''
         required: false
-<<<<<<< HEAD
-        example: necessitatibus
-=======
-        example: totam
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: maxime
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -464,13 +396,8 @@ endpoints:
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-<<<<<<< HEAD
-      merchant_id: in
-      name: necessitatibus
-=======
-      merchant_id: distinctio
-      name: totam
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+      merchant_id: quia
+      name: maxime
     fileParameters:
       logo: null
       cover_image: null
@@ -511,21 +438,13 @@ endpoints:
         name: store_front_id
         description: 'The ID of the store front.'
         required: true
-<<<<<<< HEAD
-        example: sunt
-=======
-        example: ipsa
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: nostrum
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-<<<<<<< HEAD
-      store_front_id: sunt
-=======
-      store_front_id: ipsa
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+      store_front_id: nostrum
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -533,11 +452,7 @@ endpoints:
         name: merchant_id
         description: ''
         required: false
-<<<<<<< HEAD
-        example: minima
-=======
-        example: quidem
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: rerum
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -546,11 +461,7 @@ endpoints:
         name: name
         description: ''
         required: false
-<<<<<<< HEAD
-        example: delectus
-=======
-        example: nemo
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: unde
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -577,11 +488,7 @@ endpoints:
         name: status
         description: ''
         required: false
-<<<<<<< HEAD
-        example: qui
-=======
-        example: et
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: eum
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -590,27 +497,16 @@ endpoints:
         name: active
         description: ''
         required: false
-<<<<<<< HEAD
         example: false
-=======
-        example: true
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-<<<<<<< HEAD
-      merchant_id: minima
-      name: delectus
-      status: qui
+      merchant_id: rerum
+      name: unde
+      status: eum
       active: false
-=======
-      merchant_id: quidem
-      name: nemo
-      status: et
-      active: true
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
     fileParameters:
       logo: null
       cover_image: null
@@ -651,21 +547,13 @@ endpoints:
         name: store_front_id
         description: 'The ID of the store front.'
         required: true
-<<<<<<< HEAD
-        example: voluptatem
-=======
-        example: tenetur
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: doloribus
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-<<<<<<< HEAD
-      store_front_id: voluptatem
-=======
-      store_front_id: tenetur
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+      store_front_id: doloribus
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -708,21 +596,13 @@ endpoints:
         name: store_front_id
         description: 'The ID of the store front.'
         required: true
-<<<<<<< HEAD
-        example: amet
-=======
-        example: sed
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: minima
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-<<<<<<< HEAD
-      store_front_id: amet
-=======
-      store_front_id: sed
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+      store_front_id: minima
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -730,21 +610,13 @@ endpoints:
         name: product_id
         description: ''
         required: false
-<<<<<<< HEAD
-        example: iure
-=======
-        example: dolor
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: incidunt
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-<<<<<<< HEAD
-      product_id: iure
-=======
-      product_id: dolor
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+      product_id: incidunt
     fileParameters: []
     responses:
       -
@@ -783,25 +655,541 @@ endpoints:
         name: store_front_id
         description: 'The ID of the store front.'
         required: true
-<<<<<<< HEAD
-        example: deleniti
-=======
-        example: praesentium
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: sit
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-<<<<<<< HEAD
-      store_front_id: deleniti
-=======
-      store_front_id: praesentium
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+      store_front_id: sit
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
     cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"api_status":"401","message":"Unauthorized"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/v2/aviation/widget/initialize
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: '*****************************************************************************************************************************'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"api_status":"401","message":"Unauthorized"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/v2/aviation/flights/bookings
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"api_status":"401","message":"Unauthorized"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v2/aviation/flights/bookings/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the booking.'
+        required: true
+        example: non
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      id: non
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"api_status":"401","message":"Unauthorized"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v2/aviation/flights/bookings/submit
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      widget_data:
+        name: widget_data
+        description: ''
+        required: true
+        example: []
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      origin:
+        name: origin
+        description: ''
+        required: true
+        example: web
+        type: string
+        enumValues:
+          - mobile
+          - web
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      widget_data: []
+      origin: web
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"api_status":"401","message":"Unauthorized"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/v2/aviation/flights/bookings/{id}/confirm'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the booking.'
+        required: true
+        example: ipsam
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      id: ipsam
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      booking_id:
+        name: booking_id
+        description: ''
+        required: true
+        example: 3
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      title:
+        name: title
+        description: ''
+        required: true
+        example: doloribus
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      firstname:
+        name: firstname
+        description: ''
+        required: true
+        example: est
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      lastname:
+        name: lastname
+        description: ''
+        required: true
+        example: voluptates
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      phone_code:
+        name: phone_code
+        description: ''
+        required: true
+        example: id
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      phone_number:
+        name: phone_number
+        description: ''
+        required: true
+        example: sequi
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      nationality:
+        name: nationality
+        description: ''
+        required: true
+        example: quaerat
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      date_of_birth:
+        name: date_of_birth
+        description: ''
+        required: true
+        example: enim
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      email:
+        name: email
+        description: 'Must be a valid email address.'
+        required: true
+        example: edd78@example.net
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      booking_id: 3
+      title: doloribus
+      firstname: est
+      lastname: voluptates
+      phone_code: id
+      phone_number: sequi
+      nationality: quaerat
+      date_of_birth: enim
+      email: edd78@example.net
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"api_status":"401","message":"Unauthorized"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v2/aviation/flights/bookings/{id}/payments/options'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the booking.'
+        required: true
+        example: omnis
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      id: omnis
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"api_status":"401","message":"Unauthorized"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v2/aviation/flights/bookings/{id}/payments/options/{option_id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the booking.'
+        required: true
+        example: officiis
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      option_id:
+        name: option_id
+        description: 'The ID of the option.'
+        required: true
+        example: voluptatibus
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      id: officiis
+      option_id: voluptatibus
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"api_status":"401","message":"Unauthorized"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/v2/aviation/flights/bookings/{id}/payments/confirm'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the booking.'
+        required: true
+        example: rerum
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      id: rerum
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      booking_id:
+        name: booking_id
+        description: ''
+        required: true
+        example: 15
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      payment_option_id:
+        name: payment_option_id
+        description: ''
+        required: true
+        example: 5
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      amount:
+        name: amount
+        description: ''
+        required: true
+        example: 15
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      payment_installment_id:
+        name: payment_installment_id
+        description: ''
+        required: true
+        example: 12
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      booking_id: 15
+      payment_option_id: 5
+      amount: 15
+      payment_installment_id: 12
     fileParameters: []
     responses:
       -

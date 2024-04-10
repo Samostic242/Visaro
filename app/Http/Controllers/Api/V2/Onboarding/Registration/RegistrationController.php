@@ -61,6 +61,9 @@ class RegistrationController extends Controller
         return respondSuccess('Updated Successfully', $update);
     }
 
+    /**
+     * Verifies the username existence
+     */
     public function verifyUsername(VerifyUsernameRequest $request)
     {
         $validated_data = $request->validated();

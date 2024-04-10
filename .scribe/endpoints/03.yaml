@@ -26,431 +26,13 @@ endpoints:
     fileParameters: []
     responses:
       -
-<<<<<<< HEAD
-        status: 500
-        content: |-
-          {
-              "message": "Auth guard [] is not defined.",
-              "exception": "InvalidArgumentException",
-              "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\AuthManager.php",
-              "line": 86,
-              "trace": [
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\AuthManager.php",
-                      "line": 70,
-                      "function": "resolve",
-                      "class": "Illuminate\\Auth\\AuthManager",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\AuthManager.php",
-                      "line": 57,
-                      "function": "guard",
-                      "class": "Illuminate\\Auth\\AuthManager",
-                      "type": "->"
-                  },
-                  {
-                      "function": "Illuminate\\Auth\\{closure}",
-                      "class": "Illuminate\\Auth\\AuthManager",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\AuthServiceProvider.php",
-                      "line": 89,
-                      "function": "call_user_func"
-                  },
-                  {
-                      "function": "Illuminate\\Auth\\{closure}",
-                      "class": "Illuminate\\Auth\\AuthServiceProvider",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Request.php",
-                      "line": 607,
-                      "function": "call_user_func"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\app\\Providers\\RouteServiceProvider.php",
-                      "line": 143,
-                      "function": "user",
-                      "class": "Illuminate\\Http\\Request",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php",
-                      "line": 117,
-                      "function": "App\\Providers\\{closure}",
-                      "class": "App\\Providers\\RouteServiceProvider",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\ThrottleRequests.php",
-                      "line": 87,
-                      "function": "handleRequestUsingNamedLimiter",
-                      "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-                      "line": 183,
-                      "function": "handle",
-                      "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-                      "line": 119,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
-                      "line": 805,
-                      "function": "then",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
-                      "line": 784,
-                      "function": "runRouteWithinStack",
-                      "class": "Illuminate\\Routing\\Router",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
-                      "line": 748,
-                      "function": "runRoute",
-                      "class": "Illuminate\\Routing\\Router",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
-                      "line": 737,
-                      "function": "dispatchToRoute",
-                      "class": "Illuminate\\Routing\\Router",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
-                      "line": 200,
-                      "function": "dispatch",
-                      "class": "Illuminate\\Routing\\Router",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-                      "line": 144,
-                      "function": "Illuminate\\Foundation\\Http\\{closure}",
-                      "class": "Illuminate\\Foundation\\Http\\Kernel",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
-                      "line": 21,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php",
-                      "line": 31,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-                      "line": 183,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
-                      "line": 21,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php",
-                      "line": 40,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-                      "line": 183,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Http\\Middleware\\TrimStrings",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize.php",
-                      "line": 27,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-                      "line": 183,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php",
-                      "line": 99,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-                      "line": 183,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php",
-                      "line": 62,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-                      "line": 183,
-                      "function": "handle",
-                      "class": "Illuminate\\Http\\Middleware\\HandleCors",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php",
-                      "line": 39,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-                      "line": 183,
-                      "function": "handle",
-                      "class": "Illuminate\\Http\\Middleware\\TrustProxies",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
-                      "line": 119,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
-                      "line": 175,
-                      "function": "then",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
-                      "line": 144,
-                      "function": "sendRequestThroughRouter",
-                      "class": "Illuminate\\Foundation\\Http\\Kernel",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
-                      "line": 300,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Http\\Kernel",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
-                      "line": 288,
-                      "function": "callLaravelOrLumenRoute",
-                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
-                      "line": 91,
-                      "function": "makeApiCall",
-                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
-                      "line": 44,
-                      "function": "makeResponseCall",
-                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Strategies\\Responses\\ResponseCalls.php",
-                      "line": 35,
-                      "function": "makeResponseCallIfConditionsPass",
-                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php",
-                      "line": 236,
-                      "function": "__invoke",
-                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php",
-                      "line": 163,
-                      "function": "iterateThroughStrategies",
-                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\knuckleswtf\\scribe\\src\\Extracting\\Extractor.php",
-                      "line": 95,
-                      "function": "fetchResponses",
-                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
-                      "line": 125,
-                      "function": "processRoute",
-                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
-                      "line": 72,
-                      "function": "extractEndpointsInfoFromLaravelApp",
-                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\knuckleswtf\\scribe\\src\\GroupedEndpoints\\GroupedEndpointsFromApp.php",
-                      "line": 50,
-                      "function": "extractEndpointsInfoAndWriteToDisk",
-                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\knuckleswtf\\scribe\\src\\Commands\\GenerateDocumentation.php",
-                      "line": 53,
-                      "function": "get",
-                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
-                      "line": 36,
-                      "function": "handle",
-                      "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php",
-                      "line": 41,
-                      "function": "Illuminate\\Container\\{closure}",
-                      "class": "Illuminate\\Container\\BoundMethod",
-                      "type": "::"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
-                      "line": 93,
-                      "function": "unwrapIfClosure",
-                      "class": "Illuminate\\Container\\Util",
-                      "type": "::"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php",
-                      "line": 35,
-                      "function": "callBoundMethod",
-                      "class": "Illuminate\\Container\\BoundMethod",
-                      "type": "::"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php",
-                      "line": 662,
-                      "function": "call",
-                      "class": "Illuminate\\Container\\BoundMethod",
-                      "type": "::"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
-                      "line": 211,
-                      "function": "call",
-                      "class": "Illuminate\\Container\\Container",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\symfony\\console\\Command\\Command.php",
-                      "line": 326,
-                      "function": "execute",
-                      "class": "Illuminate\\Console\\Command",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php",
-                      "line": 180,
-                      "function": "run",
-                      "class": "Symfony\\Component\\Console\\Command\\Command",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\symfony\\console\\Application.php",
-                      "line": 1096,
-                      "function": "run",
-                      "class": "Illuminate\\Console\\Command",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\symfony\\console\\Application.php",
-                      "line": 324,
-                      "function": "doRunCommand",
-                      "class": "Symfony\\Component\\Console\\Application",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\symfony\\console\\Application.php",
-                      "line": 175,
-                      "function": "doRun",
-                      "class": "Symfony\\Component\\Console\\Application",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php",
-                      "line": 201,
-                      "function": "run",
-                      "class": "Symfony\\Component\\Console\\Application",
-                      "type": "->"
-                  },
-                  {
-                      "file": "C:\\Users\\Ayobami\\Documents\\Git\\visaro\\visaronigeria\\artisan",
-                      "line": 35,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Console\\Kernel",
-                      "type": "->"
-                  }
-              ]
-          }
-=======
         status: 200
         content: '{"code":"00","status":true,"message":"Banks Returned Successfully","data":[]}'
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '51'
+          x-ratelimit-remaining: '48'
           access-control-allow-origin: '*'
         description: null
         custom: []
@@ -485,11 +67,7 @@ endpoints:
         name: account_name
         description: ''
         required: true
-<<<<<<< HEAD
-        example: tempora
-=======
-        example: omnis
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: odio
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -498,11 +76,7 @@ endpoints:
         name: account_number
         description: ''
         required: true
-<<<<<<< HEAD
-        example: consequuntur
-=======
-        example: est
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: voluptas
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -511,25 +85,15 @@ endpoints:
         name: bank_name
         description: ''
         required: true
-<<<<<<< HEAD
-        example: incidunt
-=======
-        example: magni
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: quo
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-<<<<<<< HEAD
-      account_name: tempora
-      account_number: consequuntur
-      bank_name: incidunt
-=======
-      account_name: omnis
-      account_number: est
-      bank_name: magni
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+      account_name: odio
+      account_number: voluptas
+      bank_name: quo
     fileParameters: []
     responses:
       -
@@ -611,11 +175,7 @@ endpoints:
         name: account_name
         description: ''
         required: true
-<<<<<<< HEAD
-        example: aut
-=======
-        example: molestias
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: enim
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -624,11 +184,7 @@ endpoints:
         name: account_number
         description: ''
         required: true
-<<<<<<< HEAD
-        example: enim
-=======
-        example: sunt
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: vel
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -637,11 +193,7 @@ endpoints:
         name: bank_name
         description: ''
         required: true
-<<<<<<< HEAD
-        example: laboriosam
-=======
-        example: quisquam
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: dignissimos
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -650,27 +202,16 @@ endpoints:
         name: bank_code
         description: ''
         required: true
-<<<<<<< HEAD
-        example: vero
-=======
-        example: est
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: consequatur
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-<<<<<<< HEAD
-      account_name: aut
-      account_number: enim
-      bank_name: laboriosam
-      bank_code: vero
-=======
-      account_name: molestias
-      account_number: sunt
-      bank_name: quisquam
-      bank_code: est
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+      account_name: enim
+      account_number: vel
+      bank_name: dignissimos
+      bank_code: consequatur
     fileParameters: []
     responses:
       -
@@ -752,11 +293,7 @@ endpoints:
         name: type
         description: ''
         required: true
-<<<<<<< HEAD
-        example: voluptatem
-=======
-        example: quia
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: qui
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -765,11 +302,7 @@ endpoints:
         name: number
         description: ''
         required: true
-<<<<<<< HEAD
-        example: et
-=======
-        example: ab
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: reprehenderit
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -778,11 +311,7 @@ endpoints:
         name: expiration_month
         description: ''
         required: true
-<<<<<<< HEAD
-        example: laborum
-=======
-        example: repellendus
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: quis
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -791,11 +320,7 @@ endpoints:
         name: expiration_year
         description: ''
         required: true
-<<<<<<< HEAD
-        example: aut
-=======
-        example: sed
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: enim
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -804,11 +329,7 @@ endpoints:
         name: cvv
         description: ''
         required: true
-<<<<<<< HEAD
-        example: adipisci
-=======
-        example: quia
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: libero
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -817,11 +338,7 @@ endpoints:
         name: last_four_digit
         description: ''
         required: true
-<<<<<<< HEAD
-        example: voluptatum
-=======
-        example: nam
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: molestiae
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -830,11 +347,7 @@ endpoints:
         name: country
         description: ''
         required: true
-<<<<<<< HEAD
-        example: molestiae
-=======
-        example: rerum
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: ut
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -843,11 +356,7 @@ endpoints:
         name: state
         description: ''
         required: true
-<<<<<<< HEAD
-        example: ad
-=======
-        example: inventore
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: et
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -856,11 +365,7 @@ endpoints:
         name: postal_code
         description: ''
         required: true
-<<<<<<< HEAD
-        example: quam
-=======
-        example: harum
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: ut
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -869,11 +374,7 @@ endpoints:
         name: city
         description: ''
         required: true
-<<<<<<< HEAD
-        example: facilis
-=======
-        example: pariatur
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: minima
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -882,11 +383,7 @@ endpoints:
         name: street_address
         description: ''
         required: true
-<<<<<<< HEAD
-        example: consequuntur
-=======
-        example: ullam
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: earum
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -895,11 +392,7 @@ endpoints:
         name: lga
         description: ''
         required: true
-<<<<<<< HEAD
-        example: ut
-=======
-        example: nobis
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -908,11 +401,7 @@ endpoints:
         name: provider
         description: ''
         required: true
-<<<<<<< HEAD
-        example: ex
-=======
-        example: cum
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: aliquid
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -930,43 +419,26 @@ endpoints:
         name: allow_charge
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-<<<<<<< HEAD
-      type: voluptatem
-      number: et
-      expiration_month: laborum
-      expiration_year: aut
-      cvv: adipisci
-      last_four_digit: voluptatum
-      country: molestiae
-      state: ad
-      postal_code: quam
-      city: facilis
-      street_address: consequuntur
-      lga: ut
-      provider: ex
+      type: qui
+      number: reprehenderit
+      expiration_month: quis
+      expiration_year: enim
+      cvv: libero
+      last_four_digit: molestiae
+      country: ut
+      state: et
+      postal_code: ut
+      city: minima
+      street_address: earum
+      lga: architecto
+      provider: aliquid
       allow_charge: true
-=======
-      type: quia
-      number: ab
-      expiration_month: repellendus
-      expiration_year: sed
-      cvv: quia
-      last_four_digit: nam
-      country: rerum
-      state: inventore
-      postal_code: harum
-      city: pariatur
-      street_address: ullam
-      lga: nobis
-      provider: cum
-      allow_charge: false
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
     fileParameters:
       provider_logo: null
     responses:
@@ -1045,21 +517,13 @@ endpoints:
         name: card_id
         description: 'The ID of the card.'
         required: true
-<<<<<<< HEAD
-        example: rerum
-=======
-        example: facilis
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: debitis
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-<<<<<<< HEAD
-      card_id: rerum
-=======
-      card_id: facilis
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+      card_id: debitis
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -1106,21 +570,13 @@ endpoints:
         name: code
         description: ''
         required: true
-<<<<<<< HEAD
-        example: enim
-=======
-        example: est
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: non
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-<<<<<<< HEAD
-      code: enim
-=======
-      code: est
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+      code: non
     fileParameters: []
     responses:
       -
@@ -1163,11 +619,7 @@ endpoints:
         name: name
         description: ''
         required: true
-<<<<<<< HEAD
-        example: ipsam
-=======
-        example: omnis
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: vero
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1176,11 +628,7 @@ endpoints:
         name: code
         description: ''
         required: true
-<<<<<<< HEAD
-        example: aliquam
-=======
-        example: occaecati
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: non
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1189,11 +637,7 @@ endpoints:
         name: acronym
         description: ''
         required: true
-<<<<<<< HEAD
-        example: dolor
-=======
-        example: et
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+        example: qui
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1208,15 +652,9 @@ endpoints:
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-<<<<<<< HEAD
-      name: ipsam
-      code: aliquam
-      acronym: dolor
-=======
-      name: omnis
-      code: occaecati
-      acronym: et
->>>>>>> 7c2bc70a5b335d2dcf8e0ab5201e3c0c7ab9ee3f
+      name: vero
+      code: non
+      acronym: qui
     fileParameters:
       logo: null
     responses:
