@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V2\Onboarding\Registration;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V2\Onboarding\Registration\OTPRequest;
 use App\Http\Requests\V2\Onboarding\Registration\RegistrationRequest;
+use App\Http\Requests\V2\Onboarding\Registration\VerifyUsernameRequest;
 use App\Interfaces\Repositories\V2\Onboarding\RegistrationRepositoryInterface;
 use App\Interfaces\Repositories\V2\Onboarding\VerificationRepositoryInterface;
 
@@ -58,5 +59,12 @@ class RegistrationController extends Controller
             return respondError(400, '01', 'An error occurred');
         }
         return respondSuccess('Updated Successfully', $update);
+    }
+
+    public function verifyUsername(VerifyUsernameRequest $request)
+    {
+        $validated_data = $request->validated();
+        $verify =$this->registrationRepository->verifyUsername($validated_data);
+        return $verify;
     }
 }

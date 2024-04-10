@@ -152,7 +152,7 @@ line-height: 30px; margin: 0;padding: 0;-webkit-text-size-adjust: 100%;backgroun
 
 
 <div align="center" style="padding-right:50px; padding-left:50px">
-<p style="font-weight:600; font-size: 38px; line-height: 140%;"><img style="height:50px; margin-right:-7px" src="{{asset('img/visaro_icon.png')}}">isaro</p>
+<p style="font-weight:600; font-size: 38px; line-height: 140%;"><img style="height:50px; margin-right:-7px" src="{{asset('img/visaro_icon.png')}}">Visaro</p>
   <hr >
   <br/>
 </div>

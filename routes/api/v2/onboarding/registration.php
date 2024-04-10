@@ -9,6 +9,7 @@ Route::prefix('users')->group(function () {
     Route::prefix('onboarding')->group(function () {
         Route::post('register', [RegistrationController::class, 'register']);
         Route::post('email', [RegistrationController::class, 'getOTP']);
+        Route::post('username', [RegistrationController::class, 'verifyUsername']);
         Route::prefix('verifications')->group(function () {
             Route::post('email-resend-otp', [VerificationController::class, 'resendOtp']);
             Route::post('verify-email-otp', [VerificationController::class, 'verifyOtp']);

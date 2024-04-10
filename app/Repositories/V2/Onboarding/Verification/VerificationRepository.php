@@ -46,7 +46,7 @@ class VerificationRepository implements VerificationRepositoryInterface
     {
         $otp = Otp::digits(4)->expiry(5)->generate($data['phone_code'].$data['phone']);
         $number = $data['phone_code'].$data['phone'];
-        $message = 'Your Visaro one time password is ' . $otp . ' it expires in 5 minutes.';
+        $message = 'Your Visaro Verification Code is ' . $otp . ' it expires in 5 minutes.';
         $send = sendSmsMessage($number, $message);
         return $send;
 

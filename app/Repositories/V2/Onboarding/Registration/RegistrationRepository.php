@@ -61,6 +61,7 @@ class RegistrationRepository implements RegistrationRepositoryInterface
         $user->lastname = $data['lastname'] ?? $user->lastname;
         $user->middlename = $data['middlename'] ?? $user->middlename;
         $user->phone = $data['phone'] ?? $user->phone;
+        $user->username = $data['username'] ?? $user->username;
         $user->phone_code = $data['phone_code'] ?? '+234';
         if(array_key_exists('photo', $data)){
         $user->photo = upload_to_cloudinary('Profile Pictures', $data['photo']->getRealPath()) ?? $user->photo;
@@ -68,5 +69,17 @@ class RegistrationRepository implements RegistrationRepositoryInterface
         $user->password = Hash::make($data['password']) ?? $user->password;
         $user->save();
         return $user;
+    }
+
+    public function verifyUsername(array $data)
+    {
+        $username = $data['username'];
+        $user = User::where('username', $data['username'])->first();
+        if ($user) {
+            $message = $username.' is taken already';
+            return respondError(400, '01', $message);
+        }
+        $message = $username.' is available';
+        return respondSuccess($message);
     }
 }
