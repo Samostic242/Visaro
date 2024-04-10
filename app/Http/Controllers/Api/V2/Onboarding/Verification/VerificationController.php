@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\V2\Onboarding\Verification;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V2\Onboarding\Verification\VerificationRequest;
+use App\Http\Requests\V2\Onboarding\Verification\VerifyPhoneRequest;
 use App\Interfaces\Repositories\V2\Onboarding\VerificationRepositoryInterface;
 use Illuminate\Http\Request;
 
@@ -41,5 +42,38 @@ class VerificationController extends Controller
         $verify = $this->verificationRepository->verifyEmail($validated_data);
         return $verify;
     }
+
+    /**
+     * Get Phone Number Verification OTP
+     */
+    public function getPhoneOtp()
+    {
+        $user = auth()->user();
+        if($user->phone_verified_at != null)
+        {
+            return respondError(400, '01', 'Phone Number Has been verified Already');
+        }elseif($user->phone == null || $user->phone_code == null)
+        {
+            return respondError(400, '01', 'You are yet to add a phone number');
+        }else{
+            $get_otp = $this->verificationRepository->getPhoneOtp($user->toArray());
+            if(!$get_otp){
+                return respondError(400, '01', 'An Error Occurred, Pls try again ');
+            }
+            return respondSuccess('A One Time Password Has Been sent to your registered phone number');
+        }
+    }
+
+    /**
+     * Verify Phone Number OTP
+     */
+    public function verifyPhone(VerifyPhoneRequest $request)
+    {
+        $validated_data = $request->validated();
+        $verify = $this->verificationRepository->verifyPhone($validated_data);
+        return $verify;
+    }
+
+
 
 }

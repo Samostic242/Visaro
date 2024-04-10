@@ -12,6 +12,10 @@ Route::prefix('users')->group(function () {
         Route::prefix('verifications')->group(function () {
             Route::post('email-resend-otp', [VerificationController::class, 'resendOtp']);
             Route::post('verify-email-otp', [VerificationController::class, 'verifyOtp']);
+            Route::get('get-phone-otp', [VerificationController::class, 'getPhoneOtp']);
+            Route::post('verify-phone-otp', [VerificationController::class, 'verifyPhone']);
+
+
         });
     });
 });

@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Okolaa\TermiiPHP\Termii;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
+use Cloudinary\Api\Upload\UploadApi;
 
 
 if (!function_exists('uuid')) {
@@ -73,7 +74,7 @@ if (!function_exists('generateRandomNumber')) {
 if (!function_exists('sendSmsMessage')) {
     function sendSmsMessage(string $phone_number, string $message, string $purpose = 'transaction'): Termii|bool
     {
-        $termii = new Termii('TERMII_SENDER_ID', 'TERMII_API_KEY');
+        $termii = new Termii(config('services.messaging.sms.termii.sender_id'), config('services.messaging.sms.termii.api_key'));
         try {
             $termii->sendMessage(
                 [
@@ -395,6 +396,7 @@ if (!function_exists('upload_to_cloudinary')) {
             'folder' => $folder,
             'public_id' => Str::uuid()->toString(),
         ])->getSecurePath();
+        // $upload = (new UploadApi())->upload($fil);
         return $upload;
     }
 }

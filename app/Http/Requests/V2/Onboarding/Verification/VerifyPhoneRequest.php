@@ -4,7 +4,7 @@ namespace App\Http\Requests\V2\Onboarding\Verification;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class VerificationRequest extends FormRequest
+class VerifyPhoneRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,8 +22,8 @@ class VerificationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => ['required', 'email', 'exists:users,email'],
-            'code' => ['required', 'regex:/[0-9]{4}/'],
+            // 'phone' => ['nullable', 'regex:/[0-9]{11}$/', 'exists:users,phone'],
+            'code' => ['required', 'regex:/[0-9]{4}/']
         ];
     }
 }
