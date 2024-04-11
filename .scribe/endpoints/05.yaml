@@ -61,13 +61,13 @@ endpoints:
         name: product_id
         description: 'The ID of the product.'
         required: true
-        example: itaque
+        example: voluptates
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      product_id: itaque
+      product_id: voluptates
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -114,13 +114,13 @@ endpoints:
         name: name
         description: ''
         required: false
-        example: non
+        example: voluptatibus
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      name: non
+      name: voluptatibus
     fileParameters: []
     responses:
       -
@@ -159,13 +159,13 @@ endpoints:
         name: product_id
         description: 'The ID of the product.'
         required: true
-        example: corrupti
+        example: et
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      product_id: corrupti
+      product_id: et
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -173,7 +173,7 @@ endpoints:
         name: name
         description: ''
         required: false
-        example: accusantium
+        example: doloribus
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -182,14 +182,14 @@ endpoints:
         name: link
         description: ''
         required: false
-        example: hic
+        example: blanditiis
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      name: accusantium
-      link: hic
+      name: doloribus
+      link: blanditiis
     fileParameters: []
     responses:
       -
@@ -232,7 +232,7 @@ endpoints:
         name: product_id
         description: ''
         required: false
-        example: dolores
+        example: voluptatem
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -241,7 +241,7 @@ endpoints:
         name: code
         description: ''
         required: false
-        example: aut
+        example: pariatur
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -250,15 +250,15 @@ endpoints:
         name: price
         description: ''
         required: false
-        example: 9
+        example: 8
         type: integer
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      product_id: dolores
-      code: aut
-      price: 9
+      product_id: voluptatem
+      code: pariatur
+      price: 8
     fileParameters: []
     responses:
       -
@@ -297,13 +297,13 @@ endpoints:
         name: product_id
         description: 'The ID of the product.'
         required: true
-        example: exercitationem
+        example: omnis
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      product_id: exercitationem
+      product_id: omnis
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

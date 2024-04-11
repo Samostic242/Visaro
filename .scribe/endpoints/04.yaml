@@ -26,7 +26,7 @@ endpoints:
         name: business_email
         description: 'Must be a valid email address.'
         required: true
-        example: walker.jakob@example.org
+        example: branson37@example.org
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -35,7 +35,7 @@ endpoints:
         name: business_phone_code
         description: 'Must match the regex /^\+[0-9]+$/. Must not be greater than 4 characters.'
         required: true
-        example: i
+        example: q
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -44,15 +44,15 @@ endpoints:
         name: business_phone
         description: 'Must match the regex /[0-9]{10}$/.'
         required: true
-        example: '6232553612'
+        example: '7553769291'
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      business_email: walker.jakob@example.org
-      business_phone_code: i
-      business_phone: '6232553612'
+      business_email: branson37@example.org
+      business_phone_code: q
+      business_phone: '7553769291'
     fileParameters: []
     responses:
       -
@@ -95,7 +95,7 @@ endpoints:
         name: code
         description: ''
         required: true
-        example: adipisci
+        example: non
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -104,14 +104,14 @@ endpoints:
         name: business_email
         description: ''
         required: true
-        example: similique
+        example: autem
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      code: adipisci
-      business_email: similique
+      code: non
+      business_email: autem
     fileParameters: []
     responses:
       -
@@ -154,7 +154,7 @@ endpoints:
         name: cac_number
         description: ''
         required: false
-        example: vel
+        example: occaecati
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -181,7 +181,7 @@ endpoints:
         name: country_id
         description: ''
         required: false
-        example: 19
+        example: 16
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -190,7 +190,7 @@ endpoints:
         name: state
         description: ''
         required: false
-        example: dolorum
+        example: autem
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -199,7 +199,7 @@ endpoints:
         name: local_government
         description: ''
         required: false
-        example: repellat
+        example: voluptatum
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -208,7 +208,7 @@ endpoints:
         name: city
         description: ''
         required: false
-        example: soluta
+        example: doloremque
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -217,7 +217,7 @@ endpoints:
         name: street_address
         description: ''
         required: false
-        example: ea
+        example: vero
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -226,7 +226,7 @@ endpoints:
         name: land_mark
         description: ''
         required: false
-        example: laudantium
+        example: quia
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -235,20 +235,20 @@ endpoints:
         name: meta
         description: ''
         required: false
-        example: possimus
+        example: minus
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      cac_number: vel
-      country_id: 19
-      state: dolorum
-      local_government: repellat
-      city: soluta
-      street_address: ea
-      land_mark: laudantium
-      meta: possimus
+      cac_number: occaecati
+      country_id: 16
+      state: autem
+      local_government: voluptatum
+      city: doloremque
+      street_address: vero
+      land_mark: quia
+      meta: minus
     fileParameters:
       cac_document: null
       proof_of_address: null
@@ -293,7 +293,7 @@ endpoints:
         name: payout_interval
         description: ''
         required: true
-        example: daily
+        example: monthly
         type: string
         enumValues:
           - daily
@@ -305,7 +305,7 @@ endpoints:
         name: payout_frequency
         description: ''
         required: true
-        example: 20
+        example: 8
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -320,8 +320,8 @@ endpoints:
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      payout_interval: daily
-      payout_frequency: 20
+      payout_interval: monthly
+      payout_frequency: 8
     fileParameters: []
     responses:
       -
@@ -364,7 +364,7 @@ endpoints:
         name: dispute_email
         description: ''
         required: false
-        example: rogahn.oscar@example.net
+        example: stamm.america@example.com
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -373,7 +373,7 @@ endpoints:
         name: support_email
         description: ''
         required: false
-        example: gusikowski.laurine@example.net
+        example: edgardo88@example.net
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -382,7 +382,7 @@ endpoints:
         name: general_mail
         description: ''
         required: false
-        example: delectus
+        example: pariatur
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -391,16 +391,16 @@ endpoints:
         name: meta
         description: ''
         required: false
-        example: quibusdam
+        example: dolores
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      dispute_email: rogahn.oscar@example.net
-      support_email: gusikowski.laurine@example.net
-      general_mail: delectus
-      meta: quibusdam
+      dispute_email: stamm.america@example.com
+      support_email: edgardo88@example.net
+      general_mail: pariatur
+      meta: dolores
     fileParameters: []
     responses:
       -
@@ -443,7 +443,7 @@ endpoints:
         name: dispute_email
         description: 'Must be a valid email address.'
         required: false
-        example: arely85@example.org
+        example: jacklyn.jerde@example.org
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -452,7 +452,7 @@ endpoints:
         name: support_email
         description: 'Must be a valid email address.'
         required: false
-        example: ian.bergstrom@example.org
+        example: lacey25@example.org
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -461,7 +461,7 @@ endpoints:
         name: general_email
         description: 'Must be a valid email address.'
         required: false
-        example: jillian19@example.com
+        example: corrine.stroman@example.com
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -470,7 +470,7 @@ endpoints:
         name: meta
         description: ''
         required: false
-        example: maxime
+        example: voluptas
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -488,18 +488,18 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: non
+        example: odit
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      dispute_email: arely85@example.org
-      support_email: ian.bergstrom@example.org
-      general_email: jillian19@example.com
-      meta: maxime
+      dispute_email: jacklyn.jerde@example.org
+      support_email: lacey25@example.org
+      general_email: corrine.stroman@example.com
+      meta: voluptas
       active: false
-      status: non
+      status: odit
     fileParameters: []
     responses:
       -
@@ -542,7 +542,7 @@ endpoints:
         name: default_currency
         description: ''
         required: false
-        example: non
+        example: ipsam
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -587,18 +587,18 @@ endpoints:
         name: installment
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      default_currency: non
+      default_currency: ipsam
       bank: true
       card: true
       qr: true
       transfer: false
-      installment: true
+      installment: false
     fileParameters: []
     responses:
       -
@@ -641,7 +641,7 @@ endpoints:
         name: default_currency
         description: ''
         required: false
-        example: labore
+        example: quis
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -650,7 +650,7 @@ endpoints:
         name: bank
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -668,7 +668,7 @@ endpoints:
         name: qr
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -686,18 +686,18 @@ endpoints:
         name: installment
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      default_currency: labore
-      bank: false
+      default_currency: quis
+      bank: true
       card: false
-      qr: false
+      qr: true
       transfer: true
-      installment: true
+      installment: false
     fileParameters: []
     responses:
       -
@@ -740,7 +740,7 @@ endpoints:
         name: bank_name
         description: ''
         required: true
-        example: nemo
+        example: ullam
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -749,7 +749,7 @@ endpoints:
         name: bank_code
         description: ''
         required: true
-        example: quod
+        example: qui
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -758,7 +758,7 @@ endpoints:
         name: account_name
         description: ''
         required: true
-        example: dolores
+        example: labore
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -767,7 +767,7 @@ endpoints:
         name: account_number
         description: ''
         required: true
-        example: dignissimos
+        example: quidem
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -776,17 +776,17 @@ endpoints:
         name: currency
         description: ''
         required: true
-        example: odit
+        example: fugit
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      bank_name: nemo
-      bank_code: quod
-      account_name: dolores
-      account_number: dignissimos
-      currency: odit
+      bank_name: ullam
+      bank_code: qui
+      account_name: labore
+      account_number: quidem
+      currency: fugit
     fileParameters: []
     responses:
       -
@@ -829,7 +829,7 @@ endpoints:
         name: bank_name
         description: ''
         required: false
-        example: voluptas
+        example: voluptatem
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -838,7 +838,7 @@ endpoints:
         name: bank_code
         description: ''
         required: false
-        example: repudiandae
+        example: rem
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -847,7 +847,7 @@ endpoints:
         name: account_name
         description: ''
         required: false
-        example: eius
+        example: saepe
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -856,7 +856,7 @@ endpoints:
         name: account_number
         description: ''
         required: false
-        example: magnam
+        example: sapiente
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -865,7 +865,7 @@ endpoints:
         name: currency
         description: ''
         required: false
-        example: fuga
+        example: et
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -883,19 +883,19 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: voluptatem
+        example: natus
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      bank_name: voluptas
-      bank_code: repudiandae
-      account_name: eius
-      account_number: magnam
-      currency: fuga
+      bank_name: voluptatem
+      bank_code: rem
+      account_name: saepe
+      account_number: sapiente
+      currency: et
       active: false
-      status: voluptatem
+      status: natus
     fileParameters: []
     responses:
       -
@@ -977,7 +977,7 @@ endpoints:
         name: business_name
         description: ''
         required: false
-        example: nam
+        example: voluptatem
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -986,7 +986,7 @@ endpoints:
         name: business_type
         description: ''
         required: false
-        example: partnership
+        example: corporation
         type: string
         enumValues:
           - corporation
@@ -998,7 +998,7 @@ endpoints:
         name: business_email
         description: 'Must be a valid email address.'
         required: false
-        example: yoconner@example.org
+        example: elfrieda97@example.org
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1007,7 +1007,7 @@ endpoints:
         name: business_phone_code
         description: ''
         required: false
-        example: consequatur
+        example: voluptatibus
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1016,7 +1016,7 @@ endpoints:
         name: business_phone
         description: ''
         required: false
-        example: excepturi
+        example: impedit
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1025,7 +1025,7 @@ endpoints:
         name: business_registration_number
         description: ''
         required: false
-        example: aut
+        example: tempora
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1034,7 +1034,7 @@ endpoints:
         name: acronym
         description: ''
         required: false
-        example: et
+        example: iste
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1043,7 +1043,7 @@ endpoints:
         name: official_name
         description: ''
         required: false
-        example: natus
+        example: eaque
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1052,7 +1052,7 @@ endpoints:
         name: website
         description: 'Must be a valid URL.'
         required: false
-        example: 'http://www.williamson.com/qui-error-qui-sit-hic-aut-excepturi.html'
+        example: 'https://will.org/iure-aperiam-delectus-quibusdam-quod-quae-ut.html'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1061,7 +1061,7 @@ endpoints:
         name: presence
         description: ''
         required: false
-        example: physical
+        example: hybrid
         type: string
         enumValues:
           - physical
@@ -1082,7 +1082,7 @@ endpoints:
         name: country_id
         description: ''
         required: false
-        example: 7
+        example: 13
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -1106,17 +1106,17 @@ endpoints:
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      business_name: nam
-      business_type: partnership
-      business_email: yoconner@example.org
-      business_phone_code: consequatur
-      business_phone: excepturi
-      business_registration_number: aut
-      acronym: et
-      official_name: natus
-      website: 'http://www.williamson.com/qui-error-qui-sit-hic-aut-excepturi.html'
-      presence: physical
-      country_id: 7
+      business_name: voluptatem
+      business_type: corporation
+      business_email: elfrieda97@example.org
+      business_phone_code: voluptatibus
+      business_phone: impedit
+      business_registration_number: tempora
+      acronym: iste
+      official_name: eaque
+      website: 'https://will.org/iure-aperiam-delectus-quibusdam-quod-quae-ut.html'
+      presence: hybrid
+      country_id: 13
     fileParameters:
       logo: null
     responses:
@@ -1160,13 +1160,13 @@ endpoints:
         name: business_email
         description: 'Must be a valid email address.'
         required: true
-        example: durgan.sophie@example.org
+        example: bstamm@example.net
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      business_email: durgan.sophie@example.org
+      business_email: bstamm@example.net
     fileParameters: []
     responses:
       -
@@ -1209,7 +1209,7 @@ endpoints:
         name: business_email
         description: 'Must be a valid email address.'
         required: true
-        example: kenyon88@example.org
+        example: ernie.hayes@example.com
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1218,7 +1218,7 @@ endpoints:
         name: code
         description: 'Must match the regex /[0-9]{4}/.'
         required: true
-        example: '8849'
+        example: '7477'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1227,15 +1227,15 @@ endpoints:
         name: password
         description: ''
         required: true
-        example: ipF;C@/aaGy-4
+        example: h_`/x+byf
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      business_email: kenyon88@example.org
-      code: '8849'
-      password: ipF;C@/aaGy-4
+      business_email: ernie.hayes@example.com
+      code: '7477'
+      password: h_`/x+byf
     fileParameters: []
     responses:
       -

@@ -26,18 +26,18 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: sgutkowski@example.com
+        example: icummings@example.net
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      email: sgutkowski@example.com
+      email: icummings@example.net
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"code":"00","status":true,"message":"You have successfully subscribed to our newsletter","data":{"public_id":"e69f312e-2a9c-4a58-ad9c-744e8dfdaa63","email":"sgutkowski@example.com","id":"9bc663e1-bc54-46ff-b2f3-cec1025ae2dc","updated_at":"2024-04-10T15:43:35.000000Z","created_at":"2024-04-10T15:43:35.000000Z"}}'
+        content: '{"code":"00","status":true,"message":"You have successfully subscribed to our newsletter","data":{"public_id":"a9aa1216-d920-4603-b62c-039f7fcbda70","email":"icummings@example.net","id":"9bc7bfb6-ce84-4d3b-9687-719e31793acd","updated_at":"2024-04-11T07:56:12.000000Z","created_at":"2024-04-11T07:56:12.000000Z"}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json

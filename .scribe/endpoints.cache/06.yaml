@@ -63,13 +63,13 @@ endpoints:
         name: order_id
         description: 'The ID of the order.'
         required: true
-        example: officiis
+        example: omnis
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      order_id: officiis
+      order_id: omnis
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -116,7 +116,7 @@ endpoints:
         name: invoice_id
         description: ''
         required: false
-        example: eligendi
+        example: quo
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -125,7 +125,7 @@ endpoints:
         name: merchant_id
         description: ''
         required: false
-        example: harum
+        example: ducimus
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -134,7 +134,7 @@ endpoints:
         name: transaction_id
         description: ''
         required: false
-        example: nihil
+        example: provident
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -143,7 +143,7 @@ endpoints:
         name: user_id
         description: ''
         required: false
-        example: voluptatibus
+        example: quia
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -152,17 +152,17 @@ endpoints:
         name: store_front_id
         description: ''
         required: false
-        example: quasi
+        example: est
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      invoice_id: eligendi
-      merchant_id: harum
-      transaction_id: nihil
-      user_id: voluptatibus
-      store_front_id: quasi
+      invoice_id: quo
+      merchant_id: ducimus
+      transaction_id: provident
+      user_id: quia
+      store_front_id: est
     fileParameters: []
     responses:
       -
@@ -201,13 +201,13 @@ endpoints:
         name: order_id
         description: 'The ID of the order.'
         required: true
-        example: hic
+        example: qui
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      order_id: hic
+      order_id: qui
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -215,7 +215,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: created
+        example: processing
         type: string
         enumValues:
           - created
@@ -227,14 +227,14 @@ endpoints:
         name: active
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      status: created
-      active: true
+      status: processing
+      active: false
     fileParameters: []
     responses:
       -
@@ -312,13 +312,13 @@ endpoints:
         name: store_front_id
         description: 'The ID of the store front.'
         required: true
-        example: sed
+        example: earum
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      store_front_id: sed
+      store_front_id: earum
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -365,7 +365,7 @@ endpoints:
         name: merchant_id
         description: ''
         required: false
-        example: quia
+        example: quaerat
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -374,7 +374,7 @@ endpoints:
         name: name
         description: ''
         required: false
-        example: maxime
+        example: necessitatibus
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -398,8 +398,8 @@ endpoints:
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      merchant_id: quia
-      name: maxime
+      merchant_id: quaerat
+      name: necessitatibus
     fileParameters:
       logo: null
       cover_image: null
@@ -440,13 +440,13 @@ endpoints:
         name: store_front_id
         description: 'The ID of the store front.'
         required: true
-        example: nostrum
+        example: maxime
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      store_front_id: nostrum
+      store_front_id: maxime
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -454,7 +454,7 @@ endpoints:
         name: merchant_id
         description: ''
         required: false
-        example: rerum
+        example: et
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -463,7 +463,7 @@ endpoints:
         name: name
         description: ''
         required: false
-        example: unde
+        example: enim
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -490,7 +490,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: eum
+        example: id
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -499,16 +499,16 @@ endpoints:
         name: active
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      merchant_id: rerum
-      name: unde
-      status: eum
-      active: false
+      merchant_id: et
+      name: enim
+      status: id
+      active: true
     fileParameters:
       logo: null
       cover_image: null
@@ -549,13 +549,13 @@ endpoints:
         name: store_front_id
         description: 'The ID of the store front.'
         required: true
-        example: doloribus
+        example: et
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      store_front_id: doloribus
+      store_front_id: et
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -598,13 +598,13 @@ endpoints:
         name: store_front_id
         description: 'The ID of the store front.'
         required: true
-        example: minima
+        example: aliquid
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      store_front_id: minima
+      store_front_id: aliquid
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -612,13 +612,13 @@ endpoints:
         name: product_id
         description: ''
         required: false
-        example: incidunt
+        example: placeat
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      product_id: incidunt
+      product_id: placeat
     fileParameters: []
     responses:
       -
@@ -784,13 +784,13 @@ endpoints:
         name: id
         description: 'The ID of the booking.'
         required: true
-        example: non
+        example: officia
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: non
+      id: officia
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -894,13 +894,13 @@ endpoints:
         name: id
         description: 'The ID of the booking.'
         required: true
-        example: ipsam
+        example: est
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: ipsam
+      id: est
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -917,7 +917,7 @@ endpoints:
         name: title
         description: ''
         required: true
-        example: doloribus
+        example: libero
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -935,7 +935,7 @@ endpoints:
         name: lastname
         description: ''
         required: true
-        example: voluptates
+        example: delectus
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -944,7 +944,7 @@ endpoints:
         name: phone_code
         description: ''
         required: true
-        example: id
+        example: quaerat
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -953,7 +953,7 @@ endpoints:
         name: phone_number
         description: ''
         required: true
-        example: sequi
+        example: reprehenderit
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -962,7 +962,7 @@ endpoints:
         name: nationality
         description: ''
         required: true
-        example: quaerat
+        example: veniam
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -971,7 +971,7 @@ endpoints:
         name: date_of_birth
         description: ''
         required: true
-        example: enim
+        example: ad
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -980,21 +980,21 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: edd78@example.net
+        example: easter78@example.org
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
       booking_id: 3
-      title: doloribus
+      title: libero
       firstname: est
-      lastname: voluptates
-      phone_code: id
-      phone_number: sequi
-      nationality: quaerat
-      date_of_birth: enim
-      email: edd78@example.net
+      lastname: delectus
+      phone_code: quaerat
+      phone_number: reprehenderit
+      nationality: veniam
+      date_of_birth: ad
+      email: easter78@example.org
     fileParameters: []
     responses:
       -
@@ -1033,13 +1033,13 @@ endpoints:
         name: id
         description: 'The ID of the booking.'
         required: true
-        example: omnis
+        example: repudiandae
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: omnis
+      id: repudiandae
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -1082,7 +1082,7 @@ endpoints:
         name: id
         description: 'The ID of the booking.'
         required: true
-        example: officiis
+        example: itaque
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1091,14 +1091,14 @@ endpoints:
         name: option_id
         description: 'The ID of the option.'
         required: true
-        example: voluptatibus
+        example: sit
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: officiis
-      option_id: voluptatibus
+      id: itaque
+      option_id: sit
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -1141,13 +1141,13 @@ endpoints:
         name: id
         description: 'The ID of the booking.'
         required: true
-        example: rerum
+        example: dolorem
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: rerum
+      id: dolorem
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -1155,7 +1155,7 @@ endpoints:
         name: booking_id
         description: ''
         required: true
-        example: 15
+        example: 6
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -1164,7 +1164,7 @@ endpoints:
         name: payment_option_id
         description: ''
         required: true
-        example: 5
+        example: 15
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -1173,7 +1173,7 @@ endpoints:
         name: amount
         description: ''
         required: true
-        example: 15
+        example: 14
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -1182,16 +1182,16 @@ endpoints:
         name: payment_installment_id
         description: ''
         required: true
-        example: 12
+        example: 18
         type: integer
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      booking_id: 15
-      payment_option_id: 5
-      amount: 15
-      payment_installment_id: 12
+      booking_id: 6
+      payment_option_id: 15
+      amount: 14
+      payment_installment_id: 18
     fileParameters: []
     responses:
       -

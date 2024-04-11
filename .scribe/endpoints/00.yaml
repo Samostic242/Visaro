@@ -26,7 +26,7 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: gino.thiel@example.net
+        example: tate40@example.org
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -35,14 +35,14 @@ endpoints:
         name: password
         description: ''
         required: true
-        example: '(~Iw!@LzN{D9NJ8'
+        example: 'K>J%dd#D'
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      email: gino.thiel@example.net
-      password: '(~Iw!@LzN{D9NJ8'
+      email: tate40@example.org
+      password: 'K>J%dd#D'
     fileParameters: []
     responses:
       -
@@ -87,13 +87,13 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: cletus74@example.org
+        example: cjohns@example.org
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      email: cletus74@example.org
+      email: cjohns@example.org
     fileParameters: []
     responses:
       -
@@ -138,7 +138,7 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: lowe.kasandra@example.org
+        example: kassulke.chandler@example.org
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -147,7 +147,7 @@ endpoints:
         name: code
         description: 'Must match the regex /[0-9]{4}/.'
         required: true
-        example: '9173'
+        example: '9544'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -156,15 +156,15 @@ endpoints:
         name: password
         description: ''
         required: true
-        example: 'C:2,49Ngaz^k&Y*:r'
+        example: 'TP,8xaU,VBeUxC+ODu~'
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      email: lowe.kasandra@example.org
-      code: '9173'
-      password: 'C:2,49Ngaz^k&Y*:r'
+      email: kassulke.chandler@example.org
+      code: '9544'
+      password: 'TP,8xaU,VBeUxC+ODu~'
     fileParameters: []
     responses:
       -
