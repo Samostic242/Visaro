@@ -29,7 +29,7 @@ class RegistrationRequest extends FormRequest
             'phone_code' => ['nullable', 'string', 'regex:/^\+[0-9]+$/', 'max:4'],
             'phone' => ['nullable', 'regex:/[0-9]{10}$/', 'unique:users'],
             'photo' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
-            'password' => ['required', 'string', 'min:8', 'regex:/^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9])[\w\W]{8,}$/'],
+            'password' => ['nullable', 'string', 'min:8', 'regex:/^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9])[\w\W]{8,}$/'],
         ];
     }
 }

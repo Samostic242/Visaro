@@ -41,7 +41,8 @@ class UserAuthService implements UserAuthServiceInterface
                     'data' => null
                 ];
 
-            } elseif (!auth()->user()->phone_verified_at) {
+            }
+          /*   elseif (!auth()->user()->phone_verified_at) {
                 return [
                     'status' => false,
                     'message' => 'Your phone number has not been verified, kindly proceed to verify your account',
@@ -49,7 +50,7 @@ class UserAuthService implements UserAuthServiceInterface
                     'data' => null
                 ];
 
-            }
+            } */
             return [
                 'status' => true,
                 'message' => 'User Logged in successfully',
