@@ -22,6 +22,7 @@ class UserAccountResource extends JsonResource
             'phone_number' => $this->phone_code . $this->phone,
             'email' => $this->email,
             'username' => $this->username,
+            'address' => $this->address,
             'qrcode' => $this->qrcode,
             'code' => $this->code,
             'photo' => $this->photo,

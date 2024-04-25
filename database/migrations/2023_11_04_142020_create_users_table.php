@@ -20,6 +20,7 @@ return new class extends Migration {
             $table->string('phone_code', 20)->nullable();
             $table->string('phone')->nullable();
             $table->string('email')->unique('users_email_unique');
+            $table->string('address')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->timestamp('phone_verified_at')->nullable();
             $table->string('photo')->default('no_pic.jpg');
