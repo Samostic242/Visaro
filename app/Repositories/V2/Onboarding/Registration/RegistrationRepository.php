@@ -84,4 +84,6 @@ class RegistrationRepository implements RegistrationRepositoryInterface
         $message = $username.' is available';
         return respondSuccess($message);
     }
+
+    
 }

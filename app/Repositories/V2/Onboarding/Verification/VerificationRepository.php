@@ -49,7 +49,6 @@ class VerificationRepository implements VerificationRepositoryInterface
         $message = 'Your Visaro one time password is ' . $otp . ' it expires in 5 minutes.';
         $send = sendSmsMessage($number, $message);
         return $send;
-
     }
 
     public function verifyPhone(array $data)

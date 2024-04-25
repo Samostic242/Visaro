@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Api\V1\Services\Aviation;
 
 use App\Http\Controllers\Controller;
+use App\Http\Integrations\Trips\Requests\FlightBookingRequest;
 use App\Http\Integrations\Trips\Requests\GetTokenRequest;
 use App\Http\Integrations\Trips\TripsConnection;
+use App\Models\FlightBooking;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Saloon\Http\Response;
@@ -53,5 +55,24 @@ class TripsAuthorizationController extends Controller
             "url" => "https://tripswebwidget.staging.vggdev.com/?MerchantCode={$response->MerchantCode}&MerchantHash={$response->Token}&CustomerName={$response->ExtraData['CustomerName']}&CustomerId={$response->ExtraData['CustomerIdentifier']}",
         ];
         return respondSuccess("Authorization initialized successfully", $data);
+    }
+
+    public function bookFlight($flightId)
+    {
+        $booking = FlightBooking::where('user_id', auth()->user()->id)
+        ->where('id', $flightId)
+        ->first();
+        if (!$booking) {
+            return respondError('01', "Booking not found", status_code: 404);
+        }
+        // return $booking->copy;
+        $trips = new TripsConnection();
+        $response = $trips->send(new FlightBookingRequest($booking->SelectedFlights));
+        $response->onError(function (Response $resp) {
+            // Log::info('token request', [$resp]);
+            return respondError(400, "Attempt to authenticate process failed", $resp);
+        });
+        return (object)$response->json();
+
     }
 }
