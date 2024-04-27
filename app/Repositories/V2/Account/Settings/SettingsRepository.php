@@ -1,9 +1,11 @@
 <?php
 namespace App\Repositories\V2\Account\Settings;
 use App\Interfaces\Repositories\V2\Account\Settings\SettingsRepositoryInterface;
+use App\Mail\V2\Contact\ContactMail;
 use App\Models\Contact\Contact;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Tzsk\Otp\Facades\Otp;
 
 class SettingsRepository implements SettingsRepositoryInterface
@@ -57,6 +59,7 @@ class SettingsRepository implements SettingsRepositoryInterface
         $contact->phone = $data['phone'] ?? null;
         $contact->message = $data['message']?? null;
         $contact->save();
+        Mail::send(new ContactMail($contact->email));
         return $contact;
     }
 }
