@@ -1,16 +1,16 @@
-name: Commerce
+name: Merchant
 description: ''
 endpoints:
   -
     httpMethods:
-      - GET
-    uri: api/v2/commerce/products
+      - POST
+    uri: api/v2/merchant/onboarding/email
     metadata:
-      groupName: Commerce
+      groupName: Merchant
       groupDescription: ''
-      subgroup: Products
+      subgroup: Onboarding
       subgroupDescription: ''
-      title: ''
+      title: "Sends an Otp to the merchant's Mail"
       description: ''
       authenticated: false
       custom: []
@@ -21,62 +21,43 @@ endpoints:
     cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 401
-        content: '{"api_status":"401","message":"Unauthorized"}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: 'api/v2/commerce/products/{product_id}'
-    metadata:
-      groupName: Commerce
-      groupDescription: ''
-      subgroup: Products
-      subgroupDescription: ''
-      title: ''
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      product_id:
-        name: product_id
-        description: 'The ID of the product.'
+    bodyParameters:
+      business_email:
+        name: business_email
+        description: 'Must be a valid email address.'
         required: true
-        example: voluptates
+        example: elinore07@example.org
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
-    cleanUrlParameters:
-      product_id: voluptates
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+      business_phone_code:
+        name: business_phone_code
+        description: 'Must match the regex /^\+[0-9]+$/. Must not be greater than 4 characters.'
+        required: true
+        example: vyv
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      business_phone:
+        name: business_phone
+        description: 'Must match the regex /[0-9]{10}$/.'
+        required: true
+        example: '0695473010'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      business_email: elinore07@example.org
+      business_phone_code: vyv
+      business_phone: '0695473010'
     fileParameters: []
     responses:
       -
-        status: 401
-        content: '{"api_status":"401","message":"Unauthorized"}'
+        status: 422
+        content: '{"message":"The business phone code format is invalid.","errors":{"business_phone_code":["The business phone code format is invalid."]}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -92,13 +73,13 @@ endpoints:
   -
     httpMethods:
       - POST
-    uri: api/v2/commerce/products
+    uri: api/v2/merchant/onboarding/verifications/verify-email-otp
     metadata:
-      groupName: Commerce
+      groupName: Merchant
       groupDescription: ''
-      subgroup: Products
+      subgroup: Verification
       subgroupDescription: ''
-      title: 'Create Product'
+      title: 'Verifies Merchant Otp'
       description: ''
       authenticated: false
       custom: []
@@ -110,22 +91,32 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      name:
-        name: name
+      code:
+        name: code
         description: ''
-        required: false
-        example: voluptatibus
+        required: true
+        example: at
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      business_email:
+        name: business_email
+        description: ''
+        required: true
+        example: voluptatem
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      name: voluptatibus
+      code: at
+      business_email: voluptatem
     fileParameters: []
     responses:
       -
-        status: 401
-        content: '{"api_status":"401","message":"Unauthorized"}'
+        status: 422
+        content: '{"message":"The selected business email is invalid.","errors":{"business_email":["The selected business email is invalid."]}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -140,46 +131,90 @@ endpoints:
     custom: []
   -
     httpMethods:
-      - PATCH
-    uri: 'api/v2/commerce/products/{product_id}'
+      - POST
+    uri: api/v2/merchant/compliance/create
     metadata:
-      groupName: Commerce
+      groupName: Merchant
       groupDescription: ''
-      subgroup: Products
+      subgroup: Compliance
       subgroupDescription: ''
-      title: 'Update Products'
+      title: 'Create a compliance for a merchant'
       description: ''
       authenticated: false
       custom: []
     headers:
-      Content-Type: application/json
+      Content-Type: multipart/form-data
       Accept: application/json
-    urlParameters:
-      product_id:
-        name: product_id
-        description: 'The ID of the product.'
-        required: true
-        example: et
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-    cleanUrlParameters:
-      product_id: et
+    urlParameters: []
+    cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      name:
-        name: name
+      cac_number:
+        name: cac_number
         description: ''
         required: false
-        example: doloribus
+        example: ea
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
-      link:
-        name: link
+      cac_document:
+        name: cac_document
+        description: 'Must be a file.'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      proof_of_address:
+        name: proof_of_address
+        description: 'Must be a file.'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      country_id:
+        name: country_id
+        description: ''
+        required: false
+        example: 6
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      state:
+        name: state
+        description: ''
+        required: false
+        example: unde
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      local_government:
+        name: local_government
+        description: ''
+        required: false
+        example: est
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      city:
+        name: city
+        description: ''
+        required: false
+        example: reprehenderit
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      street_address:
+        name: street_address
         description: ''
         required: false
         example: blanditiis
@@ -187,9 +222,106 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         custom: []
+      land_mark:
+        name: land_mark
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      meta:
+        name: meta
+        description: ''
+        required: false
+        example: iste
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
     cleanBodyParameters:
-      name: doloribus
-      link: blanditiis
+      cac_number: ea
+      country_id: 6
+      state: unde
+      local_government: est
+      city: reprehenderit
+      street_address: blanditiis
+      land_mark: consequatur
+      meta: iste
+    fileParameters:
+      cac_document: null
+      proof_of_address: null
+    responses:
+      -
+        status: 401
+        content: '{"api_status":"401","message":"Unauthorized"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: api/v2/merchant/compliance/update
+    metadata:
+      groupName: Merchant
+      groupDescription: ''
+      subgroup: Compliance
+      subgroupDescription: ''
+      title: 'Update the compliance for a merchant'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      payout_interval:
+        name: payout_interval
+        description: ''
+        required: true
+        example: daily
+        type: string
+        enumValues:
+          - daily
+          - weekly
+          - monthly
+        exampleWasSpecified: false
+        custom: []
+      payout_frequency:
+        name: payout_frequency
+        description: ''
+        required: true
+        example: 11
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      meta:
+        name: meta
+        description: ''
+        required: false
+        example: null
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      payout_interval: daily
+      payout_frequency: 11
     fileParameters: []
     responses:
       -
@@ -210,13 +342,13 @@ endpoints:
   -
     httpMethods:
       - POST
-    uri: api/v2/commerce/products/sku
+    uri: api/v2/merchant/settings/create
     metadata:
-      groupName: Commerce
+      groupName: Merchant
       groupDescription: ''
-      subgroup: Product-Sku
+      subgroup: 'Merchant Settings'
       subgroupDescription: ''
-      title: 'Create product Sku'
+      title: 'Create Merchant Settings'
       description: ''
       authenticated: false
       custom: []
@@ -228,37 +360,542 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      product_id:
-        name: product_id
+      dispute_email:
+        name: dispute_email
         description: ''
         required: false
-        example: voluptatem
+        example: oschultz@example.net
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
-      code:
-        name: code
+      support_email:
+        name: support_email
         description: ''
         required: false
-        example: pariatur
+        example: linnea.koelpin@example.com
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
-      price:
-        name: price
+      general_mail:
+        name: general_mail
         description: ''
         required: false
-        example: 8
-        type: integer
+        example: et
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      meta:
+        name: meta
+        description: ''
+        required: false
+        example: ad
+        type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      product_id: voluptatem
-      code: pariatur
-      price: 8
+      dispute_email: oschultz@example.net
+      support_email: linnea.koelpin@example.com
+      general_mail: et
+      meta: ad
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"api_status":"401","message":"Unauthorized"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v2/merchant/settings/update
+    metadata:
+      groupName: Merchant
+      groupDescription: ''
+      subgroup: 'Merchant Settings'
+      subgroupDescription: ''
+      title: 'Update Merchant Settings'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      dispute_email:
+        name: dispute_email
+        description: 'Must be a valid email address.'
+        required: false
+        example: vandervort.leilani@example.org
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      support_email:
+        name: support_email
+        description: 'Must be a valid email address.'
+        required: false
+        example: brian57@example.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      general_email:
+        name: general_email
+        description: 'Must be a valid email address.'
+        required: false
+        example: pierre23@example.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      meta:
+        name: meta
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      active:
+        name: active
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      status:
+        name: status
+        description: ''
+        required: false
+        example: distinctio
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      dispute_email: vandervort.leilani@example.org
+      support_email: brian57@example.com
+      general_email: pierre23@example.com
+      meta: consequatur
+      active: true
+      status: distinctio
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"api_status":"401","message":"Unauthorized"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v2/merchant/preference/create
+    metadata:
+      groupName: Merchant
+      groupDescription: ''
+      subgroup: 'Merchant Settings'
+      subgroupDescription: ''
+      title: 'Create Merchant Preference'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      default_currency:
+        name: default_currency
+        description: ''
+        required: false
+        example: aut
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      bank:
+        name: bank
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      card:
+        name: card
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      qr:
+        name: qr
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      transfer:
+        name: transfer
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      installment:
+        name: installment
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      default_currency: aut
+      bank: true
+      card: false
+      qr: true
+      transfer: true
+      installment: true
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"api_status":"401","message":"Unauthorized"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v2/merchant/preference/update
+    metadata:
+      groupName: Merchant
+      groupDescription: ''
+      subgroup: 'Merchant Settings'
+      subgroupDescription: ''
+      title: 'Update Merchant Preference'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      default_currency:
+        name: default_currency
+        description: ''
+        required: false
+        example: est
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      bank:
+        name: bank
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      card:
+        name: card
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      qr:
+        name: qr
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      transfer:
+        name: transfer
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      installment:
+        name: installment
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      default_currency: est
+      bank: true
+      card: true
+      qr: true
+      transfer: false
+      installment: false
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"api_status":"401","message":"Unauthorized"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v2/merchant/bank/create
+    metadata:
+      groupName: Merchant
+      groupDescription: ''
+      subgroup: 'Merchant Settings'
+      subgroupDescription: ''
+      title: 'Add Merchant BankAccount'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      bank_name:
+        name: bank_name
+        description: ''
+        required: true
+        example: in
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      bank_code:
+        name: bank_code
+        description: ''
+        required: true
+        example: rerum
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      account_name:
+        name: account_name
+        description: ''
+        required: true
+        example: neque
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      account_number:
+        name: account_number
+        description: ''
+        required: true
+        example: sapiente
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      currency:
+        name: currency
+        description: ''
+        required: true
+        example: qui
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      bank_name: in
+      bank_code: rerum
+      account_name: neque
+      account_number: sapiente
+      currency: qui
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"api_status":"401","message":"Unauthorized"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v2/merchant/bank/update
+    metadata:
+      groupName: Merchant
+      groupDescription: ''
+      subgroup: 'Merchant Settings'
+      subgroupDescription: ''
+      title: 'Update Merchant BankAccount'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      bank_name:
+        name: bank_name
+        description: ''
+        required: false
+        example: rerum
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      bank_code:
+        name: bank_code
+        description: ''
+        required: false
+        example: ullam
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      account_name:
+        name: account_name
+        description: ''
+        required: false
+        example: nihil
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      account_number:
+        name: account_number
+        description: ''
+        required: false
+        example: quaerat
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      currency:
+        name: currency
+        description: ''
+        required: false
+        example: corporis
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      active:
+        name: active
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      status:
+        name: status
+        description: ''
+        required: false
+        example: dignissimos
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      bank_name: rerum
+      bank_code: ullam
+      account_name: nihil
+      account_number: quaerat
+      currency: corporis
+      active: true
+      status: dignissimos
     fileParameters: []
     responses:
       -
@@ -279,31 +916,21 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: 'api/v2/commerce/products/{product_id}/storefronts'
+    uri: api/v2/merchant/merchant/account/profile
     metadata:
-      groupName: Commerce
+      groupName: Merchant
       groupDescription: ''
-      subgroup: Products
+      subgroup: Account
       subgroupDescription: ''
-      title: ''
+      title: 'Fetch Merchant profile'
       description: ''
       authenticated: false
       custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
-    urlParameters:
-      product_id:
-        name: product_id
-        description: 'The ID of the product.'
-        required: true
-        example: omnis
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        custom: []
-    cleanUrlParameters:
-      product_id: omnis
+    urlParameters: []
+    cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -313,6 +940,307 @@ endpoints:
       -
         status: 401
         content: '{"api_status":"401","message":"Unauthorized"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v2/merchant/merchant/account/update
+    metadata:
+      groupName: Merchant
+      groupDescription: ''
+      subgroup: Onboarding
+      subgroupDescription: ''
+      title: 'Update the merchant data'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      business_name:
+        name: business_name
+        description: ''
+        required: false
+        example: vel
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      business_type:
+        name: business_type
+        description: ''
+        required: false
+        example: partnership
+        type: string
+        enumValues:
+          - corporation
+          - sole_proprietorship
+          - partnership
+        exampleWasSpecified: false
+        custom: []
+      business_email:
+        name: business_email
+        description: 'Must be a valid email address.'
+        required: false
+        example: maudie19@example.org
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      business_phone_code:
+        name: business_phone_code
+        description: ''
+        required: false
+        example: nesciunt
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      business_phone:
+        name: business_phone
+        description: ''
+        required: false
+        example: blanditiis
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      business_registration_number:
+        name: business_registration_number
+        description: ''
+        required: false
+        example: ut
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      acronym:
+        name: acronym
+        description: ''
+        required: false
+        example: totam
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      official_name:
+        name: official_name
+        description: ''
+        required: false
+        example: quo
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      website:
+        name: website
+        description: 'Must be a valid URL.'
+        required: false
+        example: 'http://stokes.com/qui-quos-unde-minima-est-assumenda-culpa-totam-delectus'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      presence:
+        name: presence
+        description: ''
+        required: false
+        example: physical
+        type: string
+        enumValues:
+          - physical
+          - virtual
+          - hybrid
+        exampleWasSpecified: false
+        custom: []
+      logo:
+        name: logo
+        description: 'Must be an image. Must not be greater than 2048 kilobytes.'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      country_id:
+        name: country_id
+        description: ''
+        required: false
+        example: 11
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      customization:
+        name: customization
+        description: ''
+        required: false
+        example: null
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      meta:
+        name: meta
+        description: ''
+        required: false
+        example: null
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      business_name: vel
+      business_type: partnership
+      business_email: maudie19@example.org
+      business_phone_code: nesciunt
+      business_phone: blanditiis
+      business_registration_number: ut
+      acronym: totam
+      official_name: quo
+      website: 'http://stokes.com/qui-quos-unde-minima-est-assumenda-culpa-totam-delectus'
+      presence: physical
+      country_id: 11
+    fileParameters:
+      logo: null
+    responses:
+      -
+        status: 401
+        content: '{"api_status":"401","message":"Unauthorized"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v2/merchant/auth/forgot-password
+    metadata:
+      groupName: Merchant
+      groupDescription: ''
+      subgroup: Account
+      subgroupDescription: ''
+      title: 'Initiate merchant password reset'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      business_email:
+        name: business_email
+        description: 'Must be a valid email address.'
+        required: true
+        example: rolando.cummings@example.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      business_email: rolando.cummings@example.com
+    fileParameters: []
+    responses:
+      -
+        status: 422
+        content: '{"message":"The selected business email is invalid.","errors":{"business_email":["The selected business email is invalid."]}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v2/merchant/auth/reset-password
+    metadata:
+      groupName: Merchant
+      groupDescription: ''
+      subgroup: Account
+      subgroupDescription: ''
+      title: 'Complete merchant password reset'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      business_email:
+        name: business_email
+        description: 'Must be a valid email address.'
+        required: true
+        example: philpert@example.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      code:
+        name: code
+        description: 'Must match the regex /[0-9]{4}/.'
+        required: true
+        example: '1625'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      password:
+        name: password
+        description: ''
+        required: true
+        example: 'D_u&H_.4^'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      business_email: philpert@example.com
+      code: '1625'
+      password: 'D_u&H_.4^'
+    fileParameters: []
+    responses:
+      -
+        status: 422
+        content: '{"message":"The selected business email is invalid.","errors":{"business_email":["The selected business email is invalid."]}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json

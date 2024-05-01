@@ -26,7 +26,7 @@ endpoints:
         name: firstname
         description: 'Must not be greater than 20 characters.'
         required: false
-        example: pqoi
+        example: ma
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -35,7 +35,7 @@ endpoints:
         name: middlename
         description: 'Must not be greater than 20 characters.'
         required: false
-        example: zygwqukhrzt
+        example: rwinamkanwa
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -44,7 +44,7 @@ endpoints:
         name: lastname
         description: 'Must not be greater than 20 characters.'
         required: false
-        example: omibqwmolrjr
+        example: vrcajt
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -53,7 +53,7 @@ endpoints:
         name: username
         description: 'Must not be greater than 20 characters.'
         required: false
-        example: nntqpbobltzwxwdbehuc
+        example: oupxvouexf
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -62,7 +62,7 @@ endpoints:
         name: phone_code
         description: 'Must match the regex /^\+[0-9]+$/. Must not be greater than 4 characters.'
         required: false
-        example: un
+        example: baiu
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -71,7 +71,16 @@ endpoints:
         name: phone
         description: 'Must match the regex /[0-9]{10}$/.'
         required: false
-        example: '2728110844'
+        example: '1610707233'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      address:
+        name: address
+        description: ''
+        required: false
+        example: quod
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -88,636 +97,27 @@ endpoints:
       password:
         name: password
         description: 'Must match the regex /^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9])[\w\W]{8,}$/. Must be at least 8 characters.'
-        required: true
-        example: '0bR^{iRS'
+        required: false
+        example: 'dnN"NBrKv!{Nw63'
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      firstname: pqoi
-      middlename: zygwqukhrzt
-      lastname: omibqwmolrjr
-      username: nntqpbobltzwxwdbehuc
-      phone_code: un
-      phone: '2728110844'
-      password: '0bR^{iRS'
+      firstname: ma
+      middlename: rwinamkanwa
+      lastname: vrcajt
+      username: oupxvouexf
+      phone_code: baiu
+      phone: '1610707233'
+      address: quod
+      password: 'dnN"NBrKv!{Nw63'
     fileParameters:
       photo: null
     responses:
       -
-        status: 500
-        content: |-
-          {
-              "message": "SQLSTATE[42S22]: Column not found: 1054 Unknown column 'username' in 'where clause' (Connection: mysql, SQL: select count(*) as aggregate from `users` where `username` = nntqpbobltzwxwdbehuc)",
-              "exception": "Illuminate\\Database\\QueryException",
-              "file": "/var/www/vendor/laravel/framework/src/Illuminate/Database/Connection.php",
-              "line": 829,
-              "trace": [
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Database/Connection.php",
-                      "line": 783,
-                      "function": "runQueryCallback",
-                      "class": "Illuminate\\Database\\Connection",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Database/Connection.php",
-                      "line": 414,
-                      "function": "run",
-                      "class": "Illuminate\\Database\\Connection",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php",
-                      "line": 2871,
-                      "function": "select",
-                      "class": "Illuminate\\Database\\Connection",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php",
-                      "line": 2860,
-                      "function": "runSelect",
-                      "class": "Illuminate\\Database\\Query\\Builder",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php",
-                      "line": 3414,
-                      "function": "Illuminate\\Database\\Query\\{closure}",
-                      "class": "Illuminate\\Database\\Query\\Builder",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php",
-                      "line": 2859,
-                      "function": "onceWithColumns",
-                      "class": "Illuminate\\Database\\Query\\Builder",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php",
-                      "line": 3341,
-                      "function": "get",
-                      "class": "Illuminate\\Database\\Query\\Builder",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php",
-                      "line": 3269,
-                      "function": "aggregate",
-                      "class": "Illuminate\\Database\\Query\\Builder",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Validation/DatabasePresenceVerifier.php",
-                      "line": 54,
-                      "function": "count",
-                      "class": "Illuminate\\Database\\Query\\Builder",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Validation/Concerns/ValidatesAttributes.php",
-                      "line": 948,
-                      "function": "getCount",
-                      "class": "Illuminate\\Validation\\DatabasePresenceVerifier",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Validation/Validator.php",
-                      "line": 658,
-                      "function": "validateUnique",
-                      "class": "Illuminate\\Validation\\Validator",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Validation/Validator.php",
-                      "line": 457,
-                      "function": "validateAttribute",
-                      "class": "Illuminate\\Validation\\Validator",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Validation/Validator.php",
-                      "line": 492,
-                      "function": "passes",
-                      "class": "Illuminate\\Validation\\Validator",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Validation/ValidatesWhenResolvedTrait.php",
-                      "line": 31,
-                      "function": "fails",
-                      "class": "Illuminate\\Validation\\Validator",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Providers/FormRequestServiceProvider.php",
-                      "line": 30,
-                      "function": "validateResolved",
-                      "class": "Illuminate\\Foundation\\Http\\FormRequest",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php",
-                      "line": 1302,
-                      "function": "Illuminate\\Foundation\\Providers\\{closure}",
-                      "class": "Illuminate\\Foundation\\Providers\\FormRequestServiceProvider",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php",
-                      "line": 1266,
-                      "function": "fireCallbackArray",
-                      "class": "Illuminate\\Container\\Container",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php",
-                      "line": 1252,
-                      "function": "fireAfterResolvingCallbacks",
-                      "class": "Illuminate\\Container\\Container",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php",
-                      "line": 813,
-                      "function": "fireResolvingCallbacks",
-                      "class": "Illuminate\\Container\\Container",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Application.php",
-                      "line": 957,
-                      "function": "resolve",
-                      "class": "Illuminate\\Container\\Container",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php",
-                      "line": 731,
-                      "function": "resolve",
-                      "class": "Illuminate\\Foundation\\Application",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Application.php",
-                      "line": 942,
-                      "function": "make",
-                      "class": "Illuminate\\Container\\Container",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/ResolvesRouteDependencies.php",
-                      "line": 85,
-                      "function": "make",
-                      "class": "Illuminate\\Foundation\\Application",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/ResolvesRouteDependencies.php",
-                      "line": 50,
-                      "function": "transformDependency",
-                      "class": "Illuminate\\Routing\\ControllerDispatcher",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/ResolvesRouteDependencies.php",
-                      "line": 29,
-                      "function": "resolveMethodDependencies",
-                      "class": "Illuminate\\Routing\\ControllerDispatcher",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php",
-                      "line": 59,
-                      "function": "resolveClassMethodDependencies",
-                      "class": "Illuminate\\Routing\\ControllerDispatcher",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php",
-                      "line": 40,
-                      "function": "resolveParameters",
-                      "class": "Illuminate\\Routing\\ControllerDispatcher",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Route.php",
-                      "line": 259,
-                      "function": "dispatch",
-                      "class": "Illuminate\\Routing\\ControllerDispatcher",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Route.php",
-                      "line": 205,
-                      "function": "runController",
-                      "class": "Illuminate\\Routing\\Route",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
-                      "line": 806,
-                      "function": "run",
-                      "class": "Illuminate\\Routing\\Route",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 144,
-                      "function": "Illuminate\\Routing\\{closure}",
-                      "class": "Illuminate\\Routing\\Router",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php",
-                      "line": 50,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 183,
-                      "function": "handle",
-                      "class": "Illuminate\\Routing\\Middleware\\SubstituteBindings",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php",
-                      "line": 159,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php",
-                      "line": 125,
-                      "function": "handleRequest",
-                      "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php",
-                      "line": 87,
-                      "function": "handleRequestUsingNamedLimiter",
-                      "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 183,
-                      "function": "handle",
-                      "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 119,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
-                      "line": 805,
-                      "function": "then",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
-                      "line": 784,
-                      "function": "runRouteWithinStack",
-                      "class": "Illuminate\\Routing\\Router",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
-                      "line": 748,
-                      "function": "runRoute",
-                      "class": "Illuminate\\Routing\\Router",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
-                      "line": 737,
-                      "function": "dispatchToRoute",
-                      "class": "Illuminate\\Routing\\Router",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
-                      "line": 200,
-                      "function": "dispatch",
-                      "class": "Illuminate\\Routing\\Router",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 144,
-                      "function": "Illuminate\\Foundation\\Http\\{closure}",
-                      "class": "Illuminate\\Foundation\\Http\\Kernel",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php",
-                      "line": 21,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php",
-                      "line": 31,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 183,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php",
-                      "line": 21,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php",
-                      "line": 40,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 183,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Http\\Middleware\\TrimStrings",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php",
-                      "line": 27,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 183,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php",
-                      "line": 99,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 183,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php",
-                      "line": 62,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 183,
-                      "function": "handle",
-                      "class": "Illuminate\\Http\\Middleware\\HandleCors",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php",
-                      "line": 39,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 183,
-                      "function": "handle",
-                      "class": "Illuminate\\Http\\Middleware\\TrustProxies",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 119,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
-                      "line": 175,
-                      "function": "then",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
-                      "line": 144,
-                      "function": "sendRequestThroughRouter",
-                      "class": "Illuminate\\Foundation\\Http\\Kernel",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
-                      "line": 300,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Http\\Kernel",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
-                      "line": 288,
-                      "function": "callLaravelOrLumenRoute",
-                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
-                      "line": 91,
-                      "function": "makeApiCall",
-                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
-                      "line": 44,
-                      "function": "makeResponseCall",
-                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
-                      "line": 35,
-                      "function": "makeResponseCallIfConditionsPass",
-                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
-                      "line": 236,
-                      "function": "__invoke",
-                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
-                      "line": 163,
-                      "function": "iterateThroughStrategies",
-                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
-                      "line": 95,
-                      "function": "fetchResponses",
-                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
-                      "line": 125,
-                      "function": "processRoute",
-                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
-                      "line": 72,
-                      "function": "extractEndpointsInfoFromLaravelApp",
-                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
-                      "line": 50,
-                      "function": "extractEndpointsInfoAndWriteToDisk",
-                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Commands/GenerateDocumentation.php",
-                      "line": 53,
-                      "function": "get",
-                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
-                      "line": 36,
-                      "function": "handle",
-                      "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/Util.php",
-                      "line": 41,
-                      "function": "Illuminate\\Container\\{closure}",
-                      "class": "Illuminate\\Container\\BoundMethod",
-                      "type": "::"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
-                      "line": 93,
-                      "function": "unwrapIfClosure",
-                      "class": "Illuminate\\Container\\Util",
-                      "type": "::"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
-                      "line": 35,
-                      "function": "callBoundMethod",
-                      "class": "Illuminate\\Container\\BoundMethod",
-                      "type": "::"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php",
-                      "line": 662,
-                      "function": "call",
-                      "class": "Illuminate\\Container\\BoundMethod",
-                      "type": "::"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Console/Command.php",
-                      "line": 211,
-                      "function": "call",
-                      "class": "Illuminate\\Container\\Container",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/symfony/console/Command/Command.php",
-                      "line": 326,
-                      "function": "execute",
-                      "class": "Illuminate\\Console\\Command",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Console/Command.php",
-                      "line": 180,
-                      "function": "run",
-                      "class": "Symfony\\Component\\Console\\Command\\Command",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/symfony/console/Application.php",
-                      "line": 1096,
-                      "function": "run",
-                      "class": "Illuminate\\Console\\Command",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/symfony/console/Application.php",
-                      "line": 324,
-                      "function": "doRunCommand",
-                      "class": "Symfony\\Component\\Console\\Application",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/symfony/console/Application.php",
-                      "line": 175,
-                      "function": "doRun",
-                      "class": "Symfony\\Component\\Console\\Application",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php",
-                      "line": 201,
-                      "function": "run",
-                      "class": "Symfony\\Component\\Console\\Application",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/artisan",
-                      "line": 35,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Console\\Kernel",
-                      "type": "->"
-                  }
-              ]
-          }
+        status: 422
+        content: '{"message":"The phone code format is invalid.","errors":{"phone_code":["The phone code format is invalid."]}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -757,13 +157,13 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: antonetta.ratke@example.net
+        example: daisy.funk@example.com
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      email: antonetta.ratke@example.net
+      email: daisy.funk@example.com
     fileParameters: []
     responses:
       -
@@ -808,530 +208,18 @@ endpoints:
         name: username
         description: 'Must not be greater than 20 characters.'
         required: true
-        example: wiqoqrkxth
+        example: izhonbjjhybiyciqridl
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      username: wiqoqrkxth
+      username: izhonbjjhybiyciqridl
     fileParameters: []
     responses:
       -
-        status: 500
-        content: |-
-          {
-              "message": "SQLSTATE[42S22]: Column not found: 1054 Unknown column 'username' in 'where clause' (Connection: mysql, SQL: select * from `users` where `username` = wiqoqrkxth and `users`.`deleted_at` is null limit 1)",
-              "exception": "Illuminate\\Database\\QueryException",
-              "file": "/var/www/vendor/laravel/framework/src/Illuminate/Database/Connection.php",
-              "line": 829,
-              "trace": [
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Database/Connection.php",
-                      "line": 783,
-                      "function": "runQueryCallback",
-                      "class": "Illuminate\\Database\\Connection",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Database/Connection.php",
-                      "line": 414,
-                      "function": "run",
-                      "class": "Illuminate\\Database\\Connection",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php",
-                      "line": 2871,
-                      "function": "select",
-                      "class": "Illuminate\\Database\\Connection",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php",
-                      "line": 2860,
-                      "function": "runSelect",
-                      "class": "Illuminate\\Database\\Query\\Builder",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php",
-                      "line": 3414,
-                      "function": "Illuminate\\Database\\Query\\{closure}",
-                      "class": "Illuminate\\Database\\Query\\Builder",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php",
-                      "line": 2859,
-                      "function": "onceWithColumns",
-                      "class": "Illuminate\\Database\\Query\\Builder",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php",
-                      "line": 738,
-                      "function": "get",
-                      "class": "Illuminate\\Database\\Query\\Builder",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php",
-                      "line": 722,
-                      "function": "getModels",
-                      "class": "Illuminate\\Database\\Eloquent\\Builder",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Database/Concerns/BuildsQueries.php",
-                      "line": 333,
-                      "function": "get",
-                      "class": "Illuminate\\Database\\Eloquent\\Builder",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/app/Repositories/V2/Onboarding/Registration/RegistrationRepository.php",
-                      "line": 77,
-                      "function": "first",
-                      "class": "Illuminate\\Database\\Eloquent\\Builder",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/app/Http/Controllers/Api/V2/Onboarding/Registration/RegistrationController.php",
-                      "line": 70,
-                      "function": "verifyUsername",
-                      "class": "App\\Repositories\\V2\\Onboarding\\Registration\\RegistrationRepository",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Controller.php",
-                      "line": 54,
-                      "function": "verifyUsername",
-                      "class": "App\\Http\\Controllers\\Api\\V2\\Onboarding\\Registration\\RegistrationController",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php",
-                      "line": 43,
-                      "function": "callAction",
-                      "class": "Illuminate\\Routing\\Controller",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Route.php",
-                      "line": 259,
-                      "function": "dispatch",
-                      "class": "Illuminate\\Routing\\ControllerDispatcher",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Route.php",
-                      "line": 205,
-                      "function": "runController",
-                      "class": "Illuminate\\Routing\\Route",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
-                      "line": 806,
-                      "function": "run",
-                      "class": "Illuminate\\Routing\\Route",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 144,
-                      "function": "Illuminate\\Routing\\{closure}",
-                      "class": "Illuminate\\Routing\\Router",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php",
-                      "line": 50,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 183,
-                      "function": "handle",
-                      "class": "Illuminate\\Routing\\Middleware\\SubstituteBindings",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php",
-                      "line": 159,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php",
-                      "line": 125,
-                      "function": "handleRequest",
-                      "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php",
-                      "line": 87,
-                      "function": "handleRequestUsingNamedLimiter",
-                      "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 183,
-                      "function": "handle",
-                      "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 119,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
-                      "line": 805,
-                      "function": "then",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
-                      "line": 784,
-                      "function": "runRouteWithinStack",
-                      "class": "Illuminate\\Routing\\Router",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
-                      "line": 748,
-                      "function": "runRoute",
-                      "class": "Illuminate\\Routing\\Router",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
-                      "line": 737,
-                      "function": "dispatchToRoute",
-                      "class": "Illuminate\\Routing\\Router",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
-                      "line": 200,
-                      "function": "dispatch",
-                      "class": "Illuminate\\Routing\\Router",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 144,
-                      "function": "Illuminate\\Foundation\\Http\\{closure}",
-                      "class": "Illuminate\\Foundation\\Http\\Kernel",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php",
-                      "line": 21,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php",
-                      "line": 31,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 183,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php",
-                      "line": 21,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php",
-                      "line": 40,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 183,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Http\\Middleware\\TrimStrings",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php",
-                      "line": 27,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 183,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php",
-                      "line": 99,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 183,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php",
-                      "line": 62,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 183,
-                      "function": "handle",
-                      "class": "Illuminate\\Http\\Middleware\\HandleCors",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php",
-                      "line": 39,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 183,
-                      "function": "handle",
-                      "class": "Illuminate\\Http\\Middleware\\TrustProxies",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
-                      "line": 119,
-                      "function": "Illuminate\\Pipeline\\{closure}",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
-                      "line": 175,
-                      "function": "then",
-                      "class": "Illuminate\\Pipeline\\Pipeline",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
-                      "line": 144,
-                      "function": "sendRequestThroughRouter",
-                      "class": "Illuminate\\Foundation\\Http\\Kernel",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
-                      "line": 300,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Http\\Kernel",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
-                      "line": 288,
-                      "function": "callLaravelOrLumenRoute",
-                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
-                      "line": 91,
-                      "function": "makeApiCall",
-                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
-                      "line": 44,
-                      "function": "makeResponseCall",
-                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
-                      "line": 35,
-                      "function": "makeResponseCallIfConditionsPass",
-                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
-                      "line": 236,
-                      "function": "__invoke",
-                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
-                      "line": 163,
-                      "function": "iterateThroughStrategies",
-                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
-                      "line": 95,
-                      "function": "fetchResponses",
-                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
-                      "line": 125,
-                      "function": "processRoute",
-                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
-                      "line": 72,
-                      "function": "extractEndpointsInfoFromLaravelApp",
-                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
-                      "line": 50,
-                      "function": "extractEndpointsInfoAndWriteToDisk",
-                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Commands/GenerateDocumentation.php",
-                      "line": 53,
-                      "function": "get",
-                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
-                      "line": 36,
-                      "function": "handle",
-                      "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/Util.php",
-                      "line": 41,
-                      "function": "Illuminate\\Container\\{closure}",
-                      "class": "Illuminate\\Container\\BoundMethod",
-                      "type": "::"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
-                      "line": 93,
-                      "function": "unwrapIfClosure",
-                      "class": "Illuminate\\Container\\Util",
-                      "type": "::"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
-                      "line": 35,
-                      "function": "callBoundMethod",
-                      "class": "Illuminate\\Container\\BoundMethod",
-                      "type": "::"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php",
-                      "line": 662,
-                      "function": "call",
-                      "class": "Illuminate\\Container\\BoundMethod",
-                      "type": "::"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Console/Command.php",
-                      "line": 211,
-                      "function": "call",
-                      "class": "Illuminate\\Container\\Container",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/symfony/console/Command/Command.php",
-                      "line": 326,
-                      "function": "execute",
-                      "class": "Illuminate\\Console\\Command",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Console/Command.php",
-                      "line": 180,
-                      "function": "run",
-                      "class": "Symfony\\Component\\Console\\Command\\Command",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/symfony/console/Application.php",
-                      "line": 1096,
-                      "function": "run",
-                      "class": "Illuminate\\Console\\Command",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/symfony/console/Application.php",
-                      "line": 324,
-                      "function": "doRunCommand",
-                      "class": "Symfony\\Component\\Console\\Application",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/symfony/console/Application.php",
-                      "line": 175,
-                      "function": "doRun",
-                      "class": "Symfony\\Component\\Console\\Application",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php",
-                      "line": 201,
-                      "function": "run",
-                      "class": "Symfony\\Component\\Console\\Application",
-                      "type": "->"
-                  },
-                  {
-                      "file": "/var/www/artisan",
-                      "line": 35,
-                      "function": "handle",
-                      "class": "Illuminate\\Foundation\\Console\\Kernel",
-                      "type": "->"
-                  }
-              ]
-          }
+        status: 200
+        content: '{"code":"00","status":true,"message":"izhonbjjhybiyciqridl is available","data":null}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -1376,452 +264,452 @@ endpoints:
           {
               "message": "Undefined array key \"email\"",
               "exception": "ErrorException",
-              "file": "/var/www/app/Repositories/V2/Onboarding/Verification/VerificationRepository.php",
+              "file": "/Applications/MAMP/htdocs/visaronigeria/app/Repositories/V2/Onboarding/Verification/VerificationRepository.php",
               "line": 20,
               "trace": [
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php",
                       "line": 255,
                       "function": "handleError",
                       "class": "Illuminate\\Foundation\\Bootstrap\\HandleExceptions",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/app/Repositories/V2/Onboarding/Verification/VerificationRepository.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/app/Repositories/V2/Onboarding/Verification/VerificationRepository.php",
                       "line": 20,
                       "function": "Illuminate\\Foundation\\Bootstrap\\{closure}",
                       "class": "Illuminate\\Foundation\\Bootstrap\\HandleExceptions",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/app/Http/Controllers/Api/V2/Onboarding/Verification/VerificationController.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/app/Http/Controllers/Api/V2/Onboarding/Verification/VerificationController.php",
                       "line": 30,
                       "function": "getOtp",
                       "class": "App\\Repositories\\V2\\Onboarding\\Verification\\VerificationRepository",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Controller.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Controller.php",
                       "line": 54,
                       "function": "resendOtp",
                       "class": "App\\Http\\Controllers\\Api\\V2\\Onboarding\\Verification\\VerificationController",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php",
                       "line": 43,
                       "function": "callAction",
                       "class": "Illuminate\\Routing\\Controller",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Route.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Route.php",
                       "line": 259,
                       "function": "dispatch",
                       "class": "Illuminate\\Routing\\ControllerDispatcher",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Route.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Route.php",
                       "line": 205,
                       "function": "runController",
                       "class": "Illuminate\\Routing\\Route",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
                       "line": 806,
                       "function": "run",
                       "class": "Illuminate\\Routing\\Route",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
                       "line": 144,
                       "function": "Illuminate\\Routing\\{closure}",
                       "class": "Illuminate\\Routing\\Router",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php",
                       "line": 50,
                       "function": "Illuminate\\Pipeline\\{closure}",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
                       "line": 183,
                       "function": "handle",
                       "class": "Illuminate\\Routing\\Middleware\\SubstituteBindings",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php",
                       "line": 159,
                       "function": "Illuminate\\Pipeline\\{closure}",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php",
                       "line": 125,
                       "function": "handleRequest",
                       "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php",
                       "line": 87,
                       "function": "handleRequestUsingNamedLimiter",
                       "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
                       "line": 183,
                       "function": "handle",
                       "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
                       "line": 119,
                       "function": "Illuminate\\Pipeline\\{closure}",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
                       "line": 805,
                       "function": "then",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
                       "line": 784,
                       "function": "runRouteWithinStack",
                       "class": "Illuminate\\Routing\\Router",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
                       "line": 748,
                       "function": "runRoute",
                       "class": "Illuminate\\Routing\\Router",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
                       "line": 737,
                       "function": "dispatchToRoute",
                       "class": "Illuminate\\Routing\\Router",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
                       "line": 200,
                       "function": "dispatch",
                       "class": "Illuminate\\Routing\\Router",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
                       "line": 144,
                       "function": "Illuminate\\Foundation\\Http\\{closure}",
                       "class": "Illuminate\\Foundation\\Http\\Kernel",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php",
                       "line": 21,
                       "function": "Illuminate\\Pipeline\\{closure}",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php",
                       "line": 31,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
                       "line": 183,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php",
                       "line": 21,
                       "function": "Illuminate\\Pipeline\\{closure}",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php",
                       "line": 40,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
                       "line": 183,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Http\\Middleware\\TrimStrings",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php",
                       "line": 27,
                       "function": "Illuminate\\Pipeline\\{closure}",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
                       "line": 183,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php",
                       "line": 99,
                       "function": "Illuminate\\Pipeline\\{closure}",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
                       "line": 183,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php",
                       "line": 62,
                       "function": "Illuminate\\Pipeline\\{closure}",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
                       "line": 183,
                       "function": "handle",
                       "class": "Illuminate\\Http\\Middleware\\HandleCors",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php",
                       "line": 39,
                       "function": "Illuminate\\Pipeline\\{closure}",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
                       "line": 183,
                       "function": "handle",
                       "class": "Illuminate\\Http\\Middleware\\TrustProxies",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
                       "line": 119,
                       "function": "Illuminate\\Pipeline\\{closure}",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
                       "line": 175,
                       "function": "then",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
                       "line": 144,
                       "function": "sendRequestThroughRouter",
                       "class": "Illuminate\\Foundation\\Http\\Kernel",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
                       "line": 300,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Http\\Kernel",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
                       "line": 288,
                       "function": "callLaravelOrLumenRoute",
                       "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
                       "line": 91,
                       "function": "makeApiCall",
                       "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
                       "line": 44,
                       "function": "makeResponseCall",
                       "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
                       "line": 35,
                       "function": "makeResponseCallIfConditionsPass",
                       "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
                       "line": 236,
                       "function": "__invoke",
                       "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
                       "line": 163,
                       "function": "iterateThroughStrategies",
                       "class": "Knuckles\\Scribe\\Extracting\\Extractor",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
                       "line": 95,
                       "function": "fetchResponses",
                       "class": "Knuckles\\Scribe\\Extracting\\Extractor",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
                       "line": 125,
                       "function": "processRoute",
                       "class": "Knuckles\\Scribe\\Extracting\\Extractor",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
                       "line": 72,
                       "function": "extractEndpointsInfoFromLaravelApp",
                       "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
                       "line": 50,
                       "function": "extractEndpointsInfoAndWriteToDisk",
                       "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Commands/GenerateDocumentation.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Commands/GenerateDocumentation.php",
                       "line": 53,
                       "function": "get",
                       "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
                       "line": 36,
                       "function": "handle",
                       "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/Util.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Container/Util.php",
                       "line": 41,
                       "function": "Illuminate\\Container\\{closure}",
                       "class": "Illuminate\\Container\\BoundMethod",
                       "type": "::"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
                       "line": 93,
                       "function": "unwrapIfClosure",
                       "class": "Illuminate\\Container\\Util",
                       "type": "::"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
                       "line": 35,
                       "function": "callBoundMethod",
                       "class": "Illuminate\\Container\\BoundMethod",
                       "type": "::"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Container/Container.php",
                       "line": 662,
                       "function": "call",
                       "class": "Illuminate\\Container\\BoundMethod",
                       "type": "::"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Console/Command.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Console/Command.php",
                       "line": 211,
                       "function": "call",
                       "class": "Illuminate\\Container\\Container",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/symfony/console/Command/Command.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/symfony/console/Command/Command.php",
                       "line": 326,
                       "function": "execute",
                       "class": "Illuminate\\Console\\Command",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Console/Command.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Console/Command.php",
                       "line": 180,
                       "function": "run",
                       "class": "Symfony\\Component\\Console\\Command\\Command",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/symfony/console/Application.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/symfony/console/Application.php",
                       "line": 1096,
                       "function": "run",
                       "class": "Illuminate\\Console\\Command",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/symfony/console/Application.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/symfony/console/Application.php",
                       "line": 324,
                       "function": "doRunCommand",
                       "class": "Symfony\\Component\\Console\\Application",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/symfony/console/Application.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/symfony/console/Application.php",
                       "line": 175,
                       "function": "doRun",
                       "class": "Symfony\\Component\\Console\\Application",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php",
                       "line": 201,
                       "function": "run",
                       "class": "Symfony\\Component\\Console\\Application",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/artisan",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/artisan",
                       "line": 35,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Console\\Kernel",
@@ -1868,7 +756,7 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: oernser@example.org
+        example: jamarcus.corkery@example.org
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1877,14 +765,14 @@ endpoints:
         name: code
         description: 'Must match the regex /[0-9]{4}/.'
         required: true
-        example: '3801'
+        example: '3456'
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      email: oernser@example.org
-      code: '3801'
+      email: jamarcus.corkery@example.org
+      code: '3456'
     fileParameters: []
     responses:
       -
@@ -1934,445 +822,445 @@ endpoints:
           {
               "message": "Attempt to read property \"phone_verified_at\" on null",
               "exception": "ErrorException",
-              "file": "/var/www/app/Http/Controllers/Api/V2/Onboarding/Verification/VerificationController.php",
+              "file": "/Applications/MAMP/htdocs/visaronigeria/app/Http/Controllers/Api/V2/Onboarding/Verification/VerificationController.php",
               "line": 52,
               "trace": [
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php",
                       "line": 255,
                       "function": "handleError",
                       "class": "Illuminate\\Foundation\\Bootstrap\\HandleExceptions",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/app/Http/Controllers/Api/V2/Onboarding/Verification/VerificationController.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/app/Http/Controllers/Api/V2/Onboarding/Verification/VerificationController.php",
                       "line": 52,
                       "function": "Illuminate\\Foundation\\Bootstrap\\{closure}",
                       "class": "Illuminate\\Foundation\\Bootstrap\\HandleExceptions",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Controller.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Controller.php",
                       "line": 54,
                       "function": "getPhoneOtp",
                       "class": "App\\Http\\Controllers\\Api\\V2\\Onboarding\\Verification\\VerificationController",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php",
                       "line": 43,
                       "function": "callAction",
                       "class": "Illuminate\\Routing\\Controller",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Route.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Route.php",
                       "line": 259,
                       "function": "dispatch",
                       "class": "Illuminate\\Routing\\ControllerDispatcher",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Route.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Route.php",
                       "line": 205,
                       "function": "runController",
                       "class": "Illuminate\\Routing\\Route",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
                       "line": 806,
                       "function": "run",
                       "class": "Illuminate\\Routing\\Route",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
                       "line": 144,
                       "function": "Illuminate\\Routing\\{closure}",
                       "class": "Illuminate\\Routing\\Router",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php",
                       "line": 50,
                       "function": "Illuminate\\Pipeline\\{closure}",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
                       "line": 183,
                       "function": "handle",
                       "class": "Illuminate\\Routing\\Middleware\\SubstituteBindings",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php",
                       "line": 159,
                       "function": "Illuminate\\Pipeline\\{closure}",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php",
                       "line": 125,
                       "function": "handleRequest",
                       "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php",
                       "line": 87,
                       "function": "handleRequestUsingNamedLimiter",
                       "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
                       "line": 183,
                       "function": "handle",
                       "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
                       "line": 119,
                       "function": "Illuminate\\Pipeline\\{closure}",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
                       "line": 805,
                       "function": "then",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
                       "line": 784,
                       "function": "runRouteWithinStack",
                       "class": "Illuminate\\Routing\\Router",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
                       "line": 748,
                       "function": "runRoute",
                       "class": "Illuminate\\Routing\\Router",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
                       "line": 737,
                       "function": "dispatchToRoute",
                       "class": "Illuminate\\Routing\\Router",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
                       "line": 200,
                       "function": "dispatch",
                       "class": "Illuminate\\Routing\\Router",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
                       "line": 144,
                       "function": "Illuminate\\Foundation\\Http\\{closure}",
                       "class": "Illuminate\\Foundation\\Http\\Kernel",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php",
                       "line": 21,
                       "function": "Illuminate\\Pipeline\\{closure}",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php",
                       "line": 31,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
                       "line": 183,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php",
                       "line": 21,
                       "function": "Illuminate\\Pipeline\\{closure}",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php",
                       "line": 40,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
                       "line": 183,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Http\\Middleware\\TrimStrings",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php",
                       "line": 27,
                       "function": "Illuminate\\Pipeline\\{closure}",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
                       "line": 183,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php",
                       "line": 99,
                       "function": "Illuminate\\Pipeline\\{closure}",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
                       "line": 183,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php",
                       "line": 62,
                       "function": "Illuminate\\Pipeline\\{closure}",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
                       "line": 183,
                       "function": "handle",
                       "class": "Illuminate\\Http\\Middleware\\HandleCors",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php",
                       "line": 39,
                       "function": "Illuminate\\Pipeline\\{closure}",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
                       "line": 183,
                       "function": "handle",
                       "class": "Illuminate\\Http\\Middleware\\TrustProxies",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
                       "line": 119,
                       "function": "Illuminate\\Pipeline\\{closure}",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
                       "line": 175,
                       "function": "then",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
                       "line": 144,
                       "function": "sendRequestThroughRouter",
                       "class": "Illuminate\\Foundation\\Http\\Kernel",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
                       "line": 300,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Http\\Kernel",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
                       "line": 288,
                       "function": "callLaravelOrLumenRoute",
                       "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
                       "line": 91,
                       "function": "makeApiCall",
                       "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
                       "line": 44,
                       "function": "makeResponseCall",
                       "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
                       "line": 35,
                       "function": "makeResponseCallIfConditionsPass",
                       "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
                       "line": 236,
                       "function": "__invoke",
                       "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
                       "line": 163,
                       "function": "iterateThroughStrategies",
                       "class": "Knuckles\\Scribe\\Extracting\\Extractor",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
                       "line": 95,
                       "function": "fetchResponses",
                       "class": "Knuckles\\Scribe\\Extracting\\Extractor",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
                       "line": 125,
                       "function": "processRoute",
                       "class": "Knuckles\\Scribe\\Extracting\\Extractor",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
                       "line": 72,
                       "function": "extractEndpointsInfoFromLaravelApp",
                       "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
                       "line": 50,
                       "function": "extractEndpointsInfoAndWriteToDisk",
                       "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Commands/GenerateDocumentation.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Commands/GenerateDocumentation.php",
                       "line": 53,
                       "function": "get",
                       "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
                       "line": 36,
                       "function": "handle",
                       "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/Util.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Container/Util.php",
                       "line": 41,
                       "function": "Illuminate\\Container\\{closure}",
                       "class": "Illuminate\\Container\\BoundMethod",
                       "type": "::"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
                       "line": 93,
                       "function": "unwrapIfClosure",
                       "class": "Illuminate\\Container\\Util",
                       "type": "::"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
                       "line": 35,
                       "function": "callBoundMethod",
                       "class": "Illuminate\\Container\\BoundMethod",
                       "type": "::"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Container/Container.php",
                       "line": 662,
                       "function": "call",
                       "class": "Illuminate\\Container\\BoundMethod",
                       "type": "::"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Console/Command.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Console/Command.php",
                       "line": 211,
                       "function": "call",
                       "class": "Illuminate\\Container\\Container",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/symfony/console/Command/Command.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/symfony/console/Command/Command.php",
                       "line": 326,
                       "function": "execute",
                       "class": "Illuminate\\Console\\Command",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Console/Command.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Console/Command.php",
                       "line": 180,
                       "function": "run",
                       "class": "Symfony\\Component\\Console\\Command\\Command",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/symfony/console/Application.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/symfony/console/Application.php",
                       "line": 1096,
                       "function": "run",
                       "class": "Illuminate\\Console\\Command",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/symfony/console/Application.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/symfony/console/Application.php",
                       "line": 324,
                       "function": "doRunCommand",
                       "class": "Symfony\\Component\\Console\\Application",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/symfony/console/Application.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/symfony/console/Application.php",
                       "line": 175,
                       "function": "doRun",
                       "class": "Symfony\\Component\\Console\\Application",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php",
                       "line": 201,
                       "function": "run",
                       "class": "Symfony\\Component\\Console\\Application",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/artisan",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/artisan",
                       "line": 35,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Console\\Kernel",
@@ -2419,13 +1307,13 @@ endpoints:
         name: code
         description: 'Must match the regex /[0-9]{4}/.'
         required: true
-        example: '4398'
+        example: '7693'
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      code: '4398'
+      code: '7693'
     fileParameters: []
     responses:
       -
@@ -2434,452 +1322,452 @@ endpoints:
           {
               "message": "Attempt to read property \"email\" on null",
               "exception": "ErrorException",
-              "file": "/var/www/app/Repositories/V2/Onboarding/Verification/VerificationRepository.php",
-              "line": 57,
+              "file": "/Applications/MAMP/htdocs/visaronigeria/app/Repositories/V2/Onboarding/Verification/VerificationRepository.php",
+              "line": 56,
               "trace": [
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php",
                       "line": 255,
                       "function": "handleError",
                       "class": "Illuminate\\Foundation\\Bootstrap\\HandleExceptions",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/app/Repositories/V2/Onboarding/Verification/VerificationRepository.php",
-                      "line": 57,
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/app/Repositories/V2/Onboarding/Verification/VerificationRepository.php",
+                      "line": 56,
                       "function": "Illuminate\\Foundation\\Bootstrap\\{closure}",
                       "class": "Illuminate\\Foundation\\Bootstrap\\HandleExceptions",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/app/Http/Controllers/Api/V2/Onboarding/Verification/VerificationController.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/app/Http/Controllers/Api/V2/Onboarding/Verification/VerificationController.php",
                       "line": 73,
                       "function": "verifyPhone",
                       "class": "App\\Repositories\\V2\\Onboarding\\Verification\\VerificationRepository",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Controller.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Controller.php",
                       "line": 54,
                       "function": "verifyPhone",
                       "class": "App\\Http\\Controllers\\Api\\V2\\Onboarding\\Verification\\VerificationController",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php",
                       "line": 43,
                       "function": "callAction",
                       "class": "Illuminate\\Routing\\Controller",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Route.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Route.php",
                       "line": 259,
                       "function": "dispatch",
                       "class": "Illuminate\\Routing\\ControllerDispatcher",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Route.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Route.php",
                       "line": 205,
                       "function": "runController",
                       "class": "Illuminate\\Routing\\Route",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
                       "line": 806,
                       "function": "run",
                       "class": "Illuminate\\Routing\\Route",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
                       "line": 144,
                       "function": "Illuminate\\Routing\\{closure}",
                       "class": "Illuminate\\Routing\\Router",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php",
                       "line": 50,
                       "function": "Illuminate\\Pipeline\\{closure}",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
                       "line": 183,
                       "function": "handle",
                       "class": "Illuminate\\Routing\\Middleware\\SubstituteBindings",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php",
                       "line": 159,
                       "function": "Illuminate\\Pipeline\\{closure}",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php",
                       "line": 125,
                       "function": "handleRequest",
                       "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php",
                       "line": 87,
                       "function": "handleRequestUsingNamedLimiter",
                       "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
                       "line": 183,
                       "function": "handle",
                       "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
                       "line": 119,
                       "function": "Illuminate\\Pipeline\\{closure}",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
                       "line": 805,
                       "function": "then",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
                       "line": 784,
                       "function": "runRouteWithinStack",
                       "class": "Illuminate\\Routing\\Router",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
                       "line": 748,
                       "function": "runRoute",
                       "class": "Illuminate\\Routing\\Router",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
                       "line": 737,
                       "function": "dispatchToRoute",
                       "class": "Illuminate\\Routing\\Router",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
                       "line": 200,
                       "function": "dispatch",
                       "class": "Illuminate\\Routing\\Router",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
                       "line": 144,
                       "function": "Illuminate\\Foundation\\Http\\{closure}",
                       "class": "Illuminate\\Foundation\\Http\\Kernel",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php",
                       "line": 21,
                       "function": "Illuminate\\Pipeline\\{closure}",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php",
                       "line": 31,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
                       "line": 183,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php",
                       "line": 21,
                       "function": "Illuminate\\Pipeline\\{closure}",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php",
                       "line": 40,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
                       "line": 183,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Http\\Middleware\\TrimStrings",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php",
                       "line": 27,
                       "function": "Illuminate\\Pipeline\\{closure}",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
                       "line": 183,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php",
                       "line": 99,
                       "function": "Illuminate\\Pipeline\\{closure}",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
                       "line": 183,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php",
                       "line": 62,
                       "function": "Illuminate\\Pipeline\\{closure}",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
                       "line": 183,
                       "function": "handle",
                       "class": "Illuminate\\Http\\Middleware\\HandleCors",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php",
                       "line": 39,
                       "function": "Illuminate\\Pipeline\\{closure}",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
                       "line": 183,
                       "function": "handle",
                       "class": "Illuminate\\Http\\Middleware\\TrustProxies",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
                       "line": 119,
                       "function": "Illuminate\\Pipeline\\{closure}",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
                       "line": 175,
                       "function": "then",
                       "class": "Illuminate\\Pipeline\\Pipeline",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
                       "line": 144,
                       "function": "sendRequestThroughRouter",
                       "class": "Illuminate\\Foundation\\Http\\Kernel",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
                       "line": 300,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Http\\Kernel",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
                       "line": 288,
                       "function": "callLaravelOrLumenRoute",
                       "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
                       "line": 91,
                       "function": "makeApiCall",
                       "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
                       "line": 44,
                       "function": "makeResponseCall",
                       "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
                       "line": 35,
                       "function": "makeResponseCallIfConditionsPass",
                       "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
                       "line": 236,
                       "function": "__invoke",
                       "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
                       "line": 163,
                       "function": "iterateThroughStrategies",
                       "class": "Knuckles\\Scribe\\Extracting\\Extractor",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
                       "line": 95,
                       "function": "fetchResponses",
                       "class": "Knuckles\\Scribe\\Extracting\\Extractor",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
                       "line": 125,
                       "function": "processRoute",
                       "class": "Knuckles\\Scribe\\Extracting\\Extractor",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
                       "line": 72,
                       "function": "extractEndpointsInfoFromLaravelApp",
                       "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
                       "line": 50,
                       "function": "extractEndpointsInfoAndWriteToDisk",
                       "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/knuckleswtf/scribe/src/Commands/GenerateDocumentation.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Commands/GenerateDocumentation.php",
                       "line": 53,
                       "function": "get",
                       "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
                       "line": 36,
                       "function": "handle",
                       "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/Util.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Container/Util.php",
                       "line": 41,
                       "function": "Illuminate\\Container\\{closure}",
                       "class": "Illuminate\\Container\\BoundMethod",
                       "type": "::"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
                       "line": 93,
                       "function": "unwrapIfClosure",
                       "class": "Illuminate\\Container\\Util",
                       "type": "::"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
                       "line": 35,
                       "function": "callBoundMethod",
                       "class": "Illuminate\\Container\\BoundMethod",
                       "type": "::"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Container/Container.php",
                       "line": 662,
                       "function": "call",
                       "class": "Illuminate\\Container\\BoundMethod",
                       "type": "::"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Console/Command.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Console/Command.php",
                       "line": 211,
                       "function": "call",
                       "class": "Illuminate\\Container\\Container",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/symfony/console/Command/Command.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/symfony/console/Command/Command.php",
                       "line": 326,
                       "function": "execute",
                       "class": "Illuminate\\Console\\Command",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Console/Command.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Console/Command.php",
                       "line": 180,
                       "function": "run",
                       "class": "Symfony\\Component\\Console\\Command\\Command",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/symfony/console/Application.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/symfony/console/Application.php",
                       "line": 1096,
                       "function": "run",
                       "class": "Illuminate\\Console\\Command",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/symfony/console/Application.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/symfony/console/Application.php",
                       "line": 324,
                       "function": "doRunCommand",
                       "class": "Symfony\\Component\\Console\\Application",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/symfony/console/Application.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/symfony/console/Application.php",
                       "line": 175,
                       "function": "doRun",
                       "class": "Symfony\\Component\\Console\\Application",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php",
                       "line": 201,
                       "function": "run",
                       "class": "Symfony\\Component\\Console\\Application",
                       "type": "->"
                   },
                   {
-                      "file": "/var/www/artisan",
+                      "file": "/Applications/MAMP/htdocs/visaronigeria/artisan",
                       "line": 35,
                       "function": "handle",
                       "class": "Illuminate\\Foundation\\Console\\Kernel",
@@ -2926,7 +1814,7 @@ endpoints:
         name: firstname
         description: 'Must not be greater than 20 characters.'
         required: false
-        example: v
+        example: yinxumluyvrghqkcmd
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2935,7 +1823,7 @@ endpoints:
         name: middlename
         description: 'Must not be greater than 20 characters.'
         required: false
-        example: rqsljabbtgjezrovgjls
+        example: xpjqnwwbonnqfefgp
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2944,7 +1832,7 @@ endpoints:
         name: lastname
         description: 'Must not be greater than 20 characters.'
         required: false
-        example: rymepzuobkwdloc
+        example: qiigstcfiieaekvc
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2953,7 +1841,7 @@ endpoints:
         name: username
         description: 'Must not be greater than 20 characters.'
         required: false
-        example: rhyyx
+        example: kbmxbyaa
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2962,7 +1850,7 @@ endpoints:
         name: phone_code
         description: 'Must match the regex /^\+[0-9]+$/. Must not be greater than 4 characters.'
         required: false
-        example: fqz
+        example: a
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2971,7 +1859,16 @@ endpoints:
         name: phone
         description: 'Must match the regex /[0-9]{10}$/.'
         required: false
-        example: '6824623365'
+        example: '1498864586'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      address:
+        name: address
+        description: ''
+        required: false
+        example: delectus
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -2988,20 +1885,21 @@ endpoints:
       password:
         name: password
         description: 'Must match the regex /^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9])[\w\W]{8,}$/. Must be at least 8 characters.'
-        required: true
-        example: KpLt8UHE^M>B
+        required: false
+        example: 'Z$6Jc<?N{i/Zg`q'
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      firstname: v
-      middlename: rqsljabbtgjezrovgjls
-      lastname: rymepzuobkwdloc
-      username: rhyyx
-      phone_code: fqz
-      phone: '6824623365'
-      password: KpLt8UHE^M>B
+      firstname: yinxumluyvrghqkcmd
+      middlename: xpjqnwwbonnqfefgp
+      lastname: qiigstcfiieaekvc
+      username: kbmxbyaa
+      phone_code: a
+      phone: '1498864586'
+      address: delectus
+      password: 'Z$6Jc<?N{i/Zg`q'
     fileParameters:
       photo: null
     responses:

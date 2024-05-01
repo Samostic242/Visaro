@@ -29,9 +29,9 @@
         var useCsrf = Boolean();
         var csrfUrl = "/sanctum/csrf-cookie";
     </script>
-    <script src="{{ asset("/vendor/scribe/js/tryitout-4.33.0.js") }}"></script>
+    <script src="{{ asset("/vendor/scribe/js/tryitout-4.35.0.js") }}"></script>
 
-    <script src="{{ asset("/vendor/scribe/js/theme-default-4.33.0.js") }}"></script>
+    <script src="{{ asset("/vendor/scribe/js/theme-default-4.35.0.js") }}"></script>
 
 </head>
 
@@ -165,7 +165,16 @@
                     <a href="#endpoints">Endpoints</a>
                 </li>
                                     <ul id="tocify-subheader-endpoints" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="endpoints-GETapi-v2-commerce-order">
+                                                    <li class="tocify-item level-2" data-unique="endpoints-POSTapi-v2-account-user-settings-change-email">
+                                <a href="#endpoints-POSTapi-v2-account-user-settings-change-email">POST api/v2/account/user/settings/change-email</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-v2-account-user-settings-complete-email-change-request">
+                                <a href="#endpoints-POSTapi-v2-account-user-settings-complete-email-change-request">POST api/v2/account/user/settings/complete-email-change-request</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-v2-account-user-settings-contact-us">
+                                <a href="#endpoints-POSTapi-v2-account-user-settings-contact-us">POST api/v2/account/user/settings/contact-us</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-v2-commerce-order">
                                 <a href="#endpoints-GETapi-v2-commerce-order">GET api/v2/commerce/order</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-GETapi-v2-commerce-order--order_id-">
@@ -206,6 +215,9 @@
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-GETapi-v2-aviation-flights-bookings--id-">
                                 <a href="#endpoints-GETapi-v2-aviation-flights-bookings--id-">GET api/v2/aviation/flights/bookings/{id}</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-v2-aviation-flights-bookings-book--id-">
+                                <a href="#endpoints-POSTapi-v2-aviation-flights-bookings-book--id-">POST api/v2/aviation/flights/bookings/book/{id}</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-POSTapi-v2-aviation-flights-bookings-submit">
                                 <a href="#endpoints-POSTapi-v2-aviation-flights-bookings-submit">POST api/v2/aviation/flights/bookings/submit</a>
@@ -358,7 +370,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: April 11, 2024</li>
+        <li>Last updated: May 1, 2024</li>
     </ul>
 </div>
 
@@ -399,8 +411,8 @@ const headers = {
 };
 
 let body = {
-    "email": "tate40@example.org",
-    "password": "K&gt;J%dd#D"
+    "email": "giovanna87@example.com",
+    "password": "|4sRVB"
 };
 
 fetch(url, {
@@ -510,10 +522,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v2-auth-user-login"
-               value="tate40@example.org"
+               value="giovanna87@example.com"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>tate40@example.org</code></p>
+<p>Must be a valid email address. Example: <code>giovanna87@example.com</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -521,10 +533,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-v2-auth-user-login"
-               value="K>J%dd#D"
+               value="|4sRVB"
                data-component="body">
     <br>
-<p>Example: <code>K&gt;J%dd#D</code></p>
+<p>Example: <code>|4sRVB</code></p>
         </div>
         </form>
 
@@ -550,7 +562,7 @@ const headers = {
 };
 
 let body = {
-    "email": "cjohns@example.org"
+    "email": "mromaguera@example.org"
 };
 
 fetch(url, {
@@ -662,10 +674,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v2-auth-user-forgot-password"
-               value="cjohns@example.org"
+               value="mromaguera@example.org"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>cjohns@example.org</code></p>
+<p>Must be a valid email address. Example: <code>mromaguera@example.org</code></p>
         </div>
         </form>
 
@@ -691,9 +703,9 @@ const headers = {
 };
 
 let body = {
-    "email": "kassulke.chandler@example.org",
-    "code": "9544",
-    "password": "TP,8xaU,VBeUxC+ODu~"
+    "email": "rharris@example.net",
+    "code": "8739",
+    "password": "s-o~8LYPh+s"
 };
 
 fetch(url, {
@@ -805,10 +817,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v2-auth-user-reset-password"
-               value="kassulke.chandler@example.org"
+               value="rharris@example.net"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>kassulke.chandler@example.org</code></p>
+<p>Must be a valid email address. Example: <code>rharris@example.net</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>code</code></b>&nbsp;&nbsp;
@@ -816,10 +828,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="code"                data-endpoint="POSTapi-v2-auth-user-reset-password"
-               value="9544"
+               value="8739"
                data-component="body">
     <br>
-<p>Must match the regex /[0-9]{4}/. Example: <code>9544</code></p>
+<p>Must match the regex /[0-9]{4}/. Example: <code>8739</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -827,10 +839,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-v2-auth-user-reset-password"
-               value="TP,8xaU,VBeUxC+ODu~"
+               value="s-o~8LYPh+s"
                data-component="body">
     <br>
-<p>Example: <code>TP,8xaU,VBeUxC+ODu~</code></p>
+<p>Example: <code>s-o~8LYPh+s</code></p>
         </div>
         </form>
 
@@ -1100,9 +1112,9 @@ const headers = {
 };
 
 let body = {
-    "account_name": "exercitationem",
-    "account_number": "odit",
-    "bank_name": "commodi"
+    "account_name": "eaque",
+    "account_number": "autem",
+    "bank_name": "magni"
 };
 
 fetch(url, {
@@ -1208,10 +1220,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="account_name"                data-endpoint="POSTapi-v2-account-banking-beneficiary"
-               value="exercitationem"
+               value="eaque"
                data-component="body">
     <br>
-<p>Example: <code>exercitationem</code></p>
+<p>Example: <code>eaque</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>account_number</code></b>&nbsp;&nbsp;
@@ -1219,10 +1231,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="account_number"                data-endpoint="POSTapi-v2-account-banking-beneficiary"
-               value="odit"
+               value="autem"
                data-component="body">
     <br>
-<p>Example: <code>odit</code></p>
+<p>Example: <code>autem</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>bank_name</code></b>&nbsp;&nbsp;
@@ -1230,10 +1242,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="bank_name"                data-endpoint="POSTapi-v2-account-banking-beneficiary"
-               value="commodi"
+               value="magni"
                data-component="body">
     <br>
-<p>Example: <code>commodi</code></p>
+<p>Example: <code>magni</code></p>
         </div>
         </form>
 
@@ -1377,10 +1389,10 @@ const headers = {
 };
 
 let body = {
-    "account_name": "beatae",
-    "account_number": "aperiam",
-    "bank_name": "omnis",
-    "bank_code": "consequatur"
+    "account_name": "porro",
+    "account_number": "architecto",
+    "bank_name": "dolor",
+    "bank_code": "ad"
 };
 
 fetch(url, {
@@ -1486,10 +1498,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="account_name"                data-endpoint="POSTapi-v2-account-banking-bank-account"
-               value="beatae"
+               value="porro"
                data-component="body">
     <br>
-<p>Example: <code>beatae</code></p>
+<p>Example: <code>porro</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>account_number</code></b>&nbsp;&nbsp;
@@ -1497,10 +1509,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="account_number"                data-endpoint="POSTapi-v2-account-banking-bank-account"
-               value="aperiam"
+               value="architecto"
                data-component="body">
     <br>
-<p>Example: <code>aperiam</code></p>
+<p>Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>bank_name</code></b>&nbsp;&nbsp;
@@ -1508,10 +1520,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="bank_name"                data-endpoint="POSTapi-v2-account-banking-bank-account"
-               value="omnis"
+               value="dolor"
                data-component="body">
     <br>
-<p>Example: <code>omnis</code></p>
+<p>Example: <code>dolor</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>bank_code</code></b>&nbsp;&nbsp;
@@ -1519,10 +1531,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="bank_code"                data-endpoint="POSTapi-v2-account-banking-bank-account"
-               value="consequatur"
+               value="ad"
                data-component="body">
     <br>
-<p>Example: <code>consequatur</code></p>
+<p>Example: <code>ad</code></p>
         </div>
         </form>
 
@@ -1801,9 +1813,9 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('name', 'officia');
-body.append('code', 'voluptatem');
-body.append('acronym', 'quo');
+body.append('name', 'consequatur');
+body.append('code', 'quia');
+body.append('acronym', 'dolorem');
 body.append('logo', document.querySelector('input[name="logo"]').files[0]);
 
 fetch(url, {
@@ -1909,10 +1921,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="POSTapi-v2-admin-banking-create"
-               value="officia"
+               value="consequatur"
                data-component="body">
     <br>
-<p>Example: <code>officia</code></p>
+<p>Example: <code>consequatur</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>code</code></b>&nbsp;&nbsp;
@@ -1920,10 +1932,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="code"                data-endpoint="POSTapi-v2-admin-banking-create"
-               value="voluptatem"
+               value="quia"
                data-component="body">
     <br>
-<p>Example: <code>voluptatem</code></p>
+<p>Example: <code>quia</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>acronym</code></b>&nbsp;&nbsp;
@@ -1931,10 +1943,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="acronym"                data-endpoint="POSTapi-v2-admin-banking-create"
-               value="quo"
+               value="dolorem"
                data-component="body">
     <br>
-<p>Example: <code>quo</code></p>
+<p>Example: <code>dolorem</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>logo</code></b>&nbsp;&nbsp;
@@ -1945,7 +1957,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpzgTc1H</code></p>
+<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/private/var/folders/s2/jrd1l2714c1d5msll4ly2sth0000gn/T/php8rBrQP</code></p>
         </div>
         </form>
 
@@ -1972,19 +1984,19 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('type', 'ut');
-body.append('number', 'et');
-body.append('expiration_month', 'voluptatem');
-body.append('expiration_year', 'quo');
-body.append('cvv', 'animi');
-body.append('last_four_digit', 'esse');
-body.append('country', 'sit');
-body.append('state', 'voluptatibus');
-body.append('postal_code', 'temporibus');
-body.append('city', 'incidunt');
-body.append('street_address', 'esse');
-body.append('lga', 'ipsa');
-body.append('provider', 'omnis');
+body.append('type', 'laudantium');
+body.append('number', 'occaecati');
+body.append('expiration_month', 'dolorem');
+body.append('expiration_year', 'impedit');
+body.append('cvv', 'rem');
+body.append('last_four_digit', 'quia');
+body.append('country', 'aut');
+body.append('state', 'aperiam');
+body.append('postal_code', 'velit');
+body.append('city', 'voluptatem');
+body.append('street_address', 'accusantium');
+body.append('lga', 'perferendis');
+body.append('provider', 'consequuntur');
 body.append('allow_charge', '');
 body.append('provider_logo', document.querySelector('input[name="provider_logo"]').files[0]);
 
@@ -2091,10 +2103,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="POSTapi-v2-account-banking-card"
-               value="ut"
+               value="laudantium"
                data-component="body">
     <br>
-<p>Example: <code>ut</code></p>
+<p>Example: <code>laudantium</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>number</code></b>&nbsp;&nbsp;
@@ -2102,10 +2114,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="number"                data-endpoint="POSTapi-v2-account-banking-card"
-               value="et"
+               value="occaecati"
                data-component="body">
     <br>
-<p>Example: <code>et</code></p>
+<p>Example: <code>occaecati</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>expiration_month</code></b>&nbsp;&nbsp;
@@ -2113,10 +2125,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="expiration_month"                data-endpoint="POSTapi-v2-account-banking-card"
-               value="voluptatem"
+               value="dolorem"
                data-component="body">
     <br>
-<p>Example: <code>voluptatem</code></p>
+<p>Example: <code>dolorem</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>expiration_year</code></b>&nbsp;&nbsp;
@@ -2124,10 +2136,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="expiration_year"                data-endpoint="POSTapi-v2-account-banking-card"
-               value="quo"
+               value="impedit"
                data-component="body">
     <br>
-<p>Example: <code>quo</code></p>
+<p>Example: <code>impedit</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>cvv</code></b>&nbsp;&nbsp;
@@ -2135,10 +2147,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="cvv"                data-endpoint="POSTapi-v2-account-banking-card"
-               value="animi"
+               value="rem"
                data-component="body">
     <br>
-<p>Example: <code>animi</code></p>
+<p>Example: <code>rem</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>last_four_digit</code></b>&nbsp;&nbsp;
@@ -2146,10 +2158,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="last_four_digit"                data-endpoint="POSTapi-v2-account-banking-card"
-               value="esse"
+               value="quia"
                data-component="body">
     <br>
-<p>Example: <code>esse</code></p>
+<p>Example: <code>quia</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>country</code></b>&nbsp;&nbsp;
@@ -2157,10 +2169,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="country"                data-endpoint="POSTapi-v2-account-banking-card"
-               value="sit"
+               value="aut"
                data-component="body">
     <br>
-<p>Example: <code>sit</code></p>
+<p>Example: <code>aut</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>state</code></b>&nbsp;&nbsp;
@@ -2168,10 +2180,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="state"                data-endpoint="POSTapi-v2-account-banking-card"
-               value="voluptatibus"
+               value="aperiam"
                data-component="body">
     <br>
-<p>Example: <code>voluptatibus</code></p>
+<p>Example: <code>aperiam</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>postal_code</code></b>&nbsp;&nbsp;
@@ -2179,10 +2191,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="postal_code"                data-endpoint="POSTapi-v2-account-banking-card"
-               value="temporibus"
+               value="velit"
                data-component="body">
     <br>
-<p>Example: <code>temporibus</code></p>
+<p>Example: <code>velit</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>city</code></b>&nbsp;&nbsp;
@@ -2190,10 +2202,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="city"                data-endpoint="POSTapi-v2-account-banking-card"
-               value="incidunt"
+               value="voluptatem"
                data-component="body">
     <br>
-<p>Example: <code>incidunt</code></p>
+<p>Example: <code>voluptatem</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>street_address</code></b>&nbsp;&nbsp;
@@ -2201,10 +2213,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="street_address"                data-endpoint="POSTapi-v2-account-banking-card"
-               value="esse"
+               value="accusantium"
                data-component="body">
     <br>
-<p>Example: <code>esse</code></p>
+<p>Example: <code>accusantium</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>lga</code></b>&nbsp;&nbsp;
@@ -2212,10 +2224,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="lga"                data-endpoint="POSTapi-v2-account-banking-card"
-               value="ipsa"
+               value="perferendis"
                data-component="body">
     <br>
-<p>Example: <code>ipsa</code></p>
+<p>Example: <code>perferendis</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>provider</code></b>&nbsp;&nbsp;
@@ -2223,10 +2235,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="provider"                data-endpoint="POSTapi-v2-account-banking-card"
-               value="omnis"
+               value="consequuntur"
                data-component="body">
     <br>
-<p>Example: <code>omnis</code></p>
+<p>Example: <code>consequuntur</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>provider_logo</code></b>&nbsp;&nbsp;
@@ -2237,7 +2249,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpd6rH06</code></p>
+<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/private/var/folders/s2/jrd1l2714c1d5msll4ly2sth0000gn/T/phpTcYsQt</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>allow_charge</code></b>&nbsp;&nbsp;
@@ -2393,7 +2405,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.visaro.ng/api/v2/account/banking/card/facilis"
+    "https://api.visaro.ng/api/v2/account/banking/card/quisquam"
 );
 
 const headers = {
@@ -2503,10 +2515,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="card_id"                data-endpoint="DELETEapi-v2-account-banking-card--card_id-"
-               value="facilis"
+               value="quisquam"
                data-component="url">
     <br>
-<p>The ID of the card. Example: <code>facilis</code></p>
+<p>The ID of the card. Example: <code>quisquam</code></p>
             </div>
                     </form>
 
@@ -2646,7 +2658,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.visaro.ng/api/v2/commerce/products/voluptates"
+    "https://api.visaro.ng/api/v2/commerce/products/illum"
 );
 
 const headers = {
@@ -2756,10 +2768,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="product_id"                data-endpoint="GETapi-v2-commerce-products--product_id-"
-               value="voluptates"
+               value="illum"
                data-component="url">
     <br>
-<p>The ID of the product. Example: <code>voluptates</code></p>
+<p>The ID of the product. Example: <code>illum</code></p>
             </div>
                     </form>
 
@@ -2785,7 +2797,7 @@ const headers = {
 };
 
 let body = {
-    "name": "voluptatibus"
+    "name": "ut"
 };
 
 fetch(url, {
@@ -2891,10 +2903,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="POSTapi-v2-commerce-products"
-               value="voluptatibus"
+               value="ut"
                data-component="body">
     <br>
-<p>Example: <code>voluptatibus</code></p>
+<p>Example: <code>ut</code></p>
         </div>
         </form>
 
@@ -2911,7 +2923,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.visaro.ng/api/v2/commerce/products/et"
+    "https://api.visaro.ng/api/v2/commerce/products/qui"
 );
 
 const headers = {
@@ -2920,8 +2932,8 @@ const headers = {
 };
 
 let body = {
-    "name": "doloribus",
-    "link": "blanditiis"
+    "name": "rem",
+    "link": "architecto"
 };
 
 fetch(url, {
@@ -3027,10 +3039,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="product_id"                data-endpoint="PATCHapi-v2-commerce-products--product_id-"
-               value="et"
+               value="qui"
                data-component="url">
     <br>
-<p>The ID of the product. Example: <code>et</code></p>
+<p>The ID of the product. Example: <code>qui</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -3039,10 +3051,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="PATCHapi-v2-commerce-products--product_id-"
-               value="doloribus"
+               value="rem"
                data-component="body">
     <br>
-<p>Example: <code>doloribus</code></p>
+<p>Example: <code>rem</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>link</code></b>&nbsp;&nbsp;
@@ -3050,10 +3062,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="link"                data-endpoint="PATCHapi-v2-commerce-products--product_id-"
-               value="blanditiis"
+               value="architecto"
                data-component="body">
     <br>
-<p>Example: <code>blanditiis</code></p>
+<p>Example: <code>architecto</code></p>
         </div>
         </form>
 
@@ -3070,7 +3082,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.visaro.ng/api/v2/commerce/products/omnis/storefronts"
+    "https://api.visaro.ng/api/v2/commerce/products/dolor/storefronts"
 );
 
 const headers = {
@@ -3180,10 +3192,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="product_id"                data-endpoint="GETapi-v2-commerce-products--product_id--storefronts"
-               value="omnis"
+               value="dolor"
                data-component="url">
     <br>
-<p>The ID of the product. Example: <code>omnis</code></p>
+<p>The ID of the product. Example: <code>dolor</code></p>
             </div>
                     </form>
 
@@ -3210,9 +3222,9 @@ const headers = {
 };
 
 let body = {
-    "product_id": "voluptatem",
-    "code": "pariatur",
-    "price": 8
+    "product_id": "laboriosam",
+    "code": "est",
+    "price": 1
 };
 
 fetch(url, {
@@ -3318,10 +3330,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="product_id"                data-endpoint="POSTapi-v2-commerce-products-sku"
-               value="voluptatem"
+               value="laboriosam"
                data-component="body">
     <br>
-<p>Example: <code>voluptatem</code></p>
+<p>Example: <code>laboriosam</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>code</code></b>&nbsp;&nbsp;
@@ -3329,10 +3341,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="code"                data-endpoint="POSTapi-v2-commerce-products-sku"
-               value="pariatur"
+               value="est"
                data-component="body">
     <br>
-<p>Example: <code>pariatur</code></p>
+<p>Example: <code>est</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>price</code></b>&nbsp;&nbsp;
@@ -3340,10 +3352,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="price"                data-endpoint="POSTapi-v2-commerce-products-sku"
-               value="8"
+               value="1"
                data-component="body">
     <br>
-<p>Example: <code>8</code></p>
+<p>Example: <code>1</code></p>
         </div>
         </form>
 
@@ -3351,7 +3363,472 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
     
 
-                                <h2 id="endpoints-GETapi-v2-commerce-order">GET api/v2/commerce/order</h2>
+                                <h2 id="endpoints-POSTapi-v2-account-user-settings-change-email">POST api/v2/account/user/settings/change-email</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-v2-account-user-settings-change-email">
+<blockquote>Example request:</blockquote>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://api.visaro.ng/api/v2/account/user/settings/change-email"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "password": "6T.B70n="
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v2-account-user-settings-change-email">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;api_status&quot;: &quot;401&quot;,
+    &quot;message&quot;: &quot;Unauthorized&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-v2-account-user-settings-change-email" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v2-account-user-settings-change-email"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v2-account-user-settings-change-email"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v2-account-user-settings-change-email" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v2-account-user-settings-change-email">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-v2-account-user-settings-change-email" data-method="POST"
+      data-path="api/v2/account/user/settings/change-email"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v2-account-user-settings-change-email', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v2-account-user-settings-change-email"
+                    onclick="tryItOut('POSTapi-v2-account-user-settings-change-email');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v2-account-user-settings-change-email"
+                    onclick="cancelTryOut('POSTapi-v2-account-user-settings-change-email');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v2-account-user-settings-change-email"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v2/account/user/settings/change-email</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-v2-account-user-settings-change-email"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-v2-account-user-settings-change-email"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="password"                data-endpoint="POSTapi-v2-account-user-settings-change-email"
+               value="6T.B70n="
+               data-component="body">
+    <br>
+<p>Example: <code>6T.B70n=</code></p>
+        </div>
+        </form>
+
+                    <h2 id="endpoints-POSTapi-v2-account-user-settings-complete-email-change-request">POST api/v2/account/user/settings/complete-email-change-request</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-v2-account-user-settings-complete-email-change-request">
+<blockquote>Example request:</blockquote>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://api.visaro.ng/api/v2/account/user/settings/complete-email-change-request"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "email": "tiffany48@example.com",
+    "code": "2573"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v2-account-user-settings-complete-email-change-request">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;api_status&quot;: &quot;401&quot;,
+    &quot;message&quot;: &quot;Unauthorized&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-v2-account-user-settings-complete-email-change-request" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v2-account-user-settings-complete-email-change-request"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v2-account-user-settings-complete-email-change-request"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v2-account-user-settings-complete-email-change-request" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v2-account-user-settings-complete-email-change-request">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-v2-account-user-settings-complete-email-change-request" data-method="POST"
+      data-path="api/v2/account/user/settings/complete-email-change-request"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v2-account-user-settings-complete-email-change-request', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v2-account-user-settings-complete-email-change-request"
+                    onclick="tryItOut('POSTapi-v2-account-user-settings-complete-email-change-request');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v2-account-user-settings-complete-email-change-request"
+                    onclick="cancelTryOut('POSTapi-v2-account-user-settings-complete-email-change-request');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v2-account-user-settings-complete-email-change-request"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v2/account/user/settings/complete-email-change-request</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-v2-account-user-settings-complete-email-change-request"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-v2-account-user-settings-complete-email-change-request"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="email"                data-endpoint="POSTapi-v2-account-user-settings-complete-email-change-request"
+               value="tiffany48@example.com"
+               data-component="body">
+    <br>
+<p>Must be a valid email address. Example: <code>tiffany48@example.com</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>code</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="code"                data-endpoint="POSTapi-v2-account-user-settings-complete-email-change-request"
+               value="2573"
+               data-component="body">
+    <br>
+<p>Must match the regex /[0-9]{4}/. Example: <code>2573</code></p>
+        </div>
+        </form>
+
+                    <h2 id="endpoints-POSTapi-v2-account-user-settings-contact-us">POST api/v2/account/user/settings/contact-us</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-v2-account-user-settings-contact-us">
+<blockquote>Example request:</blockquote>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://api.visaro.ng/api/v2/account/user/settings/contact-us"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "email": "kaltenwerth@example.com",
+    "username": "ndujbpylhtazwfjymh",
+    "phone_code": "pi",
+    "phone": "2702348380",
+    "message": "xuovqvcppqa"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v2-account-user-settings-contact-us">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;api_status&quot;: &quot;401&quot;,
+    &quot;message&quot;: &quot;Unauthorized&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-v2-account-user-settings-contact-us" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v2-account-user-settings-contact-us"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v2-account-user-settings-contact-us"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v2-account-user-settings-contact-us" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v2-account-user-settings-contact-us">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-v2-account-user-settings-contact-us" data-method="POST"
+      data-path="api/v2/account/user/settings/contact-us"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v2-account-user-settings-contact-us', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v2-account-user-settings-contact-us"
+                    onclick="tryItOut('POSTapi-v2-account-user-settings-contact-us');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v2-account-user-settings-contact-us"
+                    onclick="cancelTryOut('POSTapi-v2-account-user-settings-contact-us');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v2-account-user-settings-contact-us"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v2/account/user/settings/contact-us</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-v2-account-user-settings-contact-us"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-v2-account-user-settings-contact-us"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="email"                data-endpoint="POSTapi-v2-account-user-settings-contact-us"
+               value="kaltenwerth@example.com"
+               data-component="body">
+    <br>
+<p>Must be a valid email address. Example: <code>kaltenwerth@example.com</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>username</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="username"                data-endpoint="POSTapi-v2-account-user-settings-contact-us"
+               value="ndujbpylhtazwfjymh"
+               data-component="body">
+    <br>
+<p>Must not be greater than 20 characters. Example: <code>ndujbpylhtazwfjymh</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>phone_code</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="phone_code"                data-endpoint="POSTapi-v2-account-user-settings-contact-us"
+               value="pi"
+               data-component="body">
+    <br>
+<p>Must match the regex /^+[0-9]+$/. Must not be greater than 4 characters. Example: <code>pi</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>phone</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="phone"                data-endpoint="POSTapi-v2-account-user-settings-contact-us"
+               value="2702348380"
+               data-component="body">
+    <br>
+<p>Must match the regex /[0-9]{10}$/. Example: <code>2702348380</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>message</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="message"                data-endpoint="POSTapi-v2-account-user-settings-contact-us"
+               value="xuovqvcppqa"
+               data-component="body">
+    <br>
+<p>Must not be greater than 255 characters. Example: <code>xuovqvcppqa</code></p>
+        </div>
+        </form>
+
+                    <h2 id="endpoints-GETapi-v2-commerce-order">GET api/v2/commerce/order</h2>
 
 <p>
 </p>
@@ -3482,7 +3959,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.visaro.ng/api/v2/commerce/order/omnis"
+    "https://api.visaro.ng/api/v2/commerce/order/quisquam"
 );
 
 const headers = {
@@ -3592,10 +4069,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="order_id"                data-endpoint="GETapi-v2-commerce-order--order_id-"
-               value="omnis"
+               value="quisquam"
                data-component="url">
     <br>
-<p>The ID of the order. Example: <code>omnis</code></p>
+<p>The ID of the order. Example: <code>quisquam</code></p>
             </div>
                     </form>
 
@@ -3621,11 +4098,11 @@ const headers = {
 };
 
 let body = {
-    "invoice_id": "quo",
-    "merchant_id": "ducimus",
-    "transaction_id": "provident",
-    "user_id": "quia",
-    "store_front_id": "est"
+    "invoice_id": "quos",
+    "merchant_id": "quis",
+    "transaction_id": "et",
+    "user_id": "mollitia",
+    "store_front_id": "magnam"
 };
 
 fetch(url, {
@@ -3731,10 +4208,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="invoice_id"                data-endpoint="POSTapi-v2-commerce-order"
-               value="quo"
+               value="quos"
                data-component="body">
     <br>
-<p>Example: <code>quo</code></p>
+<p>Example: <code>quos</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>merchant_id</code></b>&nbsp;&nbsp;
@@ -3742,10 +4219,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="merchant_id"                data-endpoint="POSTapi-v2-commerce-order"
-               value="ducimus"
+               value="quis"
                data-component="body">
     <br>
-<p>Example: <code>ducimus</code></p>
+<p>Example: <code>quis</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>transaction_id</code></b>&nbsp;&nbsp;
@@ -3753,10 +4230,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="transaction_id"                data-endpoint="POSTapi-v2-commerce-order"
-               value="provident"
+               value="et"
                data-component="body">
     <br>
-<p>Example: <code>provident</code></p>
+<p>Example: <code>et</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>user_id</code></b>&nbsp;&nbsp;
@@ -3764,10 +4241,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="user_id"                data-endpoint="POSTapi-v2-commerce-order"
-               value="quia"
+               value="mollitia"
                data-component="body">
     <br>
-<p>Example: <code>quia</code></p>
+<p>Example: <code>mollitia</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>store_front_id</code></b>&nbsp;&nbsp;
@@ -3775,10 +4252,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="store_front_id"                data-endpoint="POSTapi-v2-commerce-order"
-               value="est"
+               value="magnam"
                data-component="body">
     <br>
-<p>Example: <code>est</code></p>
+<p>Example: <code>magnam</code></p>
         </div>
         </form>
 
@@ -3795,7 +4272,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.visaro.ng/api/v2/commerce/order/qui"
+    "https://api.visaro.ng/api/v2/commerce/order/ratione"
 );
 
 const headers = {
@@ -3911,10 +4388,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="order_id"                data-endpoint="PATCHapi-v2-commerce-order--order_id-"
-               value="qui"
+               value="ratione"
                data-component="url">
     <br>
-<p>The ID of the order. Example: <code>qui</code></p>
+<p>The ID of the order. Example: <code>ratione</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -4084,7 +4561,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.visaro.ng/api/v2/commerce/store-fronts/earum"
+    "https://api.visaro.ng/api/v2/commerce/store-fronts/totam"
 );
 
 const headers = {
@@ -4194,10 +4671,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="store_front_id"                data-endpoint="GETapi-v2-commerce-store-fronts--store_front_id-"
-               value="earum"
+               value="totam"
                data-component="url">
     <br>
-<p>The ID of the store front. Example: <code>earum</code></p>
+<p>The ID of the store front. Example: <code>totam</code></p>
             </div>
                     </form>
 
@@ -4223,8 +4700,8 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('merchant_id', 'quaerat');
-body.append('name', 'necessitatibus');
+body.append('merchant_id', 'illum');
+body.append('name', 'hic');
 body.append('logo', document.querySelector('input[name="logo"]').files[0]);
 body.append('cover_image', document.querySelector('input[name="cover_image"]').files[0]);
 
@@ -4331,10 +4808,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="merchant_id"                data-endpoint="POSTapi-v2-commerce-store-fronts"
-               value="quaerat"
+               value="illum"
                data-component="body">
     <br>
-<p>Example: <code>quaerat</code></p>
+<p>Example: <code>illum</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
@@ -4342,10 +4819,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="POSTapi-v2-commerce-store-fronts"
-               value="necessitatibus"
+               value="hic"
                data-component="body">
     <br>
-<p>Example: <code>necessitatibus</code></p>
+<p>Example: <code>hic</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>logo</code></b>&nbsp;&nbsp;
@@ -4356,7 +4833,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpLj79pp</code></p>
+<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/private/var/folders/s2/jrd1l2714c1d5msll4ly2sth0000gn/T/phpeus6bz</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>cover_image</code></b>&nbsp;&nbsp;
@@ -4367,7 +4844,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phplJANvi</code></p>
+<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/private/var/folders/s2/jrd1l2714c1d5msll4ly2sth0000gn/T/phpkKnHSD</code></p>
         </div>
         </form>
 
@@ -4384,7 +4861,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.visaro.ng/api/v2/commerce/store-fronts/maxime"
+    "https://api.visaro.ng/api/v2/commerce/store-fronts/minus"
 );
 
 const headers = {
@@ -4393,10 +4870,10 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('merchant_id', 'et');
-body.append('name', 'enim');
-body.append('status', 'id');
-body.append('active', '1');
+body.append('merchant_id', 'odit');
+body.append('name', 'est');
+body.append('status', 'commodi');
+body.append('active', '');
 body.append('logo', document.querySelector('input[name="logo"]').files[0]);
 body.append('cover_image', document.querySelector('input[name="cover_image"]').files[0]);
 
@@ -4503,10 +4980,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="store_front_id"                data-endpoint="POSTapi-v2-commerce-store-fronts--store_front_id-"
-               value="maxime"
+               value="minus"
                data-component="url">
     <br>
-<p>The ID of the store front. Example: <code>maxime</code></p>
+<p>The ID of the store front. Example: <code>minus</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -4515,10 +4992,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="merchant_id"                data-endpoint="POSTapi-v2-commerce-store-fronts--store_front_id-"
-               value="et"
+               value="odit"
                data-component="body">
     <br>
-<p>Example: <code>et</code></p>
+<p>Example: <code>odit</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
@@ -4526,10 +5003,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="POSTapi-v2-commerce-store-fronts--store_front_id-"
-               value="enim"
+               value="est"
                data-component="body">
     <br>
-<p>Example: <code>enim</code></p>
+<p>Example: <code>est</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>logo</code></b>&nbsp;&nbsp;
@@ -4540,7 +5017,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpF4tr92</code></p>
+<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/private/var/folders/s2/jrd1l2714c1d5msll4ly2sth0000gn/T/phpxT5GQ2</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>cover_image</code></b>&nbsp;&nbsp;
@@ -4551,7 +5028,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpeJbBJV</code></p>
+<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/private/var/folders/s2/jrd1l2714c1d5msll4ly2sth0000gn/T/php4dJmKq</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>status</code></b>&nbsp;&nbsp;
@@ -4559,10 +5036,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="status"                data-endpoint="POSTapi-v2-commerce-store-fronts--store_front_id-"
-               value="id"
+               value="commodi"
                data-component="body">
     <br>
-<p>Example: <code>id</code></p>
+<p>Example: <code>commodi</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>active</code></b>&nbsp;&nbsp;
@@ -4583,7 +5060,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
         </form>
 
@@ -4600,7 +5077,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.visaro.ng/api/v2/commerce/store-fronts/et/products"
+    "https://api.visaro.ng/api/v2/commerce/store-fronts/odit/products"
 );
 
 const headers = {
@@ -4710,10 +5187,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="store_front_id"                data-endpoint="GETapi-v2-commerce-store-fronts--store_front_id--products"
-               value="et"
+               value="odit"
                data-component="url">
     <br>
-<p>The ID of the store front. Example: <code>et</code></p>
+<p>The ID of the store front. Example: <code>odit</code></p>
             </div>
                     </form>
 
@@ -4730,7 +5207,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.visaro.ng/api/v2/commerce/store-fronts/aliquid/products/add"
+    "https://api.visaro.ng/api/v2/commerce/store-fronts/fuga/products/add"
 );
 
 const headers = {
@@ -4739,7 +5216,7 @@ const headers = {
 };
 
 let body = {
-    "product_id": "placeat"
+    "product_id": "sed"
 };
 
 fetch(url, {
@@ -4845,10 +5322,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="store_front_id"                data-endpoint="POSTapi-v2-commerce-store-fronts--store_front_id--products-add"
-               value="aliquid"
+               value="fuga"
                data-component="url">
     <br>
-<p>The ID of the store front. Example: <code>aliquid</code></p>
+<p>The ID of the store front. Example: <code>fuga</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -4857,10 +5334,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="product_id"                data-endpoint="POSTapi-v2-commerce-store-fronts--store_front_id--products-add"
-               value="placeat"
+               value="sed"
                data-component="body">
     <br>
-<p>Example: <code>placeat</code></p>
+<p>Example: <code>sed</code></p>
         </div>
         </form>
 
@@ -4877,7 +5354,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.visaro.ng/api/v2/commerce/store-fronts/sit/order"
+    "https://api.visaro.ng/api/v2/commerce/store-fronts/sed/order"
 );
 
 const headers = {
@@ -4987,10 +5464,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="store_front_id"                data-endpoint="GETapi-v2-commerce-store-fronts--store_front_id--order"
-               value="sit"
+               value="sed"
                data-component="url">
     <br>
-<p>The ID of the store front. Example: <code>sit</code></p>
+<p>The ID of the store front. Example: <code>sed</code></p>
             </div>
                     </form>
 
@@ -5243,7 +5720,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.visaro.ng/api/v2/aviation/flights/bookings/officia"
+    "https://api.visaro.ng/api/v2/aviation/flights/bookings/voluptatum"
 );
 
 const headers = {
@@ -5353,10 +5830,140 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="GETapi-v2-aviation-flights-bookings--id-"
-               value="officia"
+               value="voluptatum"
                data-component="url">
     <br>
-<p>The ID of the booking. Example: <code>officia</code></p>
+<p>The ID of the booking. Example: <code>voluptatum</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="endpoints-POSTapi-v2-aviation-flights-bookings-book--id-">POST api/v2/aviation/flights/bookings/book/{id}</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-v2-aviation-flights-bookings-book--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://api.visaro.ng/api/v2/aviation/flights/bookings/book/et"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v2-aviation-flights-bookings-book--id-">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;api_status&quot;: &quot;401&quot;,
+    &quot;message&quot;: &quot;Unauthorized&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-v2-aviation-flights-bookings-book--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v2-aviation-flights-bookings-book--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v2-aviation-flights-bookings-book--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v2-aviation-flights-bookings-book--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v2-aviation-flights-bookings-book--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-v2-aviation-flights-bookings-book--id-" data-method="POST"
+      data-path="api/v2/aviation/flights/bookings/book/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v2-aviation-flights-bookings-book--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v2-aviation-flights-bookings-book--id-"
+                    onclick="tryItOut('POSTapi-v2-aviation-flights-bookings-book--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v2-aviation-flights-bookings-book--id-"
+                    onclick="cancelTryOut('POSTapi-v2-aviation-flights-bookings-book--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v2-aviation-flights-bookings-book--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v2/aviation/flights/bookings/book/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-v2-aviation-flights-bookings-book--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-v2-aviation-flights-bookings-book--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="POSTapi-v2-aviation-flights-bookings-book--id-"
+               value="et"
+               data-component="url">
+    <br>
+<p>The ID of the book. Example: <code>et</code></p>
             </div>
                     </form>
 
@@ -5522,7 +6129,7 @@ Must be one of:
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.visaro.ng/api/v2/aviation/flights/bookings/est/confirm"
+    "https://api.visaro.ng/api/v2/aviation/flights/bookings/consequatur/confirm"
 );
 
 const headers = {
@@ -5531,15 +6138,15 @@ const headers = {
 };
 
 let body = {
-    "booking_id": 3,
-    "title": "libero",
-    "firstname": "est",
-    "lastname": "delectus",
-    "phone_code": "quaerat",
-    "phone_number": "reprehenderit",
-    "nationality": "veniam",
-    "date_of_birth": "ad",
-    "email": "easter78@example.org"
+    "booking_id": 1,
+    "title": "ducimus",
+    "firstname": "omnis",
+    "lastname": "harum",
+    "phone_code": "ea",
+    "phone_number": "atque",
+    "nationality": "dolores",
+    "date_of_birth": "ut",
+    "email": "agleichner@example.net"
 };
 
 fetch(url, {
@@ -5645,10 +6252,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="POSTapi-v2-aviation-flights-bookings--id--confirm"
-               value="est"
+               value="consequatur"
                data-component="url">
     <br>
-<p>The ID of the booking. Example: <code>est</code></p>
+<p>The ID of the booking. Example: <code>consequatur</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -5657,10 +6264,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="booking_id"                data-endpoint="POSTapi-v2-aviation-flights-bookings--id--confirm"
-               value="3"
+               value="1"
                data-component="body">
     <br>
-<p>Example: <code>3</code></p>
+<p>Example: <code>1</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>title</code></b>&nbsp;&nbsp;
@@ -5668,10 +6275,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="title"                data-endpoint="POSTapi-v2-aviation-flights-bookings--id--confirm"
-               value="libero"
+               value="ducimus"
                data-component="body">
     <br>
-<p>Example: <code>libero</code></p>
+<p>Example: <code>ducimus</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>firstname</code></b>&nbsp;&nbsp;
@@ -5679,10 +6286,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="firstname"                data-endpoint="POSTapi-v2-aviation-flights-bookings--id--confirm"
-               value="est"
+               value="omnis"
                data-component="body">
     <br>
-<p>Example: <code>est</code></p>
+<p>Example: <code>omnis</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>lastname</code></b>&nbsp;&nbsp;
@@ -5690,10 +6297,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="lastname"                data-endpoint="POSTapi-v2-aviation-flights-bookings--id--confirm"
-               value="delectus"
+               value="harum"
                data-component="body">
     <br>
-<p>Example: <code>delectus</code></p>
+<p>Example: <code>harum</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>phone_code</code></b>&nbsp;&nbsp;
@@ -5701,10 +6308,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="phone_code"                data-endpoint="POSTapi-v2-aviation-flights-bookings--id--confirm"
-               value="quaerat"
+               value="ea"
                data-component="body">
     <br>
-<p>Example: <code>quaerat</code></p>
+<p>Example: <code>ea</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>phone_number</code></b>&nbsp;&nbsp;
@@ -5712,10 +6319,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="phone_number"                data-endpoint="POSTapi-v2-aviation-flights-bookings--id--confirm"
-               value="reprehenderit"
+               value="atque"
                data-component="body">
     <br>
-<p>Example: <code>reprehenderit</code></p>
+<p>Example: <code>atque</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>nationality</code></b>&nbsp;&nbsp;
@@ -5723,10 +6330,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="nationality"                data-endpoint="POSTapi-v2-aviation-flights-bookings--id--confirm"
-               value="veniam"
+               value="dolores"
                data-component="body">
     <br>
-<p>Example: <code>veniam</code></p>
+<p>Example: <code>dolores</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>date_of_birth</code></b>&nbsp;&nbsp;
@@ -5734,10 +6341,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="date_of_birth"                data-endpoint="POSTapi-v2-aviation-flights-bookings--id--confirm"
-               value="ad"
+               value="ut"
                data-component="body">
     <br>
-<p>Example: <code>ad</code></p>
+<p>Example: <code>ut</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -5745,10 +6352,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v2-aviation-flights-bookings--id--confirm"
-               value="easter78@example.org"
+               value="agleichner@example.net"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>easter78@example.org</code></p>
+<p>Must be a valid email address. Example: <code>agleichner@example.net</code></p>
         </div>
         </form>
 
@@ -5765,7 +6372,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.visaro.ng/api/v2/aviation/flights/bookings/repudiandae/payments/options"
+    "https://api.visaro.ng/api/v2/aviation/flights/bookings/excepturi/payments/options"
 );
 
 const headers = {
@@ -5875,10 +6482,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="GETapi-v2-aviation-flights-bookings--id--payments-options"
-               value="repudiandae"
+               value="excepturi"
                data-component="url">
     <br>
-<p>The ID of the booking. Example: <code>repudiandae</code></p>
+<p>The ID of the booking. Example: <code>excepturi</code></p>
             </div>
                     </form>
 
@@ -5895,7 +6502,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.visaro.ng/api/v2/aviation/flights/bookings/itaque/payments/options/sit"
+    "https://api.visaro.ng/api/v2/aviation/flights/bookings/ut/payments/options/quaerat"
 );
 
 const headers = {
@@ -6005,10 +6612,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="GETapi-v2-aviation-flights-bookings--id--payments-options--option_id-"
-               value="itaque"
+               value="ut"
                data-component="url">
     <br>
-<p>The ID of the booking. Example: <code>itaque</code></p>
+<p>The ID of the booking. Example: <code>ut</code></p>
             </div>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>option_id</code></b>&nbsp;&nbsp;
@@ -6016,10 +6623,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="option_id"                data-endpoint="GETapi-v2-aviation-flights-bookings--id--payments-options--option_id-"
-               value="sit"
+               value="quaerat"
                data-component="url">
     <br>
-<p>The ID of the option. Example: <code>sit</code></p>
+<p>The ID of the option. Example: <code>quaerat</code></p>
             </div>
                     </form>
 
@@ -6036,7 +6643,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://api.visaro.ng/api/v2/aviation/flights/bookings/dolorem/payments/confirm"
+    "https://api.visaro.ng/api/v2/aviation/flights/bookings/sed/payments/confirm"
 );
 
 const headers = {
@@ -6045,10 +6652,10 @@ const headers = {
 };
 
 let body = {
-    "booking_id": 6,
-    "payment_option_id": 15,
-    "amount": 14,
-    "payment_installment_id": 18
+    "booking_id": 11,
+    "payment_option_id": 13,
+    "amount": 11,
+    "payment_installment_id": 3
 };
 
 fetch(url, {
@@ -6154,10 +6761,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="id"                data-endpoint="POSTapi-v2-aviation-flights-bookings--id--payments-confirm"
-               value="dolorem"
+               value="sed"
                data-component="url">
     <br>
-<p>The ID of the booking. Example: <code>dolorem</code></p>
+<p>The ID of the booking. Example: <code>sed</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -6166,10 +6773,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="booking_id"                data-endpoint="POSTapi-v2-aviation-flights-bookings--id--payments-confirm"
-               value="6"
+               value="11"
                data-component="body">
     <br>
-<p>Example: <code>6</code></p>
+<p>Example: <code>11</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>payment_option_id</code></b>&nbsp;&nbsp;
@@ -6177,10 +6784,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="payment_option_id"                data-endpoint="POSTapi-v2-aviation-flights-bookings--id--payments-confirm"
-               value="15"
+               value="13"
                data-component="body">
     <br>
-<p>Example: <code>15</code></p>
+<p>Example: <code>13</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>amount</code></b>&nbsp;&nbsp;
@@ -6188,10 +6795,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="amount"                data-endpoint="POSTapi-v2-aviation-flights-bookings--id--payments-confirm"
-               value="14"
+               value="11"
                data-component="body">
     <br>
-<p>Example: <code>14</code></p>
+<p>Example: <code>11</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>payment_installment_id</code></b>&nbsp;&nbsp;
@@ -6199,10 +6806,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="payment_installment_id"                data-endpoint="POSTapi-v2-aviation-flights-bookings--id--payments-confirm"
-               value="18"
+               value="3"
                data-component="body">
     <br>
-<p>Example: <code>18</code></p>
+<p>Example: <code>3</code></p>
         </div>
         </form>
 
@@ -6233,9 +6840,9 @@ const headers = {
 };
 
 let body = {
-    "business_email": "branson37@example.org",
-    "business_phone_code": "q",
-    "business_phone": "7553769291"
+    "business_email": "elinore07@example.org",
+    "business_phone_code": "vyv",
+    "business_phone": "0695473010"
 };
 
 fetch(url, {
@@ -6345,10 +6952,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="business_email"                data-endpoint="POSTapi-v2-merchant-onboarding-email"
-               value="branson37@example.org"
+               value="elinore07@example.org"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>branson37@example.org</code></p>
+<p>Must be a valid email address. Example: <code>elinore07@example.org</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>business_phone_code</code></b>&nbsp;&nbsp;
@@ -6356,10 +6963,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="business_phone_code"                data-endpoint="POSTapi-v2-merchant-onboarding-email"
-               value="q"
+               value="vyv"
                data-component="body">
     <br>
-<p>Must match the regex /^+[0-9]+$/. Must not be greater than 4 characters. Example: <code>q</code></p>
+<p>Must match the regex /^+[0-9]+$/. Must not be greater than 4 characters. Example: <code>vyv</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>business_phone</code></b>&nbsp;&nbsp;
@@ -6367,10 +6974,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="business_phone"                data-endpoint="POSTapi-v2-merchant-onboarding-email"
-               value="7553769291"
+               value="0695473010"
                data-component="body">
     <br>
-<p>Must match the regex /[0-9]{10}$/. Example: <code>7553769291</code></p>
+<p>Must match the regex /[0-9]{10}$/. Example: <code>0695473010</code></p>
         </div>
         </form>
 
@@ -6396,17 +7003,17 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('business_name', 'voluptatem');
-body.append('business_type', 'corporation');
-body.append('business_email', 'elfrieda97@example.org');
-body.append('business_phone_code', 'voluptatibus');
-body.append('business_phone', 'impedit');
-body.append('business_registration_number', 'tempora');
-body.append('acronym', 'iste');
-body.append('official_name', 'eaque');
-body.append('website', 'https://will.org/iure-aperiam-delectus-quibusdam-quod-quae-ut.html');
-body.append('presence', 'hybrid');
-body.append('country_id', '13');
+body.append('business_name', 'vel');
+body.append('business_type', 'partnership');
+body.append('business_email', 'maudie19@example.org');
+body.append('business_phone_code', 'nesciunt');
+body.append('business_phone', 'blanditiis');
+body.append('business_registration_number', 'ut');
+body.append('acronym', 'totam');
+body.append('official_name', 'quo');
+body.append('website', 'http://stokes.com/qui-quos-unde-minima-est-assumenda-culpa-totam-delectus');
+body.append('presence', 'physical');
+body.append('country_id', '11');
 body.append('logo', document.querySelector('input[name="logo"]').files[0]);
 
 fetch(url, {
@@ -6512,10 +7119,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="business_name"                data-endpoint="POSTapi-v2-merchant-merchant-account-update"
-               value="voluptatem"
+               value="vel"
                data-component="body">
     <br>
-<p>Example: <code>voluptatem</code></p>
+<p>Example: <code>vel</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>business_type</code></b>&nbsp;&nbsp;
@@ -6523,10 +7130,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="business_type"                data-endpoint="POSTapi-v2-merchant-merchant-account-update"
-               value="corporation"
+               value="partnership"
                data-component="body">
     <br>
-<p>Example: <code>corporation</code></p>
+<p>Example: <code>partnership</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>corporation</code></li> <li><code>sole_proprietorship</code></li> <li><code>partnership</code></li></ul>
         </div>
@@ -6536,10 +7143,10 @@ Must be one of:
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="business_email"                data-endpoint="POSTapi-v2-merchant-merchant-account-update"
-               value="elfrieda97@example.org"
+               value="maudie19@example.org"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>elfrieda97@example.org</code></p>
+<p>Must be a valid email address. Example: <code>maudie19@example.org</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>business_phone_code</code></b>&nbsp;&nbsp;
@@ -6547,10 +7154,10 @@ Must be one of:
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="business_phone_code"                data-endpoint="POSTapi-v2-merchant-merchant-account-update"
-               value="voluptatibus"
+               value="nesciunt"
                data-component="body">
     <br>
-<p>Example: <code>voluptatibus</code></p>
+<p>Example: <code>nesciunt</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>business_phone</code></b>&nbsp;&nbsp;
@@ -6558,10 +7165,10 @@ Must be one of:
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="business_phone"                data-endpoint="POSTapi-v2-merchant-merchant-account-update"
-               value="impedit"
+               value="blanditiis"
                data-component="body">
     <br>
-<p>Example: <code>impedit</code></p>
+<p>Example: <code>blanditiis</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>business_registration_number</code></b>&nbsp;&nbsp;
@@ -6569,10 +7176,10 @@ Must be one of:
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="business_registration_number"                data-endpoint="POSTapi-v2-merchant-merchant-account-update"
-               value="tempora"
+               value="ut"
                data-component="body">
     <br>
-<p>Example: <code>tempora</code></p>
+<p>Example: <code>ut</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>acronym</code></b>&nbsp;&nbsp;
@@ -6580,10 +7187,10 @@ Must be one of:
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="acronym"                data-endpoint="POSTapi-v2-merchant-merchant-account-update"
-               value="iste"
+               value="totam"
                data-component="body">
     <br>
-<p>Example: <code>iste</code></p>
+<p>Example: <code>totam</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>official_name</code></b>&nbsp;&nbsp;
@@ -6591,10 +7198,10 @@ Must be one of:
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="official_name"                data-endpoint="POSTapi-v2-merchant-merchant-account-update"
-               value="eaque"
+               value="quo"
                data-component="body">
     <br>
-<p>Example: <code>eaque</code></p>
+<p>Example: <code>quo</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>website</code></b>&nbsp;&nbsp;
@@ -6602,10 +7209,10 @@ Must be one of:
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="website"                data-endpoint="POSTapi-v2-merchant-merchant-account-update"
-               value="https://will.org/iure-aperiam-delectus-quibusdam-quod-quae-ut.html"
+               value="http://stokes.com/qui-quos-unde-minima-est-assumenda-culpa-totam-delectus"
                data-component="body">
     <br>
-<p>Must be a valid URL. Example: <code>https://will.org/iure-aperiam-delectus-quibusdam-quod-quae-ut.html</code></p>
+<p>Must be a valid URL. Example: <code>http://stokes.com/qui-quos-unde-minima-est-assumenda-culpa-totam-delectus</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>presence</code></b>&nbsp;&nbsp;
@@ -6613,10 +7220,10 @@ Must be one of:
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="presence"                data-endpoint="POSTapi-v2-merchant-merchant-account-update"
-               value="hybrid"
+               value="physical"
                data-component="body">
     <br>
-<p>Example: <code>hybrid</code></p>
+<p>Example: <code>physical</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>physical</code></li> <li><code>virtual</code></li> <li><code>hybrid</code></li></ul>
         </div>
@@ -6629,7 +7236,7 @@ Must be one of:
                value=""
                data-component="body">
     <br>
-<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpVC3Z4w</code></p>
+<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/private/var/folders/s2/jrd1l2714c1d5msll4ly2sth0000gn/T/phpWXlakr</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>country_id</code></b>&nbsp;&nbsp;
@@ -6637,10 +7244,10 @@ Must be one of:
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="country_id"                data-endpoint="POSTapi-v2-merchant-merchant-account-update"
-               value="13"
+               value="11"
                data-component="body">
     <br>
-<p>Example: <code>13</code></p>
+<p>Example: <code>11</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>customization</code></b>&nbsp;&nbsp;
@@ -6689,8 +7296,8 @@ const headers = {
 };
 
 let body = {
-    "code": "non",
-    "business_email": "autem"
+    "code": "at",
+    "business_email": "voluptatem"
 };
 
 fetch(url, {
@@ -6800,10 +7407,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="code"                data-endpoint="POSTapi-v2-merchant-onboarding-verifications-verify-email-otp"
-               value="non"
+               value="at"
                data-component="body">
     <br>
-<p>Example: <code>non</code></p>
+<p>Example: <code>at</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>business_email</code></b>&nbsp;&nbsp;
@@ -6811,10 +7418,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="business_email"                data-endpoint="POSTapi-v2-merchant-onboarding-verifications-verify-email-otp"
-               value="autem"
+               value="voluptatem"
                data-component="body">
     <br>
-<p>Example: <code>autem</code></p>
+<p>Example: <code>voluptatem</code></p>
         </div>
         </form>
 
@@ -6841,14 +7448,14 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('cac_number', 'occaecati');
-body.append('country_id', '16');
-body.append('state', 'autem');
-body.append('local_government', 'voluptatum');
-body.append('city', 'doloremque');
-body.append('street_address', 'vero');
-body.append('land_mark', 'quia');
-body.append('meta', 'minus');
+body.append('cac_number', 'ea');
+body.append('country_id', '6');
+body.append('state', 'unde');
+body.append('local_government', 'est');
+body.append('city', 'reprehenderit');
+body.append('street_address', 'blanditiis');
+body.append('land_mark', 'consequatur');
+body.append('meta', 'iste');
 body.append('cac_document', document.querySelector('input[name="cac_document"]').files[0]);
 body.append('proof_of_address', document.querySelector('input[name="proof_of_address"]').files[0]);
 
@@ -6955,10 +7562,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="cac_number"                data-endpoint="POSTapi-v2-merchant-compliance-create"
-               value="occaecati"
+               value="ea"
                data-component="body">
     <br>
-<p>Example: <code>occaecati</code></p>
+<p>Example: <code>ea</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>cac_document</code></b>&nbsp;&nbsp;
@@ -6969,7 +7576,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Must be a file. Example: <code>/tmp/phpcW1BEO</code></p>
+<p>Must be a file. Example: <code>/private/var/folders/s2/jrd1l2714c1d5msll4ly2sth0000gn/T/phpZdcgXU</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>proof_of_address</code></b>&nbsp;&nbsp;
@@ -6980,7 +7587,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Must be a file. Example: <code>/tmp/phpTrD6Ue</code></p>
+<p>Must be a file. Example: <code>/private/var/folders/s2/jrd1l2714c1d5msll4ly2sth0000gn/T/phpu5QiYg</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>country_id</code></b>&nbsp;&nbsp;
@@ -6988,10 +7595,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="country_id"                data-endpoint="POSTapi-v2-merchant-compliance-create"
-               value="16"
+               value="6"
                data-component="body">
     <br>
-<p>Example: <code>16</code></p>
+<p>Example: <code>6</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>state</code></b>&nbsp;&nbsp;
@@ -6999,10 +7606,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="state"                data-endpoint="POSTapi-v2-merchant-compliance-create"
-               value="autem"
+               value="unde"
                data-component="body">
     <br>
-<p>Example: <code>autem</code></p>
+<p>Example: <code>unde</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>local_government</code></b>&nbsp;&nbsp;
@@ -7010,10 +7617,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="local_government"                data-endpoint="POSTapi-v2-merchant-compliance-create"
-               value="voluptatum"
+               value="est"
                data-component="body">
     <br>
-<p>Example: <code>voluptatum</code></p>
+<p>Example: <code>est</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>city</code></b>&nbsp;&nbsp;
@@ -7021,10 +7628,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="city"                data-endpoint="POSTapi-v2-merchant-compliance-create"
-               value="doloremque"
+               value="reprehenderit"
                data-component="body">
     <br>
-<p>Example: <code>doloremque</code></p>
+<p>Example: <code>reprehenderit</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>street_address</code></b>&nbsp;&nbsp;
@@ -7032,10 +7639,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="street_address"                data-endpoint="POSTapi-v2-merchant-compliance-create"
-               value="vero"
+               value="blanditiis"
                data-component="body">
     <br>
-<p>Example: <code>vero</code></p>
+<p>Example: <code>blanditiis</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>land_mark</code></b>&nbsp;&nbsp;
@@ -7043,10 +7650,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="land_mark"                data-endpoint="POSTapi-v2-merchant-compliance-create"
-               value="quia"
+               value="consequatur"
                data-component="body">
     <br>
-<p>Example: <code>quia</code></p>
+<p>Example: <code>consequatur</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>meta</code></b>&nbsp;&nbsp;
@@ -7054,10 +7661,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="meta"                data-endpoint="POSTapi-v2-merchant-compliance-create"
-               value="minus"
+               value="iste"
                data-component="body">
     <br>
-<p>Example: <code>minus</code></p>
+<p>Example: <code>iste</code></p>
         </div>
         </form>
 
@@ -7083,8 +7690,8 @@ const headers = {
 };
 
 let body = {
-    "payout_interval": "monthly",
-    "payout_frequency": 8
+    "payout_interval": "daily",
+    "payout_frequency": 11
 };
 
 fetch(url, {
@@ -7190,10 +7797,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="payout_interval"                data-endpoint="PUTapi-v2-merchant-compliance-update"
-               value="monthly"
+               value="daily"
                data-component="body">
     <br>
-<p>Example: <code>monthly</code></p>
+<p>Example: <code>daily</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>daily</code></li> <li><code>weekly</code></li> <li><code>monthly</code></li></ul>
         </div>
@@ -7203,10 +7810,10 @@ Must be one of:
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="payout_frequency"                data-endpoint="PUTapi-v2-merchant-compliance-update"
-               value="8"
+               value="11"
                data-component="body">
     <br>
-<p>Example: <code>8</code></p>
+<p>Example: <code>11</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>meta</code></b>&nbsp;&nbsp;
@@ -7244,10 +7851,10 @@ const headers = {
 };
 
 let body = {
-    "dispute_email": "stamm.america@example.com",
-    "support_email": "edgardo88@example.net",
-    "general_mail": "pariatur",
-    "meta": "dolores"
+    "dispute_email": "oschultz@example.net",
+    "support_email": "linnea.koelpin@example.com",
+    "general_mail": "et",
+    "meta": "ad"
 };
 
 fetch(url, {
@@ -7353,10 +7960,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="dispute_email"                data-endpoint="POSTapi-v2-merchant-settings-create"
-               value="stamm.america@example.com"
+               value="oschultz@example.net"
                data-component="body">
     <br>
-<p>Example: <code>stamm.america@example.com</code></p>
+<p>Example: <code>oschultz@example.net</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>support_email</code></b>&nbsp;&nbsp;
@@ -7364,10 +7971,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="support_email"                data-endpoint="POSTapi-v2-merchant-settings-create"
-               value="edgardo88@example.net"
+               value="linnea.koelpin@example.com"
                data-component="body">
     <br>
-<p>Example: <code>edgardo88@example.net</code></p>
+<p>Example: <code>linnea.koelpin@example.com</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>general_mail</code></b>&nbsp;&nbsp;
@@ -7375,10 +7982,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="general_mail"                data-endpoint="POSTapi-v2-merchant-settings-create"
-               value="pariatur"
+               value="et"
                data-component="body">
     <br>
-<p>Example: <code>pariatur</code></p>
+<p>Example: <code>et</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>meta</code></b>&nbsp;&nbsp;
@@ -7386,10 +7993,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="meta"                data-endpoint="POSTapi-v2-merchant-settings-create"
-               value="dolores"
+               value="ad"
                data-component="body">
     <br>
-<p>Example: <code>dolores</code></p>
+<p>Example: <code>ad</code></p>
         </div>
         </form>
 
@@ -7415,12 +8022,12 @@ const headers = {
 };
 
 let body = {
-    "dispute_email": "jacklyn.jerde@example.org",
-    "support_email": "lacey25@example.org",
-    "general_email": "corrine.stroman@example.com",
-    "meta": "voluptas",
-    "active": false,
-    "status": "odit"
+    "dispute_email": "vandervort.leilani@example.org",
+    "support_email": "brian57@example.com",
+    "general_email": "pierre23@example.com",
+    "meta": "consequatur",
+    "active": true,
+    "status": "distinctio"
 };
 
 fetch(url, {
@@ -7526,10 +8133,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="dispute_email"                data-endpoint="POSTapi-v2-merchant-settings-update"
-               value="jacklyn.jerde@example.org"
+               value="vandervort.leilani@example.org"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>jacklyn.jerde@example.org</code></p>
+<p>Must be a valid email address. Example: <code>vandervort.leilani@example.org</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>support_email</code></b>&nbsp;&nbsp;
@@ -7537,10 +8144,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="support_email"                data-endpoint="POSTapi-v2-merchant-settings-update"
-               value="lacey25@example.org"
+               value="brian57@example.com"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>lacey25@example.org</code></p>
+<p>Must be a valid email address. Example: <code>brian57@example.com</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>general_email</code></b>&nbsp;&nbsp;
@@ -7548,10 +8155,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="general_email"                data-endpoint="POSTapi-v2-merchant-settings-update"
-               value="corrine.stroman@example.com"
+               value="pierre23@example.com"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>corrine.stroman@example.com</code></p>
+<p>Must be a valid email address. Example: <code>pierre23@example.com</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>meta</code></b>&nbsp;&nbsp;
@@ -7559,10 +8166,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="meta"                data-endpoint="POSTapi-v2-merchant-settings-update"
-               value="voluptas"
+               value="consequatur"
                data-component="body">
     <br>
-<p>Example: <code>voluptas</code></p>
+<p>Example: <code>consequatur</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>active</code></b>&nbsp;&nbsp;
@@ -7583,7 +8190,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>status</code></b>&nbsp;&nbsp;
@@ -7591,10 +8198,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="status"                data-endpoint="POSTapi-v2-merchant-settings-update"
-               value="odit"
+               value="distinctio"
                data-component="body">
     <br>
-<p>Example: <code>odit</code></p>
+<p>Example: <code>distinctio</code></p>
         </div>
         </form>
 
@@ -7620,12 +8227,12 @@ const headers = {
 };
 
 let body = {
-    "default_currency": "ipsam",
+    "default_currency": "aut",
     "bank": true,
-    "card": true,
+    "card": false,
     "qr": true,
-    "transfer": false,
-    "installment": false
+    "transfer": true,
+    "installment": true
 };
 
 fetch(url, {
@@ -7731,10 +8338,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="default_currency"                data-endpoint="POSTapi-v2-merchant-preference-create"
-               value="ipsam"
+               value="aut"
                data-component="body">
     <br>
-<p>Example: <code>ipsam</code></p>
+<p>Example: <code>aut</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>bank</code></b>&nbsp;&nbsp;
@@ -7776,7 +8383,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>qr</code></b>&nbsp;&nbsp;
@@ -7818,7 +8425,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>installment</code></b>&nbsp;&nbsp;
@@ -7839,7 +8446,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
         </form>
 
@@ -7865,11 +8472,11 @@ const headers = {
 };
 
 let body = {
-    "default_currency": "quis",
+    "default_currency": "est",
     "bank": true,
-    "card": false,
+    "card": true,
     "qr": true,
-    "transfer": true,
+    "transfer": false,
     "installment": false
 };
 
@@ -7976,10 +8583,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="default_currency"                data-endpoint="POSTapi-v2-merchant-preference-update"
-               value="quis"
+               value="est"
                data-component="body">
     <br>
-<p>Example: <code>quis</code></p>
+<p>Example: <code>est</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>bank</code></b>&nbsp;&nbsp;
@@ -8021,7 +8628,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>qr</code></b>&nbsp;&nbsp;
@@ -8063,7 +8670,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>installment</code></b>&nbsp;&nbsp;
@@ -8110,11 +8717,11 @@ const headers = {
 };
 
 let body = {
-    "bank_name": "ullam",
-    "bank_code": "qui",
-    "account_name": "labore",
-    "account_number": "quidem",
-    "currency": "fugit"
+    "bank_name": "in",
+    "bank_code": "rerum",
+    "account_name": "neque",
+    "account_number": "sapiente",
+    "currency": "qui"
 };
 
 fetch(url, {
@@ -8220,10 +8827,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="bank_name"                data-endpoint="POSTapi-v2-merchant-bank-create"
-               value="ullam"
+               value="in"
                data-component="body">
     <br>
-<p>Example: <code>ullam</code></p>
+<p>Example: <code>in</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>bank_code</code></b>&nbsp;&nbsp;
@@ -8231,10 +8838,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="bank_code"                data-endpoint="POSTapi-v2-merchant-bank-create"
-               value="qui"
+               value="rerum"
                data-component="body">
     <br>
-<p>Example: <code>qui</code></p>
+<p>Example: <code>rerum</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>account_name</code></b>&nbsp;&nbsp;
@@ -8242,10 +8849,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="account_name"                data-endpoint="POSTapi-v2-merchant-bank-create"
-               value="labore"
+               value="neque"
                data-component="body">
     <br>
-<p>Example: <code>labore</code></p>
+<p>Example: <code>neque</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>account_number</code></b>&nbsp;&nbsp;
@@ -8253,10 +8860,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="account_number"                data-endpoint="POSTapi-v2-merchant-bank-create"
-               value="quidem"
+               value="sapiente"
                data-component="body">
     <br>
-<p>Example: <code>quidem</code></p>
+<p>Example: <code>sapiente</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>currency</code></b>&nbsp;&nbsp;
@@ -8264,10 +8871,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="currency"                data-endpoint="POSTapi-v2-merchant-bank-create"
-               value="fugit"
+               value="qui"
                data-component="body">
     <br>
-<p>Example: <code>fugit</code></p>
+<p>Example: <code>qui</code></p>
         </div>
         </form>
 
@@ -8293,13 +8900,13 @@ const headers = {
 };
 
 let body = {
-    "bank_name": "voluptatem",
-    "bank_code": "rem",
-    "account_name": "saepe",
-    "account_number": "sapiente",
-    "currency": "et",
-    "active": false,
-    "status": "natus"
+    "bank_name": "rerum",
+    "bank_code": "ullam",
+    "account_name": "nihil",
+    "account_number": "quaerat",
+    "currency": "corporis",
+    "active": true,
+    "status": "dignissimos"
 };
 
 fetch(url, {
@@ -8405,10 +9012,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="bank_name"                data-endpoint="POSTapi-v2-merchant-bank-update"
-               value="voluptatem"
+               value="rerum"
                data-component="body">
     <br>
-<p>Example: <code>voluptatem</code></p>
+<p>Example: <code>rerum</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>bank_code</code></b>&nbsp;&nbsp;
@@ -8416,10 +9023,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="bank_code"                data-endpoint="POSTapi-v2-merchant-bank-update"
-               value="rem"
+               value="ullam"
                data-component="body">
     <br>
-<p>Example: <code>rem</code></p>
+<p>Example: <code>ullam</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>account_name</code></b>&nbsp;&nbsp;
@@ -8427,10 +9034,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="account_name"                data-endpoint="POSTapi-v2-merchant-bank-update"
-               value="saepe"
+               value="nihil"
                data-component="body">
     <br>
-<p>Example: <code>saepe</code></p>
+<p>Example: <code>nihil</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>account_number</code></b>&nbsp;&nbsp;
@@ -8438,10 +9045,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="account_number"                data-endpoint="POSTapi-v2-merchant-bank-update"
-               value="sapiente"
+               value="quaerat"
                data-component="body">
     <br>
-<p>Example: <code>sapiente</code></p>
+<p>Example: <code>quaerat</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>currency</code></b>&nbsp;&nbsp;
@@ -8449,10 +9056,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="currency"                data-endpoint="POSTapi-v2-merchant-bank-update"
-               value="et"
+               value="corporis"
                data-component="body">
     <br>
-<p>Example: <code>et</code></p>
+<p>Example: <code>corporis</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>active</code></b>&nbsp;&nbsp;
@@ -8473,7 +9080,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>status</code></b>&nbsp;&nbsp;
@@ -8481,10 +9088,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="status"                data-endpoint="POSTapi-v2-merchant-bank-update"
-               value="natus"
+               value="dignissimos"
                data-component="body">
     <br>
-<p>Example: <code>natus</code></p>
+<p>Example: <code>dignissimos</code></p>
         </div>
         </form>
 
@@ -8629,7 +9236,7 @@ const headers = {
 };
 
 let body = {
-    "business_email": "bstamm@example.net"
+    "business_email": "rolando.cummings@example.com"
 };
 
 fetch(url, {
@@ -8739,10 +9346,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="business_email"                data-endpoint="POSTapi-v2-merchant-auth-forgot-password"
-               value="bstamm@example.net"
+               value="rolando.cummings@example.com"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>bstamm@example.net</code></p>
+<p>Must be a valid email address. Example: <code>rolando.cummings@example.com</code></p>
         </div>
         </form>
 
@@ -8768,9 +9375,9 @@ const headers = {
 };
 
 let body = {
-    "business_email": "ernie.hayes@example.com",
-    "code": "7477",
-    "password": "h_`\/x+byf"
+    "business_email": "philpert@example.com",
+    "code": "1625",
+    "password": "D_u&amp;H_.4^"
 };
 
 fetch(url, {
@@ -8880,10 +9487,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="business_email"                data-endpoint="POSTapi-v2-merchant-auth-reset-password"
-               value="ernie.hayes@example.com"
+               value="philpert@example.com"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>ernie.hayes@example.com</code></p>
+<p>Must be a valid email address. Example: <code>philpert@example.com</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>code</code></b>&nbsp;&nbsp;
@@ -8891,10 +9498,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="code"                data-endpoint="POSTapi-v2-merchant-auth-reset-password"
-               value="7477"
+               value="1625"
                data-component="body">
     <br>
-<p>Must match the regex /[0-9]{4}/. Example: <code>7477</code></p>
+<p>Must match the regex /[0-9]{4}/. Example: <code>1625</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -8902,10 +9509,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-v2-merchant-auth-reset-password"
-               value="h_`/x+byf"
+               value="D_u&H_.4^"
                data-component="body">
     <br>
-<p>Example: <code>h_</code>/x+byf`</p>
+<p>Example: <code>D_u&amp;H_.4^</code></p>
         </div>
         </form>
 
@@ -8935,7 +9542,7 @@ const headers = {
 };
 
 let body = {
-    "email": "icummings@example.net"
+    "email": "idella.williamson@example.org"
 };
 
 fetch(url, {
@@ -8966,11 +9573,11 @@ access-control-allow-origin: *
     &quot;status&quot;: true,
     &quot;message&quot;: &quot;You have successfully subscribed to our newsletter&quot;,
     &quot;data&quot;: {
-        &quot;public_id&quot;: &quot;a9aa1216-d920-4603-b62c-039f7fcbda70&quot;,
-        &quot;email&quot;: &quot;icummings@example.net&quot;,
-        &quot;id&quot;: &quot;9bc7bfb6-ce84-4d3b-9687-719e31793acd&quot;,
-        &quot;updated_at&quot;: &quot;2024-04-11T07:56:12.000000Z&quot;,
-        &quot;created_at&quot;: &quot;2024-04-11T07:56:12.000000Z&quot;
+        &quot;public_id&quot;: &quot;da5a952d-29f5-42d8-a171-aa9af1e4401d&quot;,
+        &quot;email&quot;: &quot;idella.williamson@example.org&quot;,
+        &quot;id&quot;: &quot;9bf00a00-1081-463d-af5a-789b31424770&quot;,
+        &quot;updated_at&quot;: &quot;2024-05-01T08:37:02.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2024-05-01T08:37:02.000000Z&quot;
     }
 }</code>
  </pre>
@@ -9051,10 +9658,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v2-newsletter-subscribe"
-               value="icummings@example.net"
+               value="idella.williamson@example.org"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>icummings@example.net</code></p>
+<p>Must be a valid email address. Example: <code>idella.williamson@example.org</code></p>
         </div>
         </form>
 
@@ -9085,13 +9692,14 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('firstname', 'pqoi');
-body.append('middlename', 'zygwqukhrzt');
-body.append('lastname', 'omibqwmolrjr');
-body.append('username', 'nntqpbobltzwxwdbehuc');
-body.append('phone_code', 'un');
-body.append('phone', '2728110844');
-body.append('password', '0bR^{iRS');
+body.append('firstname', 'ma');
+body.append('middlename', 'rwinamkanwa');
+body.append('lastname', 'vrcajt');
+body.append('username', 'oupxvouexf');
+body.append('phone_code', 'baiu');
+body.append('phone', '1610707233');
+body.append('address', 'quod');
+body.append('password', 'dnN"NBrKv!{Nw63');
 body.append('photo', document.querySelector('input[name="photo"]').files[0]);
 
 fetch(url, {
@@ -9104,7 +9712,7 @@ fetch(url, {
 
 <span id="example-responses-POSTapi-v2-onboarding-users-onboarding-register">
             <blockquote>
-            <p>Example response (500):</p>
+            <p>Example response (422):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -9118,614 +9726,12 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;SQLSTATE[42S22]: Column not found: 1054 Unknown column &#039;username&#039; in &#039;where clause&#039; (Connection: mysql, SQL: select count(*) as aggregate from `users` where `username` = nntqpbobltzwxwdbehuc)&quot;,
-    &quot;exception&quot;: &quot;Illuminate\\Database\\QueryException&quot;,
-    &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Database/Connection.php&quot;,
-    &quot;line&quot;: 829,
-    &quot;trace&quot;: [
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Database/Connection.php&quot;,
-            &quot;line&quot;: 783,
-            &quot;function&quot;: &quot;runQueryCallback&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Database\\Connection&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Database/Connection.php&quot;,
-            &quot;line&quot;: 414,
-            &quot;function&quot;: &quot;run&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Database\\Connection&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php&quot;,
-            &quot;line&quot;: 2871,
-            &quot;function&quot;: &quot;select&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Database\\Connection&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php&quot;,
-            &quot;line&quot;: 2860,
-            &quot;function&quot;: &quot;runSelect&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Database\\Query\\Builder&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php&quot;,
-            &quot;line&quot;: 3414,
-            &quot;function&quot;: &quot;Illuminate\\Database\\Query\\{closure}&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Database\\Query\\Builder&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php&quot;,
-            &quot;line&quot;: 2859,
-            &quot;function&quot;: &quot;onceWithColumns&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Database\\Query\\Builder&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php&quot;,
-            &quot;line&quot;: 3341,
-            &quot;function&quot;: &quot;get&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Database\\Query\\Builder&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php&quot;,
-            &quot;line&quot;: 3269,
-            &quot;function&quot;: &quot;aggregate&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Database\\Query\\Builder&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Validation/DatabasePresenceVerifier.php&quot;,
-            &quot;line&quot;: 54,
-            &quot;function&quot;: &quot;count&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Database\\Query\\Builder&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Validation/Concerns/ValidatesAttributes.php&quot;,
-            &quot;line&quot;: 948,
-            &quot;function&quot;: &quot;getCount&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Validation\\DatabasePresenceVerifier&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Validation/Validator.php&quot;,
-            &quot;line&quot;: 658,
-            &quot;function&quot;: &quot;validateUnique&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Validation\\Validator&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Validation/Validator.php&quot;,
-            &quot;line&quot;: 457,
-            &quot;function&quot;: &quot;validateAttribute&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Validation\\Validator&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Validation/Validator.php&quot;,
-            &quot;line&quot;: 492,
-            &quot;function&quot;: &quot;passes&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Validation\\Validator&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Validation/ValidatesWhenResolvedTrait.php&quot;,
-            &quot;line&quot;: 31,
-            &quot;function&quot;: &quot;fails&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Validation\\Validator&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Providers/FormRequestServiceProvider.php&quot;,
-            &quot;line&quot;: 30,
-            &quot;function&quot;: &quot;validateResolved&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\FormRequest&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php&quot;,
-            &quot;line&quot;: 1302,
-            &quot;function&quot;: &quot;Illuminate\\Foundation\\Providers\\{closure}&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Foundation\\Providers\\FormRequestServiceProvider&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php&quot;,
-            &quot;line&quot;: 1266,
-            &quot;function&quot;: &quot;fireCallbackArray&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\Container&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php&quot;,
-            &quot;line&quot;: 1252,
-            &quot;function&quot;: &quot;fireAfterResolvingCallbacks&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\Container&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php&quot;,
-            &quot;line&quot;: 813,
-            &quot;function&quot;: &quot;fireResolvingCallbacks&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\Container&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Application.php&quot;,
-            &quot;line&quot;: 957,
-            &quot;function&quot;: &quot;resolve&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\Container&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php&quot;,
-            &quot;line&quot;: 731,
-            &quot;function&quot;: &quot;resolve&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Foundation\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Application.php&quot;,
-            &quot;line&quot;: 942,
-            &quot;function&quot;: &quot;make&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\Container&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/ResolvesRouteDependencies.php&quot;,
-            &quot;line&quot;: 85,
-            &quot;function&quot;: &quot;make&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Foundation\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/ResolvesRouteDependencies.php&quot;,
-            &quot;line&quot;: 50,
-            &quot;function&quot;: &quot;transformDependency&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Routing\\ControllerDispatcher&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/ResolvesRouteDependencies.php&quot;,
-            &quot;line&quot;: 29,
-            &quot;function&quot;: &quot;resolveMethodDependencies&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Routing\\ControllerDispatcher&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php&quot;,
-            &quot;line&quot;: 59,
-            &quot;function&quot;: &quot;resolveClassMethodDependencies&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Routing\\ControllerDispatcher&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php&quot;,
-            &quot;line&quot;: 40,
-            &quot;function&quot;: &quot;resolveParameters&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Routing\\ControllerDispatcher&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Route.php&quot;,
-            &quot;line&quot;: 259,
-            &quot;function&quot;: &quot;dispatch&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Routing\\ControllerDispatcher&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Route.php&quot;,
-            &quot;line&quot;: 205,
-            &quot;function&quot;: &quot;runController&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Routing\\Route&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
-            &quot;line&quot;: 806,
-            &quot;function&quot;: &quot;run&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Routing\\Route&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
-            &quot;line&quot;: 144,
-            &quot;function&quot;: &quot;Illuminate\\Routing\\{closure}&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php&quot;,
-            &quot;line&quot;: 50,
-            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
-            &quot;line&quot;: 183,
-            &quot;function&quot;: &quot;handle&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\SubstituteBindings&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php&quot;,
-            &quot;line&quot;: 159,
-            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php&quot;,
-            &quot;line&quot;: 125,
-            &quot;function&quot;: &quot;handleRequest&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\ThrottleRequests&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php&quot;,
-            &quot;line&quot;: 87,
-            &quot;function&quot;: &quot;handleRequestUsingNamedLimiter&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\ThrottleRequests&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
-            &quot;line&quot;: 183,
-            &quot;function&quot;: &quot;handle&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\ThrottleRequests&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
-            &quot;line&quot;: 119,
-            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
-            &quot;line&quot;: 805,
-            &quot;function&quot;: &quot;then&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
-            &quot;line&quot;: 784,
-            &quot;function&quot;: &quot;runRouteWithinStack&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
-            &quot;line&quot;: 748,
-            &quot;function&quot;: &quot;runRoute&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
-            &quot;line&quot;: 737,
-            &quot;function&quot;: &quot;dispatchToRoute&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php&quot;,
-            &quot;line&quot;: 200,
-            &quot;function&quot;: &quot;dispatch&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
-            &quot;line&quot;: 144,
-            &quot;function&quot;: &quot;Illuminate\\Foundation\\Http\\{closure}&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php&quot;,
-            &quot;line&quot;: 21,
-            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php&quot;,
-            &quot;line&quot;: 31,
-            &quot;function&quot;: &quot;handle&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
-            &quot;line&quot;: 183,
-            &quot;function&quot;: &quot;handle&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php&quot;,
-            &quot;line&quot;: 21,
-            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php&quot;,
-            &quot;line&quot;: 40,
-            &quot;function&quot;: &quot;handle&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
-            &quot;line&quot;: 183,
-            &quot;function&quot;: &quot;handle&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TrimStrings&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php&quot;,
-            &quot;line&quot;: 27,
-            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
-            &quot;line&quot;: 183,
-            &quot;function&quot;: &quot;handle&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php&quot;,
-            &quot;line&quot;: 99,
-            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
-            &quot;line&quot;: 183,
-            &quot;function&quot;: &quot;handle&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php&quot;,
-            &quot;line&quot;: 62,
-            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
-            &quot;line&quot;: 183,
-            &quot;function&quot;: &quot;handle&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Http\\Middleware\\HandleCors&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php&quot;,
-            &quot;line&quot;: 39,
-            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
-            &quot;line&quot;: 183,
-            &quot;function&quot;: &quot;handle&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Http\\Middleware\\TrustProxies&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
-            &quot;line&quot;: 119,
-            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php&quot;,
-            &quot;line&quot;: 175,
-            &quot;function&quot;: &quot;then&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php&quot;,
-            &quot;line&quot;: 144,
-            &quot;function&quot;: &quot;sendRequestThroughRouter&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
-            &quot;line&quot;: 300,
-            &quot;function&quot;: &quot;handle&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
-            &quot;line&quot;: 288,
-            &quot;function&quot;: &quot;callLaravelOrLumenRoute&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
-            &quot;line&quot;: 91,
-            &quot;function&quot;: &quot;makeApiCall&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
-            &quot;line&quot;: 44,
-            &quot;function&quot;: &quot;makeResponseCall&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
-            &quot;line&quot;: 35,
-            &quot;function&quot;: &quot;makeResponseCallIfConditionsPass&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php&quot;,
-            &quot;line&quot;: 236,
-            &quot;function&quot;: &quot;__invoke&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php&quot;,
-            &quot;line&quot;: 163,
-            &quot;function&quot;: &quot;iterateThroughStrategies&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php&quot;,
-            &quot;line&quot;: 95,
-            &quot;function&quot;: &quot;fetchResponses&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php&quot;,
-            &quot;line&quot;: 125,
-            &quot;function&quot;: &quot;processRoute&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php&quot;,
-            &quot;line&quot;: 72,
-            &quot;function&quot;: &quot;extractEndpointsInfoFromLaravelApp&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php&quot;,
-            &quot;line&quot;: 50,
-            &quot;function&quot;: &quot;extractEndpointsInfoAndWriteToDisk&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/Commands/GenerateDocumentation.php&quot;,
-            &quot;line&quot;: 53,
-            &quot;function&quot;: &quot;get&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php&quot;,
-            &quot;line&quot;: 36,
-            &quot;function&quot;: &quot;handle&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Commands\\GenerateDocumentation&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Container/Util.php&quot;,
-            &quot;line&quot;: 41,
-            &quot;function&quot;: &quot;Illuminate\\Container\\{closure}&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
-            &quot;type&quot;: &quot;::&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php&quot;,
-            &quot;line&quot;: 93,
-            &quot;function&quot;: &quot;unwrapIfClosure&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\Util&quot;,
-            &quot;type&quot;: &quot;::&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php&quot;,
-            &quot;line&quot;: 35,
-            &quot;function&quot;: &quot;callBoundMethod&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
-            &quot;type&quot;: &quot;::&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php&quot;,
-            &quot;line&quot;: 662,
-            &quot;function&quot;: &quot;call&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
-            &quot;type&quot;: &quot;::&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Console/Command.php&quot;,
-            &quot;line&quot;: 211,
-            &quot;function&quot;: &quot;call&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\Container&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/symfony/console/Command/Command.php&quot;,
-            &quot;line&quot;: 326,
-            &quot;function&quot;: &quot;execute&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Console/Command.php&quot;,
-            &quot;line&quot;: 180,
-            &quot;function&quot;: &quot;run&quot;,
-            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Command\\Command&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/symfony/console/Application.php&quot;,
-            &quot;line&quot;: 1096,
-            &quot;function&quot;: &quot;run&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/symfony/console/Application.php&quot;,
-            &quot;line&quot;: 324,
-            &quot;function&quot;: &quot;doRunCommand&quot;,
-            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/symfony/console/Application.php&quot;,
-            &quot;line&quot;: 175,
-            &quot;function&quot;: &quot;doRun&quot;,
-            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php&quot;,
-            &quot;line&quot;: 201,
-            &quot;function&quot;: &quot;run&quot;,
-            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/artisan&quot;,
-            &quot;line&quot;: 35,
-            &quot;function&quot;: &quot;handle&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Foundation\\Console\\Kernel&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        }
-    ]
+    &quot;message&quot;: &quot;The phone code format is invalid.&quot;,
+    &quot;errors&quot;: {
+        &quot;phone_code&quot;: [
+            &quot;The phone code format is invalid.&quot;
+        ]
+    }
 }</code>
  </pre>
     </span>
@@ -9805,10 +9811,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="firstname"                data-endpoint="POSTapi-v2-onboarding-users-onboarding-register"
-               value="pqoi"
+               value="ma"
                data-component="body">
     <br>
-<p>Must not be greater than 20 characters. Example: <code>pqoi</code></p>
+<p>Must not be greater than 20 characters. Example: <code>ma</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>middlename</code></b>&nbsp;&nbsp;
@@ -9816,10 +9822,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="middlename"                data-endpoint="POSTapi-v2-onboarding-users-onboarding-register"
-               value="zygwqukhrzt"
+               value="rwinamkanwa"
                data-component="body">
     <br>
-<p>Must not be greater than 20 characters. Example: <code>zygwqukhrzt</code></p>
+<p>Must not be greater than 20 characters. Example: <code>rwinamkanwa</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>lastname</code></b>&nbsp;&nbsp;
@@ -9827,10 +9833,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="lastname"                data-endpoint="POSTapi-v2-onboarding-users-onboarding-register"
-               value="omibqwmolrjr"
+               value="vrcajt"
                data-component="body">
     <br>
-<p>Must not be greater than 20 characters. Example: <code>omibqwmolrjr</code></p>
+<p>Must not be greater than 20 characters. Example: <code>vrcajt</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>username</code></b>&nbsp;&nbsp;
@@ -9838,10 +9844,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="username"                data-endpoint="POSTapi-v2-onboarding-users-onboarding-register"
-               value="nntqpbobltzwxwdbehuc"
+               value="oupxvouexf"
                data-component="body">
     <br>
-<p>Must not be greater than 20 characters. Example: <code>nntqpbobltzwxwdbehuc</code></p>
+<p>Must not be greater than 20 characters. Example: <code>oupxvouexf</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>phone_code</code></b>&nbsp;&nbsp;
@@ -9849,10 +9855,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="phone_code"                data-endpoint="POSTapi-v2-onboarding-users-onboarding-register"
-               value="un"
+               value="baiu"
                data-component="body">
     <br>
-<p>Must match the regex /^+[0-9]+$/. Must not be greater than 4 characters. Example: <code>un</code></p>
+<p>Must match the regex /^+[0-9]+$/. Must not be greater than 4 characters. Example: <code>baiu</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>phone</code></b>&nbsp;&nbsp;
@@ -9860,10 +9866,21 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="phone"                data-endpoint="POSTapi-v2-onboarding-users-onboarding-register"
-               value="2728110844"
+               value="1610707233"
                data-component="body">
     <br>
-<p>Must match the regex /[0-9]{10}$/. Example: <code>2728110844</code></p>
+<p>Must match the regex /[0-9]{10}$/. Example: <code>1610707233</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>address</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="address"                data-endpoint="POSTapi-v2-onboarding-users-onboarding-register"
+               value="quod"
+               data-component="body">
+    <br>
+<p>Example: <code>quod</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>photo</code></b>&nbsp;&nbsp;
@@ -9874,18 +9891,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phpophxxO</code></p>
+<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/private/var/folders/s2/jrd1l2714c1d5msll4ly2sth0000gn/T/phpwGsl7H</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
- &nbsp;
+<i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-v2-onboarding-users-onboarding-register"
-               value="0bR^{iRS"
+               value="dnN"NBrKv!{Nw63"
                data-component="body">
     <br>
-<p>Must match the regex /^(?=.<em>[A-Z])(?=.</em>\d)(?=.*[^A-Za-z0-9])[\w\W]{8,}$/. Must be at least 8 characters. Example: <code>0bR^{iRS</code></p>
+<p>Must match the regex /^(?=.<em>[A-Z])(?=.</em>\d)(?=.*[^A-Za-z0-9])[\w\W]{8,}$/. Must be at least 8 characters. Example: <code>dnN"NBrKv!{Nw63</code></p>
         </div>
         </form>
 
@@ -9911,7 +9928,7 @@ const headers = {
 };
 
 let body = {
-    "email": "antonetta.ratke@example.net"
+    "email": "daisy.funk@example.com"
 };
 
 fetch(url, {
@@ -10021,10 +10038,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v2-onboarding-users-onboarding-email"
-               value="antonetta.ratke@example.net"
+               value="daisy.funk@example.com"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>antonetta.ratke@example.net</code></p>
+<p>Must be a valid email address. Example: <code>daisy.funk@example.com</code></p>
         </div>
         </form>
 
@@ -10050,7 +10067,7 @@ const headers = {
 };
 
 let body = {
-    "username": "wiqoqrkxth"
+    "username": "izhonbjjhybiyciqridl"
 };
 
 fetch(url, {
@@ -10063,7 +10080,7 @@ fetch(url, {
 
 <span id="example-responses-POSTapi-v2-onboarding-users-onboarding-username">
             <blockquote>
-            <p>Example response (500):</p>
+            <p>Example response (200):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -10077,516 +10094,10 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;SQLSTATE[42S22]: Column not found: 1054 Unknown column &#039;username&#039; in &#039;where clause&#039; (Connection: mysql, SQL: select * from `users` where `username` = wiqoqrkxth and `users`.`deleted_at` is null limit 1)&quot;,
-    &quot;exception&quot;: &quot;Illuminate\\Database\\QueryException&quot;,
-    &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Database/Connection.php&quot;,
-    &quot;line&quot;: 829,
-    &quot;trace&quot;: [
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Database/Connection.php&quot;,
-            &quot;line&quot;: 783,
-            &quot;function&quot;: &quot;runQueryCallback&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Database\\Connection&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Database/Connection.php&quot;,
-            &quot;line&quot;: 414,
-            &quot;function&quot;: &quot;run&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Database\\Connection&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php&quot;,
-            &quot;line&quot;: 2871,
-            &quot;function&quot;: &quot;select&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Database\\Connection&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php&quot;,
-            &quot;line&quot;: 2860,
-            &quot;function&quot;: &quot;runSelect&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Database\\Query\\Builder&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php&quot;,
-            &quot;line&quot;: 3414,
-            &quot;function&quot;: &quot;Illuminate\\Database\\Query\\{closure}&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Database\\Query\\Builder&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php&quot;,
-            &quot;line&quot;: 2859,
-            &quot;function&quot;: &quot;onceWithColumns&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Database\\Query\\Builder&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php&quot;,
-            &quot;line&quot;: 738,
-            &quot;function&quot;: &quot;get&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Database\\Query\\Builder&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php&quot;,
-            &quot;line&quot;: 722,
-            &quot;function&quot;: &quot;getModels&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Database\\Eloquent\\Builder&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Database/Concerns/BuildsQueries.php&quot;,
-            &quot;line&quot;: 333,
-            &quot;function&quot;: &quot;get&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Database\\Eloquent\\Builder&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/app/Repositories/V2/Onboarding/Registration/RegistrationRepository.php&quot;,
-            &quot;line&quot;: 77,
-            &quot;function&quot;: &quot;first&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Database\\Eloquent\\Builder&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/app/Http/Controllers/Api/V2/Onboarding/Registration/RegistrationController.php&quot;,
-            &quot;line&quot;: 70,
-            &quot;function&quot;: &quot;verifyUsername&quot;,
-            &quot;class&quot;: &quot;App\\Repositories\\V2\\Onboarding\\Registration\\RegistrationRepository&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Controller.php&quot;,
-            &quot;line&quot;: 54,
-            &quot;function&quot;: &quot;verifyUsername&quot;,
-            &quot;class&quot;: &quot;App\\Http\\Controllers\\Api\\V2\\Onboarding\\Registration\\RegistrationController&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php&quot;,
-            &quot;line&quot;: 43,
-            &quot;function&quot;: &quot;callAction&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Routing\\Controller&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Route.php&quot;,
-            &quot;line&quot;: 259,
-            &quot;function&quot;: &quot;dispatch&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Routing\\ControllerDispatcher&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Route.php&quot;,
-            &quot;line&quot;: 205,
-            &quot;function&quot;: &quot;runController&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Routing\\Route&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
-            &quot;line&quot;: 806,
-            &quot;function&quot;: &quot;run&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Routing\\Route&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
-            &quot;line&quot;: 144,
-            &quot;function&quot;: &quot;Illuminate\\Routing\\{closure}&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php&quot;,
-            &quot;line&quot;: 50,
-            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
-            &quot;line&quot;: 183,
-            &quot;function&quot;: &quot;handle&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\SubstituteBindings&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php&quot;,
-            &quot;line&quot;: 159,
-            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php&quot;,
-            &quot;line&quot;: 125,
-            &quot;function&quot;: &quot;handleRequest&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\ThrottleRequests&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php&quot;,
-            &quot;line&quot;: 87,
-            &quot;function&quot;: &quot;handleRequestUsingNamedLimiter&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\ThrottleRequests&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
-            &quot;line&quot;: 183,
-            &quot;function&quot;: &quot;handle&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\ThrottleRequests&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
-            &quot;line&quot;: 119,
-            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
-            &quot;line&quot;: 805,
-            &quot;function&quot;: &quot;then&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
-            &quot;line&quot;: 784,
-            &quot;function&quot;: &quot;runRouteWithinStack&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
-            &quot;line&quot;: 748,
-            &quot;function&quot;: &quot;runRoute&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
-            &quot;line&quot;: 737,
-            &quot;function&quot;: &quot;dispatchToRoute&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php&quot;,
-            &quot;line&quot;: 200,
-            &quot;function&quot;: &quot;dispatch&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
-            &quot;line&quot;: 144,
-            &quot;function&quot;: &quot;Illuminate\\Foundation\\Http\\{closure}&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php&quot;,
-            &quot;line&quot;: 21,
-            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php&quot;,
-            &quot;line&quot;: 31,
-            &quot;function&quot;: &quot;handle&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
-            &quot;line&quot;: 183,
-            &quot;function&quot;: &quot;handle&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php&quot;,
-            &quot;line&quot;: 21,
-            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php&quot;,
-            &quot;line&quot;: 40,
-            &quot;function&quot;: &quot;handle&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
-            &quot;line&quot;: 183,
-            &quot;function&quot;: &quot;handle&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TrimStrings&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php&quot;,
-            &quot;line&quot;: 27,
-            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
-            &quot;line&quot;: 183,
-            &quot;function&quot;: &quot;handle&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php&quot;,
-            &quot;line&quot;: 99,
-            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
-            &quot;line&quot;: 183,
-            &quot;function&quot;: &quot;handle&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php&quot;,
-            &quot;line&quot;: 62,
-            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
-            &quot;line&quot;: 183,
-            &quot;function&quot;: &quot;handle&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Http\\Middleware\\HandleCors&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php&quot;,
-            &quot;line&quot;: 39,
-            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
-            &quot;line&quot;: 183,
-            &quot;function&quot;: &quot;handle&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Http\\Middleware\\TrustProxies&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
-            &quot;line&quot;: 119,
-            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php&quot;,
-            &quot;line&quot;: 175,
-            &quot;function&quot;: &quot;then&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php&quot;,
-            &quot;line&quot;: 144,
-            &quot;function&quot;: &quot;sendRequestThroughRouter&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
-            &quot;line&quot;: 300,
-            &quot;function&quot;: &quot;handle&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
-            &quot;line&quot;: 288,
-            &quot;function&quot;: &quot;callLaravelOrLumenRoute&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
-            &quot;line&quot;: 91,
-            &quot;function&quot;: &quot;makeApiCall&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
-            &quot;line&quot;: 44,
-            &quot;function&quot;: &quot;makeResponseCall&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
-            &quot;line&quot;: 35,
-            &quot;function&quot;: &quot;makeResponseCallIfConditionsPass&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php&quot;,
-            &quot;line&quot;: 236,
-            &quot;function&quot;: &quot;__invoke&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php&quot;,
-            &quot;line&quot;: 163,
-            &quot;function&quot;: &quot;iterateThroughStrategies&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php&quot;,
-            &quot;line&quot;: 95,
-            &quot;function&quot;: &quot;fetchResponses&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php&quot;,
-            &quot;line&quot;: 125,
-            &quot;function&quot;: &quot;processRoute&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php&quot;,
-            &quot;line&quot;: 72,
-            &quot;function&quot;: &quot;extractEndpointsInfoFromLaravelApp&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php&quot;,
-            &quot;line&quot;: 50,
-            &quot;function&quot;: &quot;extractEndpointsInfoAndWriteToDisk&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/Commands/GenerateDocumentation.php&quot;,
-            &quot;line&quot;: 53,
-            &quot;function&quot;: &quot;get&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php&quot;,
-            &quot;line&quot;: 36,
-            &quot;function&quot;: &quot;handle&quot;,
-            &quot;class&quot;: &quot;Knuckles\\Scribe\\Commands\\GenerateDocumentation&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Container/Util.php&quot;,
-            &quot;line&quot;: 41,
-            &quot;function&quot;: &quot;Illuminate\\Container\\{closure}&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
-            &quot;type&quot;: &quot;::&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php&quot;,
-            &quot;line&quot;: 93,
-            &quot;function&quot;: &quot;unwrapIfClosure&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\Util&quot;,
-            &quot;type&quot;: &quot;::&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php&quot;,
-            &quot;line&quot;: 35,
-            &quot;function&quot;: &quot;callBoundMethod&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
-            &quot;type&quot;: &quot;::&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php&quot;,
-            &quot;line&quot;: 662,
-            &quot;function&quot;: &quot;call&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
-            &quot;type&quot;: &quot;::&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Console/Command.php&quot;,
-            &quot;line&quot;: 211,
-            &quot;function&quot;: &quot;call&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Container\\Container&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/symfony/console/Command/Command.php&quot;,
-            &quot;line&quot;: 326,
-            &quot;function&quot;: &quot;execute&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Console/Command.php&quot;,
-            &quot;line&quot;: 180,
-            &quot;function&quot;: &quot;run&quot;,
-            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Command\\Command&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/symfony/console/Application.php&quot;,
-            &quot;line&quot;: 1096,
-            &quot;function&quot;: &quot;run&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/symfony/console/Application.php&quot;,
-            &quot;line&quot;: 324,
-            &quot;function&quot;: &quot;doRunCommand&quot;,
-            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/symfony/console/Application.php&quot;,
-            &quot;line&quot;: 175,
-            &quot;function&quot;: &quot;doRun&quot;,
-            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php&quot;,
-            &quot;line&quot;: 201,
-            &quot;function&quot;: &quot;run&quot;,
-            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        },
-        {
-            &quot;file&quot;: &quot;/var/www/artisan&quot;,
-            &quot;line&quot;: 35,
-            &quot;function&quot;: &quot;handle&quot;,
-            &quot;class&quot;: &quot;Illuminate\\Foundation\\Console\\Kernel&quot;,
-            &quot;type&quot;: &quot;-&gt;&quot;
-        }
-    ]
+    &quot;code&quot;: &quot;00&quot;,
+    &quot;status&quot;: true,
+    &quot;message&quot;: &quot;izhonbjjhybiyciqridl is available&quot;,
+    &quot;data&quot;: null
 }</code>
  </pre>
     </span>
@@ -10666,10 +10177,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="username"                data-endpoint="POSTapi-v2-onboarding-users-onboarding-username"
-               value="wiqoqrkxth"
+               value="izhonbjjhybiyciqridl"
                data-component="body">
     <br>
-<p>Must not be greater than 20 characters. Example: <code>wiqoqrkxth</code></p>
+<p>Must not be greater than 20 characters. Example: <code>izhonbjjhybiyciqridl</code></p>
         </div>
         </form>
 
@@ -10695,13 +10206,14 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('firstname', 'v');
-body.append('middlename', 'rqsljabbtgjezrovgjls');
-body.append('lastname', 'rymepzuobkwdloc');
-body.append('username', 'rhyyx');
-body.append('phone_code', 'fqz');
-body.append('phone', '6824623365');
-body.append('password', 'KpLt8UHE^M&gt;B');
+body.append('firstname', 'yinxumluyvrghqkcmd');
+body.append('middlename', 'xpjqnwwbonnqfefgp');
+body.append('lastname', 'qiigstcfiieaekvc');
+body.append('username', 'kbmxbyaa');
+body.append('phone_code', 'a');
+body.append('phone', '1498864586');
+body.append('address', 'delectus');
+body.append('password', 'Z$6Jc&lt;?N{i/Zg`q');
 body.append('photo', document.querySelector('input[name="photo"]').files[0]);
 
 fetch(url, {
@@ -10807,10 +10319,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="firstname"                data-endpoint="POSTapi-v2-account-user-account-update"
-               value="v"
+               value="yinxumluyvrghqkcmd"
                data-component="body">
     <br>
-<p>Must not be greater than 20 characters. Example: <code>v</code></p>
+<p>Must not be greater than 20 characters. Example: <code>yinxumluyvrghqkcmd</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>middlename</code></b>&nbsp;&nbsp;
@@ -10818,10 +10330,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="middlename"                data-endpoint="POSTapi-v2-account-user-account-update"
-               value="rqsljabbtgjezrovgjls"
+               value="xpjqnwwbonnqfefgp"
                data-component="body">
     <br>
-<p>Must not be greater than 20 characters. Example: <code>rqsljabbtgjezrovgjls</code></p>
+<p>Must not be greater than 20 characters. Example: <code>xpjqnwwbonnqfefgp</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>lastname</code></b>&nbsp;&nbsp;
@@ -10829,10 +10341,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="lastname"                data-endpoint="POSTapi-v2-account-user-account-update"
-               value="rymepzuobkwdloc"
+               value="qiigstcfiieaekvc"
                data-component="body">
     <br>
-<p>Must not be greater than 20 characters. Example: <code>rymepzuobkwdloc</code></p>
+<p>Must not be greater than 20 characters. Example: <code>qiigstcfiieaekvc</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>username</code></b>&nbsp;&nbsp;
@@ -10840,10 +10352,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="username"                data-endpoint="POSTapi-v2-account-user-account-update"
-               value="rhyyx"
+               value="kbmxbyaa"
                data-component="body">
     <br>
-<p>Must not be greater than 20 characters. Example: <code>rhyyx</code></p>
+<p>Must not be greater than 20 characters. Example: <code>kbmxbyaa</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>phone_code</code></b>&nbsp;&nbsp;
@@ -10851,10 +10363,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="phone_code"                data-endpoint="POSTapi-v2-account-user-account-update"
-               value="fqz"
+               value="a"
                data-component="body">
     <br>
-<p>Must match the regex /^+[0-9]+$/. Must not be greater than 4 characters. Example: <code>fqz</code></p>
+<p>Must match the regex /^+[0-9]+$/. Must not be greater than 4 characters. Example: <code>a</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>phone</code></b>&nbsp;&nbsp;
@@ -10862,10 +10374,21 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="phone"                data-endpoint="POSTapi-v2-account-user-account-update"
-               value="6824623365"
+               value="1498864586"
                data-component="body">
     <br>
-<p>Must match the regex /[0-9]{10}$/. Example: <code>6824623365</code></p>
+<p>Must match the regex /[0-9]{10}$/. Example: <code>1498864586</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>address</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="address"                data-endpoint="POSTapi-v2-account-user-account-update"
+               value="delectus"
+               data-component="body">
+    <br>
+<p>Example: <code>delectus</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>photo</code></b>&nbsp;&nbsp;
@@ -10876,18 +10399,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/tmp/phppZcWGd</code></p>
+<p>Must be an image. Must not be greater than 2048 kilobytes. Example: <code>/private/var/folders/s2/jrd1l2714c1d5msll4ly2sth0000gn/T/php4WVFeW</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
- &nbsp;
+<i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-v2-account-user-account-update"
-               value="KpLt8UHE^M>B"
+               value="Z$6Jc<?N{i/Zg`q"
                data-component="body">
     <br>
-<p>Must match the regex /^(?=.<em>[A-Z])(?=.</em>\d)(?=.*[^A-Za-z0-9])[\w\W]{8,}$/. Must be at least 8 characters. Example: <code>KpLt8UHE^M&gt;B</code></p>
+<p>Must match the regex /^(?=.<em>[A-Z])(?=.</em>\d)(?=.*[^A-Za-z0-9])[\w\W]{8,}$/. Must be at least 8 characters. Example: <code>Z$6Jc&lt;?N{i/Zg</code>q`</p>
         </div>
         </form>
 
@@ -10938,452 +10461,452 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">{
     &quot;message&quot;: &quot;Undefined array key \&quot;email\&quot;&quot;,
     &quot;exception&quot;: &quot;ErrorException&quot;,
-    &quot;file&quot;: &quot;/var/www/app/Repositories/V2/Onboarding/Verification/VerificationRepository.php&quot;,
+    &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/app/Repositories/V2/Onboarding/Verification/VerificationRepository.php&quot;,
     &quot;line&quot;: 20,
     &quot;trace&quot;: [
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php&quot;,
             &quot;line&quot;: 255,
             &quot;function&quot;: &quot;handleError&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Bootstrap\\HandleExceptions&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/app/Repositories/V2/Onboarding/Verification/VerificationRepository.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/app/Repositories/V2/Onboarding/Verification/VerificationRepository.php&quot;,
             &quot;line&quot;: 20,
             &quot;function&quot;: &quot;Illuminate\\Foundation\\Bootstrap\\{closure}&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Bootstrap\\HandleExceptions&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/app/Http/Controllers/Api/V2/Onboarding/Verification/VerificationController.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/app/Http/Controllers/Api/V2/Onboarding/Verification/VerificationController.php&quot;,
             &quot;line&quot;: 30,
             &quot;function&quot;: &quot;getOtp&quot;,
             &quot;class&quot;: &quot;App\\Repositories\\V2\\Onboarding\\Verification\\VerificationRepository&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Controller.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Controller.php&quot;,
             &quot;line&quot;: 54,
             &quot;function&quot;: &quot;resendOtp&quot;,
             &quot;class&quot;: &quot;App\\Http\\Controllers\\Api\\V2\\Onboarding\\Verification\\VerificationController&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php&quot;,
             &quot;line&quot;: 43,
             &quot;function&quot;: &quot;callAction&quot;,
             &quot;class&quot;: &quot;Illuminate\\Routing\\Controller&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Route.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Route.php&quot;,
             &quot;line&quot;: 259,
             &quot;function&quot;: &quot;dispatch&quot;,
             &quot;class&quot;: &quot;Illuminate\\Routing\\ControllerDispatcher&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Route.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Route.php&quot;,
             &quot;line&quot;: 205,
             &quot;function&quot;: &quot;runController&quot;,
             &quot;class&quot;: &quot;Illuminate\\Routing\\Route&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
             &quot;line&quot;: 806,
             &quot;function&quot;: &quot;run&quot;,
             &quot;class&quot;: &quot;Illuminate\\Routing\\Route&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
             &quot;line&quot;: 144,
             &quot;function&quot;: &quot;Illuminate\\Routing\\{closure}&quot;,
             &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php&quot;,
             &quot;line&quot;: 50,
             &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
             &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
             &quot;line&quot;: 183,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\SubstituteBindings&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php&quot;,
             &quot;line&quot;: 159,
             &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
             &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php&quot;,
             &quot;line&quot;: 125,
             &quot;function&quot;: &quot;handleRequest&quot;,
             &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\ThrottleRequests&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php&quot;,
             &quot;line&quot;: 87,
             &quot;function&quot;: &quot;handleRequestUsingNamedLimiter&quot;,
             &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\ThrottleRequests&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
             &quot;line&quot;: 183,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\ThrottleRequests&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
             &quot;line&quot;: 119,
             &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
             &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
             &quot;line&quot;: 805,
             &quot;function&quot;: &quot;then&quot;,
             &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
             &quot;line&quot;: 784,
             &quot;function&quot;: &quot;runRouteWithinStack&quot;,
             &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
             &quot;line&quot;: 748,
             &quot;function&quot;: &quot;runRoute&quot;,
             &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
             &quot;line&quot;: 737,
             &quot;function&quot;: &quot;dispatchToRoute&quot;,
             &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php&quot;,
             &quot;line&quot;: 200,
             &quot;function&quot;: &quot;dispatch&quot;,
             &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
             &quot;line&quot;: 144,
             &quot;function&quot;: &quot;Illuminate\\Foundation\\Http\\{closure}&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php&quot;,
             &quot;line&quot;: 21,
             &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
             &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php&quot;,
             &quot;line&quot;: 31,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
             &quot;line&quot;: 183,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php&quot;,
             &quot;line&quot;: 21,
             &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
             &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php&quot;,
             &quot;line&quot;: 40,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
             &quot;line&quot;: 183,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TrimStrings&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php&quot;,
             &quot;line&quot;: 27,
             &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
             &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
             &quot;line&quot;: 183,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php&quot;,
             &quot;line&quot;: 99,
             &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
             &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
             &quot;line&quot;: 183,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php&quot;,
             &quot;line&quot;: 62,
             &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
             &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
             &quot;line&quot;: 183,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Http\\Middleware\\HandleCors&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php&quot;,
             &quot;line&quot;: 39,
             &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
             &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
             &quot;line&quot;: 183,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Http\\Middleware\\TrustProxies&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
             &quot;line&quot;: 119,
             &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
             &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php&quot;,
             &quot;line&quot;: 175,
             &quot;function&quot;: &quot;then&quot;,
             &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php&quot;,
             &quot;line&quot;: 144,
             &quot;function&quot;: &quot;sendRequestThroughRouter&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
             &quot;line&quot;: 300,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
             &quot;line&quot;: 288,
             &quot;function&quot;: &quot;callLaravelOrLumenRoute&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
             &quot;line&quot;: 91,
             &quot;function&quot;: &quot;makeApiCall&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
             &quot;line&quot;: 44,
             &quot;function&quot;: &quot;makeResponseCall&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
             &quot;line&quot;: 35,
             &quot;function&quot;: &quot;makeResponseCallIfConditionsPass&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php&quot;,
             &quot;line&quot;: 236,
             &quot;function&quot;: &quot;__invoke&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php&quot;,
             &quot;line&quot;: 163,
             &quot;function&quot;: &quot;iterateThroughStrategies&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php&quot;,
             &quot;line&quot;: 95,
             &quot;function&quot;: &quot;fetchResponses&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php&quot;,
             &quot;line&quot;: 125,
             &quot;function&quot;: &quot;processRoute&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php&quot;,
             &quot;line&quot;: 72,
             &quot;function&quot;: &quot;extractEndpointsInfoFromLaravelApp&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php&quot;,
             &quot;line&quot;: 50,
             &quot;function&quot;: &quot;extractEndpointsInfoAndWriteToDisk&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/Commands/GenerateDocumentation.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Commands/GenerateDocumentation.php&quot;,
             &quot;line&quot;: 53,
             &quot;function&quot;: &quot;get&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php&quot;,
             &quot;line&quot;: 36,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\Commands\\GenerateDocumentation&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Container/Util.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Container/Util.php&quot;,
             &quot;line&quot;: 41,
             &quot;function&quot;: &quot;Illuminate\\Container\\{closure}&quot;,
             &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
             &quot;type&quot;: &quot;::&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php&quot;,
             &quot;line&quot;: 93,
             &quot;function&quot;: &quot;unwrapIfClosure&quot;,
             &quot;class&quot;: &quot;Illuminate\\Container\\Util&quot;,
             &quot;type&quot;: &quot;::&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php&quot;,
             &quot;line&quot;: 35,
             &quot;function&quot;: &quot;callBoundMethod&quot;,
             &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
             &quot;type&quot;: &quot;::&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Container/Container.php&quot;,
             &quot;line&quot;: 662,
             &quot;function&quot;: &quot;call&quot;,
             &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
             &quot;type&quot;: &quot;::&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Console/Command.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Console/Command.php&quot;,
             &quot;line&quot;: 211,
             &quot;function&quot;: &quot;call&quot;,
             &quot;class&quot;: &quot;Illuminate\\Container\\Container&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/symfony/console/Command/Command.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/symfony/console/Command/Command.php&quot;,
             &quot;line&quot;: 326,
             &quot;function&quot;: &quot;execute&quot;,
             &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Console/Command.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Console/Command.php&quot;,
             &quot;line&quot;: 180,
             &quot;function&quot;: &quot;run&quot;,
             &quot;class&quot;: &quot;Symfony\\Component\\Console\\Command\\Command&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/symfony/console/Application.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/symfony/console/Application.php&quot;,
             &quot;line&quot;: 1096,
             &quot;function&quot;: &quot;run&quot;,
             &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/symfony/console/Application.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/symfony/console/Application.php&quot;,
             &quot;line&quot;: 324,
             &quot;function&quot;: &quot;doRunCommand&quot;,
             &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/symfony/console/Application.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/symfony/console/Application.php&quot;,
             &quot;line&quot;: 175,
             &quot;function&quot;: &quot;doRun&quot;,
             &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php&quot;,
             &quot;line&quot;: 201,
             &quot;function&quot;: &quot;run&quot;,
             &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/artisan&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/artisan&quot;,
             &quot;line&quot;: 35,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Console\\Kernel&quot;,
@@ -11486,8 +11009,8 @@ const headers = {
 };
 
 let body = {
-    "email": "oernser@example.org",
-    "code": "3801"
+    "email": "jamarcus.corkery@example.org",
+    "code": "3456"
 };
 
 fetch(url, {
@@ -11599,10 +11122,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v2-onboarding-users-onboarding-verifications-verify-email-otp"
-               value="oernser@example.org"
+               value="jamarcus.corkery@example.org"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>oernser@example.org</code></p>
+<p>Must be a valid email address. Example: <code>jamarcus.corkery@example.org</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>code</code></b>&nbsp;&nbsp;
@@ -11610,10 +11133,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="code"                data-endpoint="POSTapi-v2-onboarding-users-onboarding-verifications-verify-email-otp"
-               value="3801"
+               value="3456"
                data-component="body">
     <br>
-<p>Must match the regex /[0-9]{4}/. Example: <code>3801</code></p>
+<p>Must match the regex /[0-9]{4}/. Example: <code>3456</code></p>
         </div>
         </form>
 
@@ -11663,445 +11186,445 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">{
     &quot;message&quot;: &quot;Attempt to read property \&quot;phone_verified_at\&quot; on null&quot;,
     &quot;exception&quot;: &quot;ErrorException&quot;,
-    &quot;file&quot;: &quot;/var/www/app/Http/Controllers/Api/V2/Onboarding/Verification/VerificationController.php&quot;,
+    &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/app/Http/Controllers/Api/V2/Onboarding/Verification/VerificationController.php&quot;,
     &quot;line&quot;: 52,
     &quot;trace&quot;: [
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php&quot;,
             &quot;line&quot;: 255,
             &quot;function&quot;: &quot;handleError&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Bootstrap\\HandleExceptions&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/app/Http/Controllers/Api/V2/Onboarding/Verification/VerificationController.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/app/Http/Controllers/Api/V2/Onboarding/Verification/VerificationController.php&quot;,
             &quot;line&quot;: 52,
             &quot;function&quot;: &quot;Illuminate\\Foundation\\Bootstrap\\{closure}&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Bootstrap\\HandleExceptions&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Controller.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Controller.php&quot;,
             &quot;line&quot;: 54,
             &quot;function&quot;: &quot;getPhoneOtp&quot;,
             &quot;class&quot;: &quot;App\\Http\\Controllers\\Api\\V2\\Onboarding\\Verification\\VerificationController&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php&quot;,
             &quot;line&quot;: 43,
             &quot;function&quot;: &quot;callAction&quot;,
             &quot;class&quot;: &quot;Illuminate\\Routing\\Controller&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Route.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Route.php&quot;,
             &quot;line&quot;: 259,
             &quot;function&quot;: &quot;dispatch&quot;,
             &quot;class&quot;: &quot;Illuminate\\Routing\\ControllerDispatcher&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Route.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Route.php&quot;,
             &quot;line&quot;: 205,
             &quot;function&quot;: &quot;runController&quot;,
             &quot;class&quot;: &quot;Illuminate\\Routing\\Route&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
             &quot;line&quot;: 806,
             &quot;function&quot;: &quot;run&quot;,
             &quot;class&quot;: &quot;Illuminate\\Routing\\Route&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
             &quot;line&quot;: 144,
             &quot;function&quot;: &quot;Illuminate\\Routing\\{closure}&quot;,
             &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php&quot;,
             &quot;line&quot;: 50,
             &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
             &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
             &quot;line&quot;: 183,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\SubstituteBindings&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php&quot;,
             &quot;line&quot;: 159,
             &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
             &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php&quot;,
             &quot;line&quot;: 125,
             &quot;function&quot;: &quot;handleRequest&quot;,
             &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\ThrottleRequests&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php&quot;,
             &quot;line&quot;: 87,
             &quot;function&quot;: &quot;handleRequestUsingNamedLimiter&quot;,
             &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\ThrottleRequests&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
             &quot;line&quot;: 183,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\ThrottleRequests&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
             &quot;line&quot;: 119,
             &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
             &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
             &quot;line&quot;: 805,
             &quot;function&quot;: &quot;then&quot;,
             &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
             &quot;line&quot;: 784,
             &quot;function&quot;: &quot;runRouteWithinStack&quot;,
             &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
             &quot;line&quot;: 748,
             &quot;function&quot;: &quot;runRoute&quot;,
             &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
             &quot;line&quot;: 737,
             &quot;function&quot;: &quot;dispatchToRoute&quot;,
             &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php&quot;,
             &quot;line&quot;: 200,
             &quot;function&quot;: &quot;dispatch&quot;,
             &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
             &quot;line&quot;: 144,
             &quot;function&quot;: &quot;Illuminate\\Foundation\\Http\\{closure}&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php&quot;,
             &quot;line&quot;: 21,
             &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
             &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php&quot;,
             &quot;line&quot;: 31,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
             &quot;line&quot;: 183,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php&quot;,
             &quot;line&quot;: 21,
             &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
             &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php&quot;,
             &quot;line&quot;: 40,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
             &quot;line&quot;: 183,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TrimStrings&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php&quot;,
             &quot;line&quot;: 27,
             &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
             &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
             &quot;line&quot;: 183,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php&quot;,
             &quot;line&quot;: 99,
             &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
             &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
             &quot;line&quot;: 183,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php&quot;,
             &quot;line&quot;: 62,
             &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
             &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
             &quot;line&quot;: 183,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Http\\Middleware\\HandleCors&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php&quot;,
             &quot;line&quot;: 39,
             &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
             &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
             &quot;line&quot;: 183,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Http\\Middleware\\TrustProxies&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
             &quot;line&quot;: 119,
             &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
             &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php&quot;,
             &quot;line&quot;: 175,
             &quot;function&quot;: &quot;then&quot;,
             &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php&quot;,
             &quot;line&quot;: 144,
             &quot;function&quot;: &quot;sendRequestThroughRouter&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
             &quot;line&quot;: 300,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
             &quot;line&quot;: 288,
             &quot;function&quot;: &quot;callLaravelOrLumenRoute&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
             &quot;line&quot;: 91,
             &quot;function&quot;: &quot;makeApiCall&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
             &quot;line&quot;: 44,
             &quot;function&quot;: &quot;makeResponseCall&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
             &quot;line&quot;: 35,
             &quot;function&quot;: &quot;makeResponseCallIfConditionsPass&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php&quot;,
             &quot;line&quot;: 236,
             &quot;function&quot;: &quot;__invoke&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php&quot;,
             &quot;line&quot;: 163,
             &quot;function&quot;: &quot;iterateThroughStrategies&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php&quot;,
             &quot;line&quot;: 95,
             &quot;function&quot;: &quot;fetchResponses&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php&quot;,
             &quot;line&quot;: 125,
             &quot;function&quot;: &quot;processRoute&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php&quot;,
             &quot;line&quot;: 72,
             &quot;function&quot;: &quot;extractEndpointsInfoFromLaravelApp&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php&quot;,
             &quot;line&quot;: 50,
             &quot;function&quot;: &quot;extractEndpointsInfoAndWriteToDisk&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/Commands/GenerateDocumentation.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Commands/GenerateDocumentation.php&quot;,
             &quot;line&quot;: 53,
             &quot;function&quot;: &quot;get&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php&quot;,
             &quot;line&quot;: 36,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\Commands\\GenerateDocumentation&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Container/Util.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Container/Util.php&quot;,
             &quot;line&quot;: 41,
             &quot;function&quot;: &quot;Illuminate\\Container\\{closure}&quot;,
             &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
             &quot;type&quot;: &quot;::&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php&quot;,
             &quot;line&quot;: 93,
             &quot;function&quot;: &quot;unwrapIfClosure&quot;,
             &quot;class&quot;: &quot;Illuminate\\Container\\Util&quot;,
             &quot;type&quot;: &quot;::&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php&quot;,
             &quot;line&quot;: 35,
             &quot;function&quot;: &quot;callBoundMethod&quot;,
             &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
             &quot;type&quot;: &quot;::&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Container/Container.php&quot;,
             &quot;line&quot;: 662,
             &quot;function&quot;: &quot;call&quot;,
             &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
             &quot;type&quot;: &quot;::&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Console/Command.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Console/Command.php&quot;,
             &quot;line&quot;: 211,
             &quot;function&quot;: &quot;call&quot;,
             &quot;class&quot;: &quot;Illuminate\\Container\\Container&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/symfony/console/Command/Command.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/symfony/console/Command/Command.php&quot;,
             &quot;line&quot;: 326,
             &quot;function&quot;: &quot;execute&quot;,
             &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Console/Command.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Console/Command.php&quot;,
             &quot;line&quot;: 180,
             &quot;function&quot;: &quot;run&quot;,
             &quot;class&quot;: &quot;Symfony\\Component\\Console\\Command\\Command&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/symfony/console/Application.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/symfony/console/Application.php&quot;,
             &quot;line&quot;: 1096,
             &quot;function&quot;: &quot;run&quot;,
             &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/symfony/console/Application.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/symfony/console/Application.php&quot;,
             &quot;line&quot;: 324,
             &quot;function&quot;: &quot;doRunCommand&quot;,
             &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/symfony/console/Application.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/symfony/console/Application.php&quot;,
             &quot;line&quot;: 175,
             &quot;function&quot;: &quot;doRun&quot;,
             &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php&quot;,
             &quot;line&quot;: 201,
             &quot;function&quot;: &quot;run&quot;,
             &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/artisan&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/artisan&quot;,
             &quot;line&quot;: 35,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Console\\Kernel&quot;,
@@ -12204,7 +11727,7 @@ const headers = {
 };
 
 let body = {
-    "code": "4398"
+    "code": "7693"
 };
 
 fetch(url, {
@@ -12233,452 +11756,452 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">{
     &quot;message&quot;: &quot;Attempt to read property \&quot;email\&quot; on null&quot;,
     &quot;exception&quot;: &quot;ErrorException&quot;,
-    &quot;file&quot;: &quot;/var/www/app/Repositories/V2/Onboarding/Verification/VerificationRepository.php&quot;,
-    &quot;line&quot;: 57,
+    &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/app/Repositories/V2/Onboarding/Verification/VerificationRepository.php&quot;,
+    &quot;line&quot;: 56,
     &quot;trace&quot;: [
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php&quot;,
             &quot;line&quot;: 255,
             &quot;function&quot;: &quot;handleError&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Bootstrap\\HandleExceptions&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/app/Repositories/V2/Onboarding/Verification/VerificationRepository.php&quot;,
-            &quot;line&quot;: 57,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/app/Repositories/V2/Onboarding/Verification/VerificationRepository.php&quot;,
+            &quot;line&quot;: 56,
             &quot;function&quot;: &quot;Illuminate\\Foundation\\Bootstrap\\{closure}&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Bootstrap\\HandleExceptions&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/app/Http/Controllers/Api/V2/Onboarding/Verification/VerificationController.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/app/Http/Controllers/Api/V2/Onboarding/Verification/VerificationController.php&quot;,
             &quot;line&quot;: 73,
             &quot;function&quot;: &quot;verifyPhone&quot;,
             &quot;class&quot;: &quot;App\\Repositories\\V2\\Onboarding\\Verification\\VerificationRepository&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Controller.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Controller.php&quot;,
             &quot;line&quot;: 54,
             &quot;function&quot;: &quot;verifyPhone&quot;,
             &quot;class&quot;: &quot;App\\Http\\Controllers\\Api\\V2\\Onboarding\\Verification\\VerificationController&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php&quot;,
             &quot;line&quot;: 43,
             &quot;function&quot;: &quot;callAction&quot;,
             &quot;class&quot;: &quot;Illuminate\\Routing\\Controller&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Route.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Route.php&quot;,
             &quot;line&quot;: 259,
             &quot;function&quot;: &quot;dispatch&quot;,
             &quot;class&quot;: &quot;Illuminate\\Routing\\ControllerDispatcher&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Route.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Route.php&quot;,
             &quot;line&quot;: 205,
             &quot;function&quot;: &quot;runController&quot;,
             &quot;class&quot;: &quot;Illuminate\\Routing\\Route&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
             &quot;line&quot;: 806,
             &quot;function&quot;: &quot;run&quot;,
             &quot;class&quot;: &quot;Illuminate\\Routing\\Route&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
             &quot;line&quot;: 144,
             &quot;function&quot;: &quot;Illuminate\\Routing\\{closure}&quot;,
             &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php&quot;,
             &quot;line&quot;: 50,
             &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
             &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
             &quot;line&quot;: 183,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\SubstituteBindings&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php&quot;,
             &quot;line&quot;: 159,
             &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
             &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php&quot;,
             &quot;line&quot;: 125,
             &quot;function&quot;: &quot;handleRequest&quot;,
             &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\ThrottleRequests&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php&quot;,
             &quot;line&quot;: 87,
             &quot;function&quot;: &quot;handleRequestUsingNamedLimiter&quot;,
             &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\ThrottleRequests&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
             &quot;line&quot;: 183,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\ThrottleRequests&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
             &quot;line&quot;: 119,
             &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
             &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
             &quot;line&quot;: 805,
             &quot;function&quot;: &quot;then&quot;,
             &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
             &quot;line&quot;: 784,
             &quot;function&quot;: &quot;runRouteWithinStack&quot;,
             &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
             &quot;line&quot;: 748,
             &quot;function&quot;: &quot;runRoute&quot;,
             &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
             &quot;line&quot;: 737,
             &quot;function&quot;: &quot;dispatchToRoute&quot;,
             &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php&quot;,
             &quot;line&quot;: 200,
             &quot;function&quot;: &quot;dispatch&quot;,
             &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
             &quot;line&quot;: 144,
             &quot;function&quot;: &quot;Illuminate\\Foundation\\Http\\{closure}&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php&quot;,
             &quot;line&quot;: 21,
             &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
             &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php&quot;,
             &quot;line&quot;: 31,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
             &quot;line&quot;: 183,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php&quot;,
             &quot;line&quot;: 21,
             &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
             &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php&quot;,
             &quot;line&quot;: 40,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
             &quot;line&quot;: 183,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TrimStrings&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php&quot;,
             &quot;line&quot;: 27,
             &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
             &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
             &quot;line&quot;: 183,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php&quot;,
             &quot;line&quot;: 99,
             &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
             &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
             &quot;line&quot;: 183,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php&quot;,
             &quot;line&quot;: 62,
             &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
             &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
             &quot;line&quot;: 183,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Http\\Middleware\\HandleCors&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php&quot;,
             &quot;line&quot;: 39,
             &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
             &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
             &quot;line&quot;: 183,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Http\\Middleware\\TrustProxies&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
             &quot;line&quot;: 119,
             &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
             &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php&quot;,
             &quot;line&quot;: 175,
             &quot;function&quot;: &quot;then&quot;,
             &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php&quot;,
             &quot;line&quot;: 144,
             &quot;function&quot;: &quot;sendRequestThroughRouter&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
             &quot;line&quot;: 300,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
             &quot;line&quot;: 288,
             &quot;function&quot;: &quot;callLaravelOrLumenRoute&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
             &quot;line&quot;: 91,
             &quot;function&quot;: &quot;makeApiCall&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
             &quot;line&quot;: 44,
             &quot;function&quot;: &quot;makeResponseCall&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
             &quot;line&quot;: 35,
             &quot;function&quot;: &quot;makeResponseCallIfConditionsPass&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php&quot;,
             &quot;line&quot;: 236,
             &quot;function&quot;: &quot;__invoke&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php&quot;,
             &quot;line&quot;: 163,
             &quot;function&quot;: &quot;iterateThroughStrategies&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php&quot;,
             &quot;line&quot;: 95,
             &quot;function&quot;: &quot;fetchResponses&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php&quot;,
             &quot;line&quot;: 125,
             &quot;function&quot;: &quot;processRoute&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php&quot;,
             &quot;line&quot;: 72,
             &quot;function&quot;: &quot;extractEndpointsInfoFromLaravelApp&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php&quot;,
             &quot;line&quot;: 50,
             &quot;function&quot;: &quot;extractEndpointsInfoAndWriteToDisk&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/knuckleswtf/scribe/src/Commands/GenerateDocumentation.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/knuckleswtf/scribe/src/Commands/GenerateDocumentation.php&quot;,
             &quot;line&quot;: 53,
             &quot;function&quot;: &quot;get&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php&quot;,
             &quot;line&quot;: 36,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Knuckles\\Scribe\\Commands\\GenerateDocumentation&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Container/Util.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Container/Util.php&quot;,
             &quot;line&quot;: 41,
             &quot;function&quot;: &quot;Illuminate\\Container\\{closure}&quot;,
             &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
             &quot;type&quot;: &quot;::&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php&quot;,
             &quot;line&quot;: 93,
             &quot;function&quot;: &quot;unwrapIfClosure&quot;,
             &quot;class&quot;: &quot;Illuminate\\Container\\Util&quot;,
             &quot;type&quot;: &quot;::&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php&quot;,
             &quot;line&quot;: 35,
             &quot;function&quot;: &quot;callBoundMethod&quot;,
             &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
             &quot;type&quot;: &quot;::&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Container/Container.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Container/Container.php&quot;,
             &quot;line&quot;: 662,
             &quot;function&quot;: &quot;call&quot;,
             &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
             &quot;type&quot;: &quot;::&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Console/Command.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Console/Command.php&quot;,
             &quot;line&quot;: 211,
             &quot;function&quot;: &quot;call&quot;,
             &quot;class&quot;: &quot;Illuminate\\Container\\Container&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/symfony/console/Command/Command.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/symfony/console/Command/Command.php&quot;,
             &quot;line&quot;: 326,
             &quot;function&quot;: &quot;execute&quot;,
             &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Console/Command.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Console/Command.php&quot;,
             &quot;line&quot;: 180,
             &quot;function&quot;: &quot;run&quot;,
             &quot;class&quot;: &quot;Symfony\\Component\\Console\\Command\\Command&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/symfony/console/Application.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/symfony/console/Application.php&quot;,
             &quot;line&quot;: 1096,
             &quot;function&quot;: &quot;run&quot;,
             &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/symfony/console/Application.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/symfony/console/Application.php&quot;,
             &quot;line&quot;: 324,
             &quot;function&quot;: &quot;doRunCommand&quot;,
             &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/symfony/console/Application.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/symfony/console/Application.php&quot;,
             &quot;line&quot;: 175,
             &quot;function&quot;: &quot;doRun&quot;,
             &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php&quot;,
             &quot;line&quot;: 201,
             &quot;function&quot;: &quot;run&quot;,
             &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
             &quot;type&quot;: &quot;-&gt;&quot;
         },
         {
-            &quot;file&quot;: &quot;/var/www/artisan&quot;,
+            &quot;file&quot;: &quot;/Applications/MAMP/htdocs/visaronigeria/artisan&quot;,
             &quot;line&quot;: 35,
             &quot;function&quot;: &quot;handle&quot;,
             &quot;class&quot;: &quot;Illuminate\\Foundation\\Console\\Kernel&quot;,
@@ -12764,10 +12287,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="code"                data-endpoint="POSTapi-v2-onboarding-users-onboarding-verifications-verify-phone-otp"
-               value="4398"
+               value="7693"
                data-component="body">
     <br>
-<p>Must match the regex /[0-9]{4}/. Example: <code>4398</code></p>
+<p>Must match the regex /[0-9]{4}/. Example: <code>7693</code></p>
         </div>
         </form>
 

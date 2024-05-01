@@ -50,13 +50,16 @@ RUN composer install
 # Set permissions (adjust as needed)
 RUN chown -R www-data:www-data storage bootstrap/cache
 
+
+
+
 # Run Laravel Artisan commands
-RUN php artisan config:cache \
+RUN composer dump-autoload \
+    && php artisan config:cache \
     && php artisan route:clear \
     && php artisan cache:clear \
     && php artisan config:cache \
-    && composer require cloudinary-labs/cloudinary-laravel\
-    && composer require tymon/jwt-auth
-
+    && composer require cloudinary-labs/cloudinary-laravel \
+    && composer require tymon/jwt-auth 
 
 CMD ["php-fpm"]
