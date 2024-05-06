@@ -44,11 +44,11 @@
     </span>
 </a>
 <div class="tocify-wrapper">
-    
+
             <div class="lang-selector">
                                             <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
                     </div>
-    
+
     <div class="search">
         <input type="text" class="search" id="input-search" placeholder="Search">
     </div>
@@ -387,7 +387,7 @@
 
         <h1 id="authentication">Authentication</h1>
 
-    
+
 
                                 <h2 id="authentication-POSTapi-v2-auth-user-login">Login</h2>
 
@@ -966,7 +966,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
                 <h1 id="banks">Banks</h1>
 
-    
+
 
                                 <h2 id="banks-GETapi-v2-account-banking-banks">Get all bank accounts</h2>
 
@@ -2524,7 +2524,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
                 <h1 id="commerce">Commerce</h1>
 
-    
+
 
                         <h2 id="commerce-products">Products</h2>
                                                     <h2 id="commerce-GETapi-v2-commerce-products">GET api/v2/commerce/products</h2>
@@ -3361,7 +3361,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
                 <h1 id="endpoints">Endpoints</h1>
 
-    
+
 
                                 <h2 id="endpoints-POSTapi-v2-account-user-settings-change-email">POST api/v2/account/user/settings/change-email</h2>
 
@@ -6815,7 +6815,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
                 <h1 id="merchant">Merchant</h1>
 
-    
+
 
                         <h2 id="merchant-onboarding">Onboarding</h2>
                                                     <h2 id="merchant-POSTapi-v2-merchant-onboarding-email">Sends an Otp to the merchant&#039;s Mail</h2>
@@ -9518,7 +9518,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
                 <h1 id="newsletter">Newsletter</h1>
 
-    
+
 
                                 <h2 id="newsletter-POSTapi-v2-newsletter-subscribe">Subscribe to newsletter</h2>
 
@@ -9667,7 +9667,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
                 <h1 id="user-onboarding">User Onboarding</h1>
 
-    
+
 
                         <h2 id="user-onboarding-registration">Registration</h2>
                                                     <h2 id="user-onboarding-POSTapi-v2-onboarding-users-onboarding-register">Register</h2>
@@ -10407,7 +10407,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-v2-account-user-account-update"
-               value="Z$6Jc<?N{i/Zg`q"
+               value=""
                data-component="body">
     <br>
 <p>Must match the regex /^(?=.<em>[A-Z])(?=.</em>\d)(?=.*[^A-Za-z0-9])[\w\W]{8,}$/. Must be at least 8 characters. Example: <code>Z$6Jc&lt;?N{i/Zg</code>q`</p>
@@ -12294,9 +12294,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-            
 
-        
+
+
     </div>
     <div class="dark-box">
                     <div class="lang-selector">
