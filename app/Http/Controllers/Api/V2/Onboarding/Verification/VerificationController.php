@@ -74,6 +74,19 @@ class VerificationController extends Controller
         return $verify;
     }
 
+    public function kycwebhook(Request $request)
+    {
+        $webhook_authenticity = $this->verifyWebhookSignature();
+        if(!$webhook_authenticity){
+            return respondError(400, '01', 'Invalid Credentials and Origin');
+        }
+        $data = $request->all();
+    }
 
+    public function verifyWebhookSignature(){
+        return true;
+        // $signature = $_SERVER['HTTP_X_KYC_SIGNATURE'];
+        // $payload = file_get_contents('php://input');
+    }
 
 }
