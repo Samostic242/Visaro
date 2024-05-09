@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Integrations\Firebase\Requests\SendNotificationRequest;
+use App\Http\Integrations\Trips\FcmConnection;
 use App\Models\BookedFlight;
 use App\Models\Country;
 use App\Models\Flight;
@@ -14,6 +16,8 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Okolaa\TermiiPHP\Termii;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
+
+
 
 
 
@@ -491,6 +495,25 @@ if (!function_exists('getFileType')) {
                     'status' => true,
                     'message' => $message
             ];
+        }
+    }
+
+    if(!function_exists('sendPushNotification')){
+        function sendPushNotification($title, $message, $userId, $tag){
+            $user = User::find($userId);
+            $token = $user->device_token;
+            $data = [
+                "title" => $title,
+                "body" => $message,
+                "image" => asset('img/visaro_icon.png')
+            ];
+            $sendFcm = new FcmConnection();
+            $send = $sendFcm->send(new SendNotificationRequest($data, $token, $tag));
+            $sendFcm->onError(function (Response $resp) {
+                Log::info('Send Notification request', [$resp]);
+                return respondError('01', "Attempt to send notification failed", $resp);
+            });
+            return $send;
         }
     }
 }

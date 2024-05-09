@@ -80,9 +80,11 @@ return [
         ],
 
     ],
-    // 'cloudinary' => [
+    'firebase' => [
+        'base_url' => env('FIREBASE_BASE_URL'),
+        'server_key' => env('FIREBASE_SERVER_KEY'),
+    ]
 
-    // ]
 
 
 ];
