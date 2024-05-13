@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Integrations\Firebase;
+namespace App\Http\Integrations\Prembly;
 
 use Saloon\Http\Connector;
 use Saloon\Contracts\Authenticator;
 use Saloon\Traits\Plugins\AcceptsJson;
 use Saloon\Http\Auth\TokenAuthenticator;
 
-class FcmConnection extends Connector
+class PremblyConnector extends Connector
 {
     use AcceptsJson;
 
@@ -16,7 +16,7 @@ class FcmConnection extends Connector
      */
     public function resolveBaseUrl(): string
     {
-        return config('services.firebase.base_url');
+        return config('services.prembly.base_url');
     }
 
 
@@ -26,9 +26,10 @@ class FcmConnection extends Connector
     protected function defaultHeaders(): array
     {
         return [
-            "Authorization" => "Key " . config('services.firebase.server_key'),
-            "Content-Type" => "application/json",
-            "Accept" => "application/json"
+            "x-api-key" => config('services.prembly.api_key'),
+            "app-id" => config('services.prembly.app_id'),
+            'Accept' => 'application/json',
+            'Content-Type' => 'application/json',
         ];
     }
 

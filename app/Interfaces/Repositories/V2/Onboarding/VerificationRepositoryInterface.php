@@ -8,4 +8,5 @@ interface VerificationRepositoryInterface
     public function verifyEmail(array $data);
     public function getPhoneOtp(array $data);
     public function verifyPhone(array $data);
+    public function verifyBvn(array $data);
 }

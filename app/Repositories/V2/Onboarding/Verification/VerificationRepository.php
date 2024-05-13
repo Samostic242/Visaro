@@ -3,11 +3,14 @@
 namespace App\Repositories\V2\Onboarding\Verification;
 
 
+use App\Http\Integrations\Prembly\PremblyConnector;
+use App\Http\Integrations\Prembly\Requests\BvnVerificationRequest;
 use App\Interfaces\Repositories\V2\Onboarding\VerificationRepositoryInterface;
 use App\Jobs\V2\Wallet\CreateWalletJob;
 use App\Mail\V2\Verification\VerificationMail;
 use App\Models\User;
 use Carbon\Carbon;
+use Saloon\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Tymon\JWTAuth\Facades\JWTAuth;
@@ -62,6 +65,35 @@ class VerificationRepository implements VerificationRepositoryInterface
         $user->phone_verified_at = Carbon::now();
         $user->save();
         return respondSuccess('Your phone number has been verified successfully');
+    }
+
+    /**
+     * Verify the user BVN
+     */
+    public function verifyBvn(array $data)
+    {
+        $user = auth()->user();
+        if($user->bvn_verified == true){
+            return respondError(400, "01", 'Your Bvn Has already been verified');
+        }
+        $bvn = $data['bvn_number'];
+        $bvn_service = new PremblyConnector();
+        $response = $bvn_service->send(new BvnVerificationRequest($bvn));
+        $response->onError(function (Response $resp) {
+            // Log::info('token request', [$resp]);
+            return respondError(400, "Attempting to verify BVn failed", $resp);
+        });
+        $response_object = (object)$response->json();
+        if($response_object->status == true && $response_object->response_code == '00'){
+            $user->bvn = $bvn ?? $user->bvn;
+            $user->bvn_verified = true;
+            $user->bvn_verification_data = $response ?? null;
+            $user->save();
+            return respondSuccess('BVN Verified Successfully');
+        }
+        // return $response_object;
+        return respondError(400, "01", $response_object->message);
+
     }
 
 }

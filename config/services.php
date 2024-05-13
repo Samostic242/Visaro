@@ -83,8 +83,13 @@ return [
     'firebase' => [
         'base_url' => env('FIREBASE_BASE_URL'),
         'server_key' => env('FIREBASE_SERVER_KEY'),
-    ]
+    ],
 
+    'prembly' => [
+        'base_url' => env('PREMBLY_BASE_URL'),
+        'api_key' => env('PREMBLY_API_KEY'),
+        'app_id' => env('PREMBLY_APP_ID')
+    ]
 
 
 ];

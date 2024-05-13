@@ -15,6 +15,8 @@ Route::prefix('users')->group(function () {
             Route::post('verify-email-otp', [VerificationController::class, 'verifyOtp']);
             Route::get('get-phone-otp', [VerificationController::class, 'getPhoneOtp']);
             Route::post('verify-phone-otp', [VerificationController::class, 'verifyPhone']);
+            Route::post('verify-bvn', [VerificationController::class, 'verifyBvn']);
+
 
 
         });
