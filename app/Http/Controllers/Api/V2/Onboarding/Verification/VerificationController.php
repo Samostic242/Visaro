@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\V2\Onboarding\Verification;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V2\Onboarding\Verification\VerificationRequest;
+use App\Http\Requests\V2\Onboarding\Verification\VerifyBvnRequest;
 use App\Http\Requests\V2\Onboarding\Verification\VerifyPhoneRequest;
 use App\Interfaces\Repositories\V2\Onboarding\VerificationRepositoryInterface;
 use Illuminate\Http\Request;
@@ -74,6 +75,33 @@ class VerificationController extends Controller
         return $verify;
     }
 
+    public function kycwebhook(Request $request)
+    {
+        $webhook_authenticity = $this->verifyWebhookSignature();
+        if(!$webhook_authenticity){
+            return respondError(400, '01', 'Invalid Credentials and Origin');
+        }
+        $data = $request->all();
+    }
 
+    public function verifyBvn(VerifyBvnRequest $request)
+    {
+        $validated_data = $request->validated();
+        $verify = $this->verificationRepository->verifyBvn($validated_data);
+        return $verify;
+    }
+
+   /*  public function verifyBank(VerifyBankRequest $request)
+    {
+        $validated_data = $request->validated();
+        $verify = $this->verificationRepository->verifyBank($validated_data);
+        return $verify;
+    } */
+
+    public function verifyWebhookSignature(){
+        return true;
+        // $signature = $_SERVER['HTTP_X_KYC_SIGNATURE'];
+        // $payload = file_get_contents('php://input');
+    }
 
 }

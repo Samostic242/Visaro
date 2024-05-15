@@ -1,17 +1,25 @@
 <?php
 
+use App\Http\Integrations\Firebase\Requests\SendNotificationRequest;
+use App\Http\Integrations\Trips\FcmConnection;
 use App\Models\BookedFlight;
 use App\Models\Country;
 use App\Models\Flight;
 use App\Models\User;
+use App\Models\UserSecurity;
 use App\Models\Wallet;
+use Carbon\Carbon;
+use Cloudinary\Api\Upload\UploadApi;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Okolaa\TermiiPHP\Termii;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
-use Cloudinary\Api\Upload\UploadApi;
+
+
+
+
 
 
 if (!function_exists('uuid')) {
@@ -444,5 +452,68 @@ if (!function_exists('getFileType')) {
             $fileType = 'Unknown';
         }
         return $fileType;
+    }
+
+    if (!function_exists('validatePin')) {
+        function validatePin(string $pin, string $user_id) {
+            $user = UserSecurity::where('user_id', $user_id)->first();
+            if($user->next_available_trial != null && Carbon::now() < Carbon::parse($user->next_available_trial))
+            {
+                $message = 'You have exceeded the maximum number of attempts, Please try again at ' . $user->next_available_trial;
+                return [
+                    'status' => false,
+                    'message' => $message
+                ];
+            }
+            // Check if the pin is correct
+            if(!Hash::check($pin, $user->pin)){
+                $user->invalid_pin_count = $user->invalid_pin_count + 1;
+                $user->save();
+                if($user->invalid_pin_count >= 4){
+
+                    $user->next_available_trial = Carbon::now()->addMinutes(60) ?? null;
+                    $user->invalid_pin_count = 0;
+                    $user->active = false ?? null;
+                    $user->save();
+                    $message = 'You have now exceeded the maximum number of attempts, Please try again later at ' . $user->next_available_trial;
+                    return [
+                    'status' => false,
+                    'message' => $message
+                ];
+                }
+                $message = 'Incorrect pin, '. 4 - intval($user->invalid_pin_count) . ' attempts remaining.';
+                return [
+                    'status' => false,
+                    'message' => $message
+                ];
+            }
+            $user->invalid_pin_count = 0;
+            $user->active = true;
+            $user->save();
+            $message = 'Successful';
+            return [
+                    'status' => true,
+                    'message' => $message
+            ];
+        }
+    }
+
+    if(!function_exists('sendPushNotification')){
+        function sendPushNotification($title, $message, $userId, $tag){
+            $user = User::find($userId);
+            $token = $user->device_token;
+            $data = [
+                "title" => $title,
+                "body" => $message,
+                "image" => asset('img/visaro_icon.png')
+            ];
+            $sendFcm = new FcmConnection();
+            $send = $sendFcm->send(new SendNotificationRequest($data, $token, $tag));
+            $sendFcm->onError(function (Response $resp) {
+                Log::info('Send Notification request', [$resp]);
+                return respondError('01', "Attempt to send notification failed", $resp);
+            });
+            return $send;
+        }
     }
 }

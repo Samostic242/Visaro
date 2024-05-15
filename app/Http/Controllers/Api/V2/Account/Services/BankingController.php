@@ -29,12 +29,19 @@ class BankingController extends Controller
     public function addBeneficiary(BeneficiaryRequest $request)
     {
         $validated_data = $request->validated();
+        $validate_pin = validatePin($validated_data['pin'], auth()->id());
+        // return $validate_pin;
+        if($validate_pin['status'] == false){
+            return respondError(401, '01', $validate_pin['message']);
+
+        }else{
         if (!$created = $this->bankingRepository->createBeneficiary($validated_data)) {
             return respondError(400, '01', 'Error Creating the beneficiary');
         }
         return respondSuccess('Beneficiary created succesfully', new BeneficiaryResource($created));
 
     }
+}
 
     /**
      * Get all beneficiaries

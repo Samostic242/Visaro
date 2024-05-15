@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\V2\Account\Services\Banking;
+namespace App\Http\Requests\V2\Onboarding\Verification;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class BeneficiaryRequest extends FormRequest
+class VerifyBvnRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,10 +22,7 @@ class BeneficiaryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'account_name' => ['string', 'required'],
-            'account_number' => ['string', 'required'],
-            'bank_name' => ['string', 'required'],
-            'pin' => ['required', 'string']
+            'bvn_number' => ['required', 'string']
         ];
     }
 }

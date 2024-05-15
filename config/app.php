@@ -195,6 +195,8 @@ return [
         App\Providers\CustomProviders\V2\Commerce\SkuServiceProvider::class,
         App\Providers\CustomProviders\V2\Commerce\OrderServiceProvider::class,
         App\Providers\CustomProviders\V2\Commerce\StoreFrontServiceProvider::class,
+        App\Providers\CustomProviders\V2\SecurityServiceProvider::class,
+
 
 
 
