@@ -4,14 +4,13 @@ use App\Http\Controllers\Api\V1\Services\Aviation\BookNewFlightController;
 use App\Http\Controllers\Api\V1\Services\Aviation\FlightPaymentController;
 use App\Http\Controllers\Api\V1\Services\Aviation\TripsAuthorizationController;
 use Illuminate\Support\Facades\Route;
-
+Route::get('/fetch-balance', [TripsAuthorizationController::class, 'fetchBalance'])->name('fetch.balance');
 Route::get('/widget/initialize', [TripsAuthorizationController::class, 'getWidgetAuthorizationToken'])->name('aviation.authorize');
 Route::prefix('/flights')->group(function () {
     Route::prefix('/bookings')->group(function () {
         Route::get('/', [BookNewFlightController::class, 'fetchUserFlightBookings'])->name('aviation.flights.booking.fetch');
         Route::get('/{id}', [BookNewFlightController::class, 'fetchFlightBooking'])->name('aviation.flights.booking.find');
         Route::post('book/{id}', [TripsAuthorizationController::class, 'bookFlight'])->name('aviation.flights.book');
-
         Route::post('/submit', [BookNewFlightController::class, 'submitNewFlightBookingDataFromWidget'])->name('aviation.flights.booking.submit');
         Route::prefix('/{id}')->group(function () {
             Route::post('/confirm', [BookNewFlightController::class, 'confirmBooking'])->name('aviation.flights.booking.confirm');

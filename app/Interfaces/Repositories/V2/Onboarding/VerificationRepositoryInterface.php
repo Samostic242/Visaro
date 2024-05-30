@@ -9,4 +9,6 @@ interface VerificationRepositoryInterface
     public function getPhoneOtp(array $data);
     public function verifyPhone(array $data);
     public function verifyBvn(array $data);
+    public function fetchKYCTiers();
+
 }

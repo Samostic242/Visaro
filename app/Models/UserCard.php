@@ -8,31 +8,30 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-
-class Wallet extends Model
+class UserCard extends Model
 {
     use HasFactory;
-    use SoftDeletes;
     use HasUuids;
+    use SoftDeletes;
 
     protected $fillable = [
-        'status',
-        'active',
-        'ledger_id',
-        'ledger_balance',
-        'balance',
-        'provider_id',
-        'owner',
-        'owner_id'
+        'user_id',
+        'last_four_digit',
+        'transaction_reference',
+        'last_charged',
+        'value',
+        'authorization_code',
+        'card_type',
+        'exp_month',
+        'exp_year',
+        'signature',
+        'allow_charge',
     ];
 
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'owner_id');
+        return $this->belongsTo(User::class);
     }
-
-    public function ledger(): BelongsTo
-    {
-        return $this->belongsTo(Ledger::class);
-    }
+    
 }
+

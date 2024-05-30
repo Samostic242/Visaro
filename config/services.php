@@ -89,7 +89,12 @@ return [
         'base_url' => env('PREMBLY_BASE_URL'),
         'api_key' => env('PREMBLY_API_KEY'),
         'app_id' => env('PREMBLY_APP_ID')
-    ]
+    ],
+    'paystack' => [
+        'base_url' => env('PAYSTACK_BASE_URL'),
+        'secret_key' => env('PAYSTACK_SECRET_KEY'),
+        'public_key' => env('PAYSTACK_PUBLIC_KEY'),
+    ],
 
 
 ];

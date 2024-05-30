@@ -39,7 +39,7 @@ class RegistrationRepository implements RegistrationRepositoryInterface
         if ($email_exists) {
             if ($email_exists->email_verified_at == null) {
                 Mail::send(new VerificationMail($data['email'], $otp));
-                return respondSuccess('Complete the process now, An email containing your OTP has been sent to your email address againi');
+                return respondSuccess('Complete the process now, An email containing your OTP has been sent to your email address again');
             }
             return respondError(400, '01', 'This email has already been taken');
         }

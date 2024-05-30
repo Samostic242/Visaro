@@ -6,10 +6,15 @@ use Saloon\Http\Connector;
 use Saloon\Contracts\Authenticator;
 use Saloon\Traits\Plugins\AcceptsJson;
 use Saloon\Http\Auth\TokenAuthenticator;
-
+use Saloon\Traits\Plugins\HasTimeout;
 class TripsConnection extends Connector
 {
     use AcceptsJson;
+    use HasTimeout;
+
+    protected int $connectTimeout = 60;
+
+    protected int $requestTimeout = 120;
 
     /**
      * The Base URL of the API

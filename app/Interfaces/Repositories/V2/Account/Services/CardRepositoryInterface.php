@@ -12,5 +12,7 @@ interface CardRepositoryInterface
 
     public function findById(string $id);
 
+    public function updateCardStatus(array $data);
+
     public function getCard();
 }

@@ -257,9 +257,40 @@ if (!function_exists('bookFlightOnTrips')) {
         }
     }
 }
+
+// if (!function_exists('saveSuccessfulBookedFlightOnTrips')) {
+//     function saveSuccessfulBookedFlightOnTrips($booking)
+//     {
+//         try {
+//             $user = auth()->user();
+//             $flight = BookedFlight::where('user_id', $user->id)
+//                 ->where('flight_booking_id', $booking->id)
+//                 ->where('type', $booking->type)
+//                 ->first();
+//             if (!$flight) {
+//                 $flight = new BookedFlight();
+//                 $flight->user_id = $user->id;
+//                 $flight->public_id = uuid();
+//                 $flight->flight_booking_id = $booking->id;
+//                 $flight->type = $booking->type;
+//                 $flight->session = $booking->session;
+//                 $flight->save();
+//                 return $flight;
+//             }
+//         } catch (\Throwable $th) {
+//             Log::error("Error saving booking - {$th->getMessage()}", [
+//                 'booking' => $booking,
+//                 'response' => $th->getMessage(),
+//             ]);
+//             return false;
+//         }
+//     }
+// }
+
 if (!function_exists('saveBookedFlightOnTrips')) {
     function saveBookedFlightOnTrips($booking, $data)
     {
+        // $data = json_decode($data, true);
         try {
             $user = auth()->user();
             $flight = BookedFlight::where('user_id', $user->id)
@@ -514,6 +545,19 @@ if (!function_exists('getFileType')) {
                 return respondError('01', "Attempt to send notification failed", $resp);
             });
             return $send;
+        }
+    }
+
+    if(!function_exists('verifyPaystackWebhook')){
+        function verifyPaystackWebhook($signature, $payload){
+            $secret = config('services.paystack.secret_key');
+
+            $computedSignature = hash_hmac('sha512', $payload, $secret);
+            if(!hash_equals($signature, $computedSignature)){
+                return false;
+            }else{
+                return true;
+            }
         }
     }
 }

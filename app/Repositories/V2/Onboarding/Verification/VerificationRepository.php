@@ -8,7 +8,9 @@ use App\Http\Integrations\Prembly\Requests\BvnVerificationRequest;
 use App\Interfaces\Repositories\V2\Onboarding\VerificationRepositoryInterface;
 use App\Jobs\V2\Wallet\CreateWalletJob;
 use App\Mail\V2\Verification\VerificationMail;
+use App\Models\KYCTier;
 use App\Models\User;
+use App\Models\UserCompliance;
 use Carbon\Carbon;
 use Saloon\Http\Response;
 use Illuminate\Support\Facades\Auth;
@@ -39,6 +41,7 @@ class VerificationRepository implements VerificationRepositoryInterface
         $user->save();
         Auth::login($user);
         $token = JWTAuth::fromUser($user);
+        $this->createCompliance($user->toArray());
         dispatch(new CreateWalletJob($user));
         $userdata = ['token' => $token];
         return respondSuccess('You have successfully verified your email address', $userdata);
@@ -96,4 +99,22 @@ class VerificationRepository implements VerificationRepositoryInterface
 
     }
 
+    public function fetchKYCTiers()
+    {
+        $data = KYCTier::all();
+        return \respondSuccess('Kyc Tiers Fetched Successfully', $data);
+    }
+
+    public function createCompliance(array $data)
+    {
+        $kyc = KYCTier::where('level', 1)->first();
+        $compliance = new UserCompliance();
+        $compliance->public_id = uuid();
+        $compliance->user_id = $data['id'] ?? null;
+        $compliance->kyc_id = $kyc->id ?? null;
+        $compliance->kyc_level = $kyc->level ?? null;
+        $compliance->save();
+        return $compliance;
+
+    }
 }

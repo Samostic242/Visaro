@@ -74,7 +74,7 @@ class UserAuthService implements UserAuthServiceInterface
 
     public function getUser()
     {
-        $user = auth()->user();
+        $user = auth()->user()->load('wallet', 'compliance');
         return $user;
     }
 

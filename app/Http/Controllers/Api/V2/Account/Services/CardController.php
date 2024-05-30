@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V2\Account\Services;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V2\Account\Services\Card\CardRequest;
 use App\Interfaces\Repositories\V2\Account\Services\CardRepositoryInterface;
+use Illuminate\Http\Request;
 
 /**
  * @group Banks
@@ -57,5 +58,18 @@ class CardController extends Controller
         }
         return respondSuccess("Card Deleted Successfully");
     }
+    public function webhookController(Request $request)
+    {
+        $payload = $request->getContent();
+        $signature = $request->header('x-paystack-signature');
+        if(!$verify = verifyPaystackWebhook($signature, $payload)){
+            return respondError(400, '01', "Yipee, Scammer Go away");
+        }
+        $data = $request->all();
+        if($data['event'] == 'charge.success' && $data['data']['amount'] == 5000){
+        return $this->cardRepository->updateCardStatus($data);
+        }
+        return respondSuccess('Webhook Received But not Processed');
 
+    }
 }

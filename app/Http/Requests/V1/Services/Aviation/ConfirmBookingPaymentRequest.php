@@ -22,10 +22,10 @@ class ConfirmBookingPaymentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "booking_id" => ['required', 'integer', 'exists:flight_bookings,id'],
-            "payment_option_id" => ['required', 'int', 'exists:payment_options,id'],
-            "amount" => ['required', 'int'],
-            "payment_installment_id" => ['required', 'int', 'exists:payment_installments,id']
+            "booking_id" => ['required', 'string', 'exists:flight_bookings,id'],
+            "payment_option_id" => ['required', 'string', 'exists:payment_options,code'],
+            // "amount" => ['required', 'int'],
+            "payment_installment_id" => ['nullable', 'exists:payment_installments,id']
 
         ];
     }

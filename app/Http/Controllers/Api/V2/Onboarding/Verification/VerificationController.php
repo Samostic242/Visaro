@@ -104,4 +104,10 @@ class VerificationController extends Controller
         // $payload = file_get_contents('php://input');
     }
 
+    public function fetchKYCTiers(){
+
+        $kyc_tiers = $this->verificationRepository->fetchKYCTiers();
+        return $kyc_tiers;
+    }
+
 }
