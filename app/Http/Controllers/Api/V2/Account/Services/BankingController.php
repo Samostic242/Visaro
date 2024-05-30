@@ -121,4 +121,6 @@ class BankingController extends Controller
         $validated_data = $request->validated();
         return $this->bankingRepository->fecthAccountDetails($validated_data);
     }
+
+
 }

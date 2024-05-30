@@ -547,4 +547,17 @@ if (!function_exists('getFileType')) {
             return $send;
         }
     }
+
+    if(!function_exists('verifyPaystackWebhook')){
+        function verifyPaystackWebhook($signature, $payload){
+            $secret = config('services.paystack.secret_key');
+
+            $computedSignature = hash_hmac('sha512', $payload, $secret);
+            if(!hash_equals($signature, $computedSignature)){
+                return false;
+            }else{
+                return true;
+            }
+        }
+    }
 }

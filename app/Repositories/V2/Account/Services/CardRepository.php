@@ -6,6 +6,7 @@ use App\Http\Integrations\Paystack\Requests\ChargeCardRequest;
 use App\Interfaces\Repositories\V2\Account\Services\CardRepositoryInterface;
 use App\Models\Card;
 use App\Models\UserCard;
+use Carbon\Carbon;
 use Saloon\Http\Response;
 
 class CardRepository implements CardRepositoryInterface
@@ -71,7 +72,29 @@ class CardRepository implements CardRepositoryInterface
     public function getCard()
     {
         $user = auth()->user();
-        return  $user->card;
+        return $card = UserCard::where('user_id', $user->id)->whereNotNull('metadata')->first();
+        // return  $user->card;
+    }
+
+    public function updateCardStatus($data){
+        $card = UserCard::where('transaction_reference', $data['data']['reference'])
+        ->where('status', 'active')->first();
+        if($card->metadata !== NULL){
+            return respondSuccess('Transaction exists and has been handled');
+        }
+        if($card){
+            $card->last_four_digit = $data['data']['authorization']['last4'] ?? null;
+            $card->last_charged = Carbon::parse($data['data']['paid_at']) ?? null;
+            $card->value = ($data['data']['amount']) / 100 ?? null;
+            $card->authorization_code = $data['data']['authorization']['authorization_code'];
+            $card->card_type = $data['data']['authorization']['card_type'];
+            $card->exp_month = $data['data']['authorization']['exp_month'];
+            $card->exp_year = $data['data']['authorization']['exp_year'];
+            $card->signature = $data['data']['authorization']['signature'];
+            $card->metadata = $data;
+            $card->save();
+            return respondSuccess('Transaction handled');
+        }
     }
 
     public function delete(string $id)

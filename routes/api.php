@@ -3,9 +3,11 @@
 
 use App\Http\Controllers\Api\PassportController;
 use App\Http\Controllers\Api\V1\Users\Profile\Phone\PhoneNumberController;
+use App\Http\Controllers\Api\V2\Account\Services\CardController;
 use Illuminate\Support\Facades\Route;
 
 
+Route::post('paystack/webhook', [CardController::class, 'webhookController']);
 Route::prefix('v1')->group(function () {
     Route::post('register', [PassportController::class, 'register']);
     Route::post('login', [PassportController::class, 'login']);
