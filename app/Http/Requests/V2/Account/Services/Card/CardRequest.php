@@ -22,7 +22,7 @@ class CardRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "type" => ['required', 'string'],
+           /*  "type" => ['required', 'string'],
             "number" => ["required","string"],
             "expiration_month" => ["required", 'string'],
             "expiration_year" => ["required", 'string'],
@@ -35,7 +35,7 @@ class CardRequest extends FormRequest
             "street_address" => ["required","string"],
             "lga" => ["required","string"],
             "provider" => ["required","string"],
-            "provider_logo" => ["image", "mimes:jpeg,png,jpg,gif,svg", "max:2048"],
+            "provider_logo" => ["image", "mimes:jpeg,png,jpg,gif,svg", "max:2048"], */
             "allow_charge" => ["boolean"]
 
         ];

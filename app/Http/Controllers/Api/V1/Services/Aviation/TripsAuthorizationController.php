@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\V1\Services\Aviation;
 
 use App\Http\Controllers\Controller;
 use App\Http\Integrations\Trips\Requests\FlightBookingRequest;
+use App\Http\Integrations\Trips\Requests\GetBalanceRequest;
 use App\Http\Integrations\Trips\Requests\GetTokenRequest;
 use App\Http\Integrations\Trips\TripsConnection;
 use App\Models\FlightBooking;
@@ -63,16 +64,38 @@ class TripsAuthorizationController extends Controller
         ->where('id', $flightId)
         ->first();
         if (!$booking) {
-            return respondError('01', "Booking not found", status_code: 404);
+            return respondError(400, '01', "Booking not found");
         }
-        // return $booking->copy;
-        $trips = new TripsConnection();
-        $response = $trips->send(new FlightBookingRequest($booking->SelectedFlights));
-        $response->onError(function (Response $resp) {
-            // Log::info('token request', [$resp]);
-            return respondError(400, "Attempt to authenticate process failed", $resp);
-        });
-        return (object)$response->json();
 
+        $trips = new TripsConnection();
+        $response = $trips->send(new FlightBookingRequest($booking));
+        $response->onError(function (Response $resp) {
+            Log::info('token request', [$resp]);
+            return respondError(400, "An error occurred", $resp);
+        });
+       return (object) $response->json();
+       /*  if(!$response_data->IsSuccessful){
+            return respondError(400, "01", $response_data->Message);
+        }
+
+        $booking->status = $response_data->BookingStatus ?? $booking->status;
+        $booking->confirmation_code = $response_data->Pnr;
+        $booking->save();
+        return respondSuccess('Your Ticket has been booked successfully', $booking); */
+    }
+
+    public function fetchBalance()
+    {
+        $trips = new TripsConnection();
+        $response = $trips->send(new GetBalanceRequest());
+        $response->onError(function (Response $resp) {
+            return respondError(400, "An error occurred", $resp);
+        });
+        $data = $response->json();
+        return respondSuccess('Balance Fetched Successfully', $data);
+    }
+
+    public function getFlightBooking($flightId)
+    {
     }
 }

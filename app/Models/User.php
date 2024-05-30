@@ -89,7 +89,8 @@ class User extends Authenticatable implements MustVerifyEmail, JWTSubject
 
     public function wallet(): HasOne
     {
-        return $this->hasOne(Wallet::class, 'owner_id', 'id')->where('owner', 'user');
+        return $this->hasOne(Wallet::class, 'owner_id');
+        // ->where('owner', 'user')
     }
 
     public function Card(): HasMany
@@ -100,6 +101,11 @@ class User extends Authenticatable implements MustVerifyEmail, JWTSubject
     public function BankAccount(): HasOne
     {
         return $this->hasOne(BankAccount::class);
+    }
+
+    public function Compliance(): HasOne
+    {
+        return $this->hasOne(UserCompliance::class);
     }
 
     public function hasVerifiedEmail()

@@ -1,8 +1,12 @@
 <?php
 
 namespace App\Repositories\V2\Account\Services;
+use App\Http\Integrations\Paystack\PaystackConnection;
+use App\Http\Integrations\Paystack\Requests\ChargeCardRequest;
 use App\Interfaces\Repositories\V2\Account\Services\CardRepositoryInterface;
 use App\Models\Card;
+use App\Models\UserCard;
+use Saloon\Http\Response;
 
 class CardRepository implements CardRepositoryInterface
 {
@@ -12,30 +16,26 @@ class CardRepository implements CardRepositoryInterface
     }
     public function create(array $data)
     {
-        $card = new Card();
+        $user = auth()->user();
+        $card = new UserCard();
         $card->public_id = uuid() ?? null;
-        $card->owner_id = auth()->user()->id;
-        $card->owner = auth()->user()->firstname ?? null ;
-        $card->type = $data['type'] ?? null ;
-        $card->number = $data['number'] ?? null ;
-        $card->expiration_month = $data['expiration_month'] ?? null ;
-        $card->expiration_year = $data['expiration_year'] ?? null ;
-        $card->cvv = $data['cvv'] ?? null ;
-        $card->last_four_digit = $data['last_four_digit'] ?? null ;
-        $card->country = $data['country'] ?? null ;
-        $card->state = $data['state'] ?? null ;
-        $card->postal_code = $data['postal_code'] ?? null ;
-        $card->city = $data['city'] ?? null ;
-        $card->street_address = $data['street_address'] ?? null ;
-        $card->lga = $data['lga'] ?? null ;
-        $card->provider = $data['provider'] ?? null ;
-        if(array_key_exists('ProviderLogo', $data)){
-        $card->provider_logo = upload_to_cloudinary('ProviderLogo', $data['provider_logo']->getRealPath()) ?? null;
-        }
-        $card->allow_charge = $data['allow_charge'];
+        $card->user_id = auth()->user()->id;
         $card->save();
+        $paystack = new PaystackConnection();
+        $charge_card = $paystack->send(new ChargeCardRequest($amount = 5000, $user->email));
+        $charge_card->onError(function (Response $resp) {
+            Log::info('Card Charge Request', [$resp]);
+            return respondError(400, "An error occurred", $resp);
+        });
+        $data = $charge_card->json();
+        $card->transaction_reference = $data['data']['reference'];
+        $card->save();
+        return $data;
 
-        return $card ;
+
+
+
+        // return $card ;
 
     }
 
