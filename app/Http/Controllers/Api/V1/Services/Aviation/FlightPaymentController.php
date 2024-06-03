@@ -3,15 +3,20 @@
 namespace App\Http\Controllers\Api\V1\Services\Aviation;
 
 use App\Http\Controllers\Controller;
+use App\Http\Integrations\Paystack\PaystackConnection;
+use App\Http\Integrations\Paystack\Requests\RecurrentCharge;
 use App\Http\Integrations\Trips\Requests\FlightBookingRequest;
 use App\Http\Integrations\Trips\TripsConnection;
 use App\Http\Requests\V1\Services\Aviation\ConfirmBookingPaymentRequest;
+use App\Http\Requests\V2\Services\Aviation\SelectPaymentOptionRequest;
 use App\Http\Resources\V1\Payment\PaymentOptionResource;
 use App\Http\Resources\V1\Services\Aviation\TicketResource;
 use App\Models\BookedFlight;
 use App\Models\FlightBooking;
 use App\Models\PaymentInstallment;
 use App\Models\PaymentOption;
+use App\Models\UserCard;
+use App\Models\UserTransaction;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -27,16 +32,17 @@ class FlightPaymentController extends Controller
         return respondSuccess("Payment options fetched successfully", PaymentOptionResource::collection($options));
     }
 
-    public function selectPaymentOption(Request $request, $id, $option_id): object
+    public function selectPaymentOption(SelectPaymentOptionRequest $request): object
     {
+        $validated_data = $request->validated();
         $booking = FlightBooking::where('user_id', auth()->user()->id)
-            ->where('id', $id)
+            ->where('id', $validated_data['booking_id'])
             ->first();
         if (!$booking) {
             return respondError(404, '01', "Booking not found");
         }
         try {
-            $option = PaymentOption::where('code', $option_id)->first();
+            $option = PaymentOption::where('code', $validated_data['payment_option_id'])->first();
             $amount = $booking->price;
             $data = [
                 'option' => new PaymentOptionResource($option),
@@ -51,10 +57,10 @@ class FlightPaymentController extends Controller
         }
     }
 
-    public function confirmBookingPaymentTerms(ConfirmBookingPaymentRequest $request, $id): object|array|null
+    public function confirmBookingPaymentTerms(ConfirmBookingPaymentRequest $request): object|array|null
     {
         $validated = (object)$request->validated();
-
+        $id = $validated->booking_id;
        if($validated->payment_option_id == 001){
         return $this->bookUsingWallet($validated, $id);
        }elseif($validated->payment_option_id == 002){
@@ -318,7 +324,7 @@ class FlightPaymentController extends Controller
             // return $book_flight = $this->bookFlightOnTripsSystem($booking);
 
             $update_booking = $this->updateBookingToBooked($booking);
-            return respondSuccess('Option fetched successfully', TicketResource::collection($book_flight->tickets));
+            return respondSuccess('Flight Booked Successfully', TicketResource::collection($book_flight->tickets));
         } catch (\Throwable $th) {
             Log::error("Error fetching Booking Flight - {$th->getMessage()}");
             return respondError(404, '01', "Error Booking Flight - {$th->getMessage()}");
@@ -327,12 +333,55 @@ class FlightPaymentController extends Controller
 
     private function bookUsingWallet($validated, $id)
     {
-        
+
     }
 
     private function bookUsingCard($validated, $id)
     {
+        $user_id = auth()->id();
+        $card_exists = UserCard::where('user_id', $user_id)->whereActive(true)->first();
+        if(!$card_exists){
+            return respondError(404, '01', "No active card found");
+        }
 
+        $transaction = new UserTransaction();
+        $transaction->public_id = uuid();
+        $transaction->user_id = auth()->id();
+        $transaction->reference = generateAviationReference();
+        $transaction->save();
+        $booking = FlightBooking::find($id);
+        $amount = $booking->price;
+        $email = auth()->user()->email;
+        $authorization_code = $card_exists->authorization_code;
+        $payment = new PaystackConnection();
+        $makePayment = $payment->send(new RecurrentCharge($amount, $email, $authorization_code));
+        $makePayment->onError(function (Response $resp) {
+            Log::info('Recurrent Charge Attempt', [$resp]);
+            return respondError(400, "An error occurred", $resp);
+        });
+       $response = $makePayment->json();
+       if(isset($response['status']) && $response['status'] == 'true'){
+        try{
+            if($response['data']['status'] = 'success'){
+                $transaction->payment_reference = $response['data']['reference'];
+                $transaction->value = $response['data']['amount'];
+                $transaction->currency = $response['data']['currency'];
+                $transaction->api_status = $response['data']['status'];
+                $transaction->authorization_code = $response['data']['authorization']['authorization_code'];
+                $transaction->metadata = $response;
+                $transaction->save();
+                if (!$book_flight = $this->bookFlightOnTripsSystem($booking)){
+                    return respondError(404, '01', "Unable to place the booking");
+                }
+                $update_booking = $this->updateBookingToBooked($booking);
+                return respondSuccess('Flight Booked Successfully', TicketResource::collection($book_flight->tickets));
+            }
+        } catch (\Throwable $th) {
+            Log::error("Error fetching Booking Flight - {$th->getMessage()}");
+            return respondError(404, '01', "Error Booking Flight - {$th->getMessage()}");
+        }
+       }
+       return respondError(404, '01', "Error Booking Flight - {$response['message']}");
     }
 
     private function bookUsingNewCard($validated, $id)

@@ -560,4 +560,11 @@ if (!function_exists('getFileType')) {
             }
         }
     }
+
+    if(!function_exists('generateAviationReference')){
+        function generateAviationReference()
+        {
+            return 'VISARO|AVT' .rand(100, 999) . '|' . Date('YmdHis') .'|' . Str::random(10);
+        }
+    }
 }
