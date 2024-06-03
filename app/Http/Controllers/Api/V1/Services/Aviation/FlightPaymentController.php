@@ -57,7 +57,7 @@ class FlightPaymentController extends Controller
         }
     }
 
-    public function confirmBookingPaymentTerms(ConfirmBookingPaymentRequest $request): object|array|null
+    public function confirmBookingPaymentTerms(ConfirmBookingPaymentRequest $request)
     {
         $validated = (object)$request->validated();
         $id = $validated->booking_id;
@@ -318,13 +318,7 @@ class FlightPaymentController extends Controller
             if (!$update_installment = $this->confirmPaymentInstallment($instalment->id)) {
                 return respondError(404, '01', "Installment failed to update");
             }
-            if (!$book_flight = $this->bookFlightOnTripsSystem($booking)){
-                return respondError(404, '01', "Unable to place the booking");
-            }
-            // return $book_flight = $this->bookFlightOnTripsSystem($booking);
-
-            $update_booking = $this->updateBookingToBooked($booking);
-            return respondSuccess('Flight Booked Successfully', TicketResource::collection($book_flight->tickets));
+            return $book_flight = $this->bookFlightOnTripsSystem($booking);
         } catch (\Throwable $th) {
             Log::error("Error fetching Booking Flight - {$th->getMessage()}");
             return respondError(404, '01', "Error Booking Flight - {$th->getMessage()}");
@@ -370,11 +364,12 @@ class FlightPaymentController extends Controller
                 $transaction->authorization_code = $response['data']['authorization']['authorization_code'];
                 $transaction->metadata = $response;
                 $transaction->save();
-                if (!$book_flight = $this->bookFlightOnTripsSystem($booking)){
+                return $book_flight = $this->bookFlightOnTripsSystem($booking);
+               /*  if (!$book_flight = $this->bookFlightOnTripsSystem($booking)){
                     return respondError(404, '01', "Unable to place the booking");
                 }
                 $update_booking = $this->updateBookingToBooked($booking);
-                return respondSuccess('Flight Booked Successfully', TicketResource::collection($book_flight->tickets));
+                return respondSuccess('Flight Booked Successfully', TicketResource::collection($book_flight->tickets)); */
             }
         } catch (\Throwable $th) {
             Log::error("Error fetching Booking Flight - {$th->getMessage()}");
@@ -400,22 +395,25 @@ class FlightPaymentController extends Controller
         $result = $response->json()[0];
             if(isset($result['BookingReferenceId']) && $result['BookingReferenceId'] !== null){
                 if ($store = saveBookedFlightOnTrips($booking, $result)) {
-                    return $store;
+                    $update_booking = $this->updateBookingToBooked($booking);
+                    return respondSuccess('Flight Booked Successfully', TicketResource::collection($store->tickets));
                 }
                 Log::error("Error booking flight - store", [
                     'booking' => $booking,
                     'response' => $response,
                     'store' => $store,
                 ]);
-                return false;
+                $message = $result['Errors'][0];
+                return respondError(400, '01', $result['Errors']);
             }
             Log::error("Error booking flight  -2", [
                 'booking' => $booking,
                 'response' => $response,
             ]);
-            return false;
-            }
+            $message = $result['Errors'][0];
+            return respondError(400, '01', $message);
 
+            }
     }
 
 
