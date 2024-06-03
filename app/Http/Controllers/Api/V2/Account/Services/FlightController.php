@@ -1,0 +1,43 @@
+<?php
+
+namespace App\Http\Controllers\Api\V2\Account\Services;
+
+use App\Http\Controllers\Controller;
+use App\Http\Resources\V1\Services\Aviation\TicketResource;
+use App\Interfaces\Repositories\V2\Account\Services\FlightRepositoryInterface;
+use Illuminate\Http\Request;
+
+class FlightController extends Controller
+{
+    function __construct(
+        protected FlightRepositoryInterface $flightRepository
+    ){}
+
+    /**
+     * Fetches User Booked Flights
+     */
+    public function getBookedFlights(){
+        if(!$flights = $this->flightRepository->fetchBookedFlights()){
+            return respondError(404, '01', 'No Booked Flight Yet');
+        }
+        return respondSuccess('Booked Flights Returned Successfully', $flights);
+    }
+
+    /**
+     * Fetches User Flight Tickets
+     */
+    public function getFlightDetails($id){
+        if(!$flight = $this->flightRepository->fetchFlightTickets($id)){
+            return respondError(404, '01', 'Flights Not Found');
+        }
+        return respondSuccess('Flight Details Returned Successfully', TicketResource::collection($flight));
+    }
+
+    public function fetchUserFlightTransaction(){
+        if(!$transactions = $this->flightRepository->fetchUserFlightTransaction()){
+            return respondError(404, '01', 'Transactions Not Found');
+        }
+        return respondSuccess('Booked Flights Returned Successfully', $transactions);
+
+    }
+}

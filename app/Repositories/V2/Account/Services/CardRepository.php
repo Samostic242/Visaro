@@ -7,16 +7,21 @@ use App\Interfaces\Repositories\V2\Account\Services\CardRepositoryInterface;
 use App\Models\Card;
 use App\Models\UserCard;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Log;
 use Saloon\Http\Response;
 
 class CardRepository implements CardRepositoryInterface
 {
     public function findById(string $id)
     {
-        return Card::find($id);
+        return UserCard::find($id);
     }
     public function create(array $data)
     {
+        $check_if_card_exists = UserCard::where('user_id', auth()->user()->id)->whereActive(true)->first();
+        if ($check_if_card_exists) {
+            return respondError(400, '01', 'A Card Already Exist for this user, Kindly delete before adding a new card');
+        }
         $user = auth()->user();
         $card = new UserCard();
         $card->public_id = uuid() ?? null;
@@ -29,25 +34,22 @@ class CardRepository implements CardRepositoryInterface
             return respondError(400, "An error occurred", $resp);
         });
         $data = $charge_card->json();
+        if(isset($data['status']) && $data['status'] == false){
+            return respondError(400, '01', 'An error while adding a new card');
+        }
         $card->transaction_reference = $data['data']['reference'];
         $card->save();
-        return $data;
-
-
-
-
-        // return $card ;
-
+        return respondSuccess('Add Card Transaction Initiated Successfully', $data);
     }
 
-    public function update(string $id, array $data)
+    public function update(array $data)
     {
-        $card = $this->findById($id);
+        $card = $this->findById($data['card_id']);
         if(!$card)
         {
             return false;
         }
-        $card->owner = $data['owner'] ?? $card->owner ;
+  /*       $card->owner = $data['owner'] ?? $card->owner ;
         $card->type = $data['type'] ?? $card->type ;
         $card->number = $data['number'] ?? $card->number ;
         $card->expiration_month = $data['expiration_month'] ?? $card->expiration_month ;
@@ -62,9 +64,8 @@ class CardRepository implements CardRepositoryInterface
         $card->lga = $data['lga'] ?? $card->lga ;
         $card->provider = $data['provider'] ?? $card->provider ;
         $card->provider_logo = upload_to_cloudinary('ProviderLogo', $data['provider_logo']->getRealPath()) ?? null ;
-        $card->allow_charge = $data['allow_charge'] ?? $card->allow_charge ;
-        $card->active = $data['active'] ?? true ;
-        $card->status = $data['status'] ?? $card->status ;
+        $card->allow_charge = $data['allow_charge'] ?? $card->allow_charge ; */
+        $card->nickname = $data['nickname'] ?? $card->nickname ;
         $card->save();
         return $card ;
     }
@@ -72,13 +73,13 @@ class CardRepository implements CardRepositoryInterface
     public function getCard()
     {
         $user = auth()->user();
-        return $card = UserCard::where('user_id', $user->id)->whereNotNull('metadata')->first();
-        // return  $user->card;
+        return $card = UserCard::where('user_id', $user->id)->whereActive(true)->first();
+
     }
 
     public function updateCardStatus($data){
         $card = UserCard::where('transaction_reference', $data['data']['reference'])
-        ->where('status', 'active')->first();
+        ->whereActive(false)->first();
         if($card->metadata !== NULL){
             return respondSuccess('Transaction exists and has been handled');
         }
@@ -92,6 +93,7 @@ class CardRepository implements CardRepositoryInterface
             $card->exp_year = $data['data']['authorization']['exp_year'];
             $card->signature = $data['data']['authorization']['signature'];
             $card->metadata = $data;
+            $card->active = true;
             $card->save();
             return respondSuccess('Transaction handled');
         }
@@ -99,7 +101,13 @@ class CardRepository implements CardRepositoryInterface
 
     public function delete(string $id)
     {
-        return Card::destroy($id);
+        try{
+        UserCard::destroy($id);
+        return true;
+        }
+        catch(\Exception $e){
+            return false;
+        }
     }
 
 }

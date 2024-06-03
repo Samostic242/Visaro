@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('k_y_c_tiers', function (Blueprint $table) {
-            $table->uuid('id');
+            $table->uuid('id')->primary();
             $table->string('public_id')->index();
             $table->string('tier_name')->nullable();
             $table->longText('tier_description')->nullable();

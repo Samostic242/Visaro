@@ -20,6 +20,7 @@ class UserCard extends Model
         'transaction_reference',
         'last_charged',
         'value',
+        'nickname',
         'authorization_code',
         'card_type',
         'exp_month',
@@ -32,6 +33,6 @@ class UserCard extends Model
     {
         return $this->belongsTo(User::class);
     }
-    
+
 }
 
