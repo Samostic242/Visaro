@@ -6,6 +6,7 @@ use App\Http\Integrations\Paystack\Requests\ChargeCardRequest;
 use App\Interfaces\Repositories\V2\Account\Services\CardRepositoryInterface;
 use App\Models\Card;
 use App\Models\UserCard;
+use App\Models\UserCompliance;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 use Saloon\Http\Response;
@@ -80,6 +81,7 @@ class CardRepository implements CardRepositoryInterface
     public function updateCardStatus($data){
         $card = UserCard::where('transaction_reference', $data['data']['reference'])
         ->whereActive(false)->first();
+        $compliance = UserCompliance::where('user_id', $card->user_id)->first();
         if($card->metadata !== NULL){
             return respondSuccess('Transaction exists and has been handled');
         }
@@ -95,6 +97,8 @@ class CardRepository implements CardRepositoryInterface
             $card->metadata = $data;
             $card->active = true;
             $card->save();
+            $compliance->verified_card_details = true;
+            $compliance->save();
             return respondSuccess('Transaction handled');
         }
     }

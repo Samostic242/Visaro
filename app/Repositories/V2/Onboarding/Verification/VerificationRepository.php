@@ -76,22 +76,24 @@ class VerificationRepository implements VerificationRepositoryInterface
     public function verifyBvn(array $data)
     {
         $user = auth()->user();
-        if($user->bvn_verified == true){
-            return respondError(400, "01", 'Your Bvn Has already been verified');
+        $user_verified = UserCompliance::where('user_id', $user->id)->first();
+        $compliance = UserCompliance::find($user_verified->id);
+        if($user_verified->bvn_verified == true){
+            return respondError(400, "01", 'Your BVN Has already been verified');
         }
         $bvn = $data['bvn_number'];
         $bvn_service = new PremblyConnector();
         $response = $bvn_service->send(new BvnVerificationRequest($bvn));
         $response->onError(function (Response $resp) {
             // Log::info('token request', [$resp]);
-            return respondError(400, "Attempting to verify BVn failed", $resp);
+            return respondError(400, "Attempting to verify BVN failed", $resp);
         });
         $response_object = (object)$response->json();
         if($response_object->status == true && $response_object->response_code == '00'){
-            $user->bvn = $bvn ?? $user->bvn;
-            $user->bvn_verified = true;
-            $user->bvn_verification_data = $response ?? null;
-            $user->save();
+            $compliance->bvn = $bvn ?? $compliance->bvn;
+            $compliance->bvn_verified = true;
+            $compliance->meta_data = $response ?? null;
+            $compliance->save();
             return respondSuccess('BVN Verified Successfully');
         }
         // return $response_object;
