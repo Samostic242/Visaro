@@ -313,7 +313,7 @@ if (!function_exists('saveBookedFlightOnTrips')) {
             $flight->flight_sets = $data['FlightSets'];
             $flight->flight_rules = $data['FlightRules'];
             $flight->flight_rule_penalties = $data['FlightRulePenalties'];
-            $flight->new_passenger_fares = $data['NewPassengerFares'];
+            // $flight->new_passenger_fares = $data['NewPassengerFares'];
             $flight->errors = $data['Errors'];
             $flight->warnings = $data['Warnings'];
             $flight->copy = $data;
@@ -327,6 +327,7 @@ if (!function_exists('saveBookedFlightOnTrips')) {
                 'response' => $data,
             ]);
             return false;
+            // return $th->getMessage();
         }
     }
 }
@@ -388,6 +389,8 @@ if (!function_exists('saveFlight')) {
                 'line' => $th->getLine(),
             ]);
             return false;
+            // return $th->getLine();
+
         }
     }
 }

@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Api\V1\Services\Aviation;
 
 use App\Http\Controllers\Controller;
+use App\Http\Integrations\Trips\Requests\FetchBookedFlight;
 use App\Http\Integrations\Trips\Requests\FlightBookingRequest;
 use App\Http\Integrations\Trips\Requests\GetBalanceRequest;
 use App\Http\Integrations\Trips\Requests\GetTokenRequest;
 use App\Http\Integrations\Trips\TripsConnection;
 use App\Models\FlightBooking;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Saloon\Http\Response;
@@ -73,15 +75,14 @@ class TripsAuthorizationController extends Controller
             Log::info('token request', [$resp]);
             return respondError(400, "An error occurred", $resp);
         });
-       return (object) $response->json();
-       /*  if(!$response_data->IsSuccessful){
+        $response_data = (object) $response->json();
+        if(!$response_data->IsSuccessful){
             return respondError(400, "01", $response_data->Message);
         }
-
         $booking->status = $response_data->BookingStatus ?? $booking->status;
         $booking->confirmation_code = $response_data->Pnr;
         $booking->save();
-        return respondSuccess('Your Ticket has been booked successfully', $booking); */
+        return respondSuccess('Your Ticket has been booked successfully', $booking);
     }
 
     public function fetchBalance()
@@ -95,7 +96,20 @@ class TripsAuthorizationController extends Controller
         return respondSuccess('Balance Fetched Successfully', $data);
     }
 
-    public function getFlightBooking($flightId)
+    public function fetchFlightDetails(Request $request)
     {
+    /*     $data = FlightBooking::where('mode', 'fligh')->first();
+        $data['copy']['PassengerDetails']['AirTravellers'][0]['LastName']; */
+
+        $trips = new TripsConnection();
+        $response = $trips->send(new FetchBookedFlight($request->all()));
+        $response->onError(function (Response $resp) {
+            Log::info('token request', [$resp]);
+            return respondError(400, "An error occurred", $resp);
+        });
+        return $response_data = (object) $response->json();
+        if(!$response_data->IsSuccessful){
+            return respondError(400, "01", $response_data->Message);
+        }
     }
 }

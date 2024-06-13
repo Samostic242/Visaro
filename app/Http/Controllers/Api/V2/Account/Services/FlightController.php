@@ -27,10 +27,12 @@ class FlightController extends Controller
      * Fetches User Flight Tickets
      */
     public function getFlightDetails($id){
-        if(!$flight = $this->flightRepository->fetchFlightTickets($id)){
+        $flight = $this->flightRepository->fetchFlightTickets($id);
+        return $flight;
+     /*    if(!$flight = $this->flightRepository->fetchFlightTickets($id)){
             return respondError(404, '01', 'Flights Not Found');
         }
-        return respondSuccess('Flight Details Returned Successfully', TicketResource::collection($flight));
+        return respondSuccess('Flight Details Returned Successfully', TicketResource::collection($flight)); */
     }
 
     public function fetchUserFlightTransaction(){
