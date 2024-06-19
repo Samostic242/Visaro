@@ -58,4 +58,6 @@ class Flight extends Model
     {
         return $this->belongsTo(BookedFlight::class);
     }
+
+    
 }

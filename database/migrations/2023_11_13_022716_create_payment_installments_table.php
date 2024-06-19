@@ -30,6 +30,8 @@ return new class extends Migration {
             $table->string('payment_source')->default('wallet');
             $table->string('session')->nullable();
             $table->boolean('active')->default(true);
+            $table->boolean('completed')->default(false);
+
             $table->boolean('past_due')->default(false);
             $table->json('copy')->nullable();
             $table->json('meta')->nullable();

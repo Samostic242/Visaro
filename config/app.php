@@ -197,6 +197,7 @@ return [
         App\Providers\CustomProviders\V2\Commerce\StoreFrontServiceProvider::class,
         App\Providers\CustomProviders\V2\SecurityServiceProvider::class,
         App\Providers\CustomProviders\V2\Flight\FlightProviders::class,
+        App\Providers\CustomProviders\V2\Admin\AuthProvider::class,
 
 
 

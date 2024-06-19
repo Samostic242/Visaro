@@ -10,5 +10,7 @@ interface FlightRepositoryInterface
 
     public function fetchUserFlightTransaction();
 
-   
+    public function getInstallmentPlans();
+
+
 }
