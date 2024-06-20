@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('currency')->nullable();
             $table->string('api_status')->nullable();
             $table->string('authorization_code')->nullable();
+            $table->string('description')->nullable();
             $table->json('metadata')->nullable();
             $table->string('status')->default('pending');
             $table->timestamps();

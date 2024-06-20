@@ -34,7 +34,7 @@ class FlightBookingRequest extends Request implements HasBody
             "BillingAddress" => $this->data->copy['PassengerDetails']['BillingAddress'],
             "PaymentType" => $this->data->copy['PassengerDetails']['PaymentType'],
             "TicketType" => $this->data->copy['PassengerDetails']['TicketType'],
-            "AirTravellers" => $this->data->copy['PassengerDetails']['AirTravellers'],
+            "AirTravellers" => $this->data->copy['PassengerDetails']['AirTravellers']['LastName'],
         ];
     }
 

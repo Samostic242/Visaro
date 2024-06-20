@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Api\V1\Services\Aviation;
 use App\Http\Controllers\Controller;
 use App\Http\Integrations\Paystack\PaystackConnection;
 use App\Http\Integrations\Paystack\Requests\RecurrentCharge;
+use App\Http\Integrations\Trips\Requests\BookFlightRequest;
+use App\Http\Integrations\Trips\Requests\FetchBookedFlight;
 use App\Http\Integrations\Trips\Requests\FlightBookingRequest;
 use App\Http\Integrations\Trips\TripsConnection;
 use App\Http\Requests\V1\Services\Aviation\ConfirmBookingPaymentRequest;
@@ -112,7 +114,7 @@ class FlightPaymentController extends Controller
         }
     }
 
-    private function confirmPaymentInstallment($installment_id): PaymentInstallment|false
+    private function confirmPaymentInstallment($installment_id, $booking_id, $card_exists): PaymentInstallment|false
     {
         try {
             $user = auth()->user();
@@ -122,9 +124,41 @@ class FlightPaymentController extends Controller
             if (!$installment) {
                 return false;
             }
-            $installment->status = 'confirmed';
-            $installment->save();
-            return $installment;
+            $transaction = new UserTransaction();
+            $transaction->public_id = uuid();
+            $transaction->user_id = auth()->id();
+            $transaction->reference = generateAviationReference();
+            $transaction->save();
+            $booking = FlightBooking::find($booking_id);
+            $amount = $installment->single_installment_amount;
+            $email = auth()->user()->email;
+            $authorization_code = $card_exists->authorization_code;
+            $payment = new PaystackConnection();
+            $makePayment = $payment->send(new RecurrentCharge($amount, $email, $authorization_code));
+            $makePayment->onError(function (Response $resp) {
+                Log::info('Recurrent Charge Attempt', [$resp]);
+                return respondError(400, "An error occurred", $resp);
+            });
+            $response = $makePayment->json();
+            if(isset($response['status']) && $response['status'] == 'true'){
+                    if($response['data']['status'] = 'success'){
+                        $transaction->payment_reference = $response['data']['reference'];
+                        $transaction->value = $response['data']['amount'];
+                        $transaction->currency = $response['data']['currency'];
+                        $transaction->api_status = $response['data']['status'];
+                        $transaction->authorization_code = $response['data']['authorization']['authorization_code'];
+                        $transaction->metadata = $response;
+                        $transaction->description = 'First Installment Payment for Flight';
+                        $transaction->status = 'Successful';
+                        $transaction->save();
+
+                        $installment->status = 'confirmed';
+                        $installment->save();
+                        return $installment;
+            }
+            return false;
+        }
+        return false;
         } catch (\Throwable $th) {
             Log::error("Error updating payment Installment - {$th->getMessage()}");
             return false;
@@ -315,10 +349,14 @@ class FlightPaymentController extends Controller
             if (!$instalment) {
                 return respondError(404, '01', "Invalid installment entered");
             }
-            if (!$update_installment = $this->confirmPaymentInstallment($instalment->id)) {
-                return respondError(404, '01', "Installment failed to update");
+            $card_exists = UserCard::where('user_id', auth()->user()->id)->whereActive(true)->first();
+            if(!$card_exists){
+                return respondError(404, '01', "No active card found for first payment deduction");
+            }elseif (!$update_installment = $this->confirmPaymentInstallment($instalment->id, $booking->id, $card_exists)) {
+                return respondError(404, '01', "Error making first installment payment");
             }
-            return $book_flight = $this->bookFlightOnTripsSystem($booking);
+            return $this->bookFlightOnTripsSystemNew($booking);
+            // return $book_flight = $this->bookFlightOnTripsSystem($booking);
         } catch (\Throwable $th) {
             Log::error("Error fetching Booking Flight - {$th->getMessage()}");
             return respondError(404, '01', "Error Booking Flight - {$th->getMessage()}");
@@ -344,6 +382,7 @@ class FlightPaymentController extends Controller
         $transaction->reference = generateAviationReference();
         $transaction->save();
         $booking = FlightBooking::find($id);
+        // return $this->bookFlightOnTripsSystemNew($booking);
         $amount = $booking->price;
         $email = auth()->user()->email;
         $authorization_code = $card_exists->authorization_code;
@@ -362,9 +401,12 @@ class FlightPaymentController extends Controller
                 $transaction->currency = $response['data']['currency'];
                 $transaction->api_status = $response['data']['status'];
                 $transaction->authorization_code = $response['data']['authorization']['authorization_code'];
+                $transaction->description = 'Complete Payment for Flight';
+                $transaction->status = 'Successful';
                 $transaction->metadata = $response;
                 $transaction->save();
-                return $book_flight = $this->bookFlightOnTripsSystem($booking);
+                return $this->bookFlightOnTripsSystemNew($booking);
+                // return $book_flight = $this->bookFlightOnTripsSystem($booking);
                /*  if (!$book_flight = $this->bookFlightOnTripsSystem($booking)){
                     return respondError(404, '01', "Unable to place the booking");
                 }
@@ -414,6 +456,47 @@ class FlightPaymentController extends Controller
             return respondError(400, '01', $message);
 
             }
+    private function bookFlightOnTripsSystemNew(FlightBooking $booking)
+    {
+        $user = auth()->user();
+        $trips = new TripsConnection();
+        $bookFlight = $trips->send(new BookFlightRequest($booking));
+        $bookFlight->onError(function (Response $resp) {
+            Log::info('Book Flight Request', [$resp]);
+            return respondError(400, "An error occurred", $resp);
+        });
+        $response_data = (object) $bookFlight->json();
+        if(!$response_data->IsSuccessful){
+            return respondError(400, "01", $response_data->Message);
+        }
+        $booking->status = $response_data->BookingStatus ?? $booking->status;
+        $booking->confirmation_code = $response_data->Pnr;
+        $booking->meta = $response_data;
+        $booking->save();
+        if(isset($response_data->BookingStatus)){
+            $data = [
+                'referenceType' => 0,
+                'surname' => $booking['copy']['PassengerDetails']['AirTravellers'][0]['LastName'],
+                'referenceId' => $booking->confirmation_code,
+            ];
+            $trips = new TripsConnection();
+            $response = $trips->send(new FetchBookedFlight($data));
+            $response->onError(function (Response $resp) {
+                Log::info('Fetch Booked Flight Ticket', [$resp]);
+                return respondError(400, "Flight booked, An error occurred, while fetching ticket", $resp);
+            });
+            $result = $response->json();
+            if(isset($result['BookingReferenceId']) && $result['BookingReferenceId'] !== null){
+                if ($store = saveBookedFlightOnTrips($booking, $result)) {
+                    $update_booking = $this->updateBookingToBooked($booking);
+                    return respondSuccess('Flight Booked Successfully', TicketResource::collection($store->tickets));
+                }
+            return respondError(400,"0", "Flight booked Successfully, An error occurred, while fetching your ticket");
+        }
+        return respondError(400, "0", "Flight booked Successfully, An error occurred, while fetching your ticket");
+        }
+        return respondError(400, "0", "Flight booked Successfully, An error occurred, while fetching your ticket");
+         }
     }
 
 

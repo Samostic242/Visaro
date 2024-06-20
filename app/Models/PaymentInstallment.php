@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class PaymentInstallment extends Model
@@ -36,4 +37,23 @@ class PaymentInstallment extends Model
         'copy' => 'array',
         'meta' => 'array',
     ];
+
+    public function flightbooking(): HasOne
+    {
+        return $this->hasOne(FlightBooking::class, 'id', 'target_service_id');
+    }
+
+  /*   public function hotel(): HasOne
+    {
+        return $this->hasOne(Hotel::class, 'id', 'target_service_id');
+    }
+
+    public function car(): HasOne
+    {
+        return $this->hasOne(Car::class, 'id', 'target_service_id');
+    }
+
+    public function paymentOption(): HasOne
+    {
+    } */
 }

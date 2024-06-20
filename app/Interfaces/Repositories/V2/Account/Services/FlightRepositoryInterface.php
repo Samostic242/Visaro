@@ -9,4 +9,8 @@ interface FlightRepositoryInterface
     public function fetchFlightTickets(string $id);
 
     public function fetchUserFlightTransaction();
+
+    public function getInstallmentPlans();
+
+
 }

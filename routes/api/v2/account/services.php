@@ -29,10 +29,9 @@ Route::prefix('banking')->group(function () {
         Route::post('enquiry', [BankingController::class, 'fetchAccountDetails']);
     });
 });
-
+Route::get('installments', [FlightController::class, 'getInstallmentPlan'])->middleware('auth:api');
 Route::prefix('booked-flights')->middleware('auth:api')->group( function () {
     Route::get('/', [FlightController::class, 'getBookedFlights']);
     Route::get('get-payment-transactions', [FlightController::class, 'fetchUserFlightTransaction']);
     Route::get('/{id}/tickets', [FlightController::class, 'getFlightDetails']);
-
 });
