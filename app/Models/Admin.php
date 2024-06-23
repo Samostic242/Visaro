@@ -27,6 +27,11 @@ class Admin extends Authenticatable implements JWTSubject
         'active',
     ];
 
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
     public function getJWTIdentifier()
     {
         return $this->getKey();
