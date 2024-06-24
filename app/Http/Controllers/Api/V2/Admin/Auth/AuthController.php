@@ -39,4 +39,26 @@ class AuthController extends Controller
         return respondSuccess('Admin Fetched Successfully', $data);
     }
 
+    public function createAdminUser(CreateAdminRequest $request)
+    {
+        $validated_data = $request->validated();
+        $admin = $this->authRepository->create($validated_data);
+        if (!$admin){
+            return respondError(400, '01', 'An error occurred while creating the admin user');
+        }
+        return respondSuccess('Admin User Created Successfully', $admin);
+    }
+
+    public function fetchAdminUser()
+    {
+        $data = $this->authRepository->getAdminUser();
+        return respondSuccess('Admin User Fetched Successfully', $data);
+    }
+
+    public function fetchAllAdmin()
+    {
+        $data = $this->authRepository->fetchAllAdmin();
+        return respondSuccess('All Admin Fetched Successfully', $data);
+    }
+
 }
