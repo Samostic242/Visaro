@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V2\Admin\Merchant;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\V1\Loans\Merchant\CreateNewMerchantRequest;
 use App\Interfaces\Repositories\V2\Admin\MerchantRepositoryInterface;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
@@ -40,9 +41,18 @@ class MerchantController extends Controller
             return respondError(500, '01', "Error getting search results");
         }
     }
-    public function createMerchant(array $data)
+    public function createMerchant(CreateNewMerchantRequest $request)
     {
-        return respondError(501, '01', 'Not Implemented');
+        try {
+            $validated_data = $request->validated();
+            if (!$created = $this->merchantRepository->createMerchant($validated_data)) {
+                return respondError(400, '01', 'Error creating merchant account');
+            }
+            $this->merchantRepository->createMerchantDefaultRecords($created);
+            return respondSuccess("Merchant added successfully, kindly update compliance and settings", $created);
+        } catch (\Exception $e) {
+            return respondError(500, "01", "Error while creating Merchant record");
+        }
     }
     public function getMerchant(string $id)
     {

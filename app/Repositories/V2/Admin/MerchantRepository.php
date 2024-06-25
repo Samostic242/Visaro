@@ -4,6 +4,9 @@ namespace App\Repositories\V2\Admin;
 
 use App\Interfaces\Repositories\V2\Admin\MerchantRepositoryInterface;
 use App\Models\Merchant\Onboarding\Merchant;
+use App\Repositories\MerchantRepositories\MerchantComplianceRepository;
+use App\Repositories\MerchantRepositories\MerchantSettingsRepository;
+use App\Repositories\MerchantRepositories\MerchantRepository as MerchantOnboardingRepository;
 
 
 class MerchantRepository implements MerchantRepositoryInterface
@@ -20,6 +23,21 @@ class MerchantRepository implements MerchantRepositoryInterface
 
     public function createMerchant(array $data)
     {
+        $merchantOnboardingRepository = new MerchantOnboardingRepository();
+        $merchant = $merchantOnboardingRepository->create($data);
+        return $merchant;
+    }
+
+    public function createMerchantDefaultRecords(Merchant $merchant)
+    {
+        $merchantComplianceRepository = new MerchantComplianceRepository();
+        $merchantSettingsRepository = new MerchantSettingsRepository();
+
+        $data = [
+            'merchant_id' => $merchant->id
+        ];
+        $merchantComplianceRepository->create($data);
+        $merchantSettingsRepository->create($data);
     }
 
     public function getMerchant(string $id)
