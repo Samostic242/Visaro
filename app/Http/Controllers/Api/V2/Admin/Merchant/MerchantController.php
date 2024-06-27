@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api\V2\Admin\Merchant;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\V1\Loans\Merchant\CreateNewMerchantRequest;
+use App\Http\Requests\V2\Merchant\Onboarding\Registration\MerchantRegistrationRequest;
 use App\Interfaces\Repositories\V2\Admin\MerchantRepositoryInterface;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
@@ -41,7 +41,7 @@ class MerchantController extends Controller
             return respondError(500, '01', "Error getting search results");
         }
     }
-    public function createMerchant(CreateNewMerchantRequest $request)
+    public function createMerchant(MerchantRegistrationRequest $request)
     {
         try {
             $validated_data = $request->validated();
