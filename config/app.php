@@ -201,6 +201,8 @@ return [
         App\Providers\CustomProviders\V2\Admin\UserProvider::class,
         App\Providers\CustomProviders\V2\Admin\SupportProvider::class,
         App\Providers\CustomProviders\V2\Admin\MerchantProvider::class,
+        App\Providers\CustomProviders\V2\Admin\NotificationProvider::class,
+
 
 
 
