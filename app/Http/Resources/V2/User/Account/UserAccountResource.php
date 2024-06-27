@@ -29,7 +29,18 @@ class UserAccountResource extends JsonResource
             'photo' => $this->photo,
             'status' => $this->status,
             'wallet' => new WalletResource($this->whenLoaded('wallet')),
-            'compliance' =>  $this->compliance
+            'compliance' =>  $this->compliance,
+           /*  'pagination' => [
+                'total' => $this->total(),
+                'count' => $this->count(),
+                'per_page' => $this->perPage(),
+                'current_page' => $this->currentPage(),
+                'total_pages' => $this->lastPage(),
+                'links' => [
+                    'next' => $this->nextPageUrl(),
+                    'previous' => $this->previousPageUrl(),
+                ],
+            ], */
             // 'wallet_balance' => $this->wallet ? $this->wallet->balance : null,
 
         ];

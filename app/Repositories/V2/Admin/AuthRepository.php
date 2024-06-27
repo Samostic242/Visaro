@@ -22,6 +22,11 @@ class AuthRepository implements AuthRepositoryInterface
         return $admin;
     }
 
+    public function getAdminUser()
+    {
+        return auth()->user();
+    }
+
     public function login(array $data){
         try {
             auth()->shouldUse('admin');
@@ -67,7 +72,6 @@ class AuthRepository implements AuthRepositoryInterface
         $activeUsers = User::whereActive(true)->get()->count();
         $activeMerchants = Merchant::whereActive(true)->get()->count();
 
-
         $data = [
             'OnboardedUser' => $onboardedUsers,
             'OnboardedUserMerchants' => $onboardeMerchants,
@@ -84,5 +88,12 @@ class AuthRepository implements AuthRepositoryInterface
         ];
         return $data;
     }
+
+    public function fetchAllAdmin()
+    {
+        $data = Admin::get();
+        return $data;
+    }
+
 }
 

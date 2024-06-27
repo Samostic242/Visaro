@@ -198,6 +198,12 @@ return [
         App\Providers\CustomProviders\V2\SecurityServiceProvider::class,
         App\Providers\CustomProviders\V2\Flight\FlightProviders::class,
         App\Providers\CustomProviders\V2\Admin\AuthProvider::class,
+        App\Providers\CustomProviders\V2\Admin\UserProvider::class,
+        App\Providers\CustomProviders\V2\Admin\SupportProvider::class,
+        App\Providers\CustomProviders\V2\Admin\NotificationProvider::class,
+
+
+
 
 
 

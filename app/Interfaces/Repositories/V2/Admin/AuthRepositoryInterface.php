@@ -8,4 +8,9 @@ interface AuthRepositoryInterface {
     public function login(array $data);
 
     public function fetchOverview();
+
+    public function getAdminUser();
+
+    public function fetchAllAdmin();
+
 }

@@ -157,11 +157,10 @@ line-height: 30px; margin: 0;padding: 0;-webkit-text-size-adjust: 100%;backgroun
   <br/>
 </div>
 
-<h3> {{$title}}</h3>
+<h3> {{$subject}}</h3>
   <div style="line-height: 140%; text-align: justify; word-wrap: break-word;">
-    <p style="font-size: 12px; line-height: 140%; margin-bottom:10px"><strong> Hi {{strtoupper($full_name)}}</strong>,</p>
-<p style="font-size: 14px; line-height: 140%;">{{$email_content}}</p>
-<h3>{{$otp}}</h3>
+    <p style="font-size: 12px; line-height: 140%; margin-bottom:10px"><strong> Hello</strong>,</p>
+<p style="font-size: 14px; line-height: 140%;">{{$body}}</p>
 <p style="font-size: 14px; line-height: 140%;">
     Thank you for choosing our platform.
     <br/> <br/>
@@ -184,7 +183,7 @@ line-height: 30px; margin: 0;padding: 0;-webkit-text-size-adjust: 100%;backgroun
   <!--[if mso]><style>.v-button {background: transparent !important;}</style><![endif]-->
 <div align="left">
   <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="" style="height:37px; v-text-anchor:middle; width:168px;" arcsize="0%"  stroke="f" fillcolor="#152781"><w:anchorlock/><center style="color:#FFFFFF;font-family:'Open Sans',sans-serif;"><![endif]-->
-    <a href="{{$link}}" target="_blank" class="v-button v-size-width" style="box-sizing: border-box;display: inline-block;font-family:'Open Sans',sans-serif;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #FFFFFF; background-color: #EA5C29; border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px; width:30%; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;">
+    <a href="" target="_blank" class="v-button v-size-width" style="box-sizing: border-box;display: inline-block;font-family:'Open Sans',sans-serif;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #FFFFFF; background-color: #EA5C29; border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px; width:30%; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;">
       <span style="display:block;padding:10px 20px;line-height:120%;"><span style="font-size: 14px; line-height: 16.8px;">Go to app</span></span>
     </a>
   <!--[if mso]></center></v:roundrect><![endif]-->
