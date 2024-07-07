@@ -14,5 +14,10 @@ interface CardRepositoryInterface
 
     public function updateCardStatus(array $data);
 
+    public function updateCardStatusFlutterwave(array $data);
+
+    public function verifyTransaction(int $id);
+
+
     public function getCard();
 }

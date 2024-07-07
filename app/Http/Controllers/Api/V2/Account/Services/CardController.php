@@ -81,4 +81,21 @@ class CardController extends Controller
         return respondSuccess('Webhook Received But not Processed');
 
     }
+
+    public function flutterWaveWebhookController(Request $request)
+    {
+        $payload = $request->getContent();
+        $secret = config('services.flutterwave.signature');
+        $receivedHash = $request->header('verif-hash');
+        if ($receivedHash !== $secret) {
+            return respondError(401, '01', 'Fuck you, Scammer go away');
+        }
+        $data = $request->all();
+        if($data['event'] == 'charge.completed' && $data['data']['amount'] == 50){
+
+            return $this->cardRepository->verifyTransaction($data['data']['id']);
+        }
+        return respondSuccess('Webhook Received But not Processed');
+    }
 }
+

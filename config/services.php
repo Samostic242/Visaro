@@ -95,6 +95,12 @@ return [
         'secret_key' => env('PAYSTACK_SECRET_KEY'),
         'public_key' => env('PAYSTACK_PUBLIC_KEY'),
     ],
+    'flutterwave' => [
+        'base_url' => env('FLUTTERWAVE_BASE_URL'),
+        'secret_key' => env('FLUTTERWAVE_SECRET_KEY'),
+        'public_key' => env('FLUTTERWAVE_PUBLIC_KEY'),
+        'signature' => env('FLUTTERWAVE_SIGNATURE_KEY'),
+    ]
 
 
 ];

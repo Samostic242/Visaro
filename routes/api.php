@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::post('paystack/webhook', [CardController::class, 'webhookController']);
+Route::post('flutterwave/webhook', [CardController::class, 'flutterWaveWebhookController']);
+
 Route::prefix('v1')->group(function () {
     Route::post('register', [PassportController::class, 'register']);
     Route::post('login', [PassportController::class, 'login']);

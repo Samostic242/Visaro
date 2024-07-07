@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\Api\V1\Services\Aviation;
 
+use App\Enums\User\CardChargeVendorEnum;
 use App\Http\Controllers\Controller;
+use App\Http\Integrations\Flutterwave\FlutterwaveConnection;
+use App\Http\Integrations\Flutterwave\Requests\RecurrentChargeFlutterwave;
 use App\Http\Integrations\Paystack\PaystackConnection;
 use App\Http\Integrations\Paystack\Requests\RecurrentCharge;
 use App\Http\Integrations\Trips\Requests\BookFlightRequest;
@@ -133,6 +136,8 @@ class FlightPaymentController extends Controller
             $amount = $installment->single_installment_amount;
             $email = auth()->user()->email;
             $authorization_code = $card_exists->authorization_code;
+            if($card_exists->vendor == CardChargeVendorEnum::PAYSTACK)
+            {
             $payment = new PaystackConnection();
             $makePayment = $payment->send(new RecurrentCharge($amount, $email, $authorization_code));
             $makePayment->onError(function (Response $resp) {
@@ -157,6 +162,35 @@ class FlightPaymentController extends Controller
                         return $installment;
             }
             return false;
+        }
+        }
+        if($card_exists->vendor == CardChargeVendorEnum::FLUTTERWAVE)
+        {
+            $payment = new FlutterwaveConnection();
+            $makePayment = $payment->send(new RecurrentChargeFlutterwave($amount, $email, $authorization_code, $transaction->reference));
+            $makePayment->onError(function (Response $resp) {
+                Log::info('Recurrent Charge Attempt', [$resp]);
+                return respondError(400, "An error occurred", $resp);
+            });
+            $response = $makePayment->json();
+            if(isset($response['status']) && $response['status'] == 'success'){
+
+                 if($response['data']['status'] = 'successful'){
+                     $transaction->payment_reference = $response['data']['tx_ref'];
+                     $transaction->value = $response['data']['amount'];
+                     $transaction->currency = $response['data']['currency'];
+                     $transaction->api_status = $response['data']['status'];
+                     $transaction->authorization_code = $response['data']['card']['token'];
+                     $transaction->description = 'Complete Payment for Flight';
+                     $transaction->status = 'Successful';
+                     $transaction->metadata = $response;
+                     $transaction->save();
+                     $installment->status = 'confirmed';
+                     $installment->save();
+                     return $installment;
+                 }
+                return false;
+             }
         }
         return false;
         } catch (\Throwable $th) {
@@ -352,11 +386,12 @@ class FlightPaymentController extends Controller
             $card_exists = UserCard::where('user_id', auth()->user()->id)->whereActive(true)->first();
             if(!$card_exists){
                 return respondError(404, '01', "No active card found for first payment deduction");
-            }elseif (!$update_installment = $this->confirmPaymentInstallment($instalment->id, $booking->id, $card_exists)) {
+            }
+           elseif ($update_installment = $this->confirmPaymentInstallment($instalment->id, $booking->id, $card_exists)) {
                 return respondError(404, '01', "Error making first installment payment");
             }
             return $this->bookFlightOnTripsSystemNew($booking);
-            // return $book_flight = $this->bookFlightOnTripsSystem($booking);
+
         } catch (\Throwable $th) {
             Log::error("Error fetching Booking Flight - {$th->getMessage()}");
             return respondError(404, '01', "Error Booking Flight - {$th->getMessage()}");
@@ -386,40 +421,79 @@ class FlightPaymentController extends Controller
         $amount = $booking->price;
         $email = auth()->user()->email;
         $authorization_code = $card_exists->authorization_code;
-        $payment = new PaystackConnection();
-        $makePayment = $payment->send(new RecurrentCharge($amount, $email, $authorization_code));
-        $makePayment->onError(function (Response $resp) {
-            Log::info('Recurrent Charge Attempt', [$resp]);
-            return respondError(400, "An error occurred", $resp);
-        });
-       $response = $makePayment->json();
-       if(isset($response['status']) && $response['status'] == 'true'){
-        try{
-            if($response['data']['status'] = 'success'){
-                $transaction->payment_reference = $response['data']['reference'];
-                $transaction->value = $response['data']['amount'];
-                $transaction->currency = $response['data']['currency'];
-                $transaction->api_status = $response['data']['status'];
-                $transaction->authorization_code = $response['data']['authorization']['authorization_code'];
-                $transaction->description = 'Complete Payment for Flight';
-                $transaction->status = 'Successful';
-                $transaction->metadata = $response;
-                $transaction->save();
-                return $this->bookFlightOnTripsSystemNew($booking);
-                // return $book_flight = $this->bookFlightOnTripsSystem($booking);
-               /*  if (!$book_flight = $this->bookFlightOnTripsSystem($booking)){
-                    return respondError(404, '01', "Unable to place the booking");
+        if($card_exists->vendor == CardChargeVendorEnum::PAYSTACK)
+        {
+            $payment = new PaystackConnection();
+            $makePayment = $payment->send(new RecurrentCharge($amount, $email, $authorization_code));
+            $makePayment->onError(function (Response $resp) {
+                Log::info('Recurrent Charge Attempt', [$resp]);
+                return respondError(400, "An error occurred", $resp);
+            });
+           $response = $makePayment->json();
+           if(isset($response['status']) && $response['status'] == 'true'){
+            try{
+                if($response['data']['status'] = 'success'){
+                    $transaction->payment_reference = $response['data']['reference'];
+                    $transaction->value = $response['data']['amount'];
+                    $transaction->currency = $response['data']['currency'];
+                    $transaction->api_status = $response['data']['status'];
+                    $transaction->authorization_code = $response['data']['authorization']['authorization_code'];
+                    $transaction->description = 'Complete Payment for Flight';
+                    $transaction->status = 'Successful';
+                    $transaction->metadata = $response;
+                    $transaction->save();
+                    return $this->bookFlightOnTripsSystemNew($booking);
+                    // return $book_flight = $this->bookFlightOnTripsSystem($booking);
+                   /*  if (!$book_flight = $this->bookFlightOnTripsSystem($booking)){
+                        return respondError(404, '01', "Unable to place the booking");
+                    }
+                    $update_booking = $this->updateBookingToBooked($booking);
+                    return respondSuccess('Flight Booked Successfully', TicketResource::collection($book_flight->tickets)); */
                 }
-                $update_booking = $this->updateBookingToBooked($booking);
-                return respondSuccess('Flight Booked Successfully', TicketResource::collection($book_flight->tickets)); */
+            } catch (\Throwable $th) {
+                Log::error("Error fetching Booking Flight - {$th->getMessage()}");
+                return respondError(404, '01', "Error Booking Flight - {$th->getMessage()}");
             }
-        } catch (\Throwable $th) {
-            Log::error("Error fetching Booking Flight - {$th->getMessage()}");
-            return respondError(404, '01', "Error Booking Flight - {$th->getMessage()}");
+           }
         }
-       }
+        if($card_exists->vendor == CardChargeVendorEnum::FLUTTERWAVE)
+        {
+            $payment = new FlutterwaveConnection();
+            $makePayment = $payment->send(new RecurrentChargeFlutterwave($amount, $email, $authorization_code, $transaction->reference));
+            $makePayment->onError(function (Response $resp) {
+                Log::info('Recurrent Charge Attempt', [$resp]);
+                return respondError(400, "An error occurred", $resp);
+            });
+            $response = $makePayment->json();
+            if(isset($response['status']) && $response['status'] == 'success'){
+             try{
+                 if($response['data']['status'] = 'successful'){
+                     $transaction->payment_reference = $response['data']['tx_ref'];
+                     $transaction->value = $response['data']['amount'];
+                     $transaction->currency = $response['data']['currency'];
+                     $transaction->api_status = $response['data']['status'];
+                     $transaction->authorization_code = $response['data']['card']['token'];
+                     $transaction->description = 'Complete Payment for Flight';
+                     $transaction->status = 'Successful';
+                     $transaction->metadata = $response;
+                     $transaction->save();
+                     return $this->bookFlightOnTripsSystemNew($booking);
+                     // return $book_flight = $this->bookFlightOnTripsSystem($booking);
+                    /*  if (!$book_flight = $this->bookFlightOnTripsSystem($booking)){
+                         return respondError(404, '01', "Unable to place the booking");
+                     }
+                     $update_booking = $this->updateBookingToBooked($booking);
+                     return respondSuccess('Flight Booked Successfully', TicketResource::collection($book_flight->tickets)); */
+                 }
+             } catch (\Throwable $th) {
+                 Log::error("Error fetching Booking Flight - {$th->getMessage()}");
+                 return respondError(404, '01', "Error Booking Flight - {$th->getMessage()}");
+             }
+        }
+
        return respondError(404, '01', "Error Booking Flight - {$response['message']}");
     }
+}
 
     private function bookUsingNewCard($validated, $id)
     {

@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('user_compliances', function (Blueprint $table) {
-            $table->uuid('id');
+            $table->uuid('id')->primary();;
             $table->string('public_id')->index();
             $table->foreignUuid('user_id')->constrained();
             $table->foreignUuid('kyc_id');

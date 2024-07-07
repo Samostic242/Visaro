@@ -3,12 +3,15 @@
 namespace App\Http\Controllers\Api\V1\Services\Aviation;
 
 use App\Http\Controllers\Controller;
+use App\Http\Integrations\Flutterwave\FlutterwaveConnection;
+use App\Http\Integrations\Flutterwave\Requests\RecurrentChargeFlutterwave;
 use App\Http\Integrations\Trips\Requests\FetchBookedFlight;
 use App\Http\Integrations\Trips\Requests\FlightBookingRequest;
 use App\Http\Integrations\Trips\Requests\GetBalanceRequest;
 use App\Http\Integrations\Trips\Requests\GetTokenRequest;
 use App\Http\Integrations\Trips\TripsConnection;
 use App\Models\FlightBooking;
+use App\Models\UserCard;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -111,5 +114,21 @@ class TripsAuthorizationController extends Controller
         if(!$response_data->IsSuccessful){
             return respondError(400, "01", $response_data->Message);
         }
+    }
+
+    public function testRecurrent(Request $request)
+    {
+        $user_card = UserCard::where('user_id', auth()->user()->id)->whereActive(true)->first();
+
+        $amount = 1000;
+        $email = auth()->user()->email;
+        $authorization_code = $user_card->authorization_code;
+        $payment = new FlutterwaveConnection();
+        $makePayment = $payment->send(new RecurrentChargeFlutterwave($amount, $email, $authorization_code, generateAviationReference()));
+        $makePayment->onError(function (Response $resp) {
+            Log::info('Recurrent Charge Attempt', [$resp]);
+            return respondError(400, "An error occurred", $resp);
+        });
+        return $response = $makePayment->json();
     }
 }

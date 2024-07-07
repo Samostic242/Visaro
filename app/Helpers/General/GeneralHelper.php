@@ -570,4 +570,10 @@ if (!function_exists('getFileType')) {
             return 'VISARO|AVT' .rand(100, 999) . '|' . Date('YmdHis') .'|' . Str::random(10);
         }
     }
+    if(!function_exists('generateChargeCardReference')){
+        function generateChargeCardReference()
+        {
+            return 'VISARO|CHR' .rand(100, 999) . '|' . Date('YmdHis') .'|' . Str::random(10);
+        }
+    }
 }

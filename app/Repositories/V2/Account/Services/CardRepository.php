@@ -1,8 +1,12 @@
 <?php
 
 namespace App\Repositories\V2\Account\Services;
+use App\Enums\User\CardChargeVendorEnum;
+use App\Http\Integrations\Flutterwave\FlutterwaveConnection;
+use App\Http\Integrations\Flutterwave\Requests\VerifyTransactionRequest;
 use App\Http\Integrations\Paystack\PaystackConnection;
 use App\Http\Integrations\Paystack\Requests\ChargeCardRequest;
+use App\Http\Integrations\Flutterwave\Requests\ChargeCardRequest as FlutterWaveCharge;
 use App\Interfaces\Repositories\V2\Account\Services\CardRepositoryInterface;
 use App\Models\Card;
 use App\Models\UserCard;
@@ -27,20 +31,45 @@ class CardRepository implements CardRepositoryInterface
         $card = new UserCard();
         $card->public_id = uuid() ?? null;
         $card->user_id = auth()->user()->id;
+        $card->vendor = $data['vendor'];
         $card->save();
-        $paystack = new PaystackConnection();
-        $charge_card = $paystack->send(new ChargeCardRequest($amount = 5000, $user->email));
+        if($card->vendor == CardChargeVendorEnum::PAYSTACK){
+            $paystack = new PaystackConnection();
+            $charge_card = $paystack->send(new ChargeCardRequest($amount = 5000, $user->email));
+            $charge_card->onError(function (Response $resp) {
+                Log::info('Card Charge Request', [$resp]);
+                return respondError(400, "An error occurred", $resp);
+            });
+            $data = $charge_card->json();
+            if(isset($data['status']) && $data['status'] == false){
+                return respondError(400, '01', 'An error while adding a new card');
+            }
+            $card->transaction_reference = $data['data']['reference'];
+            $card->save();
+            return respondSuccess('Add Card Transaction Initiated Successfully', $data);
+        }
+        $transaction_ref = generateChargeCardReference();
+        $flutterwave = new FlutterwaveConnection();
+        $charge_card = $flutterwave->send(new FlutterWaveCharge($amount = 50, $user->email,  $transaction_ref));
         $charge_card->onError(function (Response $resp) {
             Log::info('Card Charge Request', [$resp]);
             return respondError(400, "An error occurred", $resp);
         });
+
         $data = $charge_card->json();
-        if(isset($data['status']) && $data['status'] == false){
+        if(isset($data['status']) && $data['status'] != 'success'){
             return respondError(400, '01', 'An error while adding a new card');
         }
-        $card->transaction_reference = $data['data']['reference'];
+        $card->transaction_reference = $transaction_ref;
         $card->save();
-        return respondSuccess('Add Card Transaction Initiated Successfully', $data);
+        $resp = [
+                'status' => true,
+                'message' => 'Authorization URL created',
+                'data' => [
+                    'authorization_url' => $data['data']['link'],
+                ],
+        ];
+        return respondSuccess('Add Card Transaction Initiated Successfully', $resp);
     }
 
     public function update(array $data)
@@ -96,12 +125,14 @@ class CardRepository implements CardRepositoryInterface
             $card->signature = $data['data']['authorization']['signature'];
             $card->metadata = $data;
             $card->active = true;
+            $card->status = 'active';
             $card->save();
             $compliance->verified_card_details = true;
             $compliance->save();
             return respondSuccess('Transaction handled');
         }
     }
+
 
     public function delete(string $id)
     {
@@ -113,5 +144,56 @@ class CardRepository implements CardRepositoryInterface
             return false;
         }
     }
+
+    public function verifyTransaction(int $id)
+    {
+        $flutterwave = new FlutterwaveConnection();
+        $transaction = $flutterwave->send(new VerifyTransactionRequest($id));
+        $transaction->onError(function (Response $resp) {
+            Log::info('Verify Transaction Error', [$resp]);
+            return respondError(400, "01", "An error occurred");
+        });
+
+       return  $data = $transaction->json();
+        if($data['status'] != 'success'){
+            return respondError(400, "01", "An error occurred");
+        }
+        return $this->updateCardStatusFlutterwave($data);
+    }
+
+
+    public function updateCardStatusFlutterwave(array $data)
+    {
+        $card = UserCard::where('transaction_reference', $data['data']['tx_ref'])
+        ->whereActive(false)->first();
+        if(!$card){
+            return respondSuccess('InvalidTransaction Reference');
+        }
+        $compliance = UserCompliance::where('user_id', $card->user_id)->first();
+        if($card->metadata !== NULL){
+            return respondSuccess('Transaction exists and has been handled');
+        }
+        if($card){
+            $expiry = $data['data']['card']['expiry'];
+            list($month, $year) = explode('/', $expiry);
+            $card->last_four_digit = $data['data']['card']['last_4digits'] ?? null;
+            $card->last_charged = Carbon::parse($data['data']['created_at']) ?? null;
+            $card->value = ($data['data']['charged_amount']) ?? null;
+            $card->authorization_code = $data['data']['card']['token'];
+            $card->card_type = $data['data']['card']['type'];
+            $card->exp_month = $month;
+            $card->exp_year = $year;
+            $card->signature = $data['data']['ip'];
+            $card->metadata = $data;
+            $card->status = 'active';
+            $card->active = true;
+            $card->save();
+            $compliance->verified_card_details = true;
+            $compliance->save();
+            return respondSuccess('Transaction handled');
+        }
+    }
+
+
 
 }

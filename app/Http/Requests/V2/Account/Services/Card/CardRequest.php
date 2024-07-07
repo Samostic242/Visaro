@@ -36,7 +36,8 @@ class CardRequest extends FormRequest
             "lga" => ["required","string"],
             "provider" => ["required","string"],
             "provider_logo" => ["image", "mimes:jpeg,png,jpg,gif,svg", "max:2048"], */
-            "allow_charge" => ["boolean"]
+            "allow_charge" => ["boolean"],
+            "vendor" => ['required', 'string']
 
         ];
     }

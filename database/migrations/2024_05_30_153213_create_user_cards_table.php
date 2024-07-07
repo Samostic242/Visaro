@@ -20,6 +20,8 @@ return new class extends Migration
             $table->timestamp('last_charged')->nullable();
             $table->string('value')->nullable();
             $table->string('nickname')->nullable();
+            $table->string('nickname')->nullable();
+
             $table->string('authorization_code')->nullable();
             $table->string('card_type')->nullable();
             $table->string('exp_month')->nullable();

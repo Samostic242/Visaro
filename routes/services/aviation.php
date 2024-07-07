@@ -5,6 +5,8 @@ use App\Http\Controllers\Api\V1\Services\Aviation\FlightPaymentController;
 use App\Http\Controllers\Api\V1\Services\Aviation\TripsAuthorizationController;
 use Illuminate\Support\Facades\Route;
 Route::get('/fetch-balance', [TripsAuthorizationController::class, 'fetchBalance'])->name('fetch.balance');
+Route::post('/test-recurrent', [TripsAuthorizationController::class, 'testRecurrent']);
+
 Route::get('/widget/initialize', [TripsAuthorizationController::class, 'getWidgetAuthorizationToken'])->name('aviation.authorize');
 Route::prefix('/flights')->group(function () {
     Route::post('/fetch-details', [TripsAuthorizationController::class, 'fetchFlightDetails'])->name('fetch.flight.details');
