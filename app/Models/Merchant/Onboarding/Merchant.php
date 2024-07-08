@@ -2,6 +2,7 @@
 
 namespace App\Models\Merchant\Onboarding;
 
+use App\Models\Commerce\Order;
 use App\Models\Commerce\StoreFront;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
@@ -68,5 +69,10 @@ class Merchant extends Authenticatable implements MustVerifyEmail, JWTSubject
     public function storefronts(): HasMany
     {
         return $this->hasMany(StoreFront::class);
+    }
+
+    public function orders(): HasMany
+    {
+        return $this->hasMany(Order::class);
     }
 }
