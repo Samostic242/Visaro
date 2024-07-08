@@ -35,5 +35,11 @@ class UserRepository implements UserRepositoryInterface
         return null;
     }
 
+    public function getSingleUser(string $id)
+    {
+        $user = User::whereId($id)->with('transactions')->get();
+        return $user;
+    }
+
 }
 

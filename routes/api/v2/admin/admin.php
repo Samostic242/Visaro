@@ -19,6 +19,7 @@ Route::middleware('auth:admin')->group(function () {
     Route::get('/', [AuthController::class, 'fetchAdminUser']);
     Route::get('dashboard', [AuthController::class, 'fetchOverview']);
     Route::get('users', [UserController::class, 'getUserStatistics']);
+    Route::get('users/{id}', [UserController::class, 'getSingleUser']);
     Route::get('get-all-admin', [AuthController::class, 'fetchAllAdmin']);
     Route::get('support', [SupportController::class, 'getAllSupport']);
     Route::post('create-admin', [AuthController::class, 'createAdminUser']);
@@ -29,8 +30,8 @@ Route::middleware('auth:admin')->group(function () {
 
 Route::prefix('merchants')->middleware('auth:admin')->group(function () {
     Route::get('/', [MerchantController::class, 'getMerchants']);
-    Route::get('search', [MerchantController::class, 'getMerchantsSearchResults']);
     Route::post('/', [MerchantController::class, 'createMerchant']);
+    Route::get('search', [MerchantController::class, 'getMerchantsSearchResults']);
     Route::get('/{id}', [MerchantController::class, 'getMerchant']);
     Route::get('/{id}/history', [MerchantController::class, 'getMerchantHistory']);
     Route::post('/{id}/activate', [MerchantController::class, 'activateMerchant']);

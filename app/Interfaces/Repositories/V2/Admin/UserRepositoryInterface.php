@@ -11,6 +11,8 @@ interface UserRepositoryInterface
      */
     public function getAll();
 
+    public function getSingleUser(string $Id);
+
     /* *
      * Get a user by ID.
      *

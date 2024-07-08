@@ -127,4 +127,9 @@ class User extends Authenticatable implements MustVerifyEmail, JWTSubject
     {
         // TODO: Implement getEmailForVerification() method.
     }
+
+    public function transactions(): HasMany
+    {
+        return $this->hasMany(UserTransaction::class);
+    }
 }

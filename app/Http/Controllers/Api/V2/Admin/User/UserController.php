@@ -17,4 +17,10 @@ class UserController extends Controller
         $data = $this->userRepository->fetchUserOverview();
         return respondSuccess('User Statistics Fetched Successfully', $data);
     }
+
+    public function getSingleUser($id)
+    {
+        $data = $this->userRepository->getSingleUser($id);
+        return respondSuccess('User Fetched Successfully', $data);
+    }
 }
