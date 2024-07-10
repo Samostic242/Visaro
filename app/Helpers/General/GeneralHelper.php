@@ -576,4 +576,18 @@ if (!function_exists('getFileType')) {
             return 'VISARO|CHR' .rand(100, 999) . '|' . Date('YmdHis') .'|' . Str::random(10);
         }
     }
+
+    if(!function_exists('generateRandomPassword'))
+    {
+        function generateRandomPassword($length)
+        {
+            $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            $charactersLength = strlen($characters);
+            $randomPassword = '';
+            for ($i = 0; $i < $length; $i++) {
+                $randomPassword .= $characters[rand(0, $charactersLength - 1)];
+            }
+            return $randomPassword;
+        }
+    }
 }

@@ -6,7 +6,9 @@ use App\Http\Controllers\Api\V2\Admin\Merchant\MerchantController;
 use App\Http\Controllers\Api\V2\Admin\Notification\NotificationController;
 use App\Http\Controllers\Api\V2\Admin\Support\SupportController;
 use App\Http\Controllers\Api\V2\Admin\User\UserController;
+use App\Http\Controllers\Api\V2\Partner\PartnerController;
 use Illuminate\Support\Facades\Route;
+
 
 
 
@@ -36,4 +38,9 @@ Route::prefix('merchants')->middleware('auth:admin')->group(function () {
     Route::get('/{id}/history', [MerchantController::class, 'getMerchantHistory']);
     Route::post('/{id}/activate', [MerchantController::class, 'activateMerchant']);
     Route::post('/{id}/deactivate', [MerchantController::class, 'deactivateMerchant']);
+});
+
+Route::prefix('partner')->middleware('auth:admin')->group(function () {
+    // Route::get('/', [PartnerController::class, 'getPartners']);
+    Route::post('/', [PartnerController::class, 'create']);
 });
