@@ -10,6 +10,7 @@ use App\Models\BookedFlight;
 use App\Models\Flight;
 use App\Models\FlightBooking;
 use App\Models\PaymentInstallment;
+use App\Models\QuickLoan;
 use App\Models\UserTransaction;
 use Illuminate\Support\Facades\Log;
 use Saloon\Http\Response;
@@ -89,15 +90,10 @@ class FlightRepository implements FlightRepositoryInterface
         return $data;
     }
 
-   /*  public function getUserTransactions()
+    public function getLoansPlans()
     {
-        $data = UserTransaction::whereUserId(auth()->id())->with('flightbooking.flight')->get();
+        $data = QuickLoan::whereUserId(auth()->id())->get();
         return $data;
-    } */
-
-   /*  public function getFlightBooking()
-    {
-        return $data;
-    } */
+    }
 
 }

@@ -2,9 +2,13 @@
 
 namespace App\Repositories\V2\Admin;
 
+use App\Enums\Loans\LoanStatus;
 use App\Interfaces\Repositories\V2\Admin\PartnerRepositoryInterface;
+use App\Mail\V2\Loan\ApprovedLoanMail;
 use App\Mail\V2\Partner\PartnerMail;
 use App\Models\Partner;
+use App\Models\QuickLoan;
+use App\Models\User;
 use Exception;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -70,4 +74,53 @@ class PartnerRepository implements PartnerRepositoryInterface
         }
 
     }
+
+    public function updatePartnerData(array $data)
+    {
+        $partner = auth()->user();
+        $partner->name = $data['name'] ?? $partner->name ?? null;
+        $partner->email = $data['email'] ?? $partner->email ?? null;
+        $partner->phone = $data['phone'] ?? $partner->phone ?? null;
+        $partner->interest_rate = $data['interest_rate'] ?? $partner->interest_rate ?? null;
+        $partner->address = $data['address'] ?? $partner->address ?? null;
+        $partner->password = Hash::make($data['password'] ?? $partner->password ?? null);
+        $partner->save();
+        return $partner;
+    }
+
+    public function getAllLoanRequest()
+    {
+        $partner_id = auth()->user()->id;
+        $loan_requests = QuickLoan::where('partner_id', $partner_id)->get();
+        return $loan_requests;
+    }
+
+    public function loanAction(array $data)
+    {
+        $loan_id = $data['loan_id'];
+        $loan = QuickLoan::where('id', $loan_id)
+        ->where('partner_id', auth()->user()->id)->first();
+        if(!$loan){
+            return respondError(404, "01", 'Loan Not Found');
+        }
+        $action = strtolower($data['action']);
+        if($action == LoanStatus::APPROVED){
+            $loan->status = LoanStatus::APPROVED;
+            $loan->save();
+            $user = User::find($loan->user_id);
+            // Send email
+            $notification = Mail::send(new ApprovedLoanMail($loan, $user));
+            return respondSuccess('Loan Approved Successfully');
+        }elseif($action == LoanStatus::DECLINED){
+            $loan->status = LoanStatus::DECLINED;
+            $loan->reason = $data['reason'] ?? null;
+            $loan->save();
+            return respondSuccess('Loan Declined Successfully');
+        }
+
+
+    }
+
+
 }
+

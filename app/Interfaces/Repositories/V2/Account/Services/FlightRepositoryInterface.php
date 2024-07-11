@@ -12,5 +12,8 @@ interface FlightRepositoryInterface
 
     public function getInstallmentPlans();
 
+    public function getLoansPlans();
+
+
 
 }

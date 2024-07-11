@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Api\V2\Partner;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\V2\Loans\LoanActionRequest;
 use App\Http\Requests\V2\Partner\CreatePartnerRequest;
 use App\Http\Requests\V2\Partner\PartnerLoginRequest;
+use App\Http\Requests\V2\Partner\updatePartnerRequest;
 use App\Interfaces\Repositories\V2\Admin\PartnerRepositoryInterface;
 use Illuminate\Http\Request;
 
@@ -35,4 +37,26 @@ class PartnerController extends Controller
         return respondSuccess($logged_in['message'], $logged_in['data']);
     }
 
+    public function getLoanRequest()
+    {
+        $data = $this->partnerRepository->getAllLoanRequest();
+        return respondSuccess('Loan Requests Fetched', $data);
+    }
+
+    public function loanAction(LoanActionRequest $request)
+    {
+        $data = $request->validated();
+        $action = $this->partnerRepository->loanAction($data);
+        return $action;
+    }
+
+    public function updatePartner(updatePartnerRequest $request)
+    {
+        $validated_data = $request->validated();
+        if(!$updated = $this->partnerRepository->updatePartnerData($validated_data))
+        {
+            respondError('400', '01', 'An error occurred');
+        }
+        return respondSuccess('Partner Updated Successfully', $updated);
+    }
 }

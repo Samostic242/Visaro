@@ -18,8 +18,10 @@ use App\Http\Resources\V1\Payment\PaymentOptionResource;
 use App\Http\Resources\V1\Services\Aviation\TicketResource;
 use App\Models\BookedFlight;
 use App\Models\FlightBooking;
+use App\Models\Partner;
 use App\Models\PaymentInstallment;
 use App\Models\PaymentOption;
+use App\Models\QuickLoan;
 use App\Models\UserCard;
 use App\Models\UserTransaction;
 use Carbon\Carbon;
@@ -117,7 +119,7 @@ class FlightPaymentController extends Controller
         }
     }
 
-    private function confirmPaymentInstallment($installment_id, $booking_id, $card_exists): PaymentInstallment|false
+    private function confirmPaymentInstallment($installment_id, $booking_id, $card_exists)
     {
         try {
             $user = auth()->user();
@@ -156,7 +158,6 @@ class FlightPaymentController extends Controller
                         $transaction->description = 'First Installment Payment for Flight';
                         $transaction->status = 'Successful';
                         $transaction->save();
-
                         $installment->status = 'confirmed';
                         $installment->save();
                         return $installment;
@@ -164,7 +165,7 @@ class FlightPaymentController extends Controller
             return false;
         }
         }
-        if($card_exists->vendor == CardChargeVendorEnum::FLUTTERWAVE)
+        elseif($card_exists->vendor == CardChargeVendorEnum::FLUTTERWAVE)
         {
             $payment = new FlutterwaveConnection();
             $makePayment = $payment->send(new RecurrentChargeFlutterwave($amount, $email, $authorization_code, $transaction->reference));
@@ -181,7 +182,7 @@ class FlightPaymentController extends Controller
                      $transaction->currency = $response['data']['currency'];
                      $transaction->api_status = $response['data']['status'];
                      $transaction->authorization_code = $response['data']['card']['token'];
-                     $transaction->description = 'Complete Payment for Flight';
+                     $transaction->description = 'First Installment Payment for Flight';
                      $transaction->status = 'Successful';
                      $transaction->metadata = $response;
                      $transaction->save();
@@ -189,8 +190,9 @@ class FlightPaymentController extends Controller
                      $installment->save();
                      return $installment;
                  }
-                return false;
+                 return false;
              }
+             return false;
         }
         return false;
         } catch (\Throwable $th) {
@@ -263,18 +265,22 @@ class FlightPaymentController extends Controller
             ];
         } elseif ($option_id == 002) {
             $fee = config('services.sectors.aviation.payment.fee');
-            $per_instalment_amount = ($amount + $fee) / 3;
+            $net_figures = $this->getInterest($amount);
+            $interest = $net_figures['interest'];
+            $net_total_amount = $net_figures['total_amount'];
+            $per_instalment_amount = ($amount) / 3;
+            $net_per_instalment_amount = $net_total_amount / 2;
             $data = [
                 'amount' => $amount,
                 'processing_fee' => $fee,
-                'total_amount_payable' => $amount + $fee,
+                'total_amount_payable' => $amount + $fee + $interest,
                 'number_of_instalments' => 3,
-                'single_installment_amount' => $per_instalment_amount,
+                'single_installment_amount' => $net_per_instalment_amount,
                 'instalments' => [
                     [
-                        'amount' => $per_instalment_amount,
+                        'amount' => $per_instalment_amount + $fee,
                         'processing_fee' => $fee,
-                        'total_amount_payable' => $per_instalment_amount,
+                        'total_amount_payable' => $per_instalment_amount + $fee,
                         'due' => 'today',
                         'formatted' => [
                             'amount' => formatMoney(koboToNaira($per_instalment_amount)),
@@ -285,23 +291,23 @@ class FlightPaymentController extends Controller
                     [
                         'amount' => $per_instalment_amount,
                         'processing_fee' => $fee,
-                        'total_amount_payable' => $per_instalment_amount,
+                        'total_amount_payable' => $net_per_instalment_amount,
                         'due' => $today->addMonth(),
                         'formatted' => [
-                            'amount' => formatMoney(koboToNaira($per_instalment_amount)),
+                            'amount' => formatMoney(koboToNaira($net_per_instalment_amount)),
                             'processing_fee' => formatMoney(koboToNaira($fee)),
-                            'total_amount_payable' => formatMoney(koboToNaira($per_instalment_amount)),
+                            'total_amount_payable' => formatMoney(koboToNaira($net_per_instalment_amount)),
                         ]
                     ],
                     [
                         'amount' => $per_instalment_amount,
                         'processing_fee' => $fee,
-                        'total_amount_payable' => $per_instalment_amount,
+                        'total_amount_payable' => $net_per_instalment_amount,
                         'due' => $today->addMonths(2),
                         'formatted' => [
-                            'amount' => formatMoney(koboToNaira($per_instalment_amount)),
+                            'amount' => formatMoney(koboToNaira($net_per_instalment_amount)),
                             'processing_fee' => formatMoney(koboToNaira($fee)),
-                            'total_amount_payable' => formatMoney(koboToNaira($per_instalment_amount)),
+                            'total_amount_payable' => formatMoney(koboToNaira($net_per_instalment_amount)),
                         ]
                     ],
                 ],
@@ -309,8 +315,8 @@ class FlightPaymentController extends Controller
                 'formatted' => [
                     'amount' => formatMoney(koboToNaira($amount)),
                     'processing_fee' => formatMoney(koboToNaira($fee)),
-                    'single_installment_amount' => formatMoney(koboToNaira($per_instalment_amount)),
-                    'total_amount_payable' => formatMoney(koboToNaira($amount + $fee)),
+                    'single_installment_amount' => formatMoney(koboToNaira($net_per_instalment_amount)),
+                    'total_amount_payable' => formatMoney(koboToNaira($amount + $fee + $interest)),
                 ]
 
             ];
@@ -387,10 +393,13 @@ class FlightPaymentController extends Controller
             if(!$card_exists){
                 return respondError(404, '01', "No active card found for first payment deduction");
             }
-           elseif ($update_installment = $this->confirmPaymentInstallment($instalment->id, $booking->id, $card_exists)) {
+           elseif (!$update_installment = $this->confirmPaymentInstallment($instalment->id, $booking->id, $card_exists)) {
                 return respondError(404, '01', "Error making first installment payment");
             }
-            return $this->bookFlightOnTripsSystemNew($booking);
+       /*     $update_installment = $this->confirmPaymentInstallment($instalment->id, $booking->id, $card_exists);
+           return $update_installment; */
+            return $this->sendLoanRequest($update_installment, $booking->price);
+            // return $this->bookFlightOnTripsSystemNew($booking);
 
         } catch (\Throwable $th) {
             Log::error("Error fetching Booking Flight - {$th->getMessage()}");
@@ -571,6 +580,70 @@ class FlightPaymentController extends Controller
         }
         return respondError(400, "0", "Flight booked Successfully, An error occurred, while fetching your ticket");
          }
+
+    private function sendLoanRequest($data,$amount)
+    {
+        if($amount > 80000){
+            $partner_name = 'RENMONEY';
+        }else{
+            $partner_name = 'CREDIT';
+        }
+        $partner = Partner::where('name', $partner_name)->first();
+        try{
+        if($partner){
+            $net_figures = $this->getInterest($amount);
+            $interest = $net_figures['interest'];
+            $net_total_amount = $net_figures['total_amount'];
+            $net_amount = $net_figures['net_amount'];
+
+            $net_per_instalment_amount = $net_total_amount / 2;
+            $loan = new QuickLoan();
+            $loan->user_id = auth()->id();
+            $loan->public_id = uuid();
+            $loan->partner_id = $partner->id;
+            $loan->service_id = $data['target_service_id'] ?? null;
+            $loan->payment_installment_id = $data['id'] ?? null;
+            $loan->amount = $amount ?? null;
+            $loan->merchant = 'Aviation' ?? null;
+            $loan->loan_amount = $net_amount ?? null;
+            $loan->per_installment_amount = $net_per_instalment_amount ?? null;
+            $loan->total_payable = $net_total_amount ?? null ;
+            $loan->calculated_interest = $interest ?? null;
+            $loan->repayment_period = 3;
+            $loan->industry = $data['target_service'];
+            $loan->reference = generateLoanReference();
+            $loan->save();
+            return respondSuccess('Loan Request Sent Successfully', $loan);
+        }
     }
+        catch (\Exception $e){
+            return respondError(400, '01', $e->getMessage());
+        }
+
+
+    }
+
+    public function getInterest($amount): array
+    {
+        $amount = $amount / 3;
+        $net_amount = $amount * 2;
+
+        if($net_amount > 10000){
+            $partner_name = 'RENMONEY';
+        }else{
+            $partner_name = 'CREDIT';
+        }
+        $partner = Partner::where('name', $partner_name)->first();
+        $interest_rate = $partner->interest_rate;
+        $interest_amount = ($interest_rate/100) * $net_amount;
+        $total_amount = $interest_amount + $net_amount;
+        $data = [
+            'interest' => $interest_amount,
+            'net_amount' => $net_amount,
+            'total_amount' => $total_amount,
+        ];
+        return $data;
+    }
+}
 
 

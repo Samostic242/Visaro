@@ -577,6 +577,13 @@ if (!function_exists('getFileType')) {
         }
     }
 
+    if(!function_exists('generateLoanReference')){
+        function generateLoanReference()
+        {
+            return 'VISARO|LOAN' .rand(100, 999) . '|' . Date('YmdHis') .'|' . Str::random(10);
+        }
+    }
+
     if(!function_exists('generateRandomPassword'))
     {
         function generateRandomPassword($length)

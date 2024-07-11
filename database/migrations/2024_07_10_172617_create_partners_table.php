@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
             $table->string('address')->nullable();
-            $table->float('interest_rate')->default(10);
+            $table->decimal('interest_rate')->default(10);
             $table->timestamp('last_changed_interest_rate')->nullable();
             $table->string('password')->nullable();
             $table->string('status')->nullable();

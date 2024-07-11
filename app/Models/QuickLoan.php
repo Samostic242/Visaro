@@ -17,12 +17,17 @@ class QuickLoan extends Model
     protected $fillable = [
         'partner_id',
         'user_id',
+        'payment_installment_id',
         'service_id',
         'merchant',
+        'reference',
+        'reason',
         'amount',
         'loan_amount',
         'industry',
         'currency',
+        'calculated_interest',
+        'per_instalment_amount',
         'utilized',
         'total_payable',
         'repayment_period',
@@ -37,6 +42,11 @@ class QuickLoan extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function installment(): BelongsTo
+    {
+        return $this->belongsTo(PaymentInstallment::class);
     }
 
 }
