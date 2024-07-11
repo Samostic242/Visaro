@@ -53,4 +53,13 @@ class FlightController extends Controller
 
         return respondSuccess('Installment Fetched Successfully', InstallmentResource::collection($installments));
     }
+
+    public function getLoansRequest()
+    {
+        if(!$loan = $this->flightRepository->getLoansPlans()){
+            return respondError(404, '01', 'loan Not Found');
+        }
+        return respondSuccess('Loan plan returned successfully', $loan);
+    }
+
 }

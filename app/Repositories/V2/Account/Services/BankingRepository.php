@@ -115,9 +115,9 @@ class BankingRepository implements BankingRepositoryInterface
         $accountDetails = $this->findBankAccountDetailsByCode($data['code']);
         if($accountDetails['status'] == 400)
         {
-            return respondError(400, $accountDetails['message']);
+            return respondError(400, '01', $accountDetails['message']);
         }elseif($accountDetails['status'] == 404){
-            return respondError(404, $accountDetails['message']);
+            return respondError(404, '01', $accountDetails['message']);
         }else{
             return respondSuccess($accountDetails['message'], $accountDetails['data']);
         }

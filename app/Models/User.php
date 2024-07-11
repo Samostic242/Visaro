@@ -108,6 +108,11 @@ class User extends Authenticatable implements MustVerifyEmail, JWTSubject
         return $this->hasOne(UserCompliance::class);
     }
 
+    public function Quickloan(): HasMany
+    {
+        return $this->hasMany(Quickloan::class);
+    }
+
     public function hasVerifiedEmail()
     {
         // TODO: Implement hasVerifiedEmail() method.

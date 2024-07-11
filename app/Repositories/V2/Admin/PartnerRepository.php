@@ -91,7 +91,7 @@ class PartnerRepository implements PartnerRepositoryInterface
     public function getAllLoanRequest()
     {
         $partner_id = auth()->user()->id;
-        $loan_requests = QuickLoan::where('partner_id', $partner_id)->get();
+        $loan_requests = QuickLoan::where('partner_id', $partner_id)->with('user')->get();
         return $loan_requests;
     }
 
