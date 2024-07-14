@@ -29,6 +29,9 @@ return new class extends Migration {
             $table->string('hint_answer')->nullable();
             $table->string('code')->nullable()->index();
             $table->string('qrcode')->nullable();
+            $table->boolean('bvn_verified')->default(false);
+            $table->json('bvn_verification_data')->nullable();
+            $table->string('bvn')->nullable();
             $table->string('status')->default('active');
             $table->boolean('active')->default(true);
             $table->json('meta')->nullable();

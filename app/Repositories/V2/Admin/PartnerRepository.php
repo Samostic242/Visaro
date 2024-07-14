@@ -121,6 +121,38 @@ class PartnerRepository implements PartnerRepositoryInterface
 
     }
 
+    public function dashboardStatistics()
+    {
+        $allLoanCount = QuickLoan::all()->count();
+        $approvedLoans = QuickLoan::whereStatus('approved')->count();
+        $declinedLoans = QuickLoan::whereStatus('declined')->count();
+        $pendingLoans = QuickLoan::whereStatus('pending')->count();
+
+        $allLoanSum = QuickLoan::all()->sum('loan_amount');
+        $approvedLoanSum = QuickLoan::whereStatus('approved')->sum('loan_amount');
+        $declineLoanSum = QuickLoan::whereStatus('declined')->sum('loan_amount');
+        $pendingLoanSum = QuickLoan::whereStatus('pending')->sum('loan_amount');
+        $interest = QuickLoan::whereStatus('approved')->sum('calculated_interest');
+
+
+        $data = [
+            'AllLoanCount' => $allLoanCount,
+            'ApprovedLoanCount' => $approvedLoans,
+            'DeclinedLoanCount' => $declinedLoans,
+            'PendingLoanCount' => $pendingLoans,
+            'AllLoanSum' => $allLoanSum,
+            'ApprovedLoanSum' => $approvedLoanSum,
+            'DeclineLoanSum' => $declineLoanSum,
+            'PendingLoanSum' => $pendingLoanSum,
+            'OpeningBalance' => 0,
+            'ClosingBalance' => 0,
+            'TotalInterestGenerated' => $interest
+
+        ];
+
+        return $data;
+    }
+
 
 }
 

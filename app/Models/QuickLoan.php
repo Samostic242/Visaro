@@ -41,7 +41,7 @@ class QuickLoan extends Model
 
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class)->select('id', 'firstname', 'lastname', 'middlename')->with('compliance');
+        return $this->belongsTo(User::class)->select('id', 'firstname', 'lastname', 'middlename', 'email', 'address', 'phone_code', 'phone', 'dob' )->with('compliance');
     }
 
     public function installment(): BelongsTo

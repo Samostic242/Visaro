@@ -12,9 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('bvn')->nullable()->after('photo');
-            $table->boolean('bvn_verified')->default(false)->after('bvn');
-            $table->json('bvn_verification_data')->nullable()->after('bvn_verified');
+            $table->date('dob')->nullable();
 
 
         });

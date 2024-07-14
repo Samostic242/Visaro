@@ -17,4 +17,5 @@ Route::prefix('loans')->middleware('auth:partner')->group(function () {
 
 Route::middleware('auth:partner')->group(function () {
     Route::post('/update', [PartnerController::class, 'updatePartner']);
+    Route::get('/dashboard', [PartnerController::class, 'getPartnerAnalytics']);
 });

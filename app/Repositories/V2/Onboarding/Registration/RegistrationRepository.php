@@ -64,6 +64,7 @@ class RegistrationRepository implements RegistrationRepositoryInterface
         $user->username = $data['username'] ?? $user->username;
         $user->address = $data['address'] ?? $user->address;
         $user->phone_code = $data['phone_code'] ?? '+234';
+        $user->dob = $data['dob'] ?? null;
         if(array_key_exists('photo', $data)){
             $user->photo = upload_to_cloudinary('Profile Pictures', $data['photo']->getRealPath()) ?? $user->photo;
         }

@@ -12,8 +12,11 @@ interface PartnerRepositoryInterface
 
     public function loanAction(array $data);
 
-    public function updatePartnerData(array $data)
-;
+    public function updatePartnerData(array $data);
+
+    public function dashboardStatistics();
+
+
 
 
 }

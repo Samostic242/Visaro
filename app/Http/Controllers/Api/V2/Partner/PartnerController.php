@@ -59,4 +59,10 @@ class PartnerController extends Controller
         }
         return respondSuccess('Partner Updated Successfully', $updated);
     }
+
+    public function getPartnerAnalytics()
+    {
+        $data = $this->partnerRepository->dashboardStatistics();
+        return respondSuccess('Partner Analytics Fetched', $data);
+    }
 }
