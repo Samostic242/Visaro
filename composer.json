@@ -10,6 +10,7 @@
     "require": {
         "php": "^8.1",
         "bacon/bacon-qr-code": "^2.0",
+        "beyondcode/laravel-websockets": "^1.14",
         "cloudinary-labs/cloudinary-laravel": "^2.1",
         "darkaonline/l5-swagger": "^8.4",
         "guzzlehttp/guzzle": "^7.0.1",
@@ -20,6 +21,7 @@
         "laravel/ui": "^4.2",
         "okolaa/termiiphp": "^1.0",
         "opcodesio/log-viewer": "^3.1",
+        "pusher/pusher-php-server": "^7.2",
         "saloonphp/laravel-plugin": "^3.0",
         "saloonphp/saloon": "^3.0",
         "simplesoftwareio/simple-qrcode": "^4.2",

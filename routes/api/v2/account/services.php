@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\Api\V2\Account\Profile\Wallet\WalletController;
 use App\Http\Controllers\Api\V2\Account\Services\BankingController;
 use App\Http\Controllers\Api\V2\Account\Services\CardController;
 use App\Http\Controllers\Api\V2\Account\Services\FlightController;
 use Illuminate\Support\Facades\Route;
+
 
 
 
@@ -29,11 +31,16 @@ Route::prefix('banking')->group(function () {
         Route::post('enquiry', [BankingController::class, 'fetchAccountDetails']);
     });
 });
-Route::get('installments', [FlightController::class, 'getInstallmentPlan'])->middleware('auth:api');
-Route::get('loans', [FlightController::class, 'getLoansRequest'])->middleware('auth:api');
+    Route::get('installments', [FlightController::class, 'getInstallmentPlan'])->middleware('auth:api');
+    Route::get('loans', [FlightController::class, 'getLoansRequest'])->middleware('auth:api');
 
-Route::prefix('booked-flights')->middleware('auth:api')->group( function () {
-    Route::get('/', [FlightController::class, 'getBookedFlights']);
-    Route::get('get-payment-transactions', [FlightController::class, 'fetchUserFlightTransaction']);
-    Route::get('/{id}/tickets', [FlightController::class, 'getFlightDetails']);
-});
+    Route::prefix('booked-flights')->middleware('auth:api')->group( function () {
+        Route::get('/', [FlightController::class, 'getBookedFlights']);
+        Route::get('get-payment-transactions', [FlightController::class, 'fetchUserFlightTransaction']);
+        Route::get('/{id}/tickets', [FlightController::class, 'getFlightDetails']);
+    });
+
+    Route::prefix('wallet')->middleware('auth:api')->group( function () {
+        Route::post('fund-wallet', [WalletController::class, 'creditWallet']);
+
+    });

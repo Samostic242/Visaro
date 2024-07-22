@@ -22,6 +22,7 @@ use App\Models\Partner;
 use App\Models\PaymentInstallment;
 use App\Models\PaymentOption;
 use App\Models\QuickLoan;
+use App\Models\User;
 use App\Models\UserCard;
 use App\Models\UserTransaction;
 use Carbon\Carbon;
@@ -119,10 +120,51 @@ class FlightPaymentController extends Controller
         }
     }
 
-    private function confirmPaymentInstallment($installment_id, $booking_id, $card_exists)
+    private function confirmPaymentInstallmentsWithWallet($installment_id, $booking_id, $user_id)
     {
         try {
-            $user = auth()->user();
+            $user = User::find($user_id);
+            $installment = PaymentInstallment::where('user_id', $user->id)
+                ->where('id', $installment_id)
+                ->first();
+            if (!$installment){
+                return false;
+            }
+            $transaction = new UserTransaction();
+            $transaction->public_id = uuid();
+            $transaction->user_id = $user->id;
+            $transaction->reference = generateAviationReference();
+            $transaction->save();
+            $booking = FlightBooking::find($booking_id);
+            $amount = $installment->single_installment_amount;
+            $email = $user->email;
+            $debitWalletForFirstPayment = debitWallet(auth()->user()->wallet->id, koboToNaira($amount));
+            if($debitWalletForFirstPayment){
+                        $transaction->payment_reference = null;
+                        $transaction->value = $amount;
+                        $transaction->currency = 'NGN';
+                        $transaction->api_status = 'wallet';
+                        $transaction->authorization_code = null;
+                        $transaction->metadata = null;
+                        $transaction->description = 'First Installment Payment for Flight';
+                        $transaction->status = 'Successful';
+                        $transaction->save();
+                        $installment->status = 'confirmed';
+                        $installment->save();
+                        return $installment;
+            }
+            return false;
+            }
+            catch (\Throwable $th) {
+                Log::error("Error updating payment Installment - {$th->getMessage()}");
+                return false;
+            }
+        }
+
+    private function confirmPaymentInstallments($installment_id, $booking_id, $card_exists, $user_id)
+    {
+        try {
+            $user = User::find($user_id);
             $installment = PaymentInstallment::where('user_id', $user->id)
                 ->where('id', $installment_id)
                 ->first();
@@ -131,12 +173,12 @@ class FlightPaymentController extends Controller
             }
             $transaction = new UserTransaction();
             $transaction->public_id = uuid();
-            $transaction->user_id = auth()->id();
+            $transaction->user_id = $user->id;
             $transaction->reference = generateAviationReference();
             $transaction->save();
             $booking = FlightBooking::find($booking_id);
             $amount = $installment->single_installment_amount;
-            $email = auth()->user()->email;
+            $email = $user->email;
             $authorization_code = $card_exists->authorization_code;
             if($card_exists->vendor == CardChargeVendorEnum::PAYSTACK)
             {
@@ -393,11 +435,10 @@ class FlightPaymentController extends Controller
             if(!$card_exists){
                 return respondError(404, '01', "No active card found for first payment deduction");
             }
-           elseif (!$update_installment = $this->confirmPaymentInstallment($instalment->id, $booking->id, $card_exists)) {
-                return respondError(404, '01', "Error making first installment payment");
+            // return $update_installment = $this->confirmPaymentInstallmentsWithWallet($instalment->id, $booking->id, auth()->id());
+           elseif (!$update_installment = $this->confirmPaymentInstallmentsWithWallet($instalment->id, $booking->id, auth()->id())) {
+                return respondError(400, '01', "Error making first installment payment");
             }
-       /*     $update_installment = $this->confirmPaymentInstallment($instalment->id, $booking->id, $card_exists);
-           return $update_installment; */
             return $this->sendLoanRequest($update_installment, $booking->price);
             // return $this->bookFlightOnTripsSystemNew($booking);
 
@@ -414,7 +455,7 @@ class FlightPaymentController extends Controller
 
     private function bookUsingCard($validated, $id)
     {
-        $user_id = auth()->id();
+        $user_id = $id;
         $card_exists = UserCard::where('user_id', $user_id)->whereActive(true)->first();
         if(!$card_exists){
             return respondError(404, '01', "No active card found");
@@ -504,10 +545,10 @@ class FlightPaymentController extends Controller
     }
 }
 
-    private function bookUsingNewCard($validated, $id)
+  /*   private function bookUsingNewCard($validated, $id)
     {
 
-    }
+    } */
 
     private function bookFlightOnTripsSystem($booking)
     {

@@ -1,12 +1,17 @@
 <?php
 
 use App\Http\Integrations\Firebase\Requests\SendNotificationRequest;
+use App\Http\Integrations\Flutterwave\FlutterwaveConnection;
+use App\Http\Integrations\Flutterwave\Requests\RecurrentChargeFlutterwave;
+use App\Http\Integrations\Paystack\PaystackConnection;
+use App\Http\Integrations\Paystack\Requests\RecurrentCharge;
 use App\Http\Integrations\Trips\FcmConnection;
 use App\Models\BookedFlight;
 use App\Models\Country;
 use App\Models\Flight;
 use App\Models\User;
 use App\Models\UserSecurity;
+use App\Models\UserTransaction;
 use App\Models\Wallet;
 use Carbon\Carbon;
 use Cloudinary\Api\Upload\UploadApi;
@@ -16,6 +21,11 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Okolaa\TermiiPHP\Termii;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
+
+
+
+
+
 
 
 
@@ -444,28 +454,59 @@ if (!function_exists('upload_to_cloudinary')) {
 }
 
 if (!function_exists('debitWallet')) {
-    function debitWallet(string $wallet_id, int $amount): ?string
+    function debitWallet(string $wallet_id, int $amount)
     {
+        if (auth()->user()->wallet->balance < $amount) {
+            return false;
+
+        }
         $wallet = Wallet::where('id', $wallet_id)
             ->where('owner_id', auth()->id())
             ->decrement('balance', $amount);
         if (!$wallet) {
             return false;
         }
+        $transaction = new UserTransaction();
+        $transaction->public_id = uuid();
+        $transaction->user_id = auth()->id();
+        $transaction->reference = generateWalletFundReference();
+        $transaction->payment_reference = null;
+        $transaction->value = $amount;
+        $transaction->currency = 'NGN';
+        $transaction->api_status = NULL;
+        $transaction->authorization_code = null;
+        $transaction->description = 'DEBIT WALLET';
+        $transaction->status = 'Successful';
+        $transaction->metadata = null;
+        $transaction->save();
         return true;
     }
 
 }
 
 if (!function_exists('creditWallet')) {
-    function creditWallet(string $wallet_id, int $amount): ?string
+    function creditWallet(string $wallet_id, int $amount, string $user_id)
     {
         $wallet = Wallet::where('id', $wallet_id)
-            ->where('owner_id', auth()->id())
+            ->where('owner_id', $user_id)
             ->increment('balance', $amount);
+
         if (!$wallet) {
             return false;
         }
+        $transaction = new UserTransaction();
+        $transaction->public_id = uuid();
+        $transaction->user_id = $user_id;
+        $transaction->reference = generateWalletFundReference();
+        $transaction->payment_reference = null;
+        $transaction->value = $amount;
+        $transaction->currency = 'NGN';
+        $transaction->api_status = NULL;
+        $transaction->authorization_code = null;
+        $transaction->description = 'CREDIT WALLET';
+        $transaction->status = 'Successful';
+        $transaction->metadata = null;
+        $transaction->save();
         return true;
     }
 }
@@ -567,9 +608,17 @@ if (!function_exists('getFileType')) {
     if(!function_exists('generateAviationReference')){
         function generateAviationReference()
         {
-            return 'VISARO|AVT' .rand(100, 999) . '|' . Date('YmdHis') .'|' . Str::random(10);
+            return 'VISARO|AVT' .rand(100, 999) . '|' . Date('YmdHis');
         }
     }
+
+    if(!function_exists('generateWalletFundReference')){
+        function generateWalletFundReference()
+        {
+            return 'VISARO|WLTF' .rand(1000, 9999) . '|' . Date('YmdHis');
+        }
+    }
+
     if(!function_exists('generateChargeCardReference')){
         function generateChargeCardReference()
         {
@@ -597,4 +646,97 @@ if (!function_exists('getFileType')) {
             return $randomPassword;
         }
     }
+
+    if(!function_exists('ChargeRecurrentPaystack'))
+    {
+        function ChargeRecurrentPaystack($amount, $email, $authorization_code, $transaction_id, $description)
+        {
+            try{
+            $payment = new PaystackConnection();
+            $makePayment = $payment->send(new RecurrentCharge($amount * 100, $email, $authorization_code));
+            $makePayment->onError(function (Response $resp) {
+                Log::info('Recurrent Charge Attempt', [$resp]);
+                return respondError(400, "01", 'An error occurred');
+            });
+            $response = $makePayment->json();
+            if(isset($response['status']) && $response['status'] == 'true'){
+                    if($response['data']['status'] = 'success'){
+                        $transaction = UserTransaction::find($transaction_id);
+                        $transaction->payment_reference = $response['data']['reference'];
+                        $transaction->value = $response['data']['amount'] / 100;
+                        $transaction->currency = $response['data']['currency'];
+                        $transaction->api_status = $response['data']['status'];
+                        $transaction->authorization_code = $response['data']['authorization']['authorization_code'];
+                        $transaction->metadata = $response;
+                        $transaction->description = $description;
+                        $transaction->status = 'Successful';
+                        $transaction->save();
+                        $data = [
+                            'success' => true,
+                            'amount' => $response['data']['amount'] / 100,
+
+                         ];
+                        return $data;
+            }
+        }elseif(isset($response['status']) && $response['status'] == 'false')
+        {
+            $data = [
+                'message'=> $response['message']
+            ];
+        return respondError(400, "An error occurred", $$response['message']);
+
+        }
+        }catch(\Exception $e){
+            Log::info('Recurrent Charge Attempt', [$e]);
+            return respondError(400, "An error occurred", $e);
+            }
+        }
+    }
+
+
+    if(!function_exists('ChargeRecurrentFlutterwave'))
+    {
+        function ChargeRecurrentFlutterwave($amount, $email, $authorization_code, $transaction_id, $description)
+        {
+            try{
+                $transaction = UserTransaction::find($transaction_id);
+                $payment = new FlutterwaveConnection();
+                $makePayment = $payment->send(new RecurrentChargeFlutterwave($amount, $email, $authorization_code, $transaction->reference));
+                $makePayment->onError(function (Response $resp) {
+                    Log::info('Recurrent Charge Attempt', [$resp]);
+                    return respondError(400, "01", 'An error occurred');
+                });
+                $response = $makePayment->json();
+                if(isset($response['status']) && $response['status'] == 'success'){
+                     if($response['data']['status'] = 'successful'){
+                        $transaction = UserTransaction::find($transaction_id);
+                         $transaction->payment_reference = $response['data']['tx_ref'];
+                         $transaction->value = $response['data']['amount'];
+                         $transaction->currency = $response['data']['currency'];
+                         $transaction->api_status = $response['data']['status'];
+                         $transaction->authorization_code = $response['data']['card']['token'];
+                         $transaction->description = $description;
+                         $transaction->status = 'Successful';
+                         $transaction->metadata = $response;
+                         $transaction->save();
+                         $data = [
+                            'success' => true,
+                            'amount' => $response['data']['amount']
+                         ];
+                        return $data;
+                     }
+        }elseif(isset($response['status']) && $response['status'] == 'false'){
+            $data = [
+                'message'=> $response['message']
+            ];
+        return respondError(400, "An error occurred", $$response['message']);
+
+        }
+        }catch(\Exception $e){
+            Log::info('Recurrent Charge Attempt', [$e]);
+            return respondError(400, "An error occurred", $e);
+            }
+        }
+    }
+
 }

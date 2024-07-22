@@ -7,6 +7,7 @@ use App\Interfaces\Repositories\V2\Admin\PartnerRepositoryInterface;
 use App\Mail\V2\Loan\ApprovedLoanMail;
 use App\Mail\V2\Partner\PartnerMail;
 use App\Models\Partner;
+use App\Models\PaymentInstallment;
 use App\Models\QuickLoan;
 use App\Models\User;
 use Exception;
@@ -104,19 +105,30 @@ class PartnerRepository implements PartnerRepositoryInterface
             return respondError(404, "01", 'Loan Not Found');
         }
         $action = strtolower($data['action']);
-        if($action == LoanStatus::APPROVED){
+        if($action == LoanStatus::APPROVED && $loan->status == LoanStatus::PENDING){
             $loan->status = LoanStatus::APPROVED;
             $loan->save();
             $user = User::find($loan->user_id);
             // Send email
             $notification = Mail::send(new ApprovedLoanMail($loan, $user));
             return respondSuccess('Loan Approved Successfully');
-        }elseif($action == LoanStatus::DECLINED){
+        }elseif($action == LoanStatus::DECLINED && $loan->status == LoanStatus::PENDING){
+
+            $user = User::find($loan->user_id);
+            $wallet_id = $user->wallet->id;
+            $installment = PaymentInstallment::find($loan->payment_installment_id);
+            $amount = $installment->single_installment_amount;
+            $refundFirstInstallmentPayment = creditWallet($wallet_id, koboToNaira($amount), $loan->user->id);
+            if(!$refundFirstInstallmentPayment){
+                return respondError(400, '01', 'An error occurred');
+            }
             $loan->status = LoanStatus::DECLINED;
             $loan->reason = $data['reason'] ?? null;
             $loan->save();
             return respondSuccess('Loan Declined Successfully');
         }
+        return respondError(400, '01', 'An error occurred, The loan is not a pending loan');
+
 
 
     }
