@@ -41,7 +41,7 @@ class AuthRepository implements AuthRepositoryInterface
             if (!auth()->user()->active) {
                 return [
                     'status' => false,
-                    'message' => 'Your account is not active kindly reach out to our super admin to re-activate',
+                    'message' => 'Your account is not active kindly reach out to our super admin to re-activate your account',
                     'code' => 400,
                     'data' => null
                 ];
